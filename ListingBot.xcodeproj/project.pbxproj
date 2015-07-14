@@ -29,6 +29,7 @@
 		4D3D285C1B5596E700D12090 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D285B1B5596E700D12090 /* libz.dylib */; };
 		4D3D285E1B5596F200D12090 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D285D1B5596F200D12090 /* libsqlite3.dylib */; };
 		4DC8B8791B559FDB003F7777 /* ParseKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC8B8781B559FDB003F7777 /* ParseKeys.plist */; };
+		4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8841B55AA6A003F7777 /* FirstLaunchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		4D3D285B1B5596E700D12090 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4D3D285D1B5596F200D12090 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4DC8B8781B559FDB003F7777 /* ParseKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ParseKeys.plist; sourceTree = "<group>"; };
+		4DC8B8831B55AA6A003F7777 /* FirstLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstLaunchViewController.h; sourceTree = "<group>"; };
+		4DC8B8841B55AA6A003F7777 /* FirstLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstLaunchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 				4D3D281D1B558E5C00D12090 /* AppDelegate.m */,
 				4D3D28411B55946900D12090 /* ListingsViewController.h */,
 				4D3D28421B55946900D12090 /* ListingsViewController.m */,
+				4DC8B8831B55AA6A003F7777 /* FirstLaunchViewController.h */,
+				4DC8B8841B55AA6A003F7777 /* FirstLaunchViewController.m */,
 				4D3D28251B558E5C00D12090 /* Main.storyboard */,
 				4D3D28281B558E5C00D12090 /* Images.xcassets */,
 				4D3D282A1B558E5C00D12090 /* LaunchScreen.xib */,
@@ -292,6 +297,7 @@
 				4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */,
 				4D3D281B1B558E5C00D12090 /* main.m in Sources */,
 				4D3D28431B55946900D12090 /* ListingsViewController.m in Sources */,
+				4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

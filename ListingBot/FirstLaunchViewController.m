@@ -1,35 +1,22 @@
 //
-//  ListingsViewController.m
+//  FirstLaunchViewController.m
 //  ListingBot
 //
 //  Created by Andrew Robinson on 7/14/15.
 //  Copyright (c) 2015 Robinson Bros. All rights reserved.
 //
 
-#import "ListingsViewController.h"
+#import "FirstLaunchViewController.h"
 
-@interface ListingsViewController ()
+@interface FirstLaunchViewController ()
 
 @end
 
-@implementation ListingsViewController
+@implementation FirstLaunchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
-    
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        [self performSegueWithIdentifier:@"firstLaunch" sender:self];
-    }
-    
 }
 
 - (void)didReceiveMemoryWarning {
