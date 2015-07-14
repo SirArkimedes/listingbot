@@ -1,43 +1,34 @@
 //
-//  FirstLaunchViewController.m
+//  ShareCodeViewController.m
 //  ListingBot
 //
 //  Created by Andrew Robinson on 7/14/15.
 //  Copyright (c) 2015 Robinson Bros. All rights reserved.
 //
 
-#import "FirstLaunchViewController.h"
+#import "ShareCodeViewController.h"
 
-@interface FirstLaunchViewController ()
+@interface ShareCodeViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *shareCodeTextField;
 
 @end
 
-@implementation FirstLaunchViewController
+@implementation ShareCodeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.shareCodeTextField.layer.borderWidth = 1.0f;
+    self.shareCodeTextField.layer.cornerRadius = 5.0f;
+    self.shareCodeTextField.layer.borderColor = [[UIColor redColor] CGColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Buttons
-
-- (IBAction)listNew:(id)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
-- (IBAction)shareCode:(id)sender {
-    
-    UIViewController *shareCode = [self.storyboard instantiateViewControllerWithIdentifier:@"shareCode"];
-    [shareCode setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self presentViewController:shareCode animated:YES completion:nil];
-    
 }
 
 /*
