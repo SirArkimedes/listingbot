@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.5.0"
+  },
+  "applications": {
+    "ListingBot": {
+      "applicationId": "XHJ4q38dJAUvvucvGQmsbHnhjRWh9SVerGfLaou8",
+      "masterKey": "vdoem5lVCeL28PaofymJFF8GKW1e1wsUQgjU9EYf"
+    },
+    "_default": {
+      "link": "ListingBot"
+    }
+  }
+}
