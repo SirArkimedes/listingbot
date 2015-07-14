@@ -21,15 +21,20 @@
     // Override point for customization after application launch.
     
     // Grab Keys
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Keys" ofType:@"plist"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"ParseKeys" ofType:@"plist"];
     NSDictionary *plistData = [[NSDictionary alloc] initWithContentsOfFile:path];
     NSString *appKey = [plistData objectForKey:@"ApplicationID"];
     NSString *clientKey = [plistData objectForKey:@"ClientKey"];
     
-    // Enabling Parse
-    [Parse setApplicationId:appKey
-                  clientKey:clientKey];
+    if ([appKey isEqual: @""] || [clientKey isEqual: @""]) {
+        NSLog(@"Parse ApplicationId and clientKey do not exist!");
+    } else {
+        // Enabling Parse
+        [Parse setApplicationId:appKey
+                      clientKey:clientKey];
+    }
     
+
     // Register for Push Notitications
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |
