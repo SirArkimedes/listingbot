@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Listings View Controller-->
@@ -107,28 +108,45 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the share code?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scb-s5-8Rt">
                                 <rect key="frame" x="168" y="94" width="264" height="49"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="8J9-mp-v6l"/>
+                                    <constraint firstAttribute="height" constant="49" id="uEM-dD-pT5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="PlaceholderText" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="PhB-go-hLo">
-                                <rect key="frame" x="168" y="272" width="264" height="55"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Code" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="PhB-go-hLo">
+                                <rect key="frame" x="196" y="224" width="208" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="m3a-xI-Dx6"/>
+                                    <constraint firstAttribute="height" constant="55" id="1Zp-vw-CWn"/>
+                                    <constraint firstAttribute="width" constant="208" id="Qgx-MS-VbS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgA-qN-Aur">
+                                <rect key="frame" x="16" y="30" width="64" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="6yC-f7-cPd"/>
+                                    <constraint firstAttribute="height" constant="22" id="ZHM-7A-ObC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="dxL-Lo-oa9" eventType="touchUpInside" id="kBH-eV-odr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="scb-s5-8Rt" firstAttribute="leading" secondItem="PhB-go-hLo" secondAttribute="leading" id="6sy-9f-YYm"/>
-                            <constraint firstItem="scb-s5-8Rt" firstAttribute="top" secondItem="3zs-at-VZ8" secondAttribute="bottom" constant="74" id="NNM-Qv-XxR"/>
-                            <constraint firstItem="scb-s5-8Rt" firstAttribute="trailing" secondItem="PhB-go-hLo" secondAttribute="trailing" id="cdY-ro-39O"/>
-                            <constraint firstItem="PhB-go-hLo" firstAttribute="centerX" secondItem="dAv-dS-yvd" secondAttribute="centerX" id="iks-Pq-WiR"/>
-                            <constraint firstItem="m3i-S6-Byr" firstAttribute="top" secondItem="PhB-go-hLo" secondAttribute="bottom" constant="273" id="waF-6k-6OY"/>
+                            <constraint firstItem="KgA-qN-Aur" firstAttribute="top" secondItem="3zs-at-VZ8" secondAttribute="bottom" constant="10" id="4TJ-TV-7Ho"/>
+                            <constraint firstItem="scb-s5-8Rt" firstAttribute="top" secondItem="3zs-at-VZ8" secondAttribute="bottom" constant="74" id="Llq-NN-2Bd"/>
+                            <constraint firstItem="KgA-qN-Aur" firstAttribute="leading" secondItem="dAv-dS-yvd" secondAttribute="leadingMargin" id="Vp6-5Z-5Id"/>
+                            <constraint firstItem="scb-s5-8Rt" firstAttribute="centerX" secondItem="dAv-dS-yvd" secondAttribute="centerX" id="Xab-AE-JW3"/>
+                            <constraint firstItem="PhB-go-hLo" firstAttribute="centerX" secondItem="scb-s5-8Rt" secondAttribute="centerX" id="bcB-H6-Hqk"/>
+                            <constraint firstItem="PhB-go-hLo" firstAttribute="top" secondItem="scb-s5-8Rt" secondAttribute="bottom" constant="81" id="gU7-A1-DH1"/>
                         </constraints>
                     </view>
                     <connections>
@@ -137,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8F-BY-Edo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="1287"/>
+            <point key="canvasLocation" x="1286" y="1318"/>
         </scene>
     </scenes>
 </document>

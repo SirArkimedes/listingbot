@@ -22,13 +22,19 @@
     
     self.shareCodeTextField.layer.borderWidth = 1.0f;
     self.shareCodeTextField.layer.cornerRadius = 5.0f;
-    self.shareCodeTextField.layer.borderColor = [[UIColor redColor] CGColor];
+    self.shareCodeTextField.layer.borderColor = [[UIColor blueColor] CGColor];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)cancel:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 /*
