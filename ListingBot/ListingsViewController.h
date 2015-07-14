@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ListingsViewController.h
 //  ListingBot
 //
 //  Created by Andrew Robinson on 7/14/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ListingsViewController : UIViewController
 
 @end
-
