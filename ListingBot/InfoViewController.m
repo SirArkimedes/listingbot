@@ -29,15 +29,23 @@
     // Do any additional setup after loading the view.
     
     // Textfield styling
-    self.nameField.delegate = self;
-    self.nameField.layer.borderWidth = 1.0f;
-    self.nameField.layer.cornerRadius = 5.0f;
-    self.nameField.layer.borderColor = [[UIColor blueColor] CGColor];
+//    self.nameField.delegate = self;
+//    self.nameField.layer.borderWidth = 1.0f;
+//    self.nameField.layer.cornerRadius = 5.0f;
+//    self.nameField.layer.borderColor = [[UIColor blueColor] CGColor];
+    self.nameField = [self styleField:self.nameField];
+    self.listField = [self styleField:self.listField];
     
-    self.listField.delegate = self;
-    self.listField.layer.borderWidth = 1.0f;
-    self.listField.layer.cornerRadius = 5.0f;
-    self.listField.layer.borderColor = [[UIColor blueColor] CGColor];
+}
+
+- (UITextField *)styleField:(UITextField *)field {
+    
+    field.delegate = self;
+//    field.layer.borderWidth = 1.0f;
+    field.layer.cornerRadius = 5.0f;
+    field.layer.backgroundColor = [[UIColor greenColor] CGColor];
+    
+    return field;
 }
 
 - (void)didReceiveMemoryWarning {
