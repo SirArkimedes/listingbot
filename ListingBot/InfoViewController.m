@@ -65,21 +65,31 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    // Begin animation for next question.
-    CGRect viewFrame = self.nameView.frame;
-    viewFrame.origin.x = -self.view.frame.size.width;
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:kAnimation];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    
-    self.nameView.frame = viewFrame;
-    
-    [UIView commitAnimations];
-    
-    [self performSelector:@selector(animateInListName) withObject:nil afterDelay:kAnimation/2];
-    
-    return YES;
+    if ([textField.text isEqual:@""]) {
+        
+        
+        [self shake:textField];
+        
+        return NO;
+        
+    } else {
+        
+        // Begin animation for next question.
+        CGRect viewFrame = self.nameView.frame;
+        viewFrame.origin.x = -self.view.frame.size.width;
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:kAnimation];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        
+        self.nameView.frame = viewFrame;
+        
+        [UIView commitAnimations];
+        
+        [self performSelector:@selector(animateInListName) withObject:nil afterDelay:kAnimation/2];
+        
+        return YES;
+    }
 }
 
 #pragma mark - Animations
@@ -107,6 +117,38 @@
     
 //    [self performSelector:@selector(animateInListName) withObject:nil afterDelay:kAnimation];
     
+}
+
+- (void)shake:(UIView *)field {
+    
+    const int reset = 5;
+    const int maxShakes = 6;
+    
+    static int shakes = 0;
+    static int translate = reset;
+    
+    [UIView animateWithDuration: 0.09 - (shakes * .01) // reduce duration every shake from .09 to .04
+                          delay: 0.01f //edge wait delay
+                        options: UIViewAnimationOptionCurveEaseInOut
+                     animations: ^{field.transform = CGAffineTransformMakeTranslation(translate, 0);}
+                     completion: ^(BOOL finished) {
+                         if (shakes < maxShakes) {
+                             shakes++;
+                             
+                             //throttle down movement
+                             if (translate > 0)
+                                 translate--;
+                             
+                             //change direction
+                             translate *= -1;
+                             [self shake:field];
+                         } else {
+                             field.transform = CGAffineTransformIdentity;
+                             shakes = 0; //ready for next time
+                             translate = reset; //ready for next time
+                             return;
+                         }
+                     }];
 }
 
 /*
