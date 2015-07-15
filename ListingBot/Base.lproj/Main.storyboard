@@ -19,7 +19,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="WAR-H7-Bu9" kind="show" identifier="" id="o4L-ts-f73"/>
+                        <segue destination="WAR-H7-Bu9" kind="show" identifier="launcher" id="o4L-ts-f73"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,8 +93,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="8rS-Y7-XGU"/>
                     <connections>
-                        <segue destination="dxL-Lo-oa9" kind="show" id="tOY-b4-YUX"/>
-                        <segue destination="9sZ-Hv-KvG" kind="show" id="hLE-an-mXc"/>
+                        <segue destination="dxL-Lo-oa9" kind="show" identifier="sharedCode" id="tOY-b4-YUX"/>
+                        <segue destination="9sZ-Hv-KvG" kind="show" identifier="newList" id="hLE-an-mXc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4i-Ju-Qbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
