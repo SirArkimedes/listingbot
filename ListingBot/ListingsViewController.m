@@ -26,10 +26,10 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         
-        UIViewController *firstLaunch = [self.storyboard instantiateViewControllerWithIdentifier:@"firstLaunch"];
-        [firstLaunch setModalPresentationStyle:UIModalPresentationCurrentContext];
-        [firstLaunch setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-        [self presentViewController:firstLaunch animated:YES completion:nil];
+//        UIViewController *firstLaunch = [self.storyboard instantiateViewControllerWithIdentifier:@"firstLaunch"];
+//        [firstLaunch setModalPresentationStyle:UIModalPresentationCurrentContext];
+//        [firstLaunch setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+//        [self presentViewController:firstLaunch animated:YES completion:nil];
 //        [self performSegueWithIdentifier:@"firstLaunch" sender:self];
     }
     

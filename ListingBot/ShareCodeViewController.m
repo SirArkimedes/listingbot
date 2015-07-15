@@ -46,7 +46,7 @@
 
 - (IBAction)cancel:(id)sender {
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

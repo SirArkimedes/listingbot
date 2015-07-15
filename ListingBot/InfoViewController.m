@@ -43,7 +43,7 @@
     field.delegate = self;
 //    field.layer.borderWidth = 1.0f;
     field.layer.cornerRadius = 5.0f;
-    field.layer.backgroundColor = [[UIColor greenColor] CGColor];
+    field.layer.backgroundColor = [[UIColor grayColor] CGColor];
     
     return field;
 }
@@ -57,7 +57,7 @@
 
 - (IBAction)cancel:(id)sender {
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

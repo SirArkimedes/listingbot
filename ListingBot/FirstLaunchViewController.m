@@ -10,6 +10,9 @@
 
 @interface FirstLaunchViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *popUpView;
+@property (weak, nonatomic) IBOutlet UIView *infoView;
+
 @end
 
 @implementation FirstLaunchViewController
@@ -17,6 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.popUpView.layer.cornerRadius = 10.f;
+    self.popUpView.layer.masksToBounds = YES;
+    
+    self.infoView.layer.cornerRadius = 45.f;
+    self.infoView.layer.masksToBounds = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,9 +38,9 @@
 
 - (IBAction)listNew:(id)sender {
     
-    UIViewController *shareCode = [self.storyboard instantiateViewControllerWithIdentifier:@"newList"];
-    [shareCode setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self.navigationController pushViewController:shareCode animated:YES];
+    UIViewController *newList = [self.storyboard instantiateViewControllerWithIdentifier:@"newList"];
+    [newList setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:newList animated:YES completion:nil];
     
 }
 
@@ -38,7 +48,7 @@
     
     UIViewController *shareCode = [self.storyboard instantiateViewControllerWithIdentifier:@"shareCode"];
     [shareCode setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self.navigationController pushViewController:shareCode animated:YES];
+    [self presentViewController:shareCode animated:YES completion:nil];
     
 }
 
