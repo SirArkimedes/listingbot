@@ -83,10 +83,11 @@
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         
         self.nameView.frame = viewFrame;
+        self.nameView.layer.opacity = 0.f;
         
         [UIView commitAnimations];
         
-        [self performSelector:@selector(animateInListName) withObject:nil afterDelay:kAnimation/2];
+        [self performSelector:@selector(animateInListName) withObject:nil afterDelay:kAnimation];
         
         return YES;
     }
@@ -98,6 +99,10 @@
     
     // Unhide
     self.listView.hidden = NO;
+    self.listView.layer.opacity = 0.f;
+    
+    // Move keyboard
+    [self.listField becomeFirstResponder];
 
     // OG
     CGRect listViewOG = self.listView.frame;
@@ -112,10 +117,11 @@
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
     self.listView.frame = listViewOG;
+    self.listView.layer.opacity = 1.f;
     
     [UIView commitAnimations];
     
-//    [self performSelector:@selector(animateInListName) withObject:nil afterDelay:kAnimation];
+//    [self performSelector:@selector(hideKeyboard) withObject:nil afterDelay:kAnimation];
     
 }
 
