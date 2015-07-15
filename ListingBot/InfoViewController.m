@@ -20,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.nameField.delegate = self;
     self.nameField.layer.borderWidth = 1.0f;
     self.nameField.layer.cornerRadius = 5.0f;
     self.nameField.layer.borderColor = [[UIColor blueColor] CGColor];
@@ -36,6 +37,15 @@
     
     [self.navigationController popViewControllerAnimated:YES];
     
+}
+
+#pragma mark - Textfield
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    NSLog(@"Yeah, I know you are doing something.");
+    
+    return YES;
 }
 
 /*

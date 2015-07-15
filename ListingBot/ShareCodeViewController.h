@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShareCodeViewController : UIViewController
+@interface ShareCodeViewController : UIViewController <UITextFieldDelegate>
 
 @end

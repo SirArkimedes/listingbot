@@ -22,6 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.shareCodeTextField.delegate = self;
     self.shareCodeTextField.layer.borderWidth = 1.0f;
     self.shareCodeTextField.layer.cornerRadius = 5.0f;
     self.shareCodeTextField.layer.borderColor = [[UIColor blueColor] CGColor];
@@ -48,6 +49,16 @@
     [self.navigationController popViewControllerAnimated:YES];
     
 }
+
+#pragma mark - Textfield
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    NSLog(@"Yeah, I know you are doing something.");
+    
+    return YES;
+}
+
 
 /*
 #pragma mark - Navigation
