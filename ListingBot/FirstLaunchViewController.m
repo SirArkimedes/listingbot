@@ -28,7 +28,9 @@
 
 - (IBAction)listNew:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UIViewController *shareCode = [self.storyboard instantiateViewControllerWithIdentifier:@"newList"];
+    [shareCode setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self.navigationController pushViewController:shareCode animated:YES];
     
 }
 
@@ -36,7 +38,7 @@
     
     UIViewController *shareCode = [self.storyboard instantiateViewControllerWithIdentifier:@"shareCode"];
     [shareCode setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self presentViewController:shareCode animated:YES completion:nil];
+    [self.navigationController pushViewController:shareCode animated:YES];
     
 }
 

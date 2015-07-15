@@ -41,9 +41,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Buttons
+
 - (IBAction)cancel:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

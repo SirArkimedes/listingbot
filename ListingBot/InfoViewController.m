@@ -10,6 +10,8 @@
 
 @interface InfoViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+
 @end
 
 @implementation InfoViewController
@@ -17,11 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.nameField.layer.borderWidth = 1.0f;
+    self.nameField.layer.cornerRadius = 5.0f;
+    self.nameField.layer.borderColor = [[UIColor blueColor] CGColor];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Buttons
+
+- (IBAction)cancel:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 /*
