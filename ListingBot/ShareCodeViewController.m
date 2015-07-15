@@ -8,6 +8,8 @@
 
 #import "ShareCodeViewController.h"
 
+#import <Parse/Parse.h>
+
 @interface ShareCodeViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *shareCodeTextField;
@@ -23,6 +25,14 @@
     self.shareCodeTextField.layer.borderWidth = 1.0f;
     self.shareCodeTextField.layer.cornerRadius = 5.0f;
     self.shareCodeTextField.layer.borderColor = [[UIColor blueColor] CGColor];
+    
+    [PFCloud callFunctionInBackground:@"hello"
+                       withParameters:nil
+                                block:^(NSArray *results, NSError *error) {
+                                    if (!error) {
+                                        NSLog(@"%@", results);
+                                    }
+                                }];
     
 }
 

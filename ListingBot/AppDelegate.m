@@ -20,6 +20,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    // TODO: REMOVE
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
+    
     // Grab Keys
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ParseKeys" ofType:@"plist"];
     NSDictionary *plistData = [[NSDictionary alloc] initWithContentsOfFile:path];
