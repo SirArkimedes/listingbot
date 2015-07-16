@@ -54,13 +54,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLf-mx-iAl">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="-30" width="600" height="630"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="P0x-lB-sTm">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="630"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ege-mC-STC" userLabel="PopUpView">
-                                            <rect key="frame" x="166" y="176" width="268" height="227"/>
+                                            <rect key="frame" x="166" y="224" width="268" height="227"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cq7-oj-aal">
                                                     <rect key="frame" x="0.0" y="159" width="268" height="68"/>
@@ -115,7 +115,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BO3-8t-BEt">
-                                            <rect key="frame" x="255" y="131" width="90" height="90"/>
+                                            <rect key="frame" x="255" y="179" width="90" height="90"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tee-CB-YWQ">
                                                     <rect key="frame" x="41" y="38" width="8" height="35"/>
@@ -142,7 +142,7 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="Ege-mC-STC" secondAttribute="centerY" constant="10.5" id="2Av-27-dg5"/>
+                                        <constraint firstAttribute="centerY" secondItem="Ege-mC-STC" secondAttribute="centerY" constant="-22.5" id="2Av-27-dg5"/>
                                         <constraint firstItem="Ege-mC-STC" firstAttribute="centerX" secondItem="P0x-lB-sTm" secondAttribute="centerX" id="2m9-9j-LsP"/>
                                         <constraint firstAttribute="centerX" secondItem="BO3-8t-BEt" secondAttribute="centerX" id="7Br-3i-azw"/>
                                         <constraint firstItem="Ege-mC-STC" firstAttribute="top" secondItem="BO3-8t-BEt" secondAttribute="bottom" constant="-45" id="f3i-QS-RtN"/>
@@ -156,7 +156,7 @@
                             <constraint firstItem="SLf-mx-iAl" firstAttribute="leading" secondItem="sIA-do-0H1" secondAttribute="leading" id="D1W-m0-cxc"/>
                             <constraint firstItem="SLf-mx-iAl" firstAttribute="bottom" secondItem="V5j-wn-qq8" secondAttribute="top" id="l3l-99-4Cy"/>
                             <constraint firstAttribute="trailing" secondItem="SLf-mx-iAl" secondAttribute="trailing" id="q6x-O1-a9K"/>
-                            <constraint firstItem="SLf-mx-iAl" firstAttribute="top" secondItem="073-OP-ndf" secondAttribute="bottom" id="rJZ-5C-zi7"/>
+                            <constraint firstItem="SLf-mx-iAl" firstAttribute="top" secondItem="073-OP-ndf" secondAttribute="bottom" constant="-30" id="rJZ-5C-zi7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8rS-Y7-XGU"/>
