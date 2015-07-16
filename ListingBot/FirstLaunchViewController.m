@@ -8,10 +8,15 @@
 
 #import "FirstLaunchViewController.h"
 
+#define kAnimation .5f
+
 @interface FirstLaunchViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *popUpView;
 @property (weak, nonatomic) IBOutlet UIView *infoView;
+@property (weak, nonatomic) IBOutlet UIView *infoDot;
+
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffect;
 
 @end
 
@@ -26,6 +31,19 @@
     
     self.infoView.layer.cornerRadius = 45.f;
     self.infoView.layer.masksToBounds = YES;
+    self.infoView.layer.borderWidth = 5.f;
+    self.infoView.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+    self.infoDot.layer.cornerRadius = 5.f;
+    
+    // Popup
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation*2];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    self.visualEffect.layer.opacity = 1.f;
+    
+    [UIView commitAnimations];
     
 }
 

@@ -41,9 +41,7 @@
 - (UITextField *)styleField:(UITextField *)field {
     
     field.delegate = self;
-//    field.layer.borderWidth = 1.0f;
     field.layer.cornerRadius = 5.0f;
-    field.layer.backgroundColor = [[UIColor grayColor] CGColor];
     
     return field;
 }
