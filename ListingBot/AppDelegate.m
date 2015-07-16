@@ -33,6 +33,8 @@
         NSLog(@"Parse ApplicationId and clientKey do not exist!");
     } else {
         // Enabling Parse
+        [Parse enableLocalDatastore];
+        
         [Parse setApplicationId:appKey
                       clientKey:clientKey];
     }

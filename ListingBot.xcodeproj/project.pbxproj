@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D1466121B577E31007DB911 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1466111B577E31007DB911 /* User.m */; };
 		4D3D281B1B558E5C00D12090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281A1B558E5C00D12090 /* main.m */; };
 		4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281D1B558E5C00D12090 /* AppDelegate.m */; };
 		4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281F1B558E5C00D12090 /* ListingBot.xcdatamodeld */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D1466101B577E31007DB911 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		4D1466111B577E31007DB911 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		4D3D28151B558E5C00D12090 /* ListingBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListingBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3D28191B558E5C00D12090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D3D281A1B558E5C00D12090 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -112,6 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D1466061B575E16007DB911 /* Custom Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4D1466101B577E31007DB911 /* User.h */,
+				4D1466111B577E31007DB911 /* User.m */,
+			);
+			name = "Custom Objects";
+			sourceTree = "<group>";
+		};
 		4D3D280C1B558E5C00D12090 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +145,7 @@
 		4D3D28171B558E5C00D12090 /* ListingBot */ = {
 			isa = PBXGroup;
 			children = (
+				4D1466061B575E16007DB911 /* Custom Objects */,
 				4D3D281C1B558E5C00D12090 /* AppDelegate.h */,
 				4D3D281D1B558E5C00D12090 /* AppDelegate.m */,
 				4D3D28411B55946900D12090 /* ListingsViewController.h */,
@@ -311,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D1466121B577E31007DB911 /* User.m in Sources */,
 				4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */,
 				4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */,
 				4D3D281B1B558E5C00D12090 /* main.m in Sources */,

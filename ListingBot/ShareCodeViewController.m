@@ -25,7 +25,7 @@
     self.shareCodeTextField.delegate = self;
     self.shareCodeTextField.layer.cornerRadius = 5.0f;
     
-    [PFCloud callFunctionInBackground:@"hello"
+    [PFCloud callFunctionInBackground:@"newUserId"
                        withParameters:nil
                                 block:^(NSArray *results, NSError *error) {
                                     if (!error) {

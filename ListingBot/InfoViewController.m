@@ -8,6 +8,9 @@
 
 #import "InfoViewController.h"
 
+#import "User.h"
+#import <Parse/Parse.h>
+
 #define kAnimation .5f
 
 @interface InfoViewController ()
@@ -93,6 +96,40 @@
         
         return YES;
     }
+}
+
+- (void)saveInputData {
+    
+    NSString *name = self.nameField.text;
+    NSString *listName = self.listField.text;
+    
+    [PFCloud callFunctionInBackground:@"newUserId"
+                       withParameters:nil
+                                block:^(NSNumber *results, NSError *error) {
+                                    if (!error) {
+//                                        NSLog(@"%@", results);
+                                        
+                                        [self performSelector:@selector(saveUserWithName:withUUID:) withObject:name withObject:results];
+                                    } else {
+                                        NSLog(@"Uuid function grab error: %@", error.description);
+                                    }
+                                }];
+
+}
+
+- (void)saveUserWithName:(NSString*)name withUUID:(NSNumber*)uuid {
+    
+    PFObject *parseUser = [PFObject objectWithClassName:@"ListUsers"];
+    parseUser[@"name"] = name;
+    parseUser[@"uuid"] = uuid;
+    [parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"Saved user object");
+        } else {
+            NSLog(@"Saved user object with error: %@", error.description);
+        }
+    }];
+    
 }
 
 #pragma mark - Animations
@@ -196,6 +233,7 @@
     
     [UIView commitAnimations];
     
+    [self performSelector:@selector(saveInputData) withObject:nil];
     [self performSelector:@selector(dropView) withObject:nil afterDelay:kAnimation*10];
     
 }
