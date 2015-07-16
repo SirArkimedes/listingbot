@@ -17,6 +17,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *nameView;
 @property (weak, nonatomic) IBOutlet UIView *listView;
+@property (weak, nonatomic) IBOutlet UIView *allDone;
+@property (weak, nonatomic) IBOutlet UILabel *littleInformation;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @property int stage;
 
@@ -35,6 +38,9 @@
 //    self.nameField.layer.borderColor = [[UIColor blueColor] CGColor];
     self.nameField = [self styleField:self.nameField];
     self.listField = [self styleField:self.listField];
+    
+    // Set animation stage
+    self.stage = 1;
     
 }
 
@@ -63,6 +69,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
+    // Is Empty?
     if ([textField.text isEqual:@""]) {
         
         
@@ -72,20 +79,17 @@
         
     } else {
         
-        // Begin animation for next question.
-        CGRect viewFrame = self.nameView.frame;
-        viewFrame.origin.x = -self.view.frame.size.width;
-        
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:kAnimation];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-        
-        self.nameView.frame = viewFrame;
-        self.nameView.layer.opacity = 0.f;
-        
-        [UIView commitAnimations];
-        
-        [self performSelector:@selector(animateInListName) withObject:nil afterDelay:kAnimation];
+        // What animation stage are we on?
+        switch (self.stage) {
+            case 1:
+                [self performSelector:@selector(animateOutPersonName) withObject:nil];
+                break;
+            case 2:
+                [self performSelector:@selector(animateOutListName) withObject:nil];
+                break;
+            default:
+                break;
+        }
         
         return YES;
     }
@@ -93,7 +97,29 @@
 
 #pragma mark - Animations
 
+- (void)animateOutPersonName {
+    
+    // Begin animation for next question.
+    CGRect viewFrame = self.nameView.frame;
+    viewFrame.origin.x = -self.view.frame.size.width;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    self.nameView.frame = viewFrame;
+    self.nameView.layer.opacity = 0.f;
+    
+    [UIView commitAnimations];
+    
+    [self performSelector:@selector(animateInListName) withObject:nil afterDelay:kAnimation];
+    
+}
+
 - (void)animateInListName {
+    
+    // Stage change
+    self.stage = 2;
     
     // Unhide
     self.listView.hidden = NO;
@@ -121,6 +147,61 @@
     
 //    [self performSelector:@selector(hideKeyboard) withObject:nil afterDelay:kAnimation];
     
+}
+
+- (void)animateOutListName {
+    
+    // Move to ending.
+    CGRect viewFrame = self.listView.frame;
+    viewFrame.origin.x = -self.view.frame.size.width;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    self.listView.frame = viewFrame;
+    self.listView.layer.opacity = 0.f;
+    
+    [UIView commitAnimations];
+    
+    [self performSelector:@selector(animateInAllDone) withObject:nil afterDelay:kAnimation];
+    
+}
+
+- (void)animateInAllDone {
+    
+    // Unhide
+    self.allDone.hidden = NO;
+    self.allDone.layer.opacity = 0.f;
+    
+    // Drop keyboard
+    [self.listField resignFirstResponder];
+    
+    // OG
+    CGRect listViewOG = self.allDone.frame;
+    
+    // New positions
+    CGRect viewFrame = self.listView.frame;
+    viewFrame.origin.x = viewFrame.size.width;
+    self.allDone.frame = viewFrame;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    self.allDone.frame = listViewOG;
+    self.allDone.layer.opacity = 1.f;
+    self.littleInformation.layer.opacity = 0.f;
+    self.cancelButton.alpha = 0.f;
+    
+    [UIView commitAnimations];
+    
+    [self performSelector:@selector(dropView) withObject:nil afterDelay:kAnimation*10];
+    
+}
+
+- (void)dropView {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)shake:(UIView *)field {
