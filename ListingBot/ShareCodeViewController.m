@@ -23,9 +23,7 @@
     // Do any additional setup after loading the view.
     
     self.shareCodeTextField.delegate = self;
-    self.shareCodeTextField.layer.borderWidth = 1.0f;
     self.shareCodeTextField.layer.cornerRadius = 5.0f;
-    self.shareCodeTextField.layer.borderColor = [[UIColor blueColor] CGColor];
     
     [PFCloud callFunctionInBackground:@"hello"
                        withParameters:nil
