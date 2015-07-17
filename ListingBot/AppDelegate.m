@@ -32,9 +32,7 @@
     if ([appKey isEqual: @""] || [clientKey isEqual: @""]) {
         NSLog(@"Parse ApplicationId and clientKey do not exist!");
     } else {
-        // Enabling Parse
-        [Parse enableLocalDatastore];
-        
+        // Enabling Parse        
         [Parse setApplicationId:appKey
                       clientKey:clientKey];
     }

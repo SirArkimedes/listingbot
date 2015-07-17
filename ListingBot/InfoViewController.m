@@ -122,13 +122,7 @@
     PFObject *parseUser = [PFObject objectWithClassName:@"ListUsers"];
     parseUser[@"name"] = name;
     parseUser[@"uuid"] = uuid;
-    [parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            NSLog(@"Saved user object");
-        } else {
-            NSLog(@"Saved user object with error: %@", error.description);
-        }
-    }];
+    [parseUser saveEventually];
     
 }
 
