@@ -225,10 +225,10 @@
 			children = (
 				4DC8B8831B55AA6A003F7777 /* FirstLaunchViewController.h */,
 				4DC8B8841B55AA6A003F7777 /* FirstLaunchViewController.m */,
-				4DC8B8871B55CAC5003F7777 /* ShareCodeViewController.h */,
-				4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */,
 				4DC8B88A1B55E852003F7777 /* InfoViewController.h */,
 				4DC8B88B1B55E852003F7777 /* InfoViewController.m */,
+				4DC8B8871B55CAC5003F7777 /* ShareCodeViewController.h */,
+				4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */,
 			);
 			name = FirstLaunch;
 			sourceTree = "<group>";
