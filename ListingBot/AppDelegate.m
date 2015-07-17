@@ -10,6 +10,8 @@
 
 #import <Parse/Parse.h>
 
+#import "User.h"
+
 @interface AppDelegate ()
 
 @end
@@ -32,12 +34,28 @@
     if ([appKey isEqual: @""] || [clientKey isEqual: @""]) {
         NSLog(@"Parse ApplicationId and clientKey do not exist!");
     } else {
-        // Enabling Parse        
+        // Enabling Parse
         [Parse setApplicationId:appKey
                       clientKey:clientKey];
     }
     
-
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"user"] isKindOfClass:[User class]]) {
+        
+        User *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+        
+        // Not equal to nothing
+        [PFCloud callFunctionInBackground:@"newUserId"
+                           withParameters:nil
+                                    block:^(NSNumber *results, NSError *error) {
+                                        if (!error) {
+                                            [self performSelector:@selector(saveUserWithData:withUUID:) withObject:user withObject:results];
+                                        } else {
+                                            NSLog(@"Uuid function grab error: %@", error.description);
+                                        }
+                                    }];
+        
+    }
+    
     // Register for Push Notitications
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |
@@ -62,6 +80,28 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"user"] != nil) {
+        
+        User *user = [self loadCustomObjectWithKey:@"user"];
+        
+        [User instance].name = user.name;
+        [User instance].uuid = user.uuid;
+        [User instance].lists= user.lists;
+        
+        // Not equal to nothing
+        [PFCloud callFunctionInBackground:@"newUserId"
+                           withParameters:nil
+                                    block:^(NSNumber *results, NSError *error) {
+                                        if (!error) {
+                                            [self performSelector:@selector(saveUserWithData:withUUID:) withObject:user withObject:results];
+                                        } else {
+                                            NSLog(@"Uuid function grab error: %@", error.description);
+                                        }
+                                    }];
+        
+    }
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -83,6 +123,33 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
+}
+
+- (void)saveUserWithData:(User*)user withUUID:(NSNumber*)uuid {
+    
+    PFObject *parseUser = [PFObject objectWithClassName:@"ListUsers"];
+    parseUser[@"name"] = user.name;
+    parseUser[@"uuid"] = uuid;
+    parseUser[@"lists"] = user.lists;
+    [parseUser saveEventually];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"user"];
+    
+}
+
+- (void)saveCustomObject:(User *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
+    
+}
+
+- (User *)loadCustomObjectWithKey:(NSString *)key {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [defaults objectForKey:key];
+    User *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return object;
 }
 
 #pragma mark - Core Data stack

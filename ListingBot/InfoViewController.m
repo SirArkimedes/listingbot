@@ -8,8 +8,8 @@
 
 #import "InfoViewController.h"
 
-#import "User.h"
 #import <Parse/Parse.h>
+#import "User.h"
 
 #define kAnimation .5f
 
@@ -103,26 +103,54 @@
     NSString *name = self.nameField.text;
     NSString *listName = self.listField.text;
     
+    NSArray *inputData = @[name, listName];
+    
     [PFCloud callFunctionInBackground:@"newUserId"
                        withParameters:nil
                                 block:^(NSNumber *results, NSError *error) {
                                     if (!error) {
-//                                        NSLog(@"%@", results);
-                                        
-                                        [self performSelector:@selector(saveUserWithName:withUUID:) withObject:name withObject:results];
+                                        [self performSelector:@selector(saveUserWithData:withUUID:) withObject:inputData withObject:results];
                                     } else {
-                                        NSLog(@"Uuid function grab error: %@", error.description);
+                                        if (error.code == 100)
+                                            [self performSelector:@selector(saveDataOnDevice:) withObject:inputData];
+                                        else
+                                            NSLog(@"Uuid function grab error: %@", error.description);
                                     }
                                 }];
+    
+    
 
 }
 
-- (void)saveUserWithName:(NSString*)name withUUID:(NSNumber*)uuid {
+- (void)saveUserWithData:(NSArray*)userData withUUID:(NSNumber*)uuid {
+    
+    NSString *name = [userData objectAtIndex:0];
+    NSString *list = [userData objectAtIndex:1];
     
     PFObject *parseUser = [PFObject objectWithClassName:@"ListUsers"];
     parseUser[@"name"] = name;
     parseUser[@"uuid"] = uuid;
+    parseUser[@"lists"] = @[list];
     [parseUser saveEventually];
+    
+}
+
+- (void)saveDataOnDevice:(NSArray*)userData{
+    
+    NSString *name = [userData objectAtIndex:0];
+    NSString *list = [userData objectAtIndex:1];
+    
+    User *user = [[User alloc] initWithName:name withUUID:@"" withList:list];
+    
+    [self saveCustomObject:user key:@"user"];
+        
+}
+
+- (void)saveCustomObject:(User *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
     
 }
 
