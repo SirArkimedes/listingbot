@@ -10,4 +10,6 @@
 
 @interface ListingsViewController : UIViewController
 
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue;
+
 @end

@@ -272,7 +272,7 @@
 }
 
 - (void)dropView {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"unwindToList" sender:self];
 }
 
 - (void)shake:(UIView *)field {

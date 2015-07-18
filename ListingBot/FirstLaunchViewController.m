@@ -16,8 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UIView *infoDot;
 
-@property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffect;
-
 @end
 
 @implementation FirstLaunchViewController
@@ -35,15 +33,6 @@
     self.infoView.layer.borderColor = [[UIColor whiteColor] CGColor];
     
     self.infoDot.layer.cornerRadius = 5.f;
-    
-    // Popup
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:kAnimation*2];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    
-    self.visualEffect.layer.opacity = 1.f;
-    
-    [UIView commitAnimations];
     
 }
 
