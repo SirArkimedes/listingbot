@@ -45,6 +45,11 @@
     // Set animation stage
     self.stage = 1;
     
+    // Textfield keyboard hide
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+
+    
 }
 
 - (UITextField *)styleField:(UITextField *)field {
@@ -58,6 +63,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dismissKeyboard {
+    
+    [self.nameField resignFirstResponder];
+    [self.listField resignFirstResponder];
+    
 }
 
 #pragma mark - Buttons
@@ -74,7 +86,6 @@
     
     // Is Empty?
     if ([textField.text isEqual:@""]) {
-        
         
         [self shake:textField];
         
