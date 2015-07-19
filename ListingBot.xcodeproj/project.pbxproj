@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D11D45C1B58CC1F002D73A0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D11D45B1B58CC1F002D73A0 /* User.m */; };
 		4D2487071B599FB400845722 /* Basic_tick_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2487061B599FB400845722 /* Basic_tick_64.png */; };
+		4D2659381B5B66380007ABA4 /* MainListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2659371B5B66380007ABA4 /* MainListViewController.m */; };
 		4D3D281B1B558E5C00D12090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281A1B558E5C00D12090 /* main.m */; };
 		4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281D1B558E5C00D12090 /* AppDelegate.m */; };
 		4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281F1B558E5C00D12090 /* ListingBot.xcdatamodeld */; };
@@ -50,6 +51,8 @@
 		4D11D45A1B58CC1F002D73A0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		4D11D45B1B58CC1F002D73A0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		4D2487061B599FB400845722 /* Basic_tick_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Basic_tick_64.png; sourceTree = "<group>"; };
+		4D2659361B5B66380007ABA4 /* MainListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainListViewController.h; sourceTree = "<group>"; };
+		4D2659371B5B66380007ABA4 /* MainListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainListViewController.m; sourceTree = "<group>"; };
 		4D3D28151B558E5C00D12090 /* ListingBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListingBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3D28191B558E5C00D12090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D3D281A1B558E5C00D12090 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 				4D1466061B575E16007DB911 /* Custom Objects */,
 				4D3D281C1B558E5C00D12090 /* AppDelegate.h */,
 				4D3D281D1B558E5C00D12090 /* AppDelegate.m */,
+				4D2659361B5B66380007ABA4 /* MainListViewController.h */,
+				4D2659371B5B66380007ABA4 /* MainListViewController.m */,
 				4D3D28411B55946900D12090 /* ListingsViewController.h */,
 				4D3D28421B55946900D12090 /* ListingsViewController.m */,
 				4DC8B8861B55CAAC003F7777 /* FirstLaunch */,
@@ -343,6 +348,7 @@
 				4D3D28431B55946900D12090 /* ListingsViewController.m in Sources */,
 				4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */,
 				4DC8B88C1B55E852003F7777 /* InfoViewController.m in Sources */,
+				4D2659381B5B66380007ABA4 /* MainListViewController.m in Sources */,
 				4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

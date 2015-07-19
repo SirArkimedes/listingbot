@@ -56,7 +56,7 @@
     
     if ([segue.identifier isEqualToString:@"unwindToList"]) {
         
-        [self performSelector:@selector(animateOutAlert) withObject:nil];
+        [self performSelector:@selector(animateOutAlert) withObject:nil afterDelay:kAnimation];
         
     }
     
@@ -77,7 +77,7 @@
     [UIView setAnimationDuration:kAnimation];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
-    self.blindBackground.alpha = .65f;
+    self.blindBackground.alpha = .85f;
     
     [UIView commitAnimations];
     
@@ -125,7 +125,7 @@
 
 - (void)removeAlert {
     
-    [self.firstLaunch removeFromSuperview];
+    [self.firstLaunch setHidden:YES];
     
 }
 
