@@ -43,7 +43,7 @@
     if (tableView == self.listsTable) {
         // Left-most table
         
-        return 3;
+        return 21;
         
     } else {
         // Lists content table
@@ -89,14 +89,6 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"contentCell" owner:self options:nil] objectAtIndex:0];
         }
         
-        //        // get the model index
-        //        NSInteger indexInModel = indexPath.row / 2;
-        //
-        //        // get the model for this row
-        //        NSString *modelObject = [self.model objectAtIndex:indexInModel];
-        //
-        //        // Configure the cell...
-        //        cell.textLabel.text = modelObject;
     } else {
         // this is a separator cell
         cell = [tableView dequeueReusableCellWithIdentifier:separaterCellIdentifier];
@@ -104,6 +96,12 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"separatorCell" owner:self options:nil] objectAtIndex:0];
         }
+    }
+    
+    if (indexPath.row == 1) {
+        
+        cell.selected = YES;
+        
     }
     
     return cell;

@@ -30,7 +30,8 @@
     self.infoView.layer.cornerRadius = 45.f;
     self.infoView.layer.masksToBounds = YES;
     self.infoView.layer.borderWidth = 5.f;
-    self.infoView.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.infoView.layer.borderColor = [self.popUpView.backgroundColor CGColor];
+    self.infoView.layer.shadowColor = nil;
     
     self.infoDot.layer.cornerRadius = 5.f;
     
