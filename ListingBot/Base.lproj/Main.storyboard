@@ -310,10 +310,9 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duS-LF-yAV">
-                                <rect key="frame" x="218" y="535" width="165" height="45"/>
+                                <rect key="frame" x="0.0" y="545" width="600" height="45"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="165" id="4Sk-f3-eQA"/>
                                     <constraint firstAttribute="height" constant="45" id="XIT-2V-Kc9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
@@ -344,13 +343,15 @@
                             <constraint firstItem="Dw8-AA-aT5" firstAttribute="top" secondItem="F4I-aw-eVO" secondAttribute="bottom" constant="43" id="MrX-TA-EIH"/>
                             <constraint firstItem="jUB-hg-ueX" firstAttribute="leading" secondItem="zwz-pP-MzZ" secondAttribute="leadingMargin" id="PSQ-SN-Hea"/>
                             <constraint firstItem="7A1-VP-MDD" firstAttribute="trailing" secondItem="zwz-pP-MzZ" secondAttribute="trailingMargin" id="Qxn-Sh-PLe"/>
+                            <constraint firstItem="duS-LF-yAV" firstAttribute="leading" secondItem="zwz-pP-MzZ" secondAttribute="leadingMargin" constant="-16" id="Y77-Ok-LH6"/>
                             <constraint firstItem="7A1-VP-MDD" firstAttribute="top" secondItem="F4I-aw-eVO" secondAttribute="bottom" constant="59" id="YTg-ee-Y0y"/>
                             <constraint firstItem="jUB-hg-ueX" firstAttribute="centerX" secondItem="duS-LF-yAV" secondAttribute="centerX" id="fNK-px-iy4"/>
                             <constraint firstItem="jUB-hg-ueX" firstAttribute="trailing" secondItem="zwz-pP-MzZ" secondAttribute="trailingMargin" id="nAT-FK-bW2"/>
                             <constraint firstItem="jUB-hg-ueX" firstAttribute="top" secondItem="Dw8-AA-aT5" secondAttribute="bottom" constant="-8" id="qdE-A4-WcZ"/>
                             <constraint firstItem="7A1-VP-MDD" firstAttribute="leading" secondItem="zwz-pP-MzZ" secondAttribute="leadingMargin" id="reO-KH-aTr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="duS-LF-yAV" secondAttribute="trailing" constant="-16" id="tJz-2d-IHe"/>
                             <constraint firstItem="x5F-Cz-GuK" firstAttribute="leading" secondItem="zwz-pP-MzZ" secondAttribute="leadingMargin" id="tq3-59-lqc"/>
-                            <constraint firstAttribute="bottom" secondItem="duS-LF-yAV" secondAttribute="bottom" constant="20" symbolic="YES" id="wc0-8n-7DP"/>
+                            <constraint firstAttribute="bottom" secondItem="duS-LF-yAV" secondAttribute="bottom" constant="10" id="wc0-8n-7DP"/>
                         </constraints>
                     </view>
                     <connections>
@@ -497,10 +498,9 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgA-qN-Aur">
-                                <rect key="frame" x="218" y="535" width="165" height="45"/>
+                                <rect key="frame" x="0.0" y="545" width="600" height="45"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="165" id="oDt-Cv-kPg"/>
                                     <constraint firstAttribute="height" constant="45" id="y9z-gn-bVX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
@@ -533,10 +533,12 @@
                             <constraint firstItem="xLg-cD-DI4" firstAttribute="top" secondItem="3zs-at-VZ8" secondAttribute="bottom" constant="44" id="Tnf-dN-6xO"/>
                             <constraint firstItem="8wF-7X-BeB" firstAttribute="trailing" secondItem="xLg-cD-DI4" secondAttribute="trailing" id="cka-xf-lPK"/>
                             <constraint firstItem="xLg-cD-DI4" firstAttribute="leading" secondItem="dAv-dS-yvd" secondAttribute="leadingMargin" id="e4m-bV-jNX"/>
-                            <constraint firstAttribute="bottom" secondItem="KgA-qN-Aur" secondAttribute="bottom" constant="20" symbolic="YES" id="eNY-hm-gAh"/>
+                            <constraint firstAttribute="bottom" secondItem="KgA-qN-Aur" secondAttribute="bottom" constant="10" id="eNY-hm-gAh"/>
                             <constraint firstItem="xLg-cD-DI4" firstAttribute="centerX" secondItem="KgA-qN-Aur" secondAttribute="centerX" id="mpr-EK-GVJ"/>
                             <constraint firstItem="8wF-7X-BeB" firstAttribute="top" secondItem="e1y-Oq-6ub" secondAttribute="top" id="o6h-jT-mkr"/>
                             <constraint firstItem="8wF-7X-BeB" firstAttribute="bottom" secondItem="e1y-Oq-6ub" secondAttribute="bottom" id="oHx-ri-h7G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KgA-qN-Aur" secondAttribute="trailing" constant="-16" id="uRf-bR-joe"/>
+                            <constraint firstItem="KgA-qN-Aur" firstAttribute="leading" secondItem="dAv-dS-yvd" secondAttribute="leadingMargin" constant="-16" id="xmt-Bq-Xsb"/>
                             <constraint firstItem="8wF-7X-BeB" firstAttribute="leading" secondItem="xLg-cD-DI4" secondAttribute="leading" id="zK5-Aw-f0R"/>
                             <constraint firstItem="xLg-cD-DI4" firstAttribute="bottom" secondItem="e1y-Oq-6ub" secondAttribute="bottom" id="zaY-Yd-9xi"/>
                         </constraints>
