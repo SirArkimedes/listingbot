@@ -8,6 +8,8 @@
 
 #import "MainListViewController.h"
 
+#import "ListsTableViewCell.h"
+
 @interface MainListViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *listsTable;
@@ -79,32 +81,37 @@
     static NSString *contentCellIdentifier = @"contentCell";
     static NSString *separaterCellIdentifier = @"separatorCell";
     
-    UITableViewCell *cell = nil;
     
     if (indexPath.row % 2 == 0) {
         // this is a content cell
+        ListsTableViewCell *cell = nil;
+        
         cell = [tableView dequeueReusableCellWithIdentifier:contentCellIdentifier];
         
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"contentCell" owner:self options:nil] objectAtIndex:0];
         }
         
+        if (indexPath.row == 0) {
+            
+            cell.pin.hidden = NO;
+            
+        }
+        
+        return cell;
+        
     } else {
+        UITableViewCell *cell = nil;
+        
         // this is a separator cell
         cell = [tableView dequeueReusableCellWithIdentifier:separaterCellIdentifier];
         
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"separatorCell" owner:self options:nil] objectAtIndex:0];
         }
-    }
-    
-    if (indexPath.row == 1) {
         
-        cell.selected = YES;
-        
+        return cell;
     }
-    
-    return cell;
     
 }
 

@@ -685,7 +685,7 @@
                                     <constraint firstAttribute="width" constant="50" id="45e-a8-MIn"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contentCell" rowHeight="65" id="ryj-sm-Paq">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contentCell" rowHeight="65" id="ryj-sm-Paq" customClass="ListsTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ryj-sm-Paq" id="95a-BP-GHD">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -696,6 +696,9 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue-triangle" translatesAutoresizingMaskIntoConstraints="NO" id="rJ9-hk-Zx4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="b6q-0Q-1dK" firstAttribute="leading" secondItem="95a-BP-GHD" secondAttribute="leadingMargin" id="QYC-fj-5jg"/>
@@ -705,6 +708,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.98807735809999997" blue="0.93785747590000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="pin" destination="rJ9-hk-Zx4" id="EXi-wc-rGQ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="separatorCell" rowHeight="15" id="a6w-rK-PXo">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -724,10 +730,9 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wiW-VE-Y7f">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
-                                                    <color key="backgroundColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue-triangle" translatesAutoresizingMaskIntoConstraints="NO" id="FYc-db-WaH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="qWX-1w-G7h" firstAttribute="bottom" secondItem="wDb-UF-XFJ" secondAttribute="bottomMargin" id="Kp8-hl-BBL"/>
@@ -816,5 +821,6 @@
     </scenes>
     <resources>
         <image name="Basic_tick_64.png" width="64" height="64"/>
+        <image name="blue-triangle" width="800" height="800"/>
     </resources>
 </document>
