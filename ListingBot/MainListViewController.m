@@ -94,6 +94,14 @@
         
         if (indexPath.row == 0) {
             
+//            cell.pin.hidden = NO;
+            
+            [UIView transitionWithView:cell.pin
+                              duration:2
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:NULL
+                            completion:NULL];
+            
             cell.pin.hidden = NO;
             
         }
