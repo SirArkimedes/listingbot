@@ -771,7 +771,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="organize" id="kjC-ns-gXd">
                             <color key="tintColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="95P-R8-Wfn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="95P-R8-Wfn">
                             <color key="tintColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -947,7 +947,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Action" width="19" height="27"/>
+        <image name="Action" width="16" height="16"/>
         <image name="Basic_tick_64.png" width="64" height="64"/>
         <image name="HighlightedAction" width="19" height="26"/>
         <image name="blue-triangle" width="800" height="800"/>
