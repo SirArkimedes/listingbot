@@ -10,8 +10,8 @@
 
 @interface User : NSObject
 
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *uuid;
+@property (strong, nonatomic) NSString *userName;
+@property (strong, nonatomic) NSString *userUuid;
 @property (strong, nonatomic) NSMutableArray *lists;
 
 - (id)initWithName:(NSString *)name withUUID:(NSString *)uuid withList:(NSString *)list;

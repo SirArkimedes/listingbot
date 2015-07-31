@@ -10,6 +10,8 @@
 
 #import "ListViewController.h"
 
+#import "User.h"
+
 @interface ScrollNavigationViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollNavigation;
@@ -24,22 +26,32 @@
     
     ListViewController *listView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
     
-    
     [self addChildViewController:listView];
     [self.scrollNavigation addSubview:listView.view];
     [listView didMoveToParentViewController:self];
     
-    [self addChildViewController:listView];
-    [self.scrollNavigation addSubview:listView.view];
-    [listView didMoveToParentViewController:self];
+    ListViewController *newView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
+    newView.view.backgroundColor = [UIColor orangeColor];
+    
+    [self addChildViewController:newView];
+    [self.scrollNavigation addSubview:newView.view];
+    [newView didMoveToParentViewController:self];
+    
+    CGRect listFrame = listView.view.frame;
+    listFrame.origin.x = self.view.frame.size.width;
+    newView.view.frame = listFrame;
+    
+//    var adminFrame :CGRect = AVc.view.frame;
+//    adminFrame.origin.x = adminFrame.width;
+//    BVc.view.frame = adminFrame;
     
     CGFloat scrollWidth = 2 * self.view.frame.size.width;
     CGFloat scrollHeight = self.view.frame.size.height;
     self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
     
-//    var scrollWidth: CGFloat  = 3 * self.view.frame.width
-//    var scrollHeight: CGFloat  = self.view.frame.size.height
-//    self.scrollView!.contentSize = CGSizeMake(scrollWidth, scrollHeight);
+    NSLog(@"%@", [User instance].userName);
+    NSLog(@"%@", [User instance].userUuid);
+    NSLog(@"%@", [User instance].lists);
     
 }
 

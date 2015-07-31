@@ -14,8 +14,8 @@ static User *inst = nil;
 
 - (id)init {
     if(self=[super init]) {
-        self.name = @"";
-        self.uuid = @"";
+        self.userName = @"";
+        self.userUuid = @"";
         self.lists = [[NSMutableArray alloc] init];
     }
     return self;
@@ -31,8 +31,8 @@ static User *inst = nil;
 - (id)initWithName:(NSString *)name withUUID:(NSString *)uuid withList:(NSString *)list {
     
     if (self = [super init]) {
-        _name = name;
-        _uuid = list;
+        _userName = name;
+        _userUuid = list;
         _lists = [[NSMutableArray alloc] init];
         [_lists addObject:list];
     }
@@ -41,8 +41,8 @@ static User *inst = nil;
 
 - (void)encodeWithCoder:(NSCoder *)coder;
 {
-    [coder encodeObject:_name forKey:@"name"];
-    [coder encodeObject:_uuid forKey:@"uuid"];
+    [coder encodeObject:_userName forKey:@"userName"];
+    [coder encodeObject:_userUuid forKey:@"userUuid"];
     [coder encodeObject:_lists forKey:@"lists"];
 }
 
@@ -51,8 +51,8 @@ static User *inst = nil;
     self = [super init];
     if (self != nil)
     {
-        _name = [coder decodeObjectForKey:@"name"];
-        _uuid = [coder decodeObjectForKey:@"uuid"];
+        _userName = [coder decodeObjectForKey:@"userName"];
+        _userUuid = [coder decodeObjectForKey:@"userUuid"];
         _lists = [coder decodeObjectForKey:@"lists"];
         
     }

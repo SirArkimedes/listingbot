@@ -11,6 +11,8 @@
 #import <Parse/Parse.h>
 
 #import "User.h"
+#import "List.h"
+#import "Item.h"
 
 @interface AppDelegate ()
 
@@ -65,6 +67,56 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    // Creates 1 User, 2 Lists, and 4 Items in total.
+    User *newUser = [[User alloc] init];
+    newUser.userName = @"Andrew Robinson";
+    newUser.userUuid = @"1234567890";
+    
+    // List
+    List *firstList = [[List alloc] init];
+    firstList.listName = @"San Francisco";
+    firstList.listUuid = @"1234567891";
+    NSArray *firstShared = @[@"Tim", @"Nancy"];
+    [firstList.sharedWith addObjectsFromArray:firstShared];
+    
+    // Items
+    Item *firstItem = [[Item alloc] init];
+    firstItem.itemName = @"Phone";
+    firstItem.quantity = [NSNumber numberWithInteger:1];
+    
+    Item *secondItem = [[Item alloc] init];
+    secondItem.itemName = @"Soap";
+    secondItem.quantity = [NSNumber numberWithInteger:3];
+    
+    // Add created items to list
+    NSArray *firstItems = @[firstItem, secondItem];
+    [firstList.listItems addObjectsFromArray:firstItems];
+    
+    List *secondList = [[List alloc] init];
+    secondList.listName = @"Shopping";
+    secondList.listUuid = @"1234567891";
+    NSArray *secondShared = @[@"Matthew", @"Kai"];
+    [firstList.sharedWith addObjectsFromArray:secondShared];
+    
+    Item *thirdItem = [[Item alloc] init];
+    thirdItem.itemName = @"Milk";
+    thirdItem.quantity = [NSNumber numberWithInteger:2];
+    
+    Item *fourthItem = [[Item alloc] init];
+    fourthItem.itemName = @"Paper";
+    fourthItem.quantity = [NSNumber numberWithInteger:21];
+    
+    NSArray *secondItems = @[thirdItem, fourthItem];
+    [firstList.listItems addObjectsFromArray:secondItems];
+    
+    NSArray *newLists = @[firstList, secondList];
+    [newUser.lists addObjectsFromArray:newLists];
+    
+    // Add to instance for safe keeping
+    [User instance].userName = newUser.userName;
+    [User instance].userUuid = newUser.userUuid;
+    [User instance].lists = newUser.lists;
+    
     return YES;
 }
 
@@ -85,8 +137,8 @@
         
         User *user = [self loadCustomObjectWithKey:@"user"];
         
-        [User instance].name = user.name;
-        [User instance].uuid = user.uuid;
+        [User instance].userName = user.userName;
+        [User instance].userUuid = user.userUuid;
         [User instance].lists= user.lists;
         
         // Not equal to nothing
@@ -128,7 +180,7 @@
 - (void)saveUserWithData:(User*)user withUUID:(NSNumber*)uuid {
     
     PFObject *parseUser = [PFObject objectWithClassName:@"ListUsers"];
-    parseUser[@"name"] = user.name;
+    parseUser[@"name"] = user.userName;
     parseUser[@"uuid"] = uuid;
     parseUser[@"lists"] = user.lists;
     [parseUser saveEventually];
