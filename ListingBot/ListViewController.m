@@ -7,8 +7,11 @@
 //
 
 #import "ListViewController.h"
+#import "ItemsTableViewCell.h"
 
 @interface ListViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableView *itemTable;
 
 @end
 
@@ -17,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.itemTable.delegate = self;
+    self.itemTable.dataSource = self;
     
 //    // Gradient text
 //    CAGradientLayer *l = [CAGradientLayer layer];
@@ -31,6 +37,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table View Delegates
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cellIdentifier = @"item";
+    ItemsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ItemTableViewCell" owner:self options:nil] objectAtIndex:0];
+    }
+    
+    return cell;
+    
 }
 
 /*

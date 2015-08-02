@@ -38,6 +38,8 @@
 		4D3D285A1B5596DD00D12090 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D28591B5596DD00D12090 /* SystemConfiguration.framework */; };
 		4D3D285C1B5596E700D12090 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D285B1B5596E700D12090 /* libz.dylib */; };
 		4D3D285E1B5596F200D12090 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D285D1B5596F200D12090 /* libsqlite3.dylib */; };
+		4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */; };
+		4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */; };
 		4DC8B8791B559FDB003F7777 /* ParseKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC8B8781B559FDB003F7777 /* ParseKeys.plist */; };
 		4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8841B55AA6A003F7777 /* FirstLaunchViewController.m */; };
 		4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */; };
@@ -100,6 +102,9 @@
 		4D3D28591B5596DD00D12090 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4D3D285B1B5596E700D12090 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4D3D285D1B5596F200D12090 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsTableViewCell.h; sourceTree = "<group>"; };
+		4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsTableViewCell.m; sourceTree = "<group>"; };
 		4DC8B8781B559FDB003F7777 /* ParseKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ParseKeys.plist; sourceTree = "<group>"; };
 		4DC8B8831B55AA6A003F7777 /* FirstLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstLaunchViewController.h; sourceTree = "<group>"; };
 		4DC8B8841B55AA6A003F7777 /* FirstLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstLaunchViewController.m; sourceTree = "<group>"; };
@@ -175,6 +180,7 @@
 		4D239A391B6BCAE4009DAC63 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4DA7484A1B6DE83D0090A86E /* TableView */,
 				4D239A341B6BCA25009DAC63 /* ListView.xib */,
 				4D239A3A1B6BCAF8009DAC63 /* ListViewController.h */,
 				4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */,
@@ -211,9 +217,9 @@
 		4D3D28171B558E5C00D12090 /* ListingBot */ = {
 			isa = PBXGroup;
 			children = (
+				4D1466061B575E16007DB911 /* Custom Objects */,
 				4D239A331B6BC968009DAC63 /* Scroll Navigation */,
 				4D3D28251B558E5C00D12090 /* Main.storyboard */,
-				4D1466061B575E16007DB911 /* Custom Objects */,
 				4D3D281C1B558E5C00D12090 /* AppDelegate.h */,
 				4D3D281D1B558E5C00D12090 /* AppDelegate.m */,
 				4D2659361B5B66380007ABA4 /* MainListViewController.h */,
@@ -281,6 +287,16 @@
 			name = Frameworks;
 			path = ListingBot.xcodeproj;
 			sourceTree = SOURCE_ROOT;
+		};
+		4DA7484A1B6DE83D0090A86E /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */,
+				4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */,
+				4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
 		};
 		4DC8B8861B55CAAC003F7777 /* FirstLaunch */ = {
 			isa = PBXGroup;
@@ -381,6 +397,7 @@
 				4D239A351B6BCA25009DAC63 /* ListView.xib in Resources */,
 				4D3D282C1B558E5C00D12090 /* LaunchScreen.xib in Resources */,
 				4D2487071B599FB400845722 /* Basic_tick_64.png in Resources */,
+				4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */,
 				4D3D28291B558E5C00D12090 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +420,7 @@
 				4D11D45C1B58CC1F002D73A0 /* User.m in Sources */,
 				4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */,
 				4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */,
+				4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */,
 				4D154D061B69F4FA00E41E30 /* NewListViewController.m in Sources */,
 				4D3D281B1B558E5C00D12090 /* main.m in Sources */,
 				4D3D28431B55946900D12090 /* ListingsViewController.m in Sources */,
