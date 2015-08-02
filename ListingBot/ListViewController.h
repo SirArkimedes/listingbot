@@ -10,4 +10,6 @@
 
 @interface ListViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *listTitle;
+
 @end

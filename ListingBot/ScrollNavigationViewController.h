@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScrollNavigationViewController : UIViewController
+@interface ScrollNavigationViewController : UIViewController <UIScrollViewDelegate>
 
 @end

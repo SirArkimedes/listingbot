@@ -17,6 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+//    // Gradient text
+//    CAGradientLayer *l = [CAGradientLayer layer];
+//    l.frame = self.listTitle.bounds;
+//    l.colors = @[(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor];
+//    l.startPoint = CGPointMake(0.1f, 1.0f);
+//    l.endPoint = CGPointMake(0.95f, 1.0f);
+//    self.listTitle.layer.mask = l;
+    
 }
 
 - (void)didReceiveMemoryWarning {

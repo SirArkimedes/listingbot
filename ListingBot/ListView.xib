@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListViewController">
             <connections>
+                <outlet property="listTitle" destination="mRm-oL-JiK" id="3li-Aj-jXM"/>
                 <outlet property="view" destination="iN0-l3-epB" id="rDt-AL-qhu"/>
             </connections>
         </placeholder>
@@ -15,16 +16,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mMV-1N-hma">
-                    <rect key="frame" x="33" y="59" width="535" height="482"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="91" width="600" height="470"/>
+                    <color key="backgroundColor" red="1" green="0.99102753590000003" blue="0.93783374529999997" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRm-oL-JiK">
+                    <rect key="frame" x="262" y="35" width="77" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="77" id="I8q-fK-XpK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.27791587750000002" green="0.27791587750000002" blue="0.27791587750000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="mMV-1N-hma" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="59" id="Cug-WE-AUb"/>
+                <constraint firstItem="mMV-1N-hma" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="91" id="Cug-WE-AUb"/>
+                <constraint firstItem="mMV-1N-hma" firstAttribute="top" secondItem="mRm-oL-JiK" secondAttribute="bottom" constant="35" id="NfJ-RA-14V"/>
                 <constraint firstAttribute="centerX" secondItem="mMV-1N-hma" secondAttribute="centerX" id="NiO-vV-2Mp"/>
-                <constraint firstItem="mMV-1N-hma" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="e4j-6K-3uc"/>
-                <constraint firstItem="mMV-1N-hma" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="33" id="ekc-rY-YsH"/>
+                <constraint firstItem="mMV-1N-hma" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="26" id="e4j-6K-3uc"/>
+                <constraint firstItem="mMV-1N-hma" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ekc-rY-YsH"/>
+                <constraint firstAttribute="centerX" secondItem="mRm-oL-JiK" secondAttribute="centerX" constant="-0.5" id="jZ7-Ul-GOp"/>
             </constraints>
         </view>
     </objects>
