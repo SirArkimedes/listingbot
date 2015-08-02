@@ -75,6 +75,9 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"SeperatorTableViewCell" owner:self options:nil] objectAtIndex:0];
         }
         
+        // Forces some color somewhere to not be white, causing cells to have a white background.
+        cell.backgroundColor = [UIColor clearColor];
+        
         return cell;
     }
     
