@@ -8,6 +8,7 @@
 
 #import "ScrollNavigationViewController.h"
 
+#import <Parse/Parse.h>
 #import "ListViewController.h"
 
 #import "User.h"
@@ -41,17 +42,37 @@
     listFrame.origin.x = self.view.frame.size.width;
     newView.view.frame = listFrame;
     
-//    var adminFrame :CGRect = AVc.view.frame;
-//    adminFrame.origin.x = adminFrame.width;
-//    BVc.view.frame = adminFrame;
-    
     CGFloat scrollWidth = 2 * self.view.frame.size.width;
     CGFloat scrollHeight = self.view.frame.size.height;
     self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
     
+    // Test data testing
     NSLog(@"%@", [User instance].userName);
     NSLog(@"%@", [User instance].userUuid);
     NSLog(@"%@", [User instance].lists);
+    
+    // Saves and retrieves data from Parse
+//    NSData *dataFromSet = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
+//    PFObject *object = [PFObject objectWithClassName:@"Users"];
+//    object[@"user"] = dataFromSet;
+//    [object saveEventually];
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+////    [query whereKey:@"playerName" equalTo:@"Dan Stemkoski"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            // The find succeeded.
+////            NSLog(@"Successfully retrieved %d scores.", objects.count);
+//            // Do something with the found objects
+//            for (PFObject *object in objects) {
+//                User *unarchivedSet = [NSKeyedUnarchiver unarchiveObjectWithData:object[@"user"]];
+//                NSLog(@"Here's the set: %@", unarchivedSet);
+//            }
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];
     
 }
 

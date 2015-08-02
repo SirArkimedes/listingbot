@@ -13,7 +13,19 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mMV-1N-hma">
+                    <rect key="frame" x="33" y="59" width="535" height="482"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="mMV-1N-hma" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="59" id="Cug-WE-AUb"/>
+                <constraint firstAttribute="centerX" secondItem="mMV-1N-hma" secondAttribute="centerX" id="NiO-vV-2Mp"/>
+                <constraint firstItem="mMV-1N-hma" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="e4j-6K-3uc"/>
+                <constraint firstItem="mMV-1N-hma" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="33" id="ekc-rY-YsH"/>
+            </constraints>
         </view>
     </objects>
 </document>
