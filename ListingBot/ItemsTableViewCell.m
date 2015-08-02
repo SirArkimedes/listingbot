@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.backView.layer.cornerRadius = 5.f;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

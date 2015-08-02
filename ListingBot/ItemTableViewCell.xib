@@ -7,17 +7,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="item" id="cqi-NN-BNM" customClass="ItemsTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="item" id="cqi-NN-BNM" customClass="ItemsTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cqi-NN-BNM" id="jeb-Ps-2tM">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYM-42-LJo">
-                        <rect key="frame" x="27" y="0.0" width="293" height="43"/>
+                        <rect key="frame" x="19" y="0.0" width="278" height="43"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2m-99-qYy">
-                                <rect key="frame" x="125" y="11" width="42" height="21"/>
+                                <rect key="frame" x="120" y="11" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -25,7 +25,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99102753590000003" blue="0.93783374529999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="K2m-99-qYy" firstAttribute="centerX" secondItem="JYM-42-LJo" secondAttribute="centerX" id="grk-b8-ihN"/>
+                            <constraint firstItem="K2m-99-qYy" firstAttribute="centerX" secondItem="JYM-42-LJo" secondAttribute="centerX" constant="2" id="grk-b8-ihN"/>
                             <constraint firstItem="K2m-99-qYy" firstAttribute="centerY" secondItem="JYM-42-LJo" secondAttribute="centerY" id="lld-Pv-bRB"/>
                         </constraints>
                     </view>
@@ -34,11 +34,12 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="JYM-42-LJo" secondAttribute="bottom" id="PMk-LU-1fk"/>
                     <constraint firstItem="JYM-42-LJo" firstAttribute="top" secondItem="jeb-Ps-2tM" secondAttribute="top" id="hOi-ni-1Y4"/>
-                    <constraint firstItem="JYM-42-LJo" firstAttribute="leading" secondItem="jeb-Ps-2tM" secondAttribute="leadingMargin" constant="19" id="okW-Dk-FLw"/>
-                    <constraint firstAttribute="trailing" secondItem="JYM-42-LJo" secondAttribute="trailing" id="tXe-xT-qbD"/>
+                    <constraint firstItem="JYM-42-LJo" firstAttribute="leading" secondItem="jeb-Ps-2tM" secondAttribute="leadingMargin" constant="11" id="okW-Dk-FLw"/>
+                    <constraint firstAttribute="trailing" secondItem="JYM-42-LJo" secondAttribute="trailing" constant="23" id="tXe-xT-qbD"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="backView" destination="JYM-42-LJo" id="Fnn-UG-3k4"/>
                 <outlet property="exampleTest" destination="K2m-99-qYy" id="jHH-GZ-nQ1"/>
             </connections>
         </tableViewCell>
