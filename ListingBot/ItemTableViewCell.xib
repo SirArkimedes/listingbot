@@ -17,16 +17,24 @@
                         <rect key="frame" x="19" y="0.0" width="278" height="43"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2m-99-qYy">
-                                <rect key="frame" x="120" y="11" width="42" height="21"/>
+                                <rect key="frame" x="8" y="11" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nl-oS-dLG">
+                                <rect key="frame" x="228" y="11" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99102753590000003" blue="0.93783374529999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="K2m-99-qYy" firstAttribute="centerX" secondItem="JYM-42-LJo" secondAttribute="centerX" constant="2" id="grk-b8-ihN"/>
+                            <constraint firstAttribute="trailing" secondItem="3nl-oS-dLG" secondAttribute="trailing" constant="8" id="I4S-dS-iya"/>
+                            <constraint firstItem="K2m-99-qYy" firstAttribute="leading" secondItem="JYM-42-LJo" secondAttribute="leading" constant="8" id="gmi-2n-Qqu"/>
                             <constraint firstItem="K2m-99-qYy" firstAttribute="centerY" secondItem="JYM-42-LJo" secondAttribute="centerY" id="lld-Pv-bRB"/>
+                            <constraint firstItem="3nl-oS-dLG" firstAttribute="baseline" secondItem="K2m-99-qYy" secondAttribute="baseline" id="nsb-Jm-axP"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -40,7 +48,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="backView" destination="JYM-42-LJo" id="Fnn-UG-3k4"/>
-                <outlet property="exampleTest" destination="K2m-99-qYy" id="jHH-GZ-nQ1"/>
+                <outlet property="itemName" destination="K2m-99-qYy" id="BCu-Ac-0gc"/>
+                <outlet property="itemQuantity" destination="3nl-oS-dLG" id="DoA-EP-j0O"/>
             </connections>
         </tableViewCell>
     </objects>

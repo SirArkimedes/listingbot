@@ -44,12 +44,16 @@ typedef enum ScrollDirection {
     listView.listTitle.text = @"Testing";
     self.testing = listView.listTitle;
     
+    listView.view.tag = 0;
+    
     ListViewController *newView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
     newView.view.backgroundColor = [UIColor orangeColor];
     
     [self addChildViewController:newView];
     [self.scrollNavigation addSubview:newView.view];
     [newView didMoveToParentViewController:self];
+    
+    newView.view.tag = 1;
     
     CGRect listFrame = listView.view.frame;
     listFrame.origin.x = self.view.frame.size.width;

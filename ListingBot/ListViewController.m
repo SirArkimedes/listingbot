@@ -9,6 +9,10 @@
 #import "ListViewController.h"
 #import "ItemsTableViewCell.h"
 
+#import "User.h"
+#import "List.h"
+#import "Item.h"
+
 @interface ListViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *itemTable;
@@ -42,7 +46,11 @@
 #pragma mark - Table View Delegates
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    // Using the view's tag with matching array index, get the list.
+    List *list = [[User instance].lists objectAtIndex:self.view.tag];
+    
+    // Return item count * 2, because of seperator cells. -1 to remove the bottom seperator cell.
+    return 2 * list.listItems.count - 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -59,6 +67,13 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ItemTableViewCell" owner:self options:nil] objectAtIndex:0];
         }
+        
+        // Using the view's tag with matching array index, get the list.
+        List *list = [[User instance].lists objectAtIndex:self.view.tag];
+        Item *item = [list.listItems objectAtIndex:indexPath.row/2];
+        
+        cell.itemName.text = item.itemName;
+        cell.itemQuantity.text = [NSString stringWithFormat:@"%@", item.quantity];
         
         // Forces some color somewhere to not be white, causing cells to have a white background.
         cell.backgroundColor = [UIColor clearColor];

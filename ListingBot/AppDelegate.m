@@ -106,8 +106,12 @@
     fourthItem.itemName = @"Paper";
     fourthItem.quantity = [NSNumber numberWithInteger:21];
     
-    NSArray *secondItems = @[thirdItem, fourthItem];
-    [firstList.listItems addObjectsFromArray:secondItems];
+    Item *fifthItem = [[Item alloc] init];
+    fifthItem.itemName = @"Chocolate";
+    fifthItem.quantity = [NSNumber numberWithInteger:4];
+    
+    NSArray *secondItems = @[thirdItem, fourthItem, fifthItem];
+    [secondList.listItems addObjectsFromArray:secondItems];
     
     NSArray *newLists = @[firstList, secondList];
     [newUser.lists addObjectsFromArray:newLists];

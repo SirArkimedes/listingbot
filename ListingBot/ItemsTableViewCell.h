@@ -10,7 +10,9 @@
 
 @interface ItemsTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *exampleTest;
+@property (weak, nonatomic) IBOutlet UILabel *itemName;
+@property (weak, nonatomic) IBOutlet UILabel *itemQuantity;
+
 @property (weak, nonatomic) IBOutlet UIView *backView;
 
 @end
