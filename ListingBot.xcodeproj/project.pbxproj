@@ -40,6 +40,7 @@
 		4D3D285E1B5596F200D12090 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D285D1B5596F200D12090 /* libsqlite3.dylib */; };
 		4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */; };
 		4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */; };
+		4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA7484E1B6DEF800090A86E /* SeperatorTableViewCell.xib */; };
 		4DC8B8791B559FDB003F7777 /* ParseKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC8B8781B559FDB003F7777 /* ParseKeys.plist */; };
 		4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8841B55AA6A003F7777 /* FirstLaunchViewController.m */; };
 		4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */; };
@@ -105,6 +106,7 @@
 		4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsTableViewCell.h; sourceTree = "<group>"; };
 		4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsTableViewCell.m; sourceTree = "<group>"; };
+		4DA7484E1B6DEF800090A86E /* SeperatorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeperatorTableViewCell.xib; sourceTree = "<group>"; };
 		4DC8B8781B559FDB003F7777 /* ParseKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ParseKeys.plist; sourceTree = "<group>"; };
 		4DC8B8831B55AA6A003F7777 /* FirstLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstLaunchViewController.h; sourceTree = "<group>"; };
 		4DC8B8841B55AA6A003F7777 /* FirstLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstLaunchViewController.m; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */,
 				4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */,
 				4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */,
+				4DA7484E1B6DEF800090A86E /* SeperatorTableViewCell.xib */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				4DC8B8791B559FDB003F7777 /* ParseKeys.plist in Resources */,
 				4D3D28271B558E5C00D12090 /* Main.storyboard in Resources */,
 				4D239A351B6BCA25009DAC63 /* ListView.xib in Resources */,
+				4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */,
 				4D3D282C1B558E5C00D12090 /* LaunchScreen.xib in Resources */,
 				4D2487071B599FB400845722 /* Basic_tick_64.png in Resources */,
 				4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */,

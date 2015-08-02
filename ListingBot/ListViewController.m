@@ -42,20 +42,53 @@
 #pragma mark - Table View Delegates
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier = @"item";
-    ItemsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    static NSString *contentCellIdentifier = @"item";
+    static NSString *separaterCellIdentifier = @"separatorCell";
     
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"ItemTableViewCell" owner:self options:nil] objectAtIndex:0];
+    if (indexPath.row % 2 == 0) {
+        // this is a content cell
+        ItemsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:contentCellIdentifier];
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:contentCellIdentifier];
+        
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ItemTableViewCell" owner:self options:nil] objectAtIndex:0];
+        }
+        
+        // Forces some color somewhere to not be white, causing cells to have a white background.
+        cell.backgroundColor = [UIColor clearColor];
+        
+        return cell;
+        
+    } else {
+        // this is a separator cell
+        UITableViewCell *cell = nil;
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:separaterCellIdentifier];
+        
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"SeperatorTableViewCell" owner:self options:nil] objectAtIndex:0];
+        }
+        
+        return cell;
     }
     
-    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (indexPath.row % 2 == 0) {
+        // this is a regular cell
+        return 44;
+    } else {
+        // this is a "space" cell
+        return 10;
+    }
 }
 
 /*

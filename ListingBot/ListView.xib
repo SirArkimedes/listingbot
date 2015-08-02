@@ -16,14 +16,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mMV-1N-hma">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mMV-1N-hma">
                     <rect key="frame" x="0.0" y="91" width="600" height="470"/>
-                    <color key="backgroundColor" red="1" green="0.99102753590000003" blue="0.93783374529999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRm-oL-JiK">
                     <rect key="frame" x="262" y="35" width="77" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="77" id="I8q-fK-XpK"/>
+                        <constraint firstAttribute="width" constant="77" id="e8M-Rz-tvW"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,12 +32,12 @@
             </subviews>
             <color key="backgroundColor" red="0.27791587750000002" green="0.27791587750000002" blue="0.27791587750000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="mMV-1N-hma" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="91" id="Cug-WE-AUb"/>
-                <constraint firstItem="mMV-1N-hma" firstAttribute="top" secondItem="mRm-oL-JiK" secondAttribute="bottom" constant="35" id="NfJ-RA-14V"/>
-                <constraint firstAttribute="centerX" secondItem="mMV-1N-hma" secondAttribute="centerX" id="NiO-vV-2Mp"/>
-                <constraint firstItem="mMV-1N-hma" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="26" id="e4j-6K-3uc"/>
-                <constraint firstItem="mMV-1N-hma" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ekc-rY-YsH"/>
-                <constraint firstAttribute="centerX" secondItem="mRm-oL-JiK" secondAttribute="centerX" constant="-0.5" id="jZ7-Ul-GOp"/>
+                <constraint firstAttribute="bottom" secondItem="mMV-1N-hma" secondAttribute="bottom" constant="39" id="Bwz-WN-09l"/>
+                <constraint firstAttribute="trailing" secondItem="mMV-1N-hma" secondAttribute="trailing" id="CQU-8J-wha"/>
+                <constraint firstItem="mMV-1N-hma" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FPq-dz-gZn"/>
+                <constraint firstItem="mRm-oL-JiK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="Mes-eR-R7G"/>
+                <constraint firstItem="mMV-1N-hma" firstAttribute="top" secondItem="mRm-oL-JiK" secondAttribute="bottom" constant="35" id="eNF-uy-AAz"/>
+                <constraint firstItem="mRm-oL-JiK" firstAttribute="centerX" secondItem="mMV-1N-hma" secondAttribute="centerX" id="wwG-UD-sQQ"/>
             </constraints>
         </view>
     </objects>
