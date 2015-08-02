@@ -113,7 +113,28 @@
     NSArray *secondItems = @[thirdItem, fourthItem, fifthItem];
     [secondList.listItems addObjectsFromArray:secondItems];
     
-    NSArray *newLists = @[firstList, secondList];
+    List *thirdList = [[List alloc] init];
+    thirdList.listName = @"Shopping";
+    thirdList.listUuid = @"1234567891";
+    NSArray *thirdShared = @[@"Matthew", @"Kai"];
+    [firstList.sharedWith addObjectsFromArray:thirdShared];
+    
+    Item *sixth = [[Item alloc] init];
+    sixth.itemName = @"Milk";
+    sixth.quantity = [NSNumber numberWithInteger:2];
+    
+    Item *seven = [[Item alloc] init];
+    seven.itemName = @"Paper";
+    seven.quantity = [NSNumber numberWithInteger:21];
+    
+    Item *eight = [[Item alloc] init];
+    eight.itemName = @"Chocolate";
+    eight.quantity = [NSNumber numberWithInteger:4];
+    
+    NSArray *thirdItems = @[sixth, seven, eight];
+    [thirdList.listItems addObjectsFromArray:thirdItems];
+    
+    NSArray *newLists = @[firstList, secondList, thirdList];
     [newUser.lists addObjectsFromArray:newLists];
     
     // Add to instance for safe keeping

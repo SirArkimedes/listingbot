@@ -12,6 +12,7 @@
 #import "ListViewController.h"
 
 #import "User.h"
+#import "List.h"
 
 typedef enum ScrollDirection {
     ScrollDirectionRight,
@@ -35,38 +36,67 @@ typedef enum ScrollDirection {
     
     self.scrollNavigation.delegate = self;
     
-    ListViewController *listView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
+    // Generate views based on how many lists we have.
+    for (int i; i <= [[User instance].lists count]; i++) {
+        
+        ListViewController *listView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
+        
+        [self addChildViewController:listView];
+        [self.scrollNavigation addSubview:listView.view];
+        [listView didMoveToParentViewController:self];
+        
+        // Customize the view's properties
+        List *list = [[User instance].lists objectAtIndex:i - 1];
+        
+        listView.listTitle.text = list.listName;
+        listView.view.tag = i - 1;
+        
+        if (i > 1) {
+            
+            CGRect listFrame = listView.view.frame;
+            listFrame.origin.x = (i - 1) * self.view.frame.size.width;
+            listView.view.frame = listFrame;
+            
+        }
+        
+    }
     
-    [self addChildViewController:listView];
-    [self.scrollNavigation addSubview:listView.view];
-    [listView didMoveToParentViewController:self];
-    
-    listView.listTitle.text = @"Testing";
-    self.testing = listView.listTitle;
-    
-    listView.view.tag = 0;
-    
-    ListViewController *newView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
-    newView.view.backgroundColor = [UIColor orangeColor];
-    
-    [self addChildViewController:newView];
-    [self.scrollNavigation addSubview:newView.view];
-    [newView didMoveToParentViewController:self];
-    
-    newView.view.tag = 1;
-    
-    CGRect listFrame = listView.view.frame;
-    listFrame.origin.x = self.view.frame.size.width;
-    newView.view.frame = listFrame;
-    
-    CGFloat scrollWidth = 2 * self.view.frame.size.width;
+    CGFloat scrollWidth = [[User instance].lists count] * self.view.frame.size.width;
     CGFloat scrollHeight = self.view.frame.size.height;
     self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
     
-    // Test data testing
-    NSLog(@"%@", [User instance].userName);
-    NSLog(@"%@", [User instance].userUuid);
-    NSLog(@"%@", [User instance].lists);
+//    ListViewController *listView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
+//    
+//    [self addChildViewController:listView];
+//    [self.scrollNavigation addSubview:listView.view];
+//    [listView didMoveToParentViewController:self];
+//    
+//    listView.listTitle.text = @"Testing";
+//    self.testing = listView.listTitle;
+//    
+//    listView.view.tag = 0;
+//    
+//    ListViewController *newView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
+//    newView.view.backgroundColor = [UIColor orangeColor];
+//    
+//    [self addChildViewController:newView];
+//    [self.scrollNavigation addSubview:newView.view];
+//    [newView didMoveToParentViewController:self];
+//    
+//    newView.view.tag = 1;
+    
+//    CGRect listFrame = listView.view.frame;
+//    listFrame.origin.x = self.view.frame.size.width;
+//    newView.view.frame = listFrame;
+    
+//    CGFloat scrollWidth = 2 * self.view.frame.size.width;
+//    CGFloat scrollHeight = self.view.frame.size.height;
+//    self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
+    
+//    // Test data testing
+//    NSLog(@"%@", [User instance].userName);
+//    NSLog(@"%@", [User instance].userUuid);
+//    NSLog(@"%@", [User instance].lists);
     
     // Saves and retrieves data from Parse
 //    NSData *dataFromSet = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
