@@ -10,8 +10,10 @@
 		4D11D45C1B58CC1F002D73A0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D11D45B1B58CC1F002D73A0 /* User.m */; };
 		4D13DBE51B6C28740025B8F7 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D13DBE41B6C28740025B8F7 /* List.m */; };
 		4D13DBE81B6C2A140025B8F7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D13DBE71B6C2A140025B8F7 /* Item.m */; };
+		4D14EDCB1B70528000DCFADC /* AddFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D14EDCA1B70528000DCFADC /* AddFieldTableViewCell.m */; };
 		4D154D061B69F4FA00E41E30 /* NewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D154D051B69F4FA00E41E30 /* NewListViewController.m */; };
 		4D170DF91B62E95E00EB0414 /* ListsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D170DF81B62E95E00EB0414 /* ListsTableViewCell.m */; };
+		4D1797681B700F5800140911 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D1797671B700F5800140911 /* TextFieldCell.xib */; };
 		4D239A351B6BCA25009DAC63 /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D239A341B6BCA25009DAC63 /* ListView.xib */; };
 		4D239A381B6BCA45009DAC63 /* ScrollNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D239A371B6BCA45009DAC63 /* ScrollNavigationViewController.m */; };
 		4D239A3C1B6BCAF8009DAC63 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */; };
@@ -64,10 +66,13 @@
 		4D13DBE41B6C28740025B8F7 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		4D13DBE61B6C2A140025B8F7 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		4D13DBE71B6C2A140025B8F7 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		4D14EDC91B70528000DCFADC /* AddFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFieldTableViewCell.h; sourceTree = "<group>"; };
+		4D14EDCA1B70528000DCFADC /* AddFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFieldTableViewCell.m; sourceTree = "<group>"; };
 		4D154D041B69F4FA00E41E30 /* NewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewListViewController.h; sourceTree = "<group>"; };
 		4D154D051B69F4FA00E41E30 /* NewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewListViewController.m; sourceTree = "<group>"; };
 		4D170DF71B62E95E00EB0414 /* ListsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListsTableViewCell.h; sourceTree = "<group>"; };
 		4D170DF81B62E95E00EB0414 /* ListsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListsTableViewCell.m; sourceTree = "<group>"; };
+		4D1797671B700F5800140911 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		4D239A341B6BCA25009DAC63 /* ListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListView.xib; sourceTree = "<group>"; };
 		4D239A361B6BCA45009DAC63 /* ScrollNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollNavigationViewController.h; sourceTree = "<group>"; };
 		4D239A371B6BCA45009DAC63 /* ScrollNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollNavigationViewController.m; sourceTree = "<group>"; };
@@ -297,6 +302,9 @@
 				4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */,
 				4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */,
 				4DA7484E1B6DEF800090A86E /* SeperatorTableViewCell.xib */,
+				4D1797671B700F5800140911 /* TextFieldCell.xib */,
+				4D14EDC91B70528000DCFADC /* AddFieldTableViewCell.h */,
+				4D14EDCA1B70528000DCFADC /* AddFieldTableViewCell.m */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -397,6 +405,7 @@
 			files = (
 				4DC8B8791B559FDB003F7777 /* ParseKeys.plist in Resources */,
 				4D3D28271B558E5C00D12090 /* Main.storyboard in Resources */,
+				4D1797681B700F5800140911 /* TextFieldCell.xib in Resources */,
 				4D239A351B6BCA25009DAC63 /* ListView.xib in Resources */,
 				4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */,
 				4D3D282C1B558E5C00D12090 /* LaunchScreen.xib in Resources */,
@@ -435,6 +444,7 @@
 				4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */,
 				4D239A3C1B6BCAF8009DAC63 /* ListViewController.m in Sources */,
 				4D239A381B6BCA45009DAC63 /* ScrollNavigationViewController.m in Sources */,
+				4D14EDCB1B70528000DCFADC /* AddFieldTableViewCell.m in Sources */,
 				4D170DF91B62E95E00EB0414 /* ListsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

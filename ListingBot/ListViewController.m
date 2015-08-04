@@ -13,9 +13,16 @@
 #import "List.h"
 #import "Item.h"
 
+typedef NS_ENUM(NSUInteger, cellType) {
+    contentCell,
+    seperatorCell,
+    textFieldCell,
+};
+
 @interface ListViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *itemTable;
+@property (weak, nonatomic) IBOutlet UIView *navigationView;
 
 @end
 
@@ -27,6 +34,10 @@
     
     self.itemTable.delegate = self;
     self.itemTable.dataSource = self;
+    
+//    self.navigationView.layer.shadowOffset = CGSizeMake(0, 5);
+//    self.navigationView.layer.shadowRadius = 20;
+//    self.navigationView.layer.shadowOpacity = 0.5;
     
 //    // Gradient text
 //    CAGradientLayer *l = [CAGradientLayer layer];
@@ -50,63 +61,113 @@
     List *list = [[User instance].lists objectAtIndex:self.view.tag];
     
     // Return item count * 2, because of seperator cells. -1 to remove the bottom seperator cell.
-    return 2 * list.listItems.count - 1;
+    return 2 * list.listItems.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    UITableViewCell *cell;
+    
+    switch ([self typeForRowAtIndexPath:indexPath]) {
+        case contentCell:
+            cell = [self setupContentCellWithTableView:tableView];
+            break;
+        case seperatorCell:
+            cell = [self setupSeperatorCellWithTableView:tableView];
+            break;
+        case textFieldCell:
+            cell = [self setupTextFieldCellWithTableView:tableView];
+            break;
+    }
+    
+    return cell;
+    
+}
+
+- (UITableViewCell *)setupTextFieldCellWithTableView:(UITableView *)tableView {
+    
+    static NSString *textFieldCellIdentifier = @"addField";
+    
+    // this is a textfield cell
+    UITableViewCell *cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:textFieldCellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"TextFieldCell" owner:self options:nil] objectAtIndex:0];
+    }
+    
+    // Forces some color somewhere to not be white, causing cells to have a white background.
+    cell.backgroundColor = [UIColor clearColor];
+    
+    return cell;
+    
+}
+
+- (UITableViewCell *)setupContentCellWithTableView:(UITableView *)tableView {
+    
     static NSString *contentCellIdentifier = @"item";
+    
+    // this is a textfield cell
+    ItemsTableViewCell *cell;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:contentCellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ItemTableViewCell" owner:self options:nil] objectAtIndex:0];
+    }
+    
+    // Forces some color somewhere to not be white, causing cells to have a white background.
+    cell.backgroundColor = [UIColor clearColor];
+    
+    return cell;
+    
+}
+
+- (UITableViewCell *)setupSeperatorCellWithTableView:(UITableView *)tableView {
+    
     static NSString *separaterCellIdentifier = @"separatorCell";
     
-    if (indexPath.row % 2 == 0) {
-        // this is a content cell
-        ItemsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:contentCellIdentifier];
-        
-        cell = [tableView dequeueReusableCellWithIdentifier:contentCellIdentifier];
-        
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"ItemTableViewCell" owner:self options:nil] objectAtIndex:0];
-        }
-        
-        // Using the view's tag with matching array index, get the list.
-        List *list = [[User instance].lists objectAtIndex:self.view.tag];
-        Item *item = [list.listItems objectAtIndex:indexPath.row/2];
-        
-        cell.itemName.text = item.itemName;
-        cell.itemQuantity.text = [NSString stringWithFormat:@"%@", item.quantity];
-        
-        // Forces some color somewhere to not be white, causing cells to have a white background.
-        cell.backgroundColor = [UIColor clearColor];
-        
-        return cell;
-        
-    } else {
-        // this is a separator cell
-        UITableViewCell *cell = nil;
-        
-        cell = [tableView dequeueReusableCellWithIdentifier:separaterCellIdentifier];
-        
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"SeperatorTableViewCell" owner:self options:nil] objectAtIndex:0];
-        }
-        
-        // Forces some color somewhere to not be white, causing cells to have a white background.
-        cell.backgroundColor = [UIColor clearColor];
-        
-        return cell;
+    // this is a textfield cell
+    UITableViewCell *cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:separaterCellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"SeperatorTableViewCell" owner:self options:nil] objectAtIndex:0];
     }
+    
+    // Forces some color somewhere to not be white, causing cells to have a white background.
+    cell.backgroundColor = [UIColor clearColor];
+    
+    return cell;
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row % 2 == 0) {
-        // this is a regular cell
-        return 44;
-    } else {
-        // this is a "space" cell
-        return 10;
+    switch ([self typeForRowAtIndexPath:indexPath]) {
+        case seperatorCell:
+            return 10;
+            break;
+        default:
+            return 44.f;
+            break;
     }
+    
+}
+
+- (NSUInteger)typeForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    List *list = [[User instance].lists objectAtIndex:self.view.tag];
+    
+    if (2 * list.listItems.count == indexPath.row)
+        return textFieldCell;
+    else if (indexPath.row % 2 == 0)
+        return contentCell;
+    else
+        return seperatorCell;
+    
 }
 
 /*
