@@ -36,8 +36,10 @@ typedef enum ScrollDirection {
     
     self.scrollNavigation.delegate = self;
     
+    NSLog(@"%lu", (unsigned long)[[User instance].lists count]);
+    
     // Generate views based on how many lists we have.
-    for (int i; i <= [[User instance].lists count]; i++) {
+    for (int i = 1; i <= [[User instance].lists count]; i++) {
         
         ListViewController *listView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
         

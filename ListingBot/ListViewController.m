@@ -70,7 +70,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     switch ([self typeForRowAtIndexPath:indexPath]) {
         case contentCell:
-            cell = [self setupContentCellWithTableView:tableView];
+            cell = [self setupContentCellWithTableView:tableView withIndexPath:indexPath];
             break;
         case seperatorCell:
             cell = [self setupSeperatorCellWithTableView:tableView];
@@ -104,7 +104,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
 }
 
-- (UITableViewCell *)setupContentCellWithTableView:(UITableView *)tableView {
+- (UITableViewCell *)setupContentCellWithTableView:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *contentCellIdentifier = @"item";
     
@@ -116,6 +116,13 @@ typedef NS_ENUM(NSUInteger, cellType) {
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ItemTableViewCell" owner:self options:nil] objectAtIndex:0];
     }
+    
+    // Using the view's tag with matching array index, get the list.
+    List *list = [[User instance].lists objectAtIndex:self.view.tag];
+    Item *item = [list.listItems objectAtIndex:indexPath.row/2];
+    
+    cell.itemName.text = item.itemName;
+    cell.itemQuantity.text = [NSString stringWithFormat:@"%@", item.quantity];
     
     // Forces some color somewhere to not be white, causing cells to have a white background.
     cell.backgroundColor = [UIColor clearColor];
