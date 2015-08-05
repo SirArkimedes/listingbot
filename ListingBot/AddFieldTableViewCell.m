@@ -44,7 +44,7 @@
         
         // Add textfield item to data.
         // Using the view's tag with matching array index, get the list.
-        List *list = [[User instance].lists objectAtIndex:self.superview.tag];
+        List *list = [[User instance].lists objectAtIndex:self.superview.superview.superview.tag];
         
         Item *newItem = [[Item alloc] initWithName:textField.text withQuantity:[NSNumber numberWithInt:1]];
         [list.listItems addObject:newItem];
