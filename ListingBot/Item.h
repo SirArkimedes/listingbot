@@ -13,6 +13,8 @@
 @property (strong, nonatomic) NSString *itemName;
 @property (strong, nonatomic) NSNumber *quantity;
 
+- (id)initWithName:(NSString *)name withQuantity:(NSNumber *)quantity;
+
 - (id)init;
 + (Item*)instance;
 

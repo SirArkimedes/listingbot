@@ -27,6 +27,19 @@ static Item *inst = nil;
     return inst;
 }
 
+- (id)initWithName:(NSString *)name withQuantity:(NSNumber *)quantity {
+    
+    if(self=[super init]) {
+        
+        self.itemName = name;
+        self.quantity = quantity;
+        
+    }
+    
+    return self;
+    
+}
+
 - (void)encodeWithCoder:(NSCoder *)coder;
 {
     [coder encodeObject:_itemName forKey:@"itemName"];

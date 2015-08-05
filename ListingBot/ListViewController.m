@@ -35,6 +35,8 @@ typedef NS_ENUM(NSUInteger, cellType) {
     self.itemTable.delegate = self;
     self.itemTable.dataSource = self;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshTable" object:nil];
+    
 //    self.navigationView.layer.shadowOffset = CGSizeMake(0, 5);
 //    self.navigationView.layer.shadowRadius = 20;
 //    self.navigationView.layer.shadowOpacity = 0.5;
@@ -52,6 +54,10 @@ typedef NS_ENUM(NSUInteger, cellType) {
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)refreshTableWithNotification:(NSNotification *)notification {
+    [self.itemTable reloadData];
 }
 
 #pragma mark - Table View Delegates

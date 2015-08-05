@@ -36,8 +36,6 @@ typedef enum ScrollDirection {
     
     self.scrollNavigation.delegate = self;
     
-    NSLog(@"%lu", (unsigned long)[[User instance].lists count]);
-    
     // Generate views based on how many lists we have.
     for (int i = 1; i <= [[User instance].lists count]; i++) {
         
@@ -101,6 +99,9 @@ typedef enum ScrollDirection {
 #pragma mark - Scrollview Delegate Methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    // Drop the keyboard
+    [self.view endEditing:NO];
     
     CGFloat offset = scrollView.contentOffset.x;
     [self animationForScroll:offset withDirection:ScrollDirectionRight];
