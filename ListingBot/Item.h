@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSString *itemName;
 @property (strong, nonatomic) NSNumber *quantity;
+@property BOOL isDone;
 
 - (id)initWithName:(NSString *)name withQuantity:(NSNumber *)quantity;
 

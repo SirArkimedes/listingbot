@@ -83,6 +83,7 @@
     Item *firstItem = [[Item alloc] init];
     firstItem.itemName = @"Phone";
     firstItem.quantity = [NSNumber numberWithInteger:1];
+    firstItem.isDone = YES;
     
     Item *secondItem = [[Item alloc] init];
     secondItem.itemName = @"Soap";
@@ -105,6 +106,7 @@
     Item *fourthItem = [[Item alloc] init];
     fourthItem.itemName = @"Paper";
     fourthItem.quantity = [NSNumber numberWithInteger:21];
+    fourthItem.isDone = YES;
     
     Item *fifthItem = [[Item alloc] init];
     fifthItem.itemName = @"Chocolate";

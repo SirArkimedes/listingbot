@@ -16,6 +16,7 @@ static Item *inst = nil;
     if(self=[super init]) {
         self.itemName = @"";
         self.quantity = nil;
+        self.isDone = NO;
     }
     return self;
 }
@@ -33,6 +34,7 @@ static Item *inst = nil;
         
         self.itemName = name;
         self.quantity = quantity;
+        self.isDone = NO;
         
     }
     
@@ -44,6 +46,7 @@ static Item *inst = nil;
 {
     [coder encodeObject:_itemName forKey:@"itemName"];
     [coder encodeObject:_quantity forKey:@"quantity"];
+    [coder encodeBool:_isDone forKey:@"isDone"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder;
@@ -53,6 +56,7 @@ static Item *inst = nil;
     {
         _itemName = [coder decodeObjectForKey:@"itemName"];
         _quantity = [coder decodeObjectForKey:@"quantity"];
+        _isDone = [coder decodeBoolForKey:@"isDone"];
         
     }
     return self;

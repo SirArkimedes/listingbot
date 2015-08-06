@@ -132,6 +132,10 @@ typedef NS_ENUM(NSUInteger, cellType) {
     cell.itemName.text = item.itemName;
     cell.itemQuantity.text = [NSString stringWithFormat:@"%@", item.quantity];
     
+    // Checks if the cell is completed or not and then modifies if needed.
+    if (item.isDone)
+        [self evaluateSelectionWithCell:cell];
+    
     // Forces some color somewhere to not be white, causing cells to have a white background.
     cell.backgroundColor = [UIColor clearColor];
     
