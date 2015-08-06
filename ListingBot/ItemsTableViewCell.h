@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *itemName;
 @property (weak, nonatomic) IBOutlet UILabel *itemQuantity;
 
-@property (weak, nonatomic) IBOutlet UIView *backView;
+@property (weak, nonatomic) IBOutlet UIView *selectionBubble;
+@property (weak, nonatomic) IBOutlet UIView *isSelectedBubble;
 
 @end

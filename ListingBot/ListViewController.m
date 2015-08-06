@@ -13,6 +13,8 @@
 #import "List.h"
 #import "Item.h"
 
+#define kAnimation .5f
+
 typedef NS_ENUM(NSUInteger, cellType) {
     contentCell,
     seperatorCell,
@@ -181,6 +183,45 @@ typedef NS_ENUM(NSUInteger, cellType) {
     else
         return seperatorCell;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([self typeForRowAtIndexPath:indexPath] == contentCell) {
+        
+        ItemsTableViewCell *cell = (ItemsTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        
+        [self evaluateSelectionWithCell:cell];
+        
+    }
+    
+}
+
+- (void)evaluateSelectionWithCell:(ItemsTableViewCell *)cell {
+    
+    if (cell.isSelectedBubble.hidden == NO) {
+        
+        cell.isSelectedBubble.hidden = YES;
+        
+        NSDictionary* attributes = @{
+                                    NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]
+                                    };
+        
+        NSAttributedString* attrText = [[NSAttributedString alloc] initWithString:cell.itemName.text attributes:attributes];
+        cell.itemName.attributedText = attrText;
+        
+    } else {
+        
+        cell.isSelectedBubble.hidden = NO;
+        
+        NSDictionary* attributes = @{
+                                    NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleNone]
+                                    };
+        
+        NSAttributedString* attrText = [[NSAttributedString alloc] initWithString:cell.itemName.text attributes:attributes];
+        cell.itemName.attributedText = attrText;
+        
+    }
 }
 
 /*

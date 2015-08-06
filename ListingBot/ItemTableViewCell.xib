@@ -22,6 +22,12 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2m-99-qYy">
+                        <rect key="frame" x="38" y="11" width="235" height="21"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                        <color key="textColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25Y-Gy-nYU" userLabel="Selection Square">
                         <rect key="frame" x="8" y="10" width="22" height="22"/>
                         <subviews>
@@ -48,29 +54,35 @@
                             <constraint firstAttribute="bottom" secondItem="aWY-tX-22w" secondAttribute="bottom" constant="1" id="vUE-Wp-ckB"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2m-99-qYy">
-                        <rect key="frame" x="38" y="11" width="235" height="21"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                        <color key="textColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.99102753590000003" blue="0.93783374529999997" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="3nl-oS-dLG" secondAttribute="bottom" constant="4" id="KSj-jf-Rek"/>
+                    <constraint firstItem="25Y-Gy-nYU" firstAttribute="top" secondItem="3nl-oS-dLG" secondAttribute="top" id="O40-y8-8kF"/>
+                    <constraint firstItem="25Y-Gy-nYU" firstAttribute="bottom" secondItem="K2m-99-qYy" secondAttribute="bottom" id="P23-Gh-ESN"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3nl-oS-dLG" secondAttribute="trailing" id="Un6-oH-S73"/>
+                    <constraint firstItem="K2m-99-qYy" firstAttribute="leading" secondItem="25Y-Gy-nYU" secondAttribute="trailing" constant="8" id="Uq4-r6-3W2"/>
                     <constraint firstItem="25Y-Gy-nYU" firstAttribute="top" secondItem="3nl-oS-dLG" secondAttribute="top" id="WyV-E5-P5y"/>
                     <constraint firstItem="K2m-99-qYy" firstAttribute="centerX" secondItem="jeb-Ps-2tM" secondAttribute="centerX" constant="-4.5" id="YVL-sy-kxx"/>
-                    <constraint firstItem="25Y-Gy-nYU" firstAttribute="bottom" secondItem="K2m-99-qYy" secondAttribute="bottom" id="c10-Ht-JLj"/>
+                    <constraint firstItem="25Y-Gy-nYU" firstAttribute="leading" secondItem="jeb-Ps-2tM" secondAttribute="leadingMargin" id="ffF-X5-8Di"/>
                     <constraint firstItem="K2m-99-qYy" firstAttribute="top" secondItem="jeb-Ps-2tM" secondAttribute="topMargin" constant="3" id="gke-pW-rU3"/>
-                    <constraint firstItem="K2m-99-qYy" firstAttribute="leading" secondItem="25Y-Gy-nYU" secondAttribute="trailing" constant="8" symbolic="YES" id="sgy-r0-YVb"/>
+                    <constraint firstItem="K2m-99-qYy" firstAttribute="leading" secondItem="25Y-Gy-nYU" secondAttribute="trailing" constant="27" id="sgy-r0-YVb"/>
                     <constraint firstItem="3nl-oS-dLG" firstAttribute="top" secondItem="jeb-Ps-2tM" secondAttribute="topMargin" constant="2" id="wEn-gl-BW3"/>
-                    <constraint firstItem="25Y-Gy-nYU" firstAttribute="leading" secondItem="jeb-Ps-2tM" secondAttribute="leadingMargin" id="ygE-vR-Bug"/>
+                    <constraint firstItem="25Y-Gy-nYU" firstAttribute="leading" secondItem="jeb-Ps-2tM" secondAttribute="leadingMargin" constant="-19" id="ygE-vR-Bug"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="WyV-E5-P5y"/>
+                        <exclude reference="ygE-vR-Bug"/>
+                        <exclude reference="sgy-r0-YVb"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="isSelectedBubble" destination="aWY-tX-22w" id="M9M-CT-Jub"/>
                 <outlet property="itemName" destination="K2m-99-qYy" id="BCu-Ac-0gc"/>
                 <outlet property="itemQuantity" destination="3nl-oS-dLG" id="DoA-EP-j0O"/>
+                <outlet property="selectionBubble" destination="25Y-Gy-nYU" id="lfe-x5-g0t"/>
             </connections>
         </tableViewCell>
     </objects>
