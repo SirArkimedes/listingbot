@@ -15,6 +15,10 @@
 
 #define kAnimation .5f
 
+#define UIColorFromRGB(rgbValue, ...) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+                                                    green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+                                                    blue:((float)(rgbValue & 0xFF))/255.0 alpha:__VA_ARGS__]
+
 typedef NS_ENUM(NSUInteger, cellType) {
     contentCell,
     seperatorCell,
@@ -203,27 +207,20 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (void)evaluateSelectionWithCell:(ItemsTableViewCell *)cell {
     
-    if ([self image:cell.selectionTriangle.image isEqualTo:[UIImage imageNamed:@"SelectionBubble_Open"]] == YES) {
+    if (CGSizeEqualToSize(cell.selectionTriangle.image.size, CGSizeZero)) {
         
-        cell.selectionTriangle.image = [UIImage imageNamed:@"SelectionBubble"];
-        
-        NSDictionary* attributes = @{
-                                    NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]
-                                    };
-        
-        NSAttributedString* attrText = [[NSAttributedString alloc] initWithString:cell.itemName.text attributes:attributes];
-        cell.itemName.attributedText = attrText;
+        [self setCellDone:cell];
         
     } else {
         
-        cell.selectionTriangle.image = [UIImage imageNamed:@"SelectionBubble_Open"];
+        cell.selectionTriangle.image = nil;
         
-        NSDictionary* attributes = @{
-                                    NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleNone]
-                                    };
-        
-        NSAttributedString* attrText = [[NSAttributedString alloc] initWithString:cell.itemName.text attributes:attributes];
-        cell.itemName.attributedText = attrText;
+//        NSDictionary* attributes = @{
+//                                    NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleNone]
+//                                    };
+//        
+//        NSAttributedString* attrText = [[NSAttributedString alloc] initWithString:cell.itemName.text attributes:attributes];
+//        cell.itemName.attributedText = attrText;
         
     }
 }
@@ -232,12 +229,13 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     cell.selectionTriangle.image = [UIImage imageNamed:@"SelectionBubble"];
     
-    NSDictionary* attributes = @{
-                                 NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]
-                                 };
+//    NSDictionary* attributes = @{
+//                                 NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]
+//                                 };
+//    
+//    NSAttributedString* attrText = [[NSAttributedString alloc] initWithString:cell.itemName.text attributes:attributes];
+//    cell.itemName.attributedText = attrText;
     
-    NSAttributedString* attrText = [[NSAttributedString alloc] initWithString:cell.itemName.text attributes:attributes];
-    cell.itemName.attributedText = attrText;
 }
 
 
