@@ -54,6 +54,7 @@
         self.addTextField.text = @"";
         self.quantityLabel.text = @"1";
         
+        // Pass the specific tableview for reloading
         UITableView *tableView = (UITableView *)self.superview.superview;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshTable" object:tableView userInfo:nil];

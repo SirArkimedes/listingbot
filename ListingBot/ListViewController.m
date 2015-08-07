@@ -134,7 +134,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     // Checks if the cell is completed or not and then modifies if needed.
     if (item.isDone)
-        [self evaluateSelectionWithCell:cell];
+        [self setCellDone:cell];
     
     // Forces some color somewhere to not be white, causing cells to have a white background.
     cell.backgroundColor = [UIColor clearColor];
@@ -227,6 +227,19 @@ typedef NS_ENUM(NSUInteger, cellType) {
         
     }
 }
+
+- (void)setCellDone:(ItemsTableViewCell *)cell {
+    
+    cell.selectionTriangle.image = [UIImage imageNamed:@"SelectionBubble"];
+    
+    NSDictionary* attributes = @{
+                                 NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]
+                                 };
+    
+    NSAttributedString* attrText = [[NSAttributedString alloc] initWithString:cell.itemName.text attributes:attributes];
+    cell.itemName.attributedText = attrText;
+}
+
 
 - (BOOL)image:(UIImage *)image1 isEqualTo:(UIImage *)image2 {
     NSData *data1 = UIImagePNGRepresentation(image1);
