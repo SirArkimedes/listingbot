@@ -59,7 +59,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
 }
 
 - (void)refreshTableWithNotification:(NSNotification *)notification {
-    [self.itemTable reloadData];
+    [[notification object] reloadData];
 }
 
 #pragma mark - Table View Delegates

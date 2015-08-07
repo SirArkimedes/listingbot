@@ -54,7 +54,9 @@
         self.addTextField.text = @"";
         self.quantityLabel.text = @"1";
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshTable" object:nil userInfo:nil];
+        UITableView *tableView = (UITableView *)self.superview.superview;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshTable" object:tableView userInfo:nil];
         
         return YES;
     }
