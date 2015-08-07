@@ -11,5 +11,9 @@
 @interface AddFieldTableViewCell : UITableViewCell <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *addTextField;
+@property (weak, nonatomic) IBOutlet UILabel *quantityLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *addQuantity;
+@property (weak, nonatomic) IBOutlet UIButton *subtractQuantity;
 
 @end

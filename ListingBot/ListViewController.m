@@ -203,9 +203,9 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (void)evaluateSelectionWithCell:(ItemsTableViewCell *)cell {
     
-    if (cell.isSelectedBubble.hidden == NO) {
+    if ([self image:cell.selectionTriangle.image isEqualTo:[UIImage imageNamed:@"SelectionBubble_Open"]] == YES) {
         
-        cell.isSelectedBubble.hidden = YES;
+        cell.selectionTriangle.image = [UIImage imageNamed:@"SelectionBubble"];
         
         NSDictionary* attributes = @{
                                     NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]
@@ -216,7 +216,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
         
     } else {
         
-        cell.isSelectedBubble.hidden = NO;
+        cell.selectionTriangle.image = [UIImage imageNamed:@"SelectionBubble_Open"];
         
         NSDictionary* attributes = @{
                                     NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleNone]
@@ -226,6 +226,13 @@ typedef NS_ENUM(NSUInteger, cellType) {
         cell.itemName.attributedText = attrText;
         
     }
+}
+
+- (BOOL)image:(UIImage *)image1 isEqualTo:(UIImage *)image2 {
+    NSData *data1 = UIImagePNGRepresentation(image1);
+    NSData *data2 = UIImagePNGRepresentation(image2);
+    
+    return [data1 isEqual:data2];
 }
 
 /*

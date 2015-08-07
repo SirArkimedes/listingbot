@@ -21,7 +21,7 @@
     
     // Change this.
     UIColor *color = [UIColor colorWithWhite:1 alpha:.75f];
-    self.addTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Add new item" attributes:@{NSForegroundColorAttributeName: color}];
+    self.addTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Add item" attributes:@{NSForegroundColorAttributeName: color}];
     
 }
 
@@ -46,15 +46,38 @@
         // Using the view's tag with matching array index, get the list.
         List *list = [[User instance].lists objectAtIndex:self.superview.superview.superview.tag];
         
-        Item *newItem = [[Item alloc] initWithName:textField.text withQuantity:[NSNumber numberWithInt:1]];
+        int quantity = [self.quantityLabel.text intValue];
+        
+        Item *newItem = [[Item alloc] initWithName:textField.text withQuantity:[NSNumber numberWithInt:quantity]];
         [list.listItems addObject:newItem];
         
         self.addTextField.text = @"";
+        self.quantityLabel.text = @"1";
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshTable" object:nil userInfo:nil];
         
         return YES;
     }
+}
+
+- (IBAction)addQuantity:(id)sender {
+    
+    int quantity = [self.quantityLabel.text intValue];
+    quantity++;
+    
+    if (quantity <= 999)
+        self.quantityLabel.text = [NSString stringWithFormat:@"%d", quantity];
+    
+}
+
+- (IBAction)subtractQuantity:(id)sender {
+    
+    int quantity = [self.quantityLabel.text intValue];
+    quantity--;
+    
+    if (quantity > 0)
+        self.quantityLabel.text = [NSString stringWithFormat:@"%d", quantity];
+    
 }
 
 @end

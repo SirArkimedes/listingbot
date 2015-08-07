@@ -15,5 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UIView *selectionBubble;
 @property (weak, nonatomic) IBOutlet UIView *isSelectedBubble;
+@property (weak, nonatomic) IBOutlet UIImageView *selectionTriangle;
 
 @end
