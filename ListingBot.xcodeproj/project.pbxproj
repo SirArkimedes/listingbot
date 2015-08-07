@@ -11,14 +11,12 @@
 		4D13DBE51B6C28740025B8F7 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D13DBE41B6C28740025B8F7 /* List.m */; };
 		4D13DBE81B6C2A140025B8F7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D13DBE71B6C2A140025B8F7 /* Item.m */; };
 		4D14EDCB1B70528000DCFADC /* AddFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D14EDCA1B70528000DCFADC /* AddFieldTableViewCell.m */; };
-		4D154D061B69F4FA00E41E30 /* NewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D154D051B69F4FA00E41E30 /* NewListViewController.m */; };
 		4D170DF91B62E95E00EB0414 /* ListsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D170DF81B62E95E00EB0414 /* ListsTableViewCell.m */; };
 		4D1797681B700F5800140911 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D1797671B700F5800140911 /* TextFieldCell.xib */; };
 		4D239A351B6BCA25009DAC63 /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D239A341B6BCA25009DAC63 /* ListView.xib */; };
 		4D239A381B6BCA45009DAC63 /* ScrollNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D239A371B6BCA45009DAC63 /* ScrollNavigationViewController.m */; };
 		4D239A3C1B6BCAF8009DAC63 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */; };
 		4D2487071B599FB400845722 /* Basic_tick_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2487061B599FB400845722 /* Basic_tick_64.png */; };
-		4D2659381B5B66380007ABA4 /* MainListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2659371B5B66380007ABA4 /* MainListViewController.m */; };
 		4D3D281B1B558E5C00D12090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281A1B558E5C00D12090 /* main.m */; };
 		4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281D1B558E5C00D12090 /* AppDelegate.m */; };
 		4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281F1B558E5C00D12090 /* ListingBot.xcdatamodeld */; };
@@ -68,8 +66,6 @@
 		4D13DBE71B6C2A140025B8F7 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		4D14EDC91B70528000DCFADC /* AddFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFieldTableViewCell.h; sourceTree = "<group>"; };
 		4D14EDCA1B70528000DCFADC /* AddFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFieldTableViewCell.m; sourceTree = "<group>"; };
-		4D154D041B69F4FA00E41E30 /* NewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewListViewController.h; sourceTree = "<group>"; };
-		4D154D051B69F4FA00E41E30 /* NewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewListViewController.m; sourceTree = "<group>"; };
 		4D170DF71B62E95E00EB0414 /* ListsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListsTableViewCell.h; sourceTree = "<group>"; };
 		4D170DF81B62E95E00EB0414 /* ListsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListsTableViewCell.m; sourceTree = "<group>"; };
 		4D1797671B700F5800140911 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
@@ -79,8 +75,6 @@
 		4D239A3A1B6BCAF8009DAC63 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		4D2487061B599FB400845722 /* Basic_tick_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Basic_tick_64.png; sourceTree = "<group>"; };
-		4D2659361B5B66380007ABA4 /* MainListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainListViewController.h; sourceTree = "<group>"; };
-		4D2659371B5B66380007ABA4 /* MainListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainListViewController.m; sourceTree = "<group>"; };
 		4D3D28151B558E5C00D12090 /* ListingBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListingBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3D28191B558E5C00D12090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D3D281A1B558E5C00D12090 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -229,10 +223,6 @@
 				4D3D28251B558E5C00D12090 /* Main.storyboard */,
 				4D3D281C1B558E5C00D12090 /* AppDelegate.h */,
 				4D3D281D1B558E5C00D12090 /* AppDelegate.m */,
-				4D2659361B5B66380007ABA4 /* MainListViewController.h */,
-				4D2659371B5B66380007ABA4 /* MainListViewController.m */,
-				4D154D041B69F4FA00E41E30 /* NewListViewController.h */,
-				4D154D051B69F4FA00E41E30 /* NewListViewController.m */,
 				4D170DF31B62E91300EB0414 /* Cells */,
 				4D3D28411B55946900D12090 /* ListingsViewController.h */,
 				4D3D28421B55946900D12090 /* ListingsViewController.m */,
@@ -434,13 +424,11 @@
 				4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */,
 				4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */,
 				4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */,
-				4D154D061B69F4FA00E41E30 /* NewListViewController.m in Sources */,
 				4D3D281B1B558E5C00D12090 /* main.m in Sources */,
 				4D3D28431B55946900D12090 /* ListingsViewController.m in Sources */,
 				4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */,
 				4D13DBE51B6C28740025B8F7 /* List.m in Sources */,
 				4DC8B88C1B55E852003F7777 /* InfoViewController.m in Sources */,
-				4D2659381B5B66380007ABA4 /* MainListViewController.m in Sources */,
 				4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */,
 				4D239A3C1B6BCAF8009DAC63 /* ListViewController.m in Sources */,
 				4D239A381B6BCA45009DAC63 /* ScrollNavigationViewController.m in Sources */,
