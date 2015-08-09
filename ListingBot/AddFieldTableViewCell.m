@@ -31,6 +31,8 @@
     // Configure the view for the selected state
 }
 
+#pragma mark - Textfield delegates
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     // Is Empty?
@@ -61,6 +63,29 @@
         
         return YES;
     }
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    List *list = [[User instance].lists objectAtIndex:self.superview.superview.superview.tag];
+
+    
+    UITableView *tableView = (UITableView *)self.superview.superview;
+
+    tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.frame.size.height - 250);
+    NSIndexPath *indexPath =[NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    List *list = [[User instance].lists objectAtIndex:self.superview.superview.superview.tag];
+    
+    UITableView *tableView = (UITableView *)self.superview.superview;
+    
+    tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.frame.size.height + 250);
+    NSIndexPath *indexPath =[NSIndexPath indexPathForRow:2 * list.listItems.count - 2 inSection:0];
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
 }
 
 - (IBAction)addQuantity:(id)sender {
