@@ -8,6 +8,7 @@
 
 #import "ListViewController.h"
 #import "ItemsTableViewCell.h"
+#import "ScrollNavigationViewController.h"
 
 #import "User.h"
 #import "List.h"
@@ -64,6 +65,24 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (void)refreshTableWithNotification:(NSNotification *)notification {
     [[notification object] reloadData];
+}
+
+#pragma mark - Buttons
+
+- (IBAction)listSettingsPress:(id)sender {
+    
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc = (UIViewController *)[storybord instantiateViewControllerWithIdentifier:@"settings"];
+    [self presentViewController:vc animated:YES completion:nil];
+    
+}
+
+- (IBAction)listSharePress:(id)sender {
+    
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc = (UIViewController *)[storybord instantiateViewControllerWithIdentifier:@"share"];
+    [self presentViewController:vc animated:YES completion:nil];
+    
 }
 
 #pragma mark - Table View Delegates
