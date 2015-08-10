@@ -139,6 +139,8 @@ typedef NS_ENUM(NSUInteger, cellType) {
     // Checks if the cell is completed or not and then modifies if needed.
     if (item.isDone)
         [self setCellDone:cell];
+    else
+        cell.selectionTriangle.image = nil;
     
     // Forces some color somewhere to not be white, causing cells to have a white background.
     cell.backgroundColor = [UIColor clearColor];

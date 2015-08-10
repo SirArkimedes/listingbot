@@ -66,24 +66,32 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    // Move the table above the keyboard.
     List *list = [[User instance].lists objectAtIndex:self.superview.superview.superview.tag];
 
-    
     UITableView *tableView = (UITableView *)self.superview.superview;
 
     tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.frame.size.height - 250);
-    NSIndexPath *indexPath =[NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    // Move the table back to the original position.
+    [self performSelector:@selector(moveTableBack) withObject:nil afterDelay:.1f];
+    
+}
+
+- (void)moveTableBack {
     
     List *list = [[User instance].lists objectAtIndex:self.superview.superview.superview.tag];
     
     UITableView *tableView = (UITableView *)self.superview.superview;
     
     tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.frame.size.height + 250);
-    NSIndexPath *indexPath =[NSIndexPath indexPathForRow:2 * list.listItems.count - 2 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
 }
