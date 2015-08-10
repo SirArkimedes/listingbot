@@ -34,7 +34,7 @@
 - (IBAction)sharePress:(id)sender {
     
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = @"listapp.com/122134234114321";
+    pasteboard.string = self.shareButton.titleLabel.text;
     
 }
 
