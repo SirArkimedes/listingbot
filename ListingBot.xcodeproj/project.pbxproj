@@ -45,6 +45,7 @@
 		4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8841B55AA6A003F7777 /* FirstLaunchViewController.m */; };
 		4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */; };
 		4DC8B88C1B55E852003F7777 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B88B1B55E852003F7777 /* InfoViewController.m */; };
+		4DD0A7CC1B7BE59200F93D27 /* ListSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareCodeViewController.m; sourceTree = "<group>"; };
 		4DC8B88A1B55E852003F7777 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		4DC8B88B1B55E852003F7777 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		4DD0A7CA1B7BE59200F93D27 /* ListSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListSettingsViewController.h; sourceTree = "<group>"; };
+		4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListSettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,22 +165,23 @@
 		4D239A331B6BC968009DAC63 /* Scroll Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				4D239A391B6BCAE4009DAC63 /* Views */,
+				4D239A391B6BCAE4009DAC63 /* Embedded Views */,
+				4DD0A7C61B7BDA9F00F93D27 /* Supporting Views */,
 				4D239A361B6BCA45009DAC63 /* ScrollNavigationViewController.h */,
 				4D239A371B6BCA45009DAC63 /* ScrollNavigationViewController.m */,
 			);
 			name = "Scroll Navigation";
 			sourceTree = "<group>";
 		};
-		4D239A391B6BCAE4009DAC63 /* Views */ = {
+		4D239A391B6BCAE4009DAC63 /* Embedded Views */ = {
 			isa = PBXGroup;
 			children = (
-				4DA7484A1B6DE83D0090A86E /* TableView */,
+				4DA7484A1B6DE83D0090A86E /* TableViewCells */,
 				4D239A341B6BCA25009DAC63 /* ListView.xib */,
 				4D239A3A1B6BCAF8009DAC63 /* ListViewController.h */,
 				4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */,
 			);
-			name = Views;
+			name = "Embedded Views";
 			sourceTree = "<group>";
 		};
 		4D2487051B599FA000845722 /* Resources */ = {
@@ -216,8 +220,6 @@
 				4D3D281D1B558E5C00D12090 /* AppDelegate.m */,
 				4D3D28411B55946900D12090 /* ListingsViewController.h */,
 				4D3D28421B55946900D12090 /* ListingsViewController.m */,
-				4D111E7E1B79601B00FB06EF /* ShareListViewController.h */,
-				4D111E7F1B79601B00FB06EF /* ShareListViewController.m */,
 				4DC8B8861B55CAAC003F7777 /* FirstLaunch */,
 				4D3D28281B558E5C00D12090 /* Images.xcassets */,
 				4D3D282A1B558E5C00D12090 /* LaunchScreen.xib */,
@@ -277,7 +279,7 @@
 			path = ListingBot.xcodeproj;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DA7484A1B6DE83D0090A86E /* TableView */ = {
+		4DA7484A1B6DE83D0090A86E /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */,
@@ -288,7 +290,7 @@
 				4D14EDC91B70528000DCFADC /* AddFieldTableViewCell.h */,
 				4D14EDCA1B70528000DCFADC /* AddFieldTableViewCell.m */,
 			);
-			name = TableView;
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 		4DC8B8861B55CAAC003F7777 /* FirstLaunch */ = {
@@ -302,6 +304,17 @@
 				4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */,
 			);
 			name = FirstLaunch;
+			sourceTree = "<group>";
+		};
+		4DD0A7C61B7BDA9F00F93D27 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				4D111E7E1B79601B00FB06EF /* ShareListViewController.h */,
+				4D111E7F1B79601B00FB06EF /* ShareListViewController.m */,
+				4DD0A7CA1B7BE59200F93D27 /* ListSettingsViewController.h */,
+				4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */,
+			);
+			name = "Supporting Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +427,7 @@
 				4D13DBE81B6C2A140025B8F7 /* Item.m in Sources */,
 				4D11D45C1B58CC1F002D73A0 /* User.m in Sources */,
 				4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */,
+				4DD0A7CC1B7BE59200F93D27 /* ListSettingsViewController.m in Sources */,
 				4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */,
 				4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */,
 				4D3D281B1B558E5C00D12090 /* main.m in Sources */,
