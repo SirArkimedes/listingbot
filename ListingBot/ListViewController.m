@@ -31,6 +31,10 @@ typedef NS_ENUM(NSUInteger, cellType) {
 @property (weak, nonatomic) IBOutlet UITableView *itemTable;
 @property (weak, nonatomic) IBOutlet UIView *navigationView;
 
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+
+@property BOOL editing;
+
 @end
 
 @implementation ListViewController
@@ -43,6 +47,9 @@ typedef NS_ENUM(NSUInteger, cellType) {
     self.itemTable.dataSource = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshTable" object:nil];
+    
+    // Initialize with no editing.
+    self.editing = NO;
     
 //    self.navigationView.layer.shadowOffset = CGSizeMake(0, 5);
 //    self.navigationView.layer.shadowRadius = 20;
@@ -65,6 +72,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (void)refreshTableWithNotification:(NSNotification *)notification {
     [[notification object] reloadData];
+    [[notification object] setEditing:NO animated:YES];
 }
 
 #pragma mark - Buttons
@@ -82,6 +90,15 @@ typedef NS_ENUM(NSUInteger, cellType) {
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *vc = (UIViewController *)[storybord instantiateViewControllerWithIdentifier:@"share"];
     [self presentViewController:vc animated:YES completion:nil];
+    
+}
+
+- (IBAction)editAction:(id)sender {
+    
+    if (self.editing)
+        [self setEditing:NO animated:YES];
+    else
+        [self setEditing:YES animated:YES];
     
 }
 
@@ -154,7 +171,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     cell.itemName.text = item.itemName;
     cell.itemQuantity.text = [NSString stringWithFormat:@"%@", item.quantity];
-    
+        
     // Checks if the cell is completed or not and then modifies if needed.
     if (item.isDone)
         [self setCellDone:cell];
@@ -197,6 +214,58 @@ typedef NS_ENUM(NSUInteger, cellType) {
         default:
             return 44.f;
             break;
+    }
+    
+}
+
+// MARK - TABLE EDITING
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // Detemine if it's in editing mode
+    if (self.itemTable.editing)
+        return UITableViewCellEditingStyleDelete;
+    
+    return UITableViewCellEditingStyleNone;
+    
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    switch ([self typeForRowAtIndexPath:indexPath]) {
+        case contentCell:
+            return YES;
+            break;
+        case seperatorCell:
+            return NO;
+            break;
+        case textFieldCell:
+            return NO;
+            break;
+        default:
+            return NO;
+            break;
+    }
+    
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // CODE
+    }
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    
+    [super setEditing:editing animated:animated];
+    [self.itemTable setEditing:editing animated:YES];
+    
+    if (editing) {
+        [self.editButton setTitle:@"Done" forState:UIControlStateNormal];
+        self.editing = YES;
+    } else {
+        [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
+        self.editing = NO;
     }
     
 }
