@@ -225,7 +225,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Detemine if it's in editing mode
+    // Disable swipe to delete
     if (self.itemTable.editing)
         return UITableViewCellEditingStyleDelete;
     
@@ -298,19 +298,31 @@ typedef NS_ENUM(NSUInteger, cellType) {
         
         ItemsTableViewCell *cell = (ItemsTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
         
-        [self evaluateSelectionWithCell:cell];
+        [self evaluateSelectionWithCell:cell withIndexPath:indexPath];
         
     }
     
 }
 
-- (void)evaluateSelectionWithCell:(ItemsTableViewCell *)cell {
+- (void)evaluateSelectionWithCell:(ItemsTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
     
     if (CGSizeEqualToSize(cell.selectionTriangle.image.size, CGSizeZero)) {
+        
+        // Using the view's tag with matching array index, get the list.
+        List *list = [[User instance].lists objectAtIndex:self.view.tag];
+        Item *item = [list.listItems objectAtIndex:indexPath.row/2];
+        
+        item.isDone = YES;
         
         [self setCellDone:cell];
         
     } else {
+        
+        // Using the view's tag with matching array index, get the list.
+        List *list = [[User instance].lists objectAtIndex:self.view.tag];
+        Item *item = [list.listItems objectAtIndex:indexPath.row/2];
+        
+        item.isDone = NO;
         
         cell.selectionTriangle.image = nil;
         
