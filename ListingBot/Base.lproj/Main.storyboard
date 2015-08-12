@@ -31,8 +31,8 @@
                     </view>
                     <connections>
                         <outlet property="scrollNavigation" destination="P8C-p6-3Ss" id="eiF-nX-iXv"/>
-                        <segue destination="EUS-CD-qPz" kind="show" identifier="" id="dgj-0X-Qe0"/>
-                        <segue destination="r89-ch-YRx" kind="show" id="AzA-HI-lmh"/>
+                        <segue destination="EUS-CD-qPz" kind="show" identifier="settingsSegue" id="dgj-0X-Qe0"/>
+                        <segue destination="r89-ch-YRx" kind="show" identifier="shareSegue" id="AzA-HI-lmh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBG-vh-clv" userLabel="First Responder" sceneMemberID="firstResponder"/>
