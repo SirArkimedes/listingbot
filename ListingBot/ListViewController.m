@@ -254,7 +254,13 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // CODE
+        // Using the view's tag with matching array index, get the list.
+        List *list = [[User instance].lists objectAtIndex:self.view.tag];
+        
+        [list.listItems removeObjectAtIndex:indexPath.row/2];
+        
+        [tableView reloadData];
+        
     }
 }
 
