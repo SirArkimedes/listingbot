@@ -175,8 +175,11 @@ typedef NS_ENUM(NSUInteger, cellType) {
     // Checks if the cell is completed or not and then modifies if needed.
     if (item.isDone)
         [self setCellDone:cell];
-    else
+    else {
         cell.selectionTriangle.image = nil;
+        cell.doneWidthCon.constant = 0;
+    }
+    
     
     // Forces some color somewhere to not be white, causing cells to have a white background.
     cell.backgroundColor = UIColorFromRGB(0xFFFDEC, 1);
@@ -305,6 +308,15 @@ typedef NS_ENUM(NSUInteger, cellType) {
         
         cell.selectionTriangle.image = nil;
         
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:kAnimation/2];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        
+        cell.doneWidthCon.constant = 0;
+        [cell layoutIfNeeded];
+        
+        [UIView commitAnimations];
+        
 //        NSDictionary* attributes = @{
 //                                    NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleNone]
 //                                    };
@@ -318,6 +330,15 @@ typedef NS_ENUM(NSUInteger, cellType) {
 - (void)setCellDone:(ItemsTableViewCell *)cell {
     
     cell.selectionTriangle.image = [UIImage imageNamed:@"SelectionBubble"];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation/2];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    cell.doneWidthCon.constant = 21;
+    [cell layoutIfNeeded];
+    
+    [UIView commitAnimations];
     
 //    NSDictionary* attributes = @{
 //                                 NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]

@@ -10,6 +10,8 @@
 
 @interface ItemsTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *doneWidthCon;
+
 @property (weak, nonatomic) IBOutlet UILabel *itemName;
 @property (weak, nonatomic) IBOutlet UILabel *itemQuantity;
 
