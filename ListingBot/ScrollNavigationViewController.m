@@ -10,6 +10,7 @@
 
 #import <Parse/Parse.h>
 #import "ListViewController.h"
+#import "FarLeftViewController.h"
 
 #import "User.h"
 #import "List.h"
@@ -36,7 +37,7 @@ typedef enum ScrollDirection {
     
     self.scrollNavigation.delegate = self;
     
-    UIViewController *farLeft = [[UIViewController alloc] initWithNibName:@"FarLeftView" bundle:nil];
+    FarLeftViewController *farLeft = [[FarLeftViewController alloc] initWithNibName:@"FarLeftView" bundle:nil];
     
     farLeft.view.tag = -1;
     

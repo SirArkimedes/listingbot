@@ -39,7 +39,6 @@
 		4D3D285C1B5596E700D12090 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D285B1B5596E700D12090 /* libz.dylib */; };
 		4D3D285E1B5596F200D12090 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D285D1B5596F200D12090 /* libsqlite3.dylib */; };
 		4D76D4FE1B7D76B50031E533 /* FarLeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D76D4FD1B7D76B50031E533 /* FarLeftView.xib */; };
-		4D76D5011B7D99F30031E533 /* FarLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D76D5001B7D99F30031E533 /* FarLeftViewController.m */; };
 		4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */; };
 		4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */; };
 		4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA7484E1B6DEF800090A86E /* SeperatorTableViewCell.xib */; };
@@ -48,6 +47,8 @@
 		4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */; };
 		4DC8B88C1B55E852003F7777 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B88B1B55E852003F7777 /* InfoViewController.m */; };
 		4DD0A7CC1B7BE59200F93D27 /* ListSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */; };
+		4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */; };
+		4DD350461B7E9A77009170F6 /* FarLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD350451B7E9A77009170F6 /* FarLeftViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,8 +107,6 @@
 		4D3D285B1B5596E700D12090 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4D3D285D1B5596F200D12090 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4D76D4FD1B7D76B50031E533 /* FarLeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FarLeftView.xib; sourceTree = "<group>"; };
-		4D76D4FF1B7D99F30031E533 /* FarLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FarLeftViewController.h; sourceTree = "<group>"; };
-		4D76D5001B7D99F30031E533 /* FarLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FarLeftViewController.m; sourceTree = "<group>"; };
 		4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsTableViewCell.h; sourceTree = "<group>"; };
 		4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsTableViewCell.m; sourceTree = "<group>"; };
@@ -121,6 +120,9 @@
 		4DC8B88B1B55E852003F7777 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		4DD0A7CA1B7BE59200F93D27 /* ListSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListSettingsViewController.h; sourceTree = "<group>"; };
 		4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListSettingsViewController.m; sourceTree = "<group>"; };
+		4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeCell.xib; sourceTree = "<group>"; };
+		4DD350441B7E9A77009170F6 /* FarLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FarLeftViewController.h; sourceTree = "<group>"; };
+		4DD350451B7E9A77009170F6 /* FarLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FarLeftViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,13 +183,14 @@
 		4D239A391B6BCAE4009DAC63 /* Embedded Views */ = {
 			isa = PBXGroup;
 			children = (
-				4DA7484A1B6DE83D0090A86E /* TableViewCells */,
 				4D239A341B6BCA25009DAC63 /* ListView.xib */,
 				4D239A3A1B6BCAF8009DAC63 /* ListViewController.h */,
 				4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */,
+				4DA7484A1B6DE83D0090A86E /* ListViewTableViewCells */,
 				4D76D4FD1B7D76B50031E533 /* FarLeftView.xib */,
-				4D76D4FF1B7D99F30031E533 /* FarLeftViewController.h */,
-				4D76D5001B7D99F30031E533 /* FarLeftViewController.m */,
+				4DD350441B7E9A77009170F6 /* FarLeftViewController.h */,
+				4DD350451B7E9A77009170F6 /* FarLeftViewController.m */,
+				4DD3503E1B7E8FA5009170F6 /* FarLeftTableViewCells */,
 			);
 			name = "Embedded Views";
 			sourceTree = "<group>";
@@ -287,7 +290,7 @@
 			path = ListingBot.xcodeproj;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DA7484A1B6DE83D0090A86E /* TableViewCells */ = {
+		4DA7484A1B6DE83D0090A86E /* ListViewTableViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */,
@@ -298,7 +301,7 @@
 				4D14EDC91B70528000DCFADC /* AddFieldTableViewCell.h */,
 				4D14EDCA1B70528000DCFADC /* AddFieldTableViewCell.m */,
 			);
-			name = TableViewCells;
+			name = ListViewTableViewCells;
 			sourceTree = "<group>";
 		};
 		4DC8B8861B55CAAC003F7777 /* FirstLaunch */ = {
@@ -323,6 +326,14 @@
 				4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */,
 			);
 			name = "Supporting Views";
+			sourceTree = "<group>";
+		};
+		4DD3503E1B7E8FA5009170F6 /* FarLeftTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */,
+			);
+			name = FarLeftTableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,6 +421,7 @@
 				4D3D28271B558E5C00D12090 /* Main.storyboard in Resources */,
 				4D1797681B700F5800140911 /* TextFieldCell.xib in Resources */,
 				4D239A351B6BCA25009DAC63 /* ListView.xib in Resources */,
+				4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */,
 				4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */,
 				4D76D4FE1B7D76B50031E533 /* FarLeftView.xib in Resources */,
 				4D3D282C1B558E5C00D12090 /* LaunchScreen.xib in Resources */,
@@ -442,7 +454,7 @@
 				4D3D281B1B558E5C00D12090 /* main.m in Sources */,
 				4D3D28431B55946900D12090 /* ListingsViewController.m in Sources */,
 				4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */,
-				4D76D5011B7D99F30031E533 /* FarLeftViewController.m in Sources */,
+				4DD350461B7E9A77009170F6 /* FarLeftViewController.m in Sources */,
 				4D13DBE51B6C28740025B8F7 /* List.m in Sources */,
 				4DC8B88C1B55E852003F7777 /* InfoViewController.m in Sources */,
 				4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */,
