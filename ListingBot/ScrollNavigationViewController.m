@@ -36,6 +36,14 @@ typedef enum ScrollDirection {
     
     self.scrollNavigation.delegate = self;
     
+    UIViewController *farLeft = [[UIViewController alloc] initWithNibName:@"FarLeftView" bundle:nil];
+    
+    farLeft.view.tag = -1;
+    
+    [self addChildViewController:farLeft];
+    [self.scrollNavigation addSubview:farLeft.view];
+    [farLeft didMoveToParentViewController:self];
+    
     // Generate views based on how many lists we have.
     for (int i = 1; i <= [[User instance].lists count]; i++) {
         
@@ -51,18 +59,16 @@ typedef enum ScrollDirection {
         listView.listTitle.text = list.listName;
         listView.view.tag = i - 1;
         
-        // Spacially places the new view inside of the scrollview.
-        if (i > 1) {
-            
-            CGRect listFrame = listView.view.frame;
-            listFrame.origin.x = (i - 1) * self.view.frame.size.width;
-            listView.view.frame = listFrame;
-            
-        }
+        // Spacially places the new view inside of the scrollview
+        CGRect listFrame = listView.view.frame;
+        listFrame.origin.x = (i) * self.view.frame.size.width;
+        listView.view.frame = listFrame;
         
     }
     
-    CGFloat scrollWidth = [[User instance].lists count] * self.view.frame.size.width;
+//    [self.scrollNavigation setContentOffset:CGPointMake(self.view.frame.size.width, 0) animated:YES];
+    
+    CGFloat scrollWidth = ([[User instance].lists count] + 1) * self.view.frame.size.width;
     CGFloat scrollHeight = self.view.frame.size.height;
     self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
     

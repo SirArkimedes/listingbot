@@ -38,6 +38,8 @@
 		4D3D285A1B5596DD00D12090 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D28591B5596DD00D12090 /* SystemConfiguration.framework */; };
 		4D3D285C1B5596E700D12090 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D285B1B5596E700D12090 /* libz.dylib */; };
 		4D3D285E1B5596F200D12090 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D285D1B5596F200D12090 /* libsqlite3.dylib */; };
+		4D76D4FE1B7D76B50031E533 /* FarLeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D76D4FD1B7D76B50031E533 /* FarLeftView.xib */; };
+		4D76D5011B7D99F30031E533 /* FarLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D76D5001B7D99F30031E533 /* FarLeftViewController.m */; };
 		4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */; };
 		4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */; };
 		4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA7484E1B6DEF800090A86E /* SeperatorTableViewCell.xib */; };
@@ -103,6 +105,9 @@
 		4D3D28591B5596DD00D12090 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4D3D285B1B5596E700D12090 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4D3D285D1B5596F200D12090 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		4D76D4FD1B7D76B50031E533 /* FarLeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FarLeftView.xib; sourceTree = "<group>"; };
+		4D76D4FF1B7D99F30031E533 /* FarLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FarLeftViewController.h; sourceTree = "<group>"; };
+		4D76D5001B7D99F30031E533 /* FarLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FarLeftViewController.m; sourceTree = "<group>"; };
 		4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsTableViewCell.h; sourceTree = "<group>"; };
 		4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsTableViewCell.m; sourceTree = "<group>"; };
@@ -180,6 +185,9 @@
 				4D239A341B6BCA25009DAC63 /* ListView.xib */,
 				4D239A3A1B6BCAF8009DAC63 /* ListViewController.h */,
 				4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */,
+				4D76D4FD1B7D76B50031E533 /* FarLeftView.xib */,
+				4D76D4FF1B7D99F30031E533 /* FarLeftViewController.h */,
+				4D76D5001B7D99F30031E533 /* FarLeftViewController.m */,
 			);
 			name = "Embedded Views";
 			sourceTree = "<group>";
@@ -403,6 +411,7 @@
 				4D1797681B700F5800140911 /* TextFieldCell.xib in Resources */,
 				4D239A351B6BCA25009DAC63 /* ListView.xib in Resources */,
 				4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */,
+				4D76D4FE1B7D76B50031E533 /* FarLeftView.xib in Resources */,
 				4D3D282C1B558E5C00D12090 /* LaunchScreen.xib in Resources */,
 				4D2487071B599FB400845722 /* Basic_tick_64.png in Resources */,
 				4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */,
@@ -433,6 +442,7 @@
 				4D3D281B1B558E5C00D12090 /* main.m in Sources */,
 				4D3D28431B55946900D12090 /* ListingsViewController.m in Sources */,
 				4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */,
+				4D76D5011B7D99F30031E533 /* FarLeftViewController.m in Sources */,
 				4D13DBE51B6C28740025B8F7 /* List.m in Sources */,
 				4DC8B88C1B55E852003F7777 /* InfoViewController.m in Sources */,
 				4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */,
