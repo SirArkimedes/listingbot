@@ -46,6 +46,7 @@
 		4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8841B55AA6A003F7777 /* FirstLaunchViewController.m */; };
 		4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */; };
 		4DC8B88C1B55E852003F7777 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B88B1B55E852003F7777 /* InfoViewController.m */; };
+		4DCD2B061B7EF7A1007B2146 /* NewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD2B051B7EF7A1007B2146 /* NewListViewController.m */; };
 		4DD0A7CC1B7BE59200F93D27 /* ListSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */; };
 		4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */; };
 		4DD350461B7E9A77009170F6 /* FarLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD350451B7E9A77009170F6 /* FarLeftViewController.m */; };
@@ -118,6 +119,8 @@
 		4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareCodeViewController.m; sourceTree = "<group>"; };
 		4DC8B88A1B55E852003F7777 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		4DC8B88B1B55E852003F7777 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		4DCD2B041B7EF7A1007B2146 /* NewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewListViewController.h; sourceTree = "<group>"; };
+		4DCD2B051B7EF7A1007B2146 /* NewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewListViewController.m; sourceTree = "<group>"; };
 		4DD0A7CA1B7BE59200F93D27 /* ListSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListSettingsViewController.h; sourceTree = "<group>"; };
 		4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListSettingsViewController.m; sourceTree = "<group>"; };
 		4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeCell.xib; sourceTree = "<group>"; };
@@ -324,6 +327,8 @@
 				4D111E7F1B79601B00FB06EF /* ShareListViewController.m */,
 				4DD0A7CA1B7BE59200F93D27 /* ListSettingsViewController.h */,
 				4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */,
+				4DCD2B041B7EF7A1007B2146 /* NewListViewController.h */,
+				4DCD2B051B7EF7A1007B2146 /* NewListViewController.m */,
 			);
 			name = "Supporting Views";
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */,
 				4D239A3C1B6BCAF8009DAC63 /* ListViewController.m in Sources */,
 				4D239A381B6BCA45009DAC63 /* ScrollNavigationViewController.m in Sources */,
+				4DCD2B061B7EF7A1007B2146 /* NewListViewController.m in Sources */,
 				4D14EDCB1B70528000DCFADC /* AddFieldTableViewCell.m in Sources */,
 				4D111E801B79601B00FB06EF /* ShareListViewController.m in Sources */,
 			);
