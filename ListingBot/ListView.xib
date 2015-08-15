@@ -51,7 +51,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="37" id="t8Y-Yc-wr4"/>
                             </constraints>
-                            <state key="normal" image="Gear">
+                            <state key="normal" image="gear">
                                 <color key="titleColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -113,6 +113,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Gear" width="24" height="24"/>
+        <image name="gear" width="24" height="24"/>
     </resources>
 </document>
