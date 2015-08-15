@@ -14,6 +14,8 @@
 #import "List.h"
 #import "Item.h"
 
+#import "ListingsViewController.h"
+
 #define kAnimation .5f
 
 #define UIColorFromRGB(rgbValue, ...) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -80,15 +82,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
 - (IBAction)listSettingsPress:(id)sender {
     
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *vc = (UIViewController *)[storybord instantiateViewControllerWithIdentifier:@"settings"];
-    [self presentViewController:vc animated:YES completion:nil];
-    
-}
-
-- (IBAction)listSharePress:(id)sender {
-    
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *vc = (UIViewController *)[storybord instantiateViewControllerWithIdentifier:@"share"];
+    ListingsViewController *vc = (ListingsViewController *)[storybord instantiateViewControllerWithIdentifier:@"settings"];
     [self presentViewController:vc animated:YES completion:nil];
     
 }

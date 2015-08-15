@@ -48,6 +48,7 @@
 		4DC8B88C1B55E852003F7777 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B88B1B55E852003F7777 /* InfoViewController.m */; };
 		4DCD2B061B7EF7A1007B2146 /* NewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD2B051B7EF7A1007B2146 /* NewListViewController.m */; };
 		4DD0A7CC1B7BE59200F93D27 /* ListSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */; };
+		4DD1B40E1B7FE5EE0004848D /* SettingsShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1B40D1B7FE5EE0004848D /* SettingsShareTableViewCell.m */; };
 		4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */; };
 		4DD350461B7E9A77009170F6 /* FarLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD350451B7E9A77009170F6 /* FarLeftViewController.m */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,8 @@
 		4DCD2B051B7EF7A1007B2146 /* NewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewListViewController.m; sourceTree = "<group>"; };
 		4DD0A7CA1B7BE59200F93D27 /* ListSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListSettingsViewController.h; sourceTree = "<group>"; };
 		4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListSettingsViewController.m; sourceTree = "<group>"; };
+		4DD1B40C1B7FE5EE0004848D /* SettingsShareTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsShareTableViewCell.h; sourceTree = "<group>"; };
+		4DD1B40D1B7FE5EE0004848D /* SettingsShareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsShareTableViewCell.m; sourceTree = "<group>"; };
 		4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeCell.xib; sourceTree = "<group>"; };
 		4DD350441B7E9A77009170F6 /* FarLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FarLeftViewController.h; sourceTree = "<group>"; };
 		4DD350451B7E9A77009170F6 /* FarLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FarLeftViewController.m; sourceTree = "<group>"; };
@@ -327,10 +330,20 @@
 				4D111E7F1B79601B00FB06EF /* ShareListViewController.m */,
 				4DD0A7CA1B7BE59200F93D27 /* ListSettingsViewController.h */,
 				4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */,
+				4DD1B40B1B7FE57C0004848D /* SettingsTableViewCells */,
 				4DCD2B041B7EF7A1007B2146 /* NewListViewController.h */,
 				4DCD2B051B7EF7A1007B2146 /* NewListViewController.m */,
 			);
 			name = "Supporting Views";
+			sourceTree = "<group>";
+		};
+		4DD1B40B1B7FE57C0004848D /* SettingsTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4DD1B40C1B7FE5EE0004848D /* SettingsShareTableViewCell.h */,
+				4DD1B40D1B7FE5EE0004848D /* SettingsShareTableViewCell.m */,
+			);
+			name = SettingsTableViewCells;
 			sourceTree = "<group>";
 		};
 		4DD3503E1B7E8FA5009170F6 /* FarLeftTableViewCells */ = {
@@ -455,6 +468,7 @@
 				4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */,
 				4DD0A7CC1B7BE59200F93D27 /* ListSettingsViewController.m in Sources */,
 				4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */,
+				4DD1B40E1B7FE5EE0004848D /* SettingsShareTableViewCell.m in Sources */,
 				4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */,
 				4D3D281B1B558E5C00D12090 /* main.m in Sources */,
 				4D3D28431B55946900D12090 /* ListingsViewController.m in Sources */,
