@@ -73,10 +73,6 @@
     List *list = [[User instance].lists objectAtIndex:self.superview.superview.superview.tag];
 
     UITableView *tableView = (UITableView *)self.superview.superview;
-
-    tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.frame.size.height - 250);
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
-    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
     [self.superview layoutIfNeeded];
     
@@ -84,10 +80,18 @@
     [UIView setAnimationDuration:kAnimation];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
+    // Move table up
+    tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.frame.size.height - 260);
+    
+    // Show quantitycontrol
     self.quantControlToCell.constant = 0;
     [self.superview layoutIfNeeded];
     
     [UIView commitAnimations];
+    
+    // Scroll table
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
 }
 
@@ -104,20 +108,24 @@
     
     UITableView *tableView = (UITableView *)self.superview.superview;
     
-    tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.frame.size.height + 250);
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
-    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    
     [self.superview layoutIfNeeded];
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:kAnimation];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
+    // Move table back down.
+    tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.frame.size.height + 260);
+    
+    // Remove quantitycontrol
     self.quantControlToCell.constant = -100;
     [self.superview layoutIfNeeded];
     
     [UIView commitAnimations];
+    
+    // Scroll table
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
 }
 
