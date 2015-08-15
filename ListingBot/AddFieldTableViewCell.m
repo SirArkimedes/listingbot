@@ -12,6 +12,8 @@
 #import "List.h"
 #import "Item.h"
 
+#define kAnimation .5f
+
 @implementation AddFieldTableViewCell
 
 - (void)awakeFromNib {
@@ -75,6 +77,18 @@
     tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.frame.size.height - 250);
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
+    [self.superview layoutIfNeeded];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    self.quantControlToCell.constant = 0;
+    [self.superview layoutIfNeeded];
+    
+    [UIView commitAnimations];
+    
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
@@ -93,6 +107,17 @@
     tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.frame.size.height + 250);
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
+    [self.superview layoutIfNeeded];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    self.quantControlToCell.constant = -100;
+    [self.superview layoutIfNeeded];
+    
+    [UIView commitAnimations];
     
 }
 

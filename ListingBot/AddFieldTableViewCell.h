@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *subtractQuantity;
 
 @property (weak, nonatomic) IBOutlet UIView *quantityControl;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *quantControlToCell;
 
 @end

@@ -14,13 +14,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add item" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8Ur-Hq-8ne">
-                        <rect key="frame" x="8" y="0.0" width="220" height="43"/>
+                        <rect key="frame" x="8" y="0.0" width="320" height="43"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="done"/>
                     </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxx-h4-khn" userLabel="Quantity Control">
-                        <rect key="frame" x="236" y="0.0" width="106" height="44"/>
+                        <rect key="frame" x="336" y="0.0" width="106" height="44"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJO-xB-Hl6">
                                 <rect key="frame" x="0.0" y="-1" width="30" height="43"/>
@@ -76,7 +76,7 @@
                 <color key="backgroundColor" red="0.66666680570000003" green="0.66666668650000005" blue="0.66666668650000005" alpha="0.28000000000000003" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="fxx-h4-khn" secondAttribute="bottom" constant="-8.5" id="1pw-oZ-Wgk"/>
-                    <constraint firstAttribute="trailing" secondItem="fxx-h4-khn" secondAttribute="trailing" id="6Oa-8W-3Jt"/>
+                    <constraint firstAttribute="trailing" secondItem="fxx-h4-khn" secondAttribute="trailing" constant="-100" id="6Oa-8W-3Jt"/>
                     <constraint firstItem="fxx-h4-khn" firstAttribute="leading" secondItem="8Ur-Hq-8ne" secondAttribute="trailing" constant="8" id="GNK-Sf-hQN"/>
                     <constraint firstItem="8Ur-Hq-8ne" firstAttribute="top" secondItem="ZzM-be-UIk" secondAttribute="top" id="Z1J-43-pYX"/>
                     <constraint firstItem="8Ur-Hq-8ne" firstAttribute="centerY" secondItem="ZzM-be-UIk" secondAttribute="centerY" id="Zy0-Zm-0U7"/>
@@ -87,6 +87,7 @@
             <connections>
                 <outlet property="addQuantity" destination="W0R-43-a9U" id="3dF-55-9Pk"/>
                 <outlet property="addTextField" destination="8Ur-Hq-8ne" id="6XN-oG-NtX"/>
+                <outlet property="quantControlToCell" destination="6Oa-8W-3Jt" id="aYB-wJ-0nL"/>
                 <outlet property="quantityControl" destination="fxx-h4-khn" id="jIl-gD-kEL"/>
                 <outlet property="quantityLabel" destination="Hkb-6a-AsI" id="3gW-IM-JEc"/>
                 <outlet property="subtractQuantity" destination="wJO-xB-Hl6" id="6jy-Db-2EL"/>

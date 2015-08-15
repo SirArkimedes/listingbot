@@ -153,7 +153,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     static NSString *contentCellIdentifier = @"item";
     
-    // this is a textfield cell
+    // this is a item cell
     ItemsTableViewCell *cell;
     
     cell = [tableView dequeueReusableCellWithIdentifier:contentCellIdentifier];
@@ -187,7 +187,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     static NSString *separaterCellIdentifier = @"separatorCell";
     
-    // this is a textfield cell
+    // this is a seperator cell
     UITableViewCell *cell = nil;
     
     cell = [tableView dequeueReusableCellWithIdentifier:separaterCellIdentifier];
