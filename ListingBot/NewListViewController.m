@@ -15,10 +15,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UIButton *yesShareCopy;
 
 @property (weak, nonatomic) IBOutlet UIView *shareView;
 @property (weak, nonatomic) IBOutlet UIView *nameView;
 @property (weak, nonatomic) IBOutlet UIView *allDoneView;
+@property (weak, nonatomic) IBOutlet UIView *yesShare;
+
+@property BOOL didWantShare;
 
 @end
 
@@ -34,6 +38,8 @@
     
     // Setup textfield
     self.nameField = [self styleField:self.nameField];
+    
+    self.yesShareCopy.layer.cornerRadius = 5.f;
     
 }
 
@@ -60,15 +66,24 @@
 
 - (IBAction)yesShare:(id)sender {
     
-    // Handle Yes
-    
     [self animateOutShareView];
+    
+    self.didWantShare = YES;
     
 }
 
 - (IBAction)noShare:(id)sender {
     
     [self animateOutShareView];
+    
+}
+
+- (IBAction)yesShareCopy:(id)sender {
+    
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = self.yesShareCopy.titleLabel.text;
+    
+    [self animateOutYesShare];
     
 }
 
@@ -154,6 +169,58 @@
     
     self.nameView.frame = viewFrame;
     self.nameView.layer.opacity = 0.f;
+    
+    [UIView commitAnimations];
+    
+    if (self.didWantShare)
+        [self performSelector:@selector(animateInYesShare) withObject:nil afterDelay:kAnimation];
+    else
+        [self performSelector:@selector(animateInAllDone) withObject:nil afterDelay:kAnimation];
+    
+}
+
+- (void)animateInYesShare {
+    
+    // Unhide
+    self.yesShare.hidden = NO;
+    self.yesShare.layer.opacity = 0.f;
+    
+    // resign keyboard
+    [self.nameField resignFirstResponder];
+    
+    // OG
+    CGRect listViewOG = self.yesShare.frame;
+    
+    // New positions
+    CGRect viewFrame = self.nameView.frame;
+    viewFrame.origin.x = viewFrame.size.width;
+    self.yesShare.frame = viewFrame;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    self.yesShare.frame = listViewOG;
+    self.yesShare.layer.opacity = 1.f;
+    
+    [UIView commitAnimations];
+    
+    //    [self performSelector:@selector(hideKeyboard) withObject:nil afterDelay:kAnimation];
+    
+}
+
+- (void)animateOutYesShare {
+    
+    // Move to ending.
+    CGRect viewFrame = self.yesShare.frame;
+    viewFrame.origin.x = -self.view.frame.size.width;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    self.yesShare.frame = viewFrame;
+    self.yesShare.layer.opacity = 0.f;
     
     [UIView commitAnimations];
     
