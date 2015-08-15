@@ -8,6 +8,9 @@
 
 #import "NewListViewController.h"
 
+#import "User.h"
+#import "List.h"
+
 #define kAnimation .5f
 
 @interface NewListViewController ()
@@ -23,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIView *yesShare;
 
 @property BOOL didWantShare;
+@property (strong, nonatomic) NSString *listName;
 
 @end
 
@@ -60,6 +64,22 @@
     field.layer.cornerRadius = 5.0f;
     
     return field;
+}
+
+#pragma mark - NewList
+
+- (void)addNewList {
+    
+    List *newList = [[List alloc] init];
+    
+    newList.listName = self.listName;
+    newList.listUuid = @"";
+    
+    [[User instance].lists addObject:newList];
+    [[User instance].listQueue addObject:newList];
+    
+    [User instance].userDidChange = YES;
+    
 }
 
 #pragma mark - Buttons
@@ -100,6 +120,7 @@
         
     } else {
         
+        self.listName = textField.text;
         [self animateOutListName];
         
         return YES;
@@ -172,10 +193,12 @@
     
     [UIView commitAnimations];
     
-    if (self.didWantShare)
+    if (self.didWantShare) {
         [self performSelector:@selector(animateInYesShare) withObject:nil afterDelay:kAnimation];
-    else
+    } else {
         [self performSelector:@selector(animateInAllDone) withObject:nil afterDelay:kAnimation];
+        [self addNewList];
+    }
     
 }
 
@@ -224,6 +247,7 @@
     
     [UIView commitAnimations];
     
+    [self addNewList];
     [self performSelector:@selector(animateInAllDone) withObject:nil afterDelay:kAnimation];
     
 }

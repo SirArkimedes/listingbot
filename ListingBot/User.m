@@ -17,6 +17,7 @@ static User *inst = nil;
         self.userName = @"";
         self.userUuid = @"";
         self.lists = [[NSMutableArray alloc] init];
+        self.listQueue = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -44,6 +45,8 @@ static User *inst = nil;
     [coder encodeObject:_userName forKey:@"userName"];
     [coder encodeObject:_userUuid forKey:@"userUuid"];
     [coder encodeObject:_lists forKey:@"lists"];
+    
+    [coder encodeBool:_userDidChange forKey:@"userDidChange"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder;
@@ -54,6 +57,8 @@ static User *inst = nil;
         _userName = [coder decodeObjectForKey:@"userName"];
         _userUuid = [coder decodeObjectForKey:@"userUuid"];
         _lists = [coder decodeObjectForKey:@"lists"];
+        
+        _userDidChange = [coder decodeBoolForKey:@"userDidChange"];
         
     }
     return self;

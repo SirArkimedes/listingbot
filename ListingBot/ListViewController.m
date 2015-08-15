@@ -45,7 +45,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     self.itemTable.delegate = self;
     self.itemTable.dataSource = self;
-    
+                
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshTable" object:nil];
     
     // Initialize with no editing.

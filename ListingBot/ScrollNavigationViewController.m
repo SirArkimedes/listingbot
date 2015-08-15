@@ -15,6 +15,8 @@
 #import "User.h"
 #import "List.h"
 
+#define kAnimation .5f
+
 typedef enum ScrollDirection {
     ScrollDirectionRight,
     ScrollDirectionLeft
@@ -46,6 +48,50 @@ typedef enum ScrollDirection {
     // Set scrollview delegate
     self.scrollNavigation.delegate = self;
     
+    // Generate views and play on scrollview
+    [self layoutViews];
+    
+    // Saves and retrieves data from Parse
+//    NSData *dataFromSet = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
+//    PFObject *object = [PFObject objectWithClassName:@"Users"];
+//    object[@"user"] = dataFromSet;
+//    [object saveEventually];
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+////    [query whereKey:@"playerName" equalTo:@"Dan Stemkoski"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            // The find succeeded.
+////            NSLog(@"Successfully retrieved %d scores.", objects.count);
+//            // Do something with the found objects
+//            for (PFObject *object in objects) {
+//                User *unarchivedSet = [NSKeyedUnarchiver unarchiveObjectWithData:object[@"user"]];
+//                NSLog(@"Here's the set: %@", unarchivedSet);
+//            }
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    if ([User instance].userDidChange)
+        [self performSelector:@selector(addView) withObject:nil afterDelay:kAnimation];
+    
+}
+
+- (void)layoutViews {
+    
+//        [self.scrollNavigation setContentOffset:CGPointMake(0, 0) animated:YES];
+    
     FarLeftViewController *farLeft = [[FarLeftViewController alloc] initWithNibName:@"FarLeftView" bundle:nil];
     
     farLeft.view.tag = -1;
@@ -76,40 +122,52 @@ typedef enum ScrollDirection {
         
     }
     
-//    [self.scrollNavigation setContentOffset:CGPointMake(self.view.frame.size.width, 0) animated:YES];
+    CGFloat scrollWidth = ([[User instance].lists count] + 1) * self.view.frame.size.width;
+    CGFloat scrollHeight = self.view.frame.size.height;
+    self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
+    
+    [self.view setNeedsDisplay];
+    
+}
+
+- (void)addView {
+    
+    // Generate views based on how many lists we have.
+    for (int i = 0; i <= [[User instance].listQueue count]; i++) {
+        
+        ListViewController *listView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
+        
+        [self addChildViewController:listView];
+        [self.scrollNavigation addSubview:listView.view];
+        [listView didMoveToParentViewController:self];
+        
+        // Customize the view's properties
+        List *list = [[User instance].listQueue objectAtIndex:0];
+        
+        listView.listTitle.text = list.listName;
+        listView.view.tag = [[User instance].lists count] - 1;
+        
+        // Spacially places the new view inside of the scrollview
+        CGRect listFrame = listView.view.frame;
+        listFrame.origin.x = ([[User instance].lists count]) * self.view.frame.size.width;
+        
+        /*********** For some reason, this is needed to be set on the newly created ones. ***********/
+        listFrame.size = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+        
+        listView.view.frame = listFrame;
+        
+    }
     
     CGFloat scrollWidth = ([[User instance].lists count] + 1) * self.view.frame.size.width;
     CGFloat scrollHeight = self.view.frame.size.height;
     self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
     
-    // Saves and retrieves data from Parse
-//    NSData *dataFromSet = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
-//    PFObject *object = [PFObject objectWithClassName:@"Users"];
-//    object[@"user"] = dataFromSet;
-//    [object saveEventually];
-//    
-//    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
-////    [query whereKey:@"playerName" equalTo:@"Dan Stemkoski"];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            // The find succeeded.
-////            NSLog(@"Successfully retrieved %d scores.", objects.count);
-//            // Do something with the found objects
-//            for (PFObject *object in objects) {
-//                User *unarchivedSet = [NSKeyedUnarchiver unarchiveObjectWithData:object[@"user"]];
-//                NSLog(@"Here's the set: %@", unarchivedSet);
-//            }
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//    }];
+    // Revert checks and queues
+    [[User instance].listQueue removeAllObjects];
+    [User instance].userDidChange = NO;
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.scrollNavigation setContentOffset:CGPointMake(([[User instance].lists count]) * self.view.frame.size.width, 0) animated:YES];
+    
 }
 
 #pragma mark - Scrollview Delegate Methods

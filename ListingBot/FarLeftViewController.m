@@ -26,7 +26,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     self.settingTable.dataSource = self;
     self.settingTable.delegate =  self;
-    
+        
 }
 
 - (void)didReceiveMemoryWarning {
