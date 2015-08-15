@@ -171,16 +171,18 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     cell.itemName.text = item.itemName;
     cell.itemQuantity.text = [NSString stringWithFormat:@"%@", item.quantity];
-    
-    // Forces some color somewhere to not be white, causing cells to have a white background.
-    cell.backgroundColor = UIColorFromRGB(0xFFFDEC, 1);
 
     // Checks if the cell is completed or not and then modifies if needed.
-    if (item.isDone)
+    if (item.isDone) {
+        [cell.backView setBackgroundColor:UIColorFromRGB(0xAAAAAA, .28)];
+        cell.backgroundColor = [UIColor clearColor];
+        
         [self setCellDone:cell];
-    else {
+    } else {
         cell.selectionTriangle.image = nil;
         cell.doneWidthCon.constant = 0;
+        
+        cell.backgroundColor = UIColorFromRGB(0xFFFDEC, 1);
     }
     
     return cell;
