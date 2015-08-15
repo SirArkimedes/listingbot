@@ -171,7 +171,10 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     cell.itemName.text = item.itemName;
     cell.itemQuantity.text = [NSString stringWithFormat:@"%@", item.quantity];
-        
+    
+    // Forces some color somewhere to not be white, causing cells to have a white background.
+    cell.backgroundColor = UIColorFromRGB(0xFFFDEC, 1);
+
     // Checks if the cell is completed or not and then modifies if needed.
     if (item.isDone)
         [self setCellDone:cell];
@@ -179,10 +182,6 @@ typedef NS_ENUM(NSUInteger, cellType) {
         cell.selectionTriangle.image = nil;
         cell.doneWidthCon.constant = 0;
     }
-    
-    
-    // Forces some color somewhere to not be white, causing cells to have a white background.
-    cell.backgroundColor = UIColorFromRGB(0xFFFDEC, 1);
     
     return cell;
     
@@ -330,6 +329,9 @@ typedef NS_ENUM(NSUInteger, cellType) {
         [UIView setAnimationDuration:kAnimation/2];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         
+        [cell.backView setBackgroundColor:[UIColor clearColor]];
+        cell.backgroundColor = UIColorFromRGB(0xFFFDEC, 1);
+        
         cell.doneWidthCon.constant = 0;
         [cell layoutIfNeeded];
         
@@ -352,6 +354,9 @@ typedef NS_ENUM(NSUInteger, cellType) {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:kAnimation/2];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    [cell.backView setBackgroundColor:[UIColor clearColor]];
+    cell.backgroundColor = UIColorFromRGB(0xAAAAAA, .28);
     
     cell.doneWidthCon.constant = 21;
     [cell layoutIfNeeded];
