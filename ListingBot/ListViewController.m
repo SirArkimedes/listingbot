@@ -257,7 +257,14 @@ typedef NS_ENUM(NSUInteger, cellType) {
         
         [list.listItems removeObjectAtIndex:indexPath.row/2];
         
-        [tableView reloadData];
+        NSArray *deleteIndexPaths = [[NSArray alloc] initWithObjects:
+                                     [NSIndexPath indexPathForRow:indexPath.row inSection:0],
+                                     [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0],
+                                     nil];
+        
+        [tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+//        [tableView reloadData];
         
     }
 }
