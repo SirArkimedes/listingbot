@@ -15,76 +15,79 @@
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add item" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8Ur-Hq-8ne">
                         <rect key="frame" x="8" y="0.0" width="220" height="43"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="220" id="7zz-OR-u1K"/>
-                        </constraints>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="done"/>
                     </textField>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJO-xB-Hl6">
-                        <rect key="frame" x="236" y="0.0" width="30" height="43"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxx-h4-khn" userLabel="Quantity Control">
+                        <rect key="frame" x="236" y="0.0" width="106" height="44"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJO-xB-Hl6">
+                                <rect key="frame" x="0.0" y="-1" width="30" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="928-li-13b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="33"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="subtractQuantity:" destination="T8z-WH-Iui" eventType="touchUpInside" id="SvT-15-jri"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkb-6a-AsI">
+                                <rect key="frame" x="37" y="1" width="31" height="43"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0R-43-a9U">
+                                <rect key="frame" x="76" y="1" width="30" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="wLI-6q-fSP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addQuantity:" destination="T8z-WH-Iui" eventType="touchUpInside" id="nBK-uc-kjd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="hRn-f3-XfX"/>
+                            <constraint firstItem="W0R-43-a9U" firstAttribute="leading" secondItem="Hkb-6a-AsI" secondAttribute="trailing" constant="8" symbolic="YES" id="CVx-or-n8q"/>
+                            <constraint firstItem="wJO-xB-Hl6" firstAttribute="bottom" secondItem="Hkb-6a-AsI" secondAttribute="bottom" constant="-2" id="IRo-UD-NP3"/>
+                            <constraint firstItem="Hkb-6a-AsI" firstAttribute="leading" secondItem="wJO-xB-Hl6" secondAttribute="trailing" constant="7" id="JbI-8t-9Lt"/>
+                            <constraint firstAttribute="width" constant="106" id="KCE-AG-9xh"/>
+                            <constraint firstItem="Hkb-6a-AsI" firstAttribute="bottom" secondItem="W0R-43-a9U" secondAttribute="bottom" id="STc-jO-xRe"/>
+                            <constraint firstItem="wJO-xB-Hl6" firstAttribute="centerY" secondItem="fxx-h4-khn" secondAttribute="centerY" constant="-1.5" id="YHJ-Jy-52C"/>
+                            <constraint firstAttribute="bottom" secondItem="wJO-xB-Hl6" secondAttribute="bottom" constant="2" id="aWA-Ib-3bx"/>
+                            <constraint firstAttribute="trailing" secondItem="W0R-43-a9U" secondAttribute="trailing" id="d7C-6s-f7F"/>
+                            <constraint firstItem="wJO-xB-Hl6" firstAttribute="top" secondItem="Hkb-6a-AsI" secondAttribute="top" constant="-2" id="fCp-Te-SwK"/>
+                            <constraint firstItem="W0R-43-a9U" firstAttribute="top" secondItem="Hkb-6a-AsI" secondAttribute="top" id="l5f-Vk-vBL"/>
+                            <constraint firstItem="wJO-xB-Hl6" firstAttribute="leading" secondItem="fxx-h4-khn" secondAttribute="leading" id="v7W-IE-Yvg"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="33"/>
-                        <state key="normal" title="-">
-                            <color key="titleColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="subtractQuantity:" destination="T8z-WH-Iui" eventType="touchUpInside" id="SvT-15-jri"/>
-                        </connections>
-                    </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkb-6a-AsI">
-                        <rect key="frame" x="274" y="0.0" width="31" height="43"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="31" id="Vha-BZ-VvV"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0R-43-a9U">
-                        <rect key="frame" x="312" y="0.0" width="30" height="43"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
-                        <state key="normal" title="+">
-                            <color key="titleColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="addQuantity:" destination="T8z-WH-Iui" eventType="touchUpInside" id="nBK-uc-kjd"/>
-                        </connections>
-                    </button>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.66666680570000003" green="0.66666668650000005" blue="0.66666668650000005" alpha="0.28000000000000003" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="8Ur-Hq-8ne" firstAttribute="bottom" secondItem="wJO-xB-Hl6" secondAttribute="bottom" id="0vQ-0p-zXR"/>
-                    <constraint firstItem="Hkb-6a-AsI" firstAttribute="top" secondItem="ZzM-be-UIk" secondAttribute="top" id="2Tf-eR-Khi"/>
-                    <constraint firstItem="wJO-xB-Hl6" firstAttribute="top" secondItem="8Ur-Hq-8ne" secondAttribute="top" id="3dc-8j-AI6"/>
-                    <constraint firstItem="8Ur-Hq-8ne" firstAttribute="leading" secondItem="ZzM-be-UIk" secondAttribute="leadingMargin" id="6sk-Ku-ZhI"/>
-                    <constraint firstItem="wJO-xB-Hl6" firstAttribute="top" secondItem="Hkb-6a-AsI" secondAttribute="top" id="EHe-ge-oCe"/>
-                    <constraint firstAttribute="bottom" secondItem="W0R-43-a9U" secondAttribute="bottom" id="I8o-5h-RpO"/>
-                    <constraint firstItem="wJO-xB-Hl6" firstAttribute="leading" secondItem="Hkb-6a-AsI" secondAttribute="trailing" constant="1" id="IUr-hi-RdK"/>
-                    <constraint firstItem="W0R-43-a9U" firstAttribute="leading" secondItem="Hkb-6a-AsI" secondAttribute="trailing" constant="7" id="Vgg-kP-2Jr"/>
-                    <constraint firstAttribute="trailing" secondItem="W0R-43-a9U" secondAttribute="trailing" id="Vqd-Rm-vxV"/>
-                    <constraint firstItem="Hkb-6a-AsI" firstAttribute="top" secondItem="W0R-43-a9U" secondAttribute="top" id="YPs-ZB-1DN"/>
-                    <constraint firstItem="Hkb-6a-AsI" firstAttribute="bottom" secondItem="wJO-xB-Hl6" secondAttribute="bottom" id="fEs-q2-BY1"/>
-                    <constraint firstItem="Hkb-6a-AsI" firstAttribute="leading" secondItem="wJO-xB-Hl6" secondAttribute="trailing" constant="8" symbolic="YES" id="oo0-02-9NK"/>
-                    <constraint firstItem="Hkb-6a-AsI" firstAttribute="bottom" secondItem="W0R-43-a9U" secondAttribute="bottom" id="pWs-CU-Oea"/>
-                    <constraint firstItem="Hkb-6a-AsI" firstAttribute="leading" secondItem="W0R-43-a9U" secondAttribute="trailing" constant="8" id="uhg-xI-JIt"/>
-                    <constraint firstItem="wJO-xB-Hl6" firstAttribute="leading" secondItem="8Ur-Hq-8ne" secondAttribute="trailing" constant="8" symbolic="YES" id="wad-NO-ji9"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="fxx-h4-khn" secondAttribute="bottom" constant="-8.5" id="1pw-oZ-Wgk"/>
+                    <constraint firstAttribute="trailing" secondItem="fxx-h4-khn" secondAttribute="trailing" id="6Oa-8W-3Jt"/>
+                    <constraint firstItem="fxx-h4-khn" firstAttribute="leading" secondItem="8Ur-Hq-8ne" secondAttribute="trailing" constant="8" id="GNK-Sf-hQN"/>
+                    <constraint firstItem="8Ur-Hq-8ne" firstAttribute="top" secondItem="ZzM-be-UIk" secondAttribute="top" id="Z1J-43-pYX"/>
+                    <constraint firstItem="8Ur-Hq-8ne" firstAttribute="centerY" secondItem="ZzM-be-UIk" secondAttribute="centerY" id="Zy0-Zm-0U7"/>
+                    <constraint firstAttribute="centerY" secondItem="fxx-h4-khn" secondAttribute="centerY" id="uPv-wO-sUe"/>
+                    <constraint firstItem="8Ur-Hq-8ne" firstAttribute="leading" secondItem="ZzM-be-UIk" secondAttribute="leadingMargin" id="uqc-Wr-aQe"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="IUr-hi-RdK"/>
-                        <exclude reference="uhg-xI-JIt"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="addQuantity" destination="W0R-43-a9U" id="3dF-55-9Pk"/>
                 <outlet property="addTextField" destination="8Ur-Hq-8ne" id="6XN-oG-NtX"/>
+                <outlet property="quantityControl" destination="fxx-h4-khn" id="jIl-gD-kEL"/>
                 <outlet property="quantityLabel" destination="Hkb-6a-AsI" id="3gW-IM-JEc"/>
                 <outlet property="subtractQuantity" destination="wJO-xB-Hl6" id="6jy-Db-2EL"/>
             </connections>

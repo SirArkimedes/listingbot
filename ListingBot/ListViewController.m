@@ -14,7 +14,7 @@
 #import "List.h"
 #import "Item.h"
 
-#import "ListingsViewController.h"
+#import "ListSettingsViewController.h"
 
 #define kAnimation .5f
 
@@ -81,9 +81,12 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (IBAction)listSettingsPress:(id)sender {
     
+    
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ListingsViewController *vc = (ListingsViewController *)[storybord instantiateViewControllerWithIdentifier:@"settings"];
-    [self presentViewController:vc animated:YES completion:nil];
+    UINavigationController *navController = (UINavigationController*)[storybord instantiateViewControllerWithIdentifier:@"settings"];
+    ListSettingsViewController *vc = (ListSettingsViewController *)[navController topViewController];
+    vc.listIndex = (NSUInteger)self.view.tag;
+    [self presentViewController:navController animated:YES completion:nil];
     
 }
 

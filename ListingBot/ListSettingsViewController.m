@@ -8,6 +8,9 @@
 
 #import "ListSettingsViewController.h"
 
+#import "User.h"
+#import "List.h"
+
 typedef NS_ENUM(NSUInteger, cellType) {
     shareCell,
     deleteCell,
@@ -17,6 +20,8 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property List *list;
+
 @end
 
 @implementation ListSettingsViewController
@@ -24,7 +29,10 @@ typedef NS_ENUM(NSUInteger, cellType) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"List Settings";
+    List *list = [[User instance].lists objectAtIndex:self.listIndex];
+    self.list = list;
+    
+    self.title = [NSString stringWithFormat:@"%@ Settings", self.list.listName];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *addQuantity;
 @property (weak, nonatomic) IBOutlet UIButton *subtractQuantity;
 
+@property (weak, nonatomic) IBOutlet UIView *quantityControl;
+
 @end

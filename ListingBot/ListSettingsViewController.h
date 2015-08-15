@@ -10,4 +10,6 @@
 
 @interface ListSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property NSUInteger listIndex;
+
 @end
