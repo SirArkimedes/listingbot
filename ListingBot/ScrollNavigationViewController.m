@@ -24,6 +24,8 @@ typedef enum ScrollDirection {
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollNavigation;
 
+@property (weak, nonatomic) IBOutlet UIButton *listNewButton;
+
 @property (strong, nonatomic) UILabel *testing;
 
 @end
@@ -35,6 +37,13 @@ typedef enum ScrollDirection {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Customize button
+    self.listNewButton.layer.cornerRadius = 25.f;
+    
+    UIPanGestureRecognizer *pangr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    [self.listNewButton addGestureRecognizer:pangr];
+    
+    // Set scrollview delegate
     self.scrollNavigation.delegate = self;
     
     FarLeftViewController *farLeft = [[FarLeftViewController alloc] initWithNibName:@"FarLeftView" bundle:nil];
@@ -121,6 +130,36 @@ typedef enum ScrollDirection {
     
     CATransform3D labelTransform = CATransform3DTranslate(CATransform3DIdentity, 1.25*offset, 0, 0);
     self.testing.layer.transform = labelTransform;
+}
+
+#pragma mark - Button drag
+
+- (void)pan:(UIPanGestureRecognizer *)recognizer {
+    
+    if (recognizer.state == UIGestureRecognizerStateChanged || recognizer.state == UIGestureRecognizerStateEnded) {
+        
+        UIView *draggedButton = recognizer.view;
+        CGPoint translation = [recognizer translationInView:self.view];
+        
+        CGRect newButtonFrame = draggedButton.frame;
+        newButtonFrame.origin.x += translation.x;
+        newButtonFrame.origin.y += translation.y;
+        
+        if (CGRectContainsRect(self.view.frame, newButtonFrame))
+            draggedButton.frame = newButtonFrame;
+        
+        [recognizer setTranslation:CGPointZero inView:self.view];
+        
+    }
+    
+}
+
+#pragma mark - Buttons
+
+- (IBAction)addNewList:(id)sender {
+    
+    // Open new list viewcontroller
+    
 }
 
 /*
