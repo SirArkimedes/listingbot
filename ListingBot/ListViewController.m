@@ -173,12 +173,9 @@ typedef NS_ENUM(NSUInteger, cellType) {
     cell.itemQuantity.text = [NSString stringWithFormat:@"%@", item.quantity];
 
     // Checks if the cell is completed or not and then modifies if needed.
-    if (item.isDone) {
-        [cell.backView setBackgroundColor:UIColorFromRGB(0xAAAAAA, .28)];
-        cell.backgroundColor = [UIColor clearColor];
-        
+    if (item.isDone)
         [self setCellDone:cell];
-    } else {
+    else {
         cell.selectionTriangle.image = nil;
         cell.doneWidthCon.constant = 0;
         
