@@ -16,10 +16,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="UJf-bu-ZKK">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="UJf-bu-ZKK">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKo-EW-57F">
+                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKo-EW-57F">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Gtv-Dw-DIQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -44,7 +44,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.27843137254901962" green="0.27843137254901962" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Xrx-gj-xjD" firstAttribute="top" secondItem="UJf-bu-ZKK" secondAttribute="top" id="4Oh-gz-HXp"/>
                 <constraint firstItem="Xrx-gj-xjD" firstAttribute="leading" secondItem="LKo-EW-57F" secondAttribute="leading" id="Il3-mZ-6nB"/>

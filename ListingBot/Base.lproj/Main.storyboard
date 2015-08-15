@@ -297,6 +297,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="r3s-NG-HV5">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSu-8C-AFi">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nDd-ch-yz0">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8C-p6-3Ss">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </scrollView>
@@ -319,9 +330,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VSu-8C-AFi" firstAttribute="trailing" secondItem="P8C-p6-3Ss" secondAttribute="trailing" id="3Pd-RX-kbi"/>
                             <constraint firstAttribute="trailing" secondItem="P8C-p6-3Ss" secondAttribute="trailing" id="5ca-sM-ccI"/>
+                            <constraint firstItem="VSu-8C-AFi" firstAttribute="bottom" secondItem="r3s-NG-HV5" secondAttribute="bottom" id="7io-U5-GEf"/>
+                            <constraint firstItem="VSu-8C-AFi" firstAttribute="bottom" secondItem="Hwd-4g-ZbR" secondAttribute="top" id="BZe-J8-9be"/>
+                            <constraint firstItem="VSu-8C-AFi" firstAttribute="leading" secondItem="P8C-p6-3Ss" secondAttribute="leading" id="Gcv-C1-rbS"/>
+                            <constraint firstItem="VSu-8C-AFi" firstAttribute="trailing" secondItem="r3s-NG-HV5" secondAttribute="trailing" id="PDh-Nf-bDV"/>
+                            <constraint firstItem="VSu-8C-AFi" firstAttribute="top" secondItem="P8C-p6-3Ss" secondAttribute="top" id="gSK-f2-75M"/>
                             <constraint firstItem="Hwd-4g-ZbR" firstAttribute="top" secondItem="oAA-iL-O3z" secondAttribute="bottom" constant="20" id="hNn-yK-ncF"/>
+                            <constraint firstItem="VSu-8C-AFi" firstAttribute="leading" secondItem="r3s-NG-HV5" secondAttribute="leading" id="kvo-iy-iPn"/>
                             <constraint firstItem="P8C-p6-3Ss" firstAttribute="top" secondItem="qJU-S3-aWR" secondAttribute="top" id="lnA-aS-zpK"/>
+                            <constraint firstItem="VSu-8C-AFi" firstAttribute="top" secondItem="r3s-NG-HV5" secondAttribute="top" id="mNA-r2-7no"/>
                             <constraint firstItem="P8C-p6-3Ss" firstAttribute="bottom" secondItem="Hwd-4g-ZbR" secondAttribute="top" id="suE-ag-f0f"/>
                             <constraint firstItem="oAA-iL-O3z" firstAttribute="leading" secondItem="qJU-S3-aWR" secondAttribute="leadingMargin" id="t0w-fV-mEc"/>
                             <constraint firstItem="P8C-p6-3Ss" firstAttribute="leading" secondItem="qJU-S3-aWR" secondAttribute="leading" id="tYs-Ol-FWI"/>
@@ -1083,6 +1102,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Background" width="3264" height="2448"/>
         <image name="Basic_tick_64.png" width="64" height="64"/>
     </resources>
 </document>

@@ -47,7 +47,6 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.27791587750000002" green="0.27791587750000002" blue="0.27791587750000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="MPy-4u-g56" firstAttribute="top" secondItem="RIv-sP-nag" secondAttribute="top" constant="23" id="6sg-Mv-WY5"/>
                         <constraint firstItem="mRm-oL-JiK" firstAttribute="bottom" secondItem="RIv-sP-nag" secondAttribute="bottomMargin" constant="-1" id="Ab1-kG-GlH"/>
@@ -86,7 +85,6 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.27791587750000002" green="0.27791587750000002" blue="0.27791587750000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="4yD-t0-ZJa"/>
                         <constraint firstAttribute="trailing" secondItem="aOW-Kq-Xse" secondAttribute="trailing" id="CGJ-Op-zqJ"/>
@@ -112,7 +110,6 @@
                     </variation>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="0.27791587750000002" green="0.27791587750000002" blue="0.27791587750000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="RIv-sP-nag" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BUA-1G-rTT"/>
                 <constraint firstAttribute="trailing" secondItem="mMV-1N-hma" secondAttribute="trailing" id="EOP-Lo-w2I"/>
