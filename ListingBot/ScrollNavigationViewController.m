@@ -133,30 +133,29 @@ typedef enum ScrollDirection {
 - (void)addView {
     
     // Generate views based on how many lists we have.
-    for (int i = 0; i <= [[User instance].listQueue count]; i++) {
         
-        ListViewController *listView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
-        
-        [self addChildViewController:listView];
-        [self.scrollNavigation addSubview:listView.view];
-        [listView didMoveToParentViewController:self];
-        
-        // Customize the view's properties
-        List *list = [[User instance].listQueue objectAtIndex:0];
-        
-        listView.listTitle.text = list.listName;
-        listView.view.tag = [[User instance].lists count] - 1;
-        
-        // Spacially places the new view inside of the scrollview
-        CGRect listFrame = listView.view.frame;
-        listFrame.origin.x = ([[User instance].lists count]) * self.view.frame.size.width;
-        
-        /*********** For some reason, this is needed to be set on the newly created ones. ***********/
-        listFrame.size = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
-        
-        listView.view.frame = listFrame;
-        
-    }
+    ListViewController *listView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
+    
+    [self addChildViewController:listView];
+    [self.scrollNavigation addSubview:listView.view];
+    [listView didMoveToParentViewController:self];
+    
+    // Customize the view's properties
+    List *list = [[User instance].listQueue objectAtIndex:0];
+    
+    listView.listTitle.text = list.listName;
+    listView.view.tag = [[User instance].lists count] - 1;
+    
+    // Spacially places the new view inside of the scrollview
+    CGRect listFrame = listView.view.frame;
+    listFrame.origin.x = ([[User instance].lists count]) * self.view.frame.size.width;
+    
+    /*********** For some reason, this is needed to be set on the newly created ones. ***********/
+    listFrame.size = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+    
+    listView.view.frame = listFrame;
+    
+    [listView.view setNeedsDisplay];
     
     CGFloat scrollWidth = ([[User instance].lists count] + 1) * self.view.frame.size.width;
     CGFloat scrollHeight = self.view.frame.size.height;
