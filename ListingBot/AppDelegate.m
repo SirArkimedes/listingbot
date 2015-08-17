@@ -97,7 +97,7 @@
     secondList.listName = @"Shopping";
     secondList.listUuid = @"1234567891";
     NSArray *secondShared = @[@"Matthew", @"Kai"];
-    [firstList.sharedWith addObjectsFromArray:secondShared];
+    [secondList.sharedWith addObjectsFromArray:secondShared];
     
     Item *thirdItem = [[Item alloc] init];
     thirdItem.itemName = @"Milk";
@@ -118,8 +118,8 @@
     List *thirdList = [[List alloc] init];
     thirdList.listName = @"Shopping";
     thirdList.listUuid = @"1234567891";
-    NSArray *thirdShared = @[@"Matthew", @"Kai"];
-    [firstList.sharedWith addObjectsFromArray:thirdShared];
+    NSArray *thirdShared = @[];
+    [thirdList.sharedWith addObjectsFromArray:thirdShared];
     
     Item *sixth = [[Item alloc] init];
     sixth.itemName = @"Milk";
