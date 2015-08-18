@@ -73,8 +73,8 @@ typedef NS_ENUM(NSUInteger, cellType) {
 }
 
 - (void)refreshTableWithNotification:(NSNotification *)notification {
-    [[notification object] reloadData];
-    [[notification object] setEditing:NO animated:YES];
+    [self.itemTable reloadData];
+    [self.itemTable setEditing:NO animated:YES];
 }
 
 #pragma mark - Buttons

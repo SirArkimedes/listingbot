@@ -30,17 +30,17 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xrx-gj-xjD" userLabel="Holder View">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wg9-zn-NaP">
-                            <rect key="frame" x="8" y="8" width="584" height="592"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wg9-zn-NaP">
+                            <rect key="frame" x="0.0" y="8" width="600" height="592"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Wg9-zn-NaP" firstAttribute="top" secondItem="Xrx-gj-xjD" secondAttribute="top" constant="8" id="Qa1-ew-XI4"/>
-                        <constraint firstItem="Wg9-zn-NaP" firstAttribute="leading" secondItem="Xrx-gj-xjD" secondAttribute="leadingMargin" id="bvS-25-zc3"/>
+                        <constraint firstItem="Wg9-zn-NaP" firstAttribute="leading" secondItem="Xrx-gj-xjD" secondAttribute="leadingMargin" constant="-8" id="bvS-25-zc3"/>
                         <constraint firstAttribute="bottom" secondItem="Wg9-zn-NaP" secondAttribute="bottom" id="rkR-Jg-9Eh"/>
-                        <constraint firstItem="Wg9-zn-NaP" firstAttribute="trailing" secondItem="Xrx-gj-xjD" secondAttribute="trailingMargin" id="xah-pG-gdf"/>
+                        <constraint firstItem="Wg9-zn-NaP" firstAttribute="trailing" secondItem="Xrx-gj-xjD" secondAttribute="trailingMargin" constant="8" id="xah-pG-gdf"/>
                     </constraints>
                 </view>
             </subviews>

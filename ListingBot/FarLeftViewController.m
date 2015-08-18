@@ -8,8 +8,16 @@
 
 #import "FarLeftViewController.h"
 
+#import "AddListTableViewCell.h"
+#import "DraggableNewListTableViewCell.h"
+
+#import "Settings.h"
+
 typedef NS_ENUM(NSUInteger, cellType) {
     welcomeCell,
+    addNewListCell,
+    underNewSeperatorCell,
+    draggableNewList,
 };
 
 @interface FarLeftViewController ()
@@ -26,12 +34,18 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     self.settingTable.dataSource = self;
     self.settingTable.delegate =  self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshTable" object:nil];
         
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)refreshTableWithNotification:(NSNotification *)notification {
+    [self.settingTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark - Table view data source
@@ -43,7 +57,13 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 1;
+    
+    if ([Settings instance].doesWantDraggable) {
+        return 2;
+    } else {
+        return 4;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -54,6 +74,15 @@ typedef NS_ENUM(NSUInteger, cellType) {
         case welcomeCell:
             cell = [self setupWelcomeCellWithTableView:tableView];
             break;
+        case addNewListCell:
+            cell = [self setupAddNewListCellWithTableView:tableView];
+            break;
+        case underNewSeperatorCell:
+            cell = [self setupSeperatorCellWithTableView:tableView];
+            break;
+        case draggableNewList:
+            cell = [self setupDraggableNewListCellWithTableView:tableView];
+            break;
     }
     
     return cell;
@@ -61,12 +90,12 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (UITableViewCell *)setupWelcomeCellWithTableView:(UITableView *)tableView {
     
-    static NSString *textFieldCellIdentifier = @"welcomeCell";
+    static NSString *welcomeCellIdentifier = @"welcomeCell";
     
     // this is a textfield cell
     UITableViewCell *cell = nil;
     
-    cell = [tableView dequeueReusableCellWithIdentifier:textFieldCellIdentifier];
+    cell = [tableView dequeueReusableCellWithIdentifier:welcomeCellIdentifier];
     
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"WelcomeCell" owner:self options:nil] objectAtIndex:0];
@@ -79,12 +108,103 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
 }
 
+- (UITableViewCell *)setupAddNewListCellWithTableView:(UITableView *)tableView {
+    
+    static NSString *addNewListCellIdentifier = @"addNewList";
+    
+    // this is a textfield cell
+    AddListTableViewCell *cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:addNewListCellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"AddListCell" owner:self options:nil] objectAtIndex:0];
+    }
+    
+    // Forces some color somewhere to not be white, causing cells to have a white background.
+    cell.backgroundColor = [UIColor clearColor];
+    
+    return cell;
+    
+}
+
+- (UITableViewCell *)setupSeperatorCellWithTableView:(UITableView *)tableView {
+    
+    static NSString *seperatorCellIdentifier = @"farLeftSeperator";
+    
+    // this is a textfield cell
+    UITableViewCell *cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:seperatorCellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"FarLeftSeperator" owner:self options:nil] objectAtIndex:0];
+    }
+    
+    // Forces some color somewhere to not be white, causing cells to have a white background.
+    cell.backgroundColor = [UIColor clearColor];
+    
+    return cell;
+    
+}
+
+- (UITableViewCell *)setupDraggableNewListCellWithTableView:(UITableView *)tableView {
+    
+    static NSString *draggableNewListCellIdentifier = @"draggableNewList";
+    
+    // this is a textfield cell
+    DraggableNewListTableViewCell *cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:draggableNewListCellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"DraggableNewList" owner:self options:nil] objectAtIndex:0];
+    }
+    
+    // Forces some color somewhere to not be white, causing cells to have a white background.
+    cell.backgroundColor = [UIColor clearColor];
+    
+    return cell;
+    
+}
+
+
+
 - (NSUInteger)typeForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == 0)
-        return welcomeCell;
-    else
-        return welcomeCell;
+    if ([Settings instance].doesWantDraggable) {
+        
+        switch (indexPath.row) {
+            case 0:
+                return welcomeCell;
+                break;
+            case 1:
+                return draggableNewList;
+            default:
+                return welcomeCell;
+                break;
+        }
+        
+    } else {
+    
+        switch (indexPath.row) {
+            case 0:
+                return welcomeCell;
+                break;
+            case 1:
+                return addNewListCell;
+                break;
+            case 2:
+                return underNewSeperatorCell;
+                break;
+            case 3:
+                return draggableNewList;
+            default:
+                return welcomeCell;
+                break;
+        }
+        
+    }
     
 }
 
@@ -92,7 +212,16 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     switch ([self typeForRowAtIndexPath:indexPath]) {
         case welcomeCell:
-            return 177;
+            return 177.f;
+            break;
+        case addNewListCell:
+            return 44.f;
+            break;
+        case underNewSeperatorCell:
+            return 11.f;
+            break;
+        case draggableNewList:
+            return 44.f;
             break;
         default:
             return 44.f;

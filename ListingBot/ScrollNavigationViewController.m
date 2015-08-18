@@ -216,14 +216,6 @@ typedef enum ScrollDirection {
     
 }
 
-#pragma mark - Buttons
-
-- (IBAction)addNewList:(id)sender {
-    
-    // Open new list viewcontroller
-    
-}
-
 /*
 #pragma mark - Navigation
 

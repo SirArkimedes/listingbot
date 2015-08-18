@@ -50,6 +50,12 @@
 		4DD1B40E1B7FE5EE0004848D /* SettingsShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1B40D1B7FE5EE0004848D /* SettingsShareTableViewCell.m */; };
 		4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */; };
 		4DD350461B7E9A77009170F6 /* FarLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD350451B7E9A77009170F6 /* FarLeftViewController.m */; };
+		4DDC5BC51B82D07300CAAB0D /* AddListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5BC41B82D07300CAAB0D /* AddListCell.xib */; };
+		4DDC5BC81B82D08900CAAB0D /* AddListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5BC71B82D08900CAAB0D /* AddListTableViewCell.m */; };
+		4DDC5BCA1B82D44200CAAB0D /* FarLeftSeperator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5BC91B82D44200CAAB0D /* FarLeftSeperator.xib */; };
+		4DDC5BCC1B82D4BF00CAAB0D /* DraggableNewList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5BCB1B82D4BF00CAAB0D /* DraggableNewList.xib */; };
+		4DDC5BCF1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5BCE1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m */; };
+		4DDC5BD21B82D9ED00CAAB0D /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5BD11B82D9ED00CAAB0D /* Settings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +133,15 @@
 		4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeCell.xib; sourceTree = "<group>"; };
 		4DD350441B7E9A77009170F6 /* FarLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FarLeftViewController.h; sourceTree = "<group>"; };
 		4DD350451B7E9A77009170F6 /* FarLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FarLeftViewController.m; sourceTree = "<group>"; };
+		4DDC5BC41B82D07300CAAB0D /* AddListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddListCell.xib; sourceTree = "<group>"; };
+		4DDC5BC61B82D08900CAAB0D /* AddListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddListTableViewCell.h; sourceTree = "<group>"; };
+		4DDC5BC71B82D08900CAAB0D /* AddListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddListTableViewCell.m; sourceTree = "<group>"; };
+		4DDC5BC91B82D44200CAAB0D /* FarLeftSeperator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FarLeftSeperator.xib; sourceTree = "<group>"; };
+		4DDC5BCB1B82D4BF00CAAB0D /* DraggableNewList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DraggableNewList.xib; sourceTree = "<group>"; };
+		4DDC5BCD1B82D4D100CAAB0D /* DraggableNewListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableNewListTableViewCell.h; sourceTree = "<group>"; };
+		4DDC5BCE1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableNewListTableViewCell.m; sourceTree = "<group>"; };
+		4DDC5BD01B82D9ED00CAAB0D /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		4DDC5BD11B82D9ED00CAAB0D /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +184,8 @@
 				4D13DBE41B6C28740025B8F7 /* List.m */,
 				4D13DBE61B6C2A140025B8F7 /* Item.h */,
 				4D13DBE71B6C2A140025B8F7 /* Item.m */,
+				4DDC5BD01B82D9ED00CAAB0D /* Settings.h */,
+				4DDC5BD11B82D9ED00CAAB0D /* Settings.m */,
 			);
 			name = "Custom Objects";
 			sourceTree = "<group>";
@@ -339,6 +356,13 @@
 			isa = PBXGroup;
 			children = (
 				4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */,
+				4DDC5BC41B82D07300CAAB0D /* AddListCell.xib */,
+				4DDC5BC61B82D08900CAAB0D /* AddListTableViewCell.h */,
+				4DDC5BC71B82D08900CAAB0D /* AddListTableViewCell.m */,
+				4DDC5BCB1B82D4BF00CAAB0D /* DraggableNewList.xib */,
+				4DDC5BCD1B82D4D100CAAB0D /* DraggableNewListTableViewCell.h */,
+				4DDC5BCE1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m */,
+				4DDC5BC91B82D44200CAAB0D /* FarLeftSeperator.xib */,
 			);
 			name = FarLeftTableViewCells;
 			sourceTree = "<group>";
@@ -426,6 +450,8 @@
 			files = (
 				4DC8B8791B559FDB003F7777 /* ParseKeys.plist in Resources */,
 				4D3D28271B558E5C00D12090 /* Main.storyboard in Resources */,
+				4DDC5BCC1B82D4BF00CAAB0D /* DraggableNewList.xib in Resources */,
+				4DDC5BCA1B82D44200CAAB0D /* FarLeftSeperator.xib in Resources */,
 				4D1797681B700F5800140911 /* TextFieldCell.xib in Resources */,
 				4D239A351B6BCA25009DAC63 /* ListView.xib in Resources */,
 				4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */,
@@ -434,6 +460,7 @@
 				4D3D282C1B558E5C00D12090 /* LaunchScreen.xib in Resources */,
 				4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */,
 				4D3D28291B558E5C00D12090 /* Images.xcassets in Resources */,
+				4DDC5BC51B82D07300CAAB0D /* AddListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D13DBE81B6C2A140025B8F7 /* Item.m in Sources */,
+				4DDC5BC81B82D08900CAAB0D /* AddListTableViewCell.m in Sources */,
 				4D11D45C1B58CC1F002D73A0 /* User.m in Sources */,
 				4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */,
 				4DD0A7CC1B7BE59200F93D27 /* ListSettingsViewController.m in Sources */,
@@ -464,7 +492,9 @@
 				4DD350461B7E9A77009170F6 /* FarLeftViewController.m in Sources */,
 				4D13DBE51B6C28740025B8F7 /* List.m in Sources */,
 				4DC8B88C1B55E852003F7777 /* InfoViewController.m in Sources */,
+				4DDC5BD21B82D9ED00CAAB0D /* Settings.m in Sources */,
 				4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */,
+				4DDC5BCF1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m in Sources */,
 				4D239A3C1B6BCAF8009DAC63 /* ListViewController.m in Sources */,
 				4D239A381B6BCA45009DAC63 /* ScrollNavigationViewController.m in Sources */,
 				4DCD2B061B7EF7A1007B2146 /* NewListViewController.m in Sources */,
