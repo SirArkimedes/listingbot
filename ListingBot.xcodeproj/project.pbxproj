@@ -16,7 +16,6 @@
 		4D239A351B6BCA25009DAC63 /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D239A341B6BCA25009DAC63 /* ListView.xib */; };
 		4D239A381B6BCA45009DAC63 /* ScrollNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D239A371B6BCA45009DAC63 /* ScrollNavigationViewController.m */; };
 		4D239A3C1B6BCAF8009DAC63 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */; };
-		4D2487071B599FB400845722 /* Basic_tick_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2487061B599FB400845722 /* Basic_tick_64.png */; };
 		4D3D281B1B558E5C00D12090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281A1B558E5C00D12090 /* main.m */; };
 		4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281D1B558E5C00D12090 /* AppDelegate.m */; };
 		4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281F1B558E5C00D12090 /* ListingBot.xcdatamodeld */; };
@@ -80,7 +79,6 @@
 		4D239A371B6BCA45009DAC63 /* ScrollNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollNavigationViewController.m; sourceTree = "<group>"; };
 		4D239A3A1B6BCAF8009DAC63 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		4D2487061B599FB400845722 /* Basic_tick_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Basic_tick_64.png; sourceTree = "<group>"; };
 		4D3D28151B558E5C00D12090 /* ListingBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListingBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3D28191B558E5C00D12090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D3D281A1B558E5C00D12090 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -201,14 +199,6 @@
 			name = "Embedded Views";
 			sourceTree = "<group>";
 		};
-		4D2487051B599FA000845722 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4D2487061B599FB400845722 /* Basic_tick_64.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		4D3D280C1B558E5C00D12090 = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +231,6 @@
 				4D3D28281B558E5C00D12090 /* Images.xcassets */,
 				4D3D282A1B558E5C00D12090 /* LaunchScreen.xib */,
 				4D3D281F1B558E5C00D12090 /* ListingBot.xcdatamodeld */,
-				4D2487051B599FA000845722 /* Resources */,
 				4D3D28441B55965900D12090 /* Frameworks */,
 				4D3D28181B558E5C00D12090 /* Supporting Files */,
 			);
@@ -443,7 +432,6 @@
 				4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */,
 				4D76D4FE1B7D76B50031E533 /* FarLeftView.xib in Resources */,
 				4D3D282C1B558E5C00D12090 /* LaunchScreen.xib in Resources */,
-				4D2487071B599FB400845722 /* Basic_tick_64.png in Resources */,
 				4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */,
 				4D3D28291B558E5C00D12090 /* Images.xcassets in Resources */,
 			);
