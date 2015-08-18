@@ -95,16 +95,22 @@ typedef enum ScrollDirection {
 
 - (void)layoutViews {
     
+    // Remove to not have kept for overlapping views -- This needs to be done everytime we add new ones.
+    for (UIView *subview in [self.scrollNavigation subviews]) {
+        [subview removeFromSuperview];
+    }
+    
+    // Cleanup old viewcontrollers that won't be used again
+    for (UIViewController *vc in self.childViewControllers) {
+        [vc removeFromParentViewController];
+    }
+    
     if ([User instance].userDidChangeDelete) {
-        
-        // Remove to not have kept for overlapping views
-        for(UIView *subview in [self.scrollNavigation subviews]) {
-            [subview removeFromSuperview];
-        }
         
         // Move to start screen
         [self.scrollNavigation setContentOffset:CGPointMake(0, 0) animated:YES];
         [User instance].userDidChangeDelete = NO;
+        
     }
     
     FarLeftViewController *farLeft = [[FarLeftViewController alloc] initWithNibName:@"FarLeftView" bundle:nil];
