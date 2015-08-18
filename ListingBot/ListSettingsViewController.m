@@ -84,6 +84,11 @@ typedef NS_ENUM(NSUInteger, cellType) {
 - (IBAction)didDelete:(id)sender {
     
     // Delete
+    [[User instance].lists removeObject:self.list];
+    
+    [User instance].userDidChangeDelete = YES;
+    
+    [self hideDeleteDialog];
     
 }
 
@@ -234,7 +239,11 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     [UIView commitAnimations];
     
-    [self performSelector:@selector(removeAlert) withObject:nil afterDelay:kAnimation];
+    if ([User instance].userDidChangeDelete) {
+        [self performSelector:@selector(dismissBack) withObject:nil afterDelay:2 * kAnimation];
+    } else {
+        [self performSelector:@selector(removeAlert) withObject:nil afterDelay:kAnimation];
+    }
     
 }
 
@@ -249,8 +258,12 @@ typedef NS_ENUM(NSUInteger, cellType) {
     self.deleteDialogContainer.bounds = self.originalBounds;
     self.deleteDialogContainer.center = self.originalCenter;
     self.deleteDialogContainer.transform = CGAffineTransformIdentity;
+    
 }
 
+- (void)dismissBack {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 /*
 #pragma mark - Navigation

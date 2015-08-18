@@ -78,7 +78,7 @@
     [[User instance].lists addObject:newList];
     [[User instance].listQueue addObject:newList];
     
-    [User instance].userDidChange = YES;
+    [User instance].userDidChangeAdd = YES;
     
 }
 

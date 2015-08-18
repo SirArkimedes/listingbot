@@ -16,7 +16,8 @@
 
 @property (strong, nonatomic) NSMutableArray *listQueue;
 
-@property BOOL userDidChange;
+@property (nonatomic, assign) BOOL userDidChangeAdd;
+@property (nonatomic, assign) BOOL userDidChangeDelete;
 
 - (id)initWithName:(NSString *)name withUUID:(NSString *)uuid withList:(NSString *)list;
 

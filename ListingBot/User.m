@@ -46,7 +46,8 @@ static User *inst = nil;
     [coder encodeObject:_userUuid forKey:@"userUuid"];
     [coder encodeObject:_lists forKey:@"lists"];
     
-    [coder encodeBool:_userDidChange forKey:@"userDidChange"];
+    [coder encodeBool:_userDidChangeAdd forKey:@"userDidChangeAdd"];
+    [coder encodeBool:_userDidChangeDelete forKey:@"userDidChangeDelete"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder;
@@ -58,7 +59,8 @@ static User *inst = nil;
         _userUuid = [coder decodeObjectForKey:@"userUuid"];
         _lists = [coder decodeObjectForKey:@"lists"];
         
-        _userDidChange = [coder decodeBoolForKey:@"userDidChange"];
+        _userDidChangeAdd = [coder decodeBoolForKey:@"userDidChangeAdd"];
+        _userDidChangeDelete = [coder decodeBoolForKey:@"userDidChangeDelete"];
         
     }
     return self;

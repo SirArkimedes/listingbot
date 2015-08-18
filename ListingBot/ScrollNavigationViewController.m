@@ -48,8 +48,8 @@ typedef enum ScrollDirection {
     // Set scrollview delegate
     self.scrollNavigation.delegate = self;
     
-    // Generate views and play on scrollview
-    [self layoutViews];
+//    // Generate views and play on scrollview
+//    [self layoutViews];
     
     // Saves and retrieves data from Parse
 //    NSData *dataFromSet = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
@@ -83,16 +83,35 @@ typedef enum ScrollDirection {
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    if ([User instance].userDidChange)
-        [self performSelector:@selector(addView) withObject:nil afterDelay:kAnimation];
+    if ([User instance].userDidChangeAdd) {
+        [self performSelector:@selector(layoutViews) withObject:nil afterDelay:kAnimation];
+    } else if ([User instance].userDidChangeDelete) {
+        [self performSelector:@selector(layoutViews) withObject:nil];
+    } else {
+        [self layoutViews];
+    }
     
 }
 
 - (void)layoutViews {
     
-//        [self.scrollNavigation setContentOffset:CGPointMake(0, 0) animated:YES];
+    if ([User instance].userDidChangeDelete) {
+        
+        // Remove to not have kept for overlapping views
+        for(UIView *subview in [self.scrollNavigation subviews]) {
+            [subview removeFromSuperview];
+        }
+        
+        // Move to start screen
+        [self.scrollNavigation setContentOffset:CGPointMake(0, 0) animated:YES];
+        [User instance].userDidChangeDelete = NO;
+    }
     
     FarLeftViewController *farLeft = [[FarLeftViewController alloc] initWithNibName:@"FarLeftView" bundle:nil];
+    
+    CGRect leftFrame = farLeft.view.frame;
+    leftFrame.size = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+    farLeft.view.frame = leftFrame;
     
     farLeft.view.tag = -1;
     
@@ -103,31 +122,7 @@ typedef enum ScrollDirection {
     // Generate views based on how many lists we have.
     for (int i = 1; i <= [[User instance].lists count]; i++) {
         
-        ListViewController *listView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
-        
-        [self addChildViewController:listView];
-        [self.scrollNavigation addSubview:listView.view];
-        [listView didMoveToParentViewController:self];
-        
-        // Customize the view's properties
-        List *list = [[User instance].lists objectAtIndex:i - 1];
-        
-        listView.listTitle.text = list.listName;
-        
-        // Setup sharedWith data, hide if not shared.
-        if (list.sharedWith.count != 0) {
-            NSString *shared = [list.sharedWith componentsJoinedByString:@", "];
-            listView.sharedWith.text = [NSString stringWithFormat:@"Shared with: %@", shared];
-        } else {
-            listView.bottomOfTableConst.constant = 0;
-        }
-        
-        listView.view.tag = i - 1;
-        
-        // Spacially places the new view inside of the scrollview
-        CGRect listFrame = listView.view.frame;
-        listFrame.origin.x = (i) * self.view.frame.size.width;
-        listView.view.frame = listFrame;
+        [self layoutNewListViewWithCount:i];
         
     }
     
@@ -135,14 +130,15 @@ typedef enum ScrollDirection {
     CGFloat scrollHeight = self.view.frame.size.height;
     self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
     
-    [self.view setNeedsDisplay];
+    if ([User instance].userDidChangeAdd) {
+        [self.scrollNavigation setContentOffset:CGPointMake([[User instance].lists count] * self.view.frame.size.width, 0) animated:YES];
+        [User instance].userDidChangeAdd = NO;
+    }
     
 }
 
-- (void)addView {
+- (void)layoutNewListViewWithCount:(int)i {
     
-    // Generate views based on how many lists we have.
-        
     ListViewController *listView = [[ListViewController alloc] initWithNibName:@"ListView" bundle:nil];
     
     [self addChildViewController:listView];
@@ -150,31 +146,25 @@ typedef enum ScrollDirection {
     [listView didMoveToParentViewController:self];
     
     // Customize the view's properties
-    List *list = [[User instance].listQueue objectAtIndex:0];
+    List *list = [[User instance].lists objectAtIndex:i - 1];
     
     listView.listTitle.text = list.listName;
-    listView.view.tag = [[User instance].lists count] - 1;
+    
+    // Setup sharedWith data, hide if not shared.
+    if (list.sharedWith.count != 0) {
+        NSString *shared = [list.sharedWith componentsJoinedByString:@", "];
+        listView.sharedWith.text = [NSString stringWithFormat:@"Shared with: %@", shared];
+    } else {
+        listView.bottomOfTableConst.constant = 0;
+    }
+    
+    listView.view.tag = i - 1;
     
     // Spacially places the new view inside of the scrollview
     CGRect listFrame = listView.view.frame;
-    listFrame.origin.x = ([[User instance].lists count]) * self.view.frame.size.width;
-    
-    /*********** For some reason, this is needed to be set on the newly created ones. ***********/
+    listFrame.origin.x = (i) * self.view.frame.size.width;
     listFrame.size = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
-    
     listView.view.frame = listFrame;
-    
-    [listView.view setNeedsDisplay];
-    
-    CGFloat scrollWidth = ([[User instance].lists count] + 1) * self.view.frame.size.width;
-    CGFloat scrollHeight = self.view.frame.size.height;
-    self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
-    
-    // Revert checks and queues
-    [[User instance].listQueue removeAllObjects];
-    [User instance].userDidChange = NO;
-    
-    [self.scrollNavigation setContentOffset:CGPointMake(([[User instance].lists count]) * self.view.frame.size.width, 0) animated:YES];
     
 }
 
