@@ -73,7 +73,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
 }
 
 - (void)refreshTableWithNotification:(NSNotification *)notification {
-    [self.itemTable reloadData];
+    [self.itemTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
     [self.itemTable setEditing:NO animated:YES];
 }
 
