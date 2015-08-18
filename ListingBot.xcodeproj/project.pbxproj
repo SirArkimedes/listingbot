@@ -330,20 +330,20 @@
 				4D111E7F1B79601B00FB06EF /* ShareListViewController.m */,
 				4DD0A7CA1B7BE59200F93D27 /* ListSettingsViewController.h */,
 				4DD0A7CB1B7BE59200F93D27 /* ListSettingsViewController.m */,
-				4DD1B40B1B7FE57C0004848D /* SettingsTableViewCells */,
+				4DD1B40B1B7FE57C0004848D /* Settings Extras */,
 				4DCD2B041B7EF7A1007B2146 /* NewListViewController.h */,
 				4DCD2B051B7EF7A1007B2146 /* NewListViewController.m */,
 			);
 			name = "Supporting Views";
 			sourceTree = "<group>";
 		};
-		4DD1B40B1B7FE57C0004848D /* SettingsTableViewCells */ = {
+		4DD1B40B1B7FE57C0004848D /* Settings Extras */ = {
 			isa = PBXGroup;
 			children = (
 				4DD1B40C1B7FE5EE0004848D /* SettingsShareTableViewCell.h */,
 				4DD1B40D1B7FE5EE0004848D /* SettingsShareTableViewCell.m */,
 			);
-			name = SettingsTableViewCells;
+			name = "Settings Extras";
 			sourceTree = "<group>";
 		};
 		4DD3503E1B7E8FA5009170F6 /* FarLeftTableViewCells */ = {

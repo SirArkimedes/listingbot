@@ -83,10 +83,9 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *navController = (UINavigationController*)[storybord instantiateViewControllerWithIdentifier:@"settings"];
-    ListSettingsViewController *vc = (ListSettingsViewController *)[navController topViewController];
+    ListSettingsViewController *vc = (ListSettingsViewController*)[storybord instantiateViewControllerWithIdentifier:@"settings"];
     vc.listIndex = (NSUInteger)self.view.tag;
-    [self presentViewController:navController animated:YES completion:nil];
+    [self presentViewController:vc animated:YES completion:nil];
     
 }
 
