@@ -14,7 +14,8 @@ static Settings *inst = nil;
 
 - (id)init {
     if(self=[super init]) {
-        
+        // This controls the settings launch state. This will be set at first launch.
+        self.doesWantDraggable = NO;
     }
     return self;
 }

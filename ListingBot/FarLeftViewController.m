@@ -10,6 +10,7 @@
 
 #import "AddListTableViewCell.h"
 #import "DraggableNewListTableViewCell.h"
+#import "ThemeTableViewCell.h"
 
 #import "Settings.h"
 
@@ -18,6 +19,8 @@ typedef NS_ENUM(NSUInteger, cellType) {
     addNewListCell,
     underNewSeperatorCell,
     draggableNewList,
+    underDraggbleSeperatorCell,
+    themeCell,
 };
 
 @interface FarLeftViewController ()
@@ -59,9 +62,9 @@ typedef NS_ENUM(NSUInteger, cellType) {
     // Return the number of rows in the section.
     
     if ([Settings instance].doesWantDraggable) {
-        return 2;
-    } else {
         return 4;
+    } else {
+        return 6;
     }
     
 }
@@ -82,6 +85,12 @@ typedef NS_ENUM(NSUInteger, cellType) {
             break;
         case draggableNewList:
             cell = [self setupDraggableNewListCellWithTableView:tableView];
+            break;
+        case underDraggbleSeperatorCell:
+            cell = [self setupSeperatorCellWithTableView:tableView];
+            break;
+        case themeCell:
+            cell = [self setupThemeCellWithTableView:tableView];
             break;
     }
     
@@ -175,7 +184,56 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
 }
 
+- (UITableViewCell *)setupThemeCellWithTableView:(UITableView *)tableView {
+    
+    static NSString *draggableNewListCellIdentifier = @"themeSelectorCell";
+    
+    // this is a textfield cell
+    ThemeTableViewCell *cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:draggableNewListCellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ThemeCell" owner:self options:nil] objectAtIndex:0];
+    }
+    
+    for (int i = 0; i <= 3; i++) {
+        
+        [self layoutNewListViewWithCount:i withCell:cell];
+        
+    }
+    
+    CGFloat scrollWidth = 4 * 166;
+    CGFloat scrollHeight = cell.themeScrollView.frame.size.height;
+    cell.themeScrollView.contentSize = CGSizeMake(scrollWidth, scrollHeight);
+    
+    // Forces some color somewhere to not be white, causing cells to have a white background.
+    cell.backgroundColor = [UIColor clearColor];
+    
+    return cell;
+    
+}
 
+- (void)layoutNewListViewWithCount:(int)i withCell:(ThemeTableViewCell *)cell {
+    
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"ThemeDisplayView" owner:self options:nil];
+    UIView *view = [nibContents objectAtIndex:0];
+    [cell.themeScrollView addSubview:view];
+    
+    //    UIViewController *listView = [[UIViewController alloc] initWithNibName:@"ThemeCell" bundle:nil];
+    //
+    //    [self.themeScrollView addSubview:listView.view];
+    //    [listView didMoveToParentViewController:self];
+    
+    view.tag = i;
+    
+    // Spacially places the new view inside of the scrollview
+    CGRect listFrame = view.frame;
+    listFrame.origin.x = (i) * 166;
+    listFrame.size = CGSizeMake(166, 166);
+    view.frame = listFrame;
+    
+}
 
 - (NSUInteger)typeForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -187,6 +245,13 @@ typedef NS_ENUM(NSUInteger, cellType) {
                 break;
             case 1:
                 return draggableNewList;
+                break;
+            case 2:
+                return underDraggbleSeperatorCell;
+                break;
+            case 3:
+                return themeCell;
+                break;
             default:
                 return welcomeCell;
                 break;
@@ -206,6 +271,12 @@ typedef NS_ENUM(NSUInteger, cellType) {
                 break;
             case 3:
                 return draggableNewList;
+                break;
+            case 4:
+                return underDraggbleSeperatorCell;
+            case 5:
+                return themeCell;
+                break;
             default:
                 return welcomeCell;
                 break;
@@ -229,6 +300,12 @@ typedef NS_ENUM(NSUInteger, cellType) {
             break;
         case draggableNewList:
             return 44.f;
+            break;
+        case underDraggbleSeperatorCell:
+            return 11.f;
+            break;
+        case themeCell:
+            return 209;
             break;
         default:
             return 44.f;

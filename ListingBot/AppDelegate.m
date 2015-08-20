@@ -63,8 +63,8 @@
     // Load settings
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] != nil) {
         Settings *object = [self loadSettingsObjectWithKey:@"settings"];
-        
-        // Make the stats
+                
+        // Make the settings
         [Settings instance].doesWantDraggable = object.doesWantDraggable;
         
 //        if (![Stats instance].ownedCars) {

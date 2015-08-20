@@ -56,6 +56,9 @@
 		4DDC5BCC1B82D4BF00CAAB0D /* DraggableNewList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5BCB1B82D4BF00CAAB0D /* DraggableNewList.xib */; };
 		4DDC5BCF1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5BCE1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m */; };
 		4DDC5BD21B82D9ED00CAAB0D /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5BD11B82D9ED00CAAB0D /* Settings.m */; };
+		4DDE27661B85697B00DA7407 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE27651B85697B00DA7407 /* ThemeCell.xib */; };
+		4DDE27691B8569AD00DA7407 /* ThemeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDE27681B8569AD00DA7407 /* ThemeTableViewCell.m */; };
+		4DDE276C1B856ECC00DA7407 /* ThemeDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE276B1B856ECC00DA7407 /* ThemeDisplayView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +145,10 @@
 		4DDC5BCE1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableNewListTableViewCell.m; sourceTree = "<group>"; };
 		4DDC5BD01B82D9ED00CAAB0D /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		4DDC5BD11B82D9ED00CAAB0D /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		4DDE27651B85697B00DA7407 /* ThemeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeCell.xib; sourceTree = "<group>"; };
+		4DDE27671B8569AD00DA7407 /* ThemeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeTableViewCell.h; sourceTree = "<group>"; };
+		4DDE27681B8569AD00DA7407 /* ThemeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeTableViewCell.m; sourceTree = "<group>"; };
+		4DDE276B1B856ECC00DA7407 /* ThemeDisplayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeDisplayView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,8 +370,20 @@
 				4DDC5BCD1B82D4D100CAAB0D /* DraggableNewListTableViewCell.h */,
 				4DDC5BCE1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m */,
 				4DDC5BC91B82D44200CAAB0D /* FarLeftSeperator.xib */,
+				4DDE27651B85697B00DA7407 /* ThemeCell.xib */,
+				4DDE27671B8569AD00DA7407 /* ThemeTableViewCell.h */,
+				4DDE27681B8569AD00DA7407 /* ThemeTableViewCell.m */,
+				4DDE276A1B856E3400DA7407 /* Themes view */,
 			);
 			name = FarLeftTableViewCells;
+			sourceTree = "<group>";
+		};
+		4DDE276A1B856E3400DA7407 /* Themes view */ = {
+			isa = PBXGroup;
+			children = (
+				4DDE276B1B856ECC00DA7407 /* ThemeDisplayView.xib */,
+			);
+			name = "Themes view";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,7 +472,9 @@
 				4DDC5BCC1B82D4BF00CAAB0D /* DraggableNewList.xib in Resources */,
 				4DDC5BCA1B82D44200CAAB0D /* FarLeftSeperator.xib in Resources */,
 				4D1797681B700F5800140911 /* TextFieldCell.xib in Resources */,
+				4DDE27661B85697B00DA7407 /* ThemeCell.xib in Resources */,
 				4D239A351B6BCA25009DAC63 /* ListView.xib in Resources */,
+				4DDE276C1B856ECC00DA7407 /* ThemeDisplayView.xib in Resources */,
 				4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */,
 				4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */,
 				4D76D4FE1B7D76B50031E533 /* FarLeftView.xib in Resources */,
@@ -488,6 +509,7 @@
 				4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */,
 				4D3D281B1B558E5C00D12090 /* main.m in Sources */,
 				4D3D28431B55946900D12090 /* ListingsViewController.m in Sources */,
+				4DDE27691B8569AD00DA7407 /* ThemeTableViewCell.m in Sources */,
 				4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */,
 				4DD350461B7E9A77009170F6 /* FarLeftViewController.m in Sources */,
 				4D13DBE51B6C28740025B8F7 /* List.m in Sources */,

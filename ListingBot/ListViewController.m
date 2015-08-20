@@ -81,7 +81,6 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (IBAction)listSettingsPress:(id)sender {
     
-    
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ListSettingsViewController *vc = (ListSettingsViewController*)[storybord instantiateViewControllerWithIdentifier:@"settings"];
     vc.listIndex = (NSUInteger)self.view.tag;
