@@ -161,6 +161,13 @@ typedef NS_ENUM(NSUInteger, cellType) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"DraggableNewList" owner:self options:nil] objectAtIndex:0];
     }
     
+    // Set cell to actual state - Fixes the cell reloading to on or off state incorrectly
+    if ([Settings instance].doesWantDraggable) {
+        [cell.draggableSwitch setOn:YES animated:YES];
+    } else {
+        [cell.draggableSwitch setOn:NO animated:YES];
+    }
+    
     // Forces some color somewhere to not be white, causing cells to have a white background.
     cell.backgroundColor = [UIColor clearColor];
     
