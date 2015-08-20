@@ -12,6 +12,8 @@
 #import "ListViewController.h"
 #import "FarLeftViewController.h"
 
+#import "NewListViewController.h"
+
 #import "User.h"
 #import "List.h"
 
@@ -59,6 +61,9 @@ typedef enum ScrollDirection {
     
     // Register new list button notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(evaluateNewListChange:) name:@"newList" object:nil];
+    
+    // Register creating a new list view
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNewListController:) name:@"createNewList" object:nil];
     
 //    // Generate views and play on scrollview
 //    [self layoutViews];
@@ -122,6 +127,14 @@ typedef enum ScrollDirection {
     self.listNewButton.layer.opacity = opacity;
     
     [UIView commitAnimations];
+    
+}
+
+- (void)pushNewListController:(NSNotification *)notification {
+    
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NewListViewController *vc = (NewListViewController*)[storybord instantiateViewControllerWithIdentifier:@"newListController"];
+    [self presentViewController:vc animated:YES completion:nil];
     
 }
 

@@ -8,7 +8,7 @@
         <!--New List View Controller-->
         <scene sceneID="sTe-tu-PhQ">
             <objects>
-                <viewController id="iME-Nw-04p" customClass="NewListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newListController" id="iME-Nw-04p" customClass="NewListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v47-ZG-e4N"/>
                         <viewControllerLayoutGuide type="bottom" id="KUB-b2-P8e"/>

@@ -20,4 +20,12 @@
     // Configure the view for the selected state
 }
 
+#pragma mark - Buttons
+
+- (IBAction)createNewList:(id)sender {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"createNewList" object:nil userInfo:nil];
+    
+}
+
 @end
