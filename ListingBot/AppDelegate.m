@@ -14,6 +14,8 @@
 #import "List.h"
 #import "Item.h"
 
+#import "Settings.h"
+
 @interface AppDelegate ()
 
 @end
@@ -56,6 +58,21 @@
                                         }
                                     }];
         
+    }
+    
+    // Load settings
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] != nil) {
+        Settings *object = [self loadSettingsObjectWithKey:@"settings"];
+        
+        // Make the stats
+        [Settings instance].doesWantDraggable = object.doesWantDraggable;
+        
+//        if (![Stats instance].ownedCars) {
+//            
+//            [Stats instance].ownedCars = [[NSMutableArray alloc] initWithObjects:stats.ownedCars, nil];
+//
+//            
+//        }
     }
     
     // Register for Push Notitications
@@ -155,6 +172,12 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    // Save Settings
+    Settings *object = [Settings instance];
+    
+    [self saveSettingsObject:object key:@"settings"];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -228,6 +251,21 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *encodedObject = [defaults objectForKey:key];
     User *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return object;
+}
+
+- (void)saveSettingsObject:(Settings *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
+    
+}
+
+- (Settings *)loadSettingsObjectWithKey:(NSString *)key {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [defaults objectForKey:key];
+    Settings *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
     return object;
 }
 
