@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     self.settingTable.dataSource = self;
     self.settingTable.delegate =  self;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshFarLeft" object:nil];
         
 }
 

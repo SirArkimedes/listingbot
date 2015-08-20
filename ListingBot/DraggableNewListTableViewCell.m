@@ -39,7 +39,8 @@
         [Settings instance].doesWantDraggable = NO;
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshTable" object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshFarLeft" object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newList" object:nil userInfo:nil];
     
 }
 

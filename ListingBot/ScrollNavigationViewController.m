@@ -15,6 +15,8 @@
 #import "User.h"
 #import "List.h"
 
+#import "Settings.h"
+
 #define kAnimation .5f
 
 typedef enum ScrollDirection {
@@ -47,6 +49,16 @@ typedef enum ScrollDirection {
     
     // Set scrollview delegate
     self.scrollNavigation.delegate = self;
+    
+    // Hide or unhide button based on setting
+    if ([Settings instance].doesWantDraggable) {
+        self.listNewButton.layer.opacity = 1.f;
+    } else {
+        self.listNewButton.layer.opacity = 0.f;
+    }
+    
+    // Register new list button notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(evaluateNewListChange:) name:@"newList" object:nil];
     
 //    // Generate views and play on scrollview
 //    [self layoutViews];
@@ -90,6 +102,26 @@ typedef enum ScrollDirection {
     } else {
         [self layoutViews];
     }
+    
+}
+
+- (void)evaluateNewListChange:(NSNotification *)notification {
+    
+    CGFloat opacity;
+    
+    if ([Settings instance].doesWantDraggable) {
+        opacity = 1.f;
+    } else {
+        opacity = 0.f;
+    }
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    self.listNewButton.layer.opacity = opacity;
+    
+    [UIView commitAnimations];
     
 }
 
