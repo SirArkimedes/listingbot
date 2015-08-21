@@ -23,7 +23,6 @@
 //    CGFloat scrollWidth = 3 * 166;
 //    CGFloat scrollHeight = self.themeScrollView.frame.size.height;
 //    self.themeScrollView.contentSize = CGSizeMake(scrollWidth, scrollHeight);
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -11,8 +11,14 @@
 #import "AddListTableViewCell.h"
 #import "DraggableNewListTableViewCell.h"
 #import "ThemeTableViewCell.h"
+#import "ThemeDisplayView.h"
 
 #import "Settings.h"
+#import "Theme.h"
+
+#define UIColorFromRGB(rgbValue, ...) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+                                                      green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+                                                       blue:((float)(rgbValue & 0xFF))/255.0 alpha:__VA_ARGS__]
 
 typedef NS_ENUM(NSUInteger, cellType) {
     welcomeCell,
@@ -197,13 +203,13 @@ typedef NS_ENUM(NSUInteger, cellType) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ThemeCell" owner:self options:nil] objectAtIndex:0];
     }
     
-    for (int i = 0; i <= 3; i++) {
+    for (int i = 1; i <= [[Settings instance].themes count]; i++) {
         
         [self layoutNewListViewWithCount:i withCell:cell];
         
     }
     
-    CGFloat scrollWidth = 4 * 166;
+    CGFloat scrollWidth = [[Settings instance].themes count] * 166;
     CGFloat scrollHeight = cell.themeScrollView.frame.size.height;
     cell.themeScrollView.contentSize = CGSizeMake(scrollWidth, scrollHeight);
     
@@ -217,7 +223,17 @@ typedef NS_ENUM(NSUInteger, cellType) {
 - (void)layoutNewListViewWithCount:(int)i withCell:(ThemeTableViewCell *)cell {
     
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"ThemeDisplayView" owner:self options:nil];
-    UIView *view = [nibContents objectAtIndex:0];
+    ThemeDisplayView *view = (ThemeDisplayView *)[nibContents objectAtIndex:0];
+    
+    Theme *viewTheme = [[Settings instance].themes objectAtIndex:i - 1];
+    unsigned int backgroundHex = 0;
+    unsigned int textHex = 0;
+    
+    [[NSScanner scannerWithString:viewTheme.backgroundColor] scanHexInt:&backgroundHex];
+    [[NSScanner scannerWithString:viewTheme.textColor] scanHexInt:&textHex];
+
+    view.viewBackgroundColor.backgroundColor = UIColorFromRGB(backgroundHex, 1);
+    view.viewTextColor.textColor = UIColorFromRGB(textHex, 1);
     [cell.themeScrollView addSubview:view];
     
     //    UIViewController *listView = [[UIViewController alloc] initWithNibName:@"ThemeCell" bundle:nil];
@@ -229,7 +245,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     // Spacially places the new view inside of the scrollview
     CGRect listFrame = view.frame;
-    listFrame.origin.x = (i) * 166;
+    listFrame.origin.x = (i - 1) * 166;
     listFrame.size = CGSizeMake(166, 166);
     view.frame = listFrame;
     

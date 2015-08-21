@@ -15,6 +15,7 @@
 #import "Item.h"
 
 #import "Settings.h"
+#import "Theme.h"
 
 @interface AppDelegate ()
 
@@ -74,6 +75,20 @@
 //            
 //        }
     }
+    
+    // Load themes
+    Theme *standard = [[Theme alloc] init];
+    standard.backgroundColor = @"0xFFFDEF";
+    standard.textColor = @"0x229E4E";
+    
+    Theme *redWhite = [[Theme alloc] init];
+    redWhite.backgroundColor = @"0xB22521";
+    redWhite.textColor = @"0xE8EDEF";
+    
+    NSArray *themes = @[standard, redWhite];
+    
+    [[Settings instance].themes addObjectsFromArray:themes];
+    
     
     // Register for Push Notitications
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |

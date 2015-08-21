@@ -50,12 +50,14 @@
 		4DD1B40E1B7FE5EE0004848D /* SettingsShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1B40D1B7FE5EE0004848D /* SettingsShareTableViewCell.m */; };
 		4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */; };
 		4DD350461B7E9A77009170F6 /* FarLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD350451B7E9A77009170F6 /* FarLeftViewController.m */; };
+		4DDA17511B864657001D4DD4 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA17501B864657001D4DD4 /* Theme.m */; };
 		4DDC5BC51B82D07300CAAB0D /* AddListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5BC41B82D07300CAAB0D /* AddListCell.xib */; };
 		4DDC5BC81B82D08900CAAB0D /* AddListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5BC71B82D08900CAAB0D /* AddListTableViewCell.m */; };
 		4DDC5BCA1B82D44200CAAB0D /* FarLeftSeperator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5BC91B82D44200CAAB0D /* FarLeftSeperator.xib */; };
 		4DDC5BCC1B82D4BF00CAAB0D /* DraggableNewList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5BCB1B82D4BF00CAAB0D /* DraggableNewList.xib */; };
 		4DDC5BCF1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5BCE1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m */; };
 		4DDC5BD21B82D9ED00CAAB0D /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5BD11B82D9ED00CAAB0D /* Settings.m */; };
+		4DDCF06E1B86BB2200ED9864 /* ThemeDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDCF06D1B86BB2200ED9864 /* ThemeDisplayView.m */; };
 		4DDE27661B85697B00DA7407 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE27651B85697B00DA7407 /* ThemeCell.xib */; };
 		4DDE27691B8569AD00DA7407 /* ThemeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDE27681B8569AD00DA7407 /* ThemeTableViewCell.m */; };
 		4DDE276C1B856ECC00DA7407 /* ThemeDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE276B1B856ECC00DA7407 /* ThemeDisplayView.xib */; };
@@ -136,6 +138,8 @@
 		4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeCell.xib; sourceTree = "<group>"; };
 		4DD350441B7E9A77009170F6 /* FarLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FarLeftViewController.h; sourceTree = "<group>"; };
 		4DD350451B7E9A77009170F6 /* FarLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FarLeftViewController.m; sourceTree = "<group>"; };
+		4DDA174F1B864657001D4DD4 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
+		4DDA17501B864657001D4DD4 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
 		4DDC5BC41B82D07300CAAB0D /* AddListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddListCell.xib; sourceTree = "<group>"; };
 		4DDC5BC61B82D08900CAAB0D /* AddListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddListTableViewCell.h; sourceTree = "<group>"; };
 		4DDC5BC71B82D08900CAAB0D /* AddListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddListTableViewCell.m; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 		4DDC5BCE1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableNewListTableViewCell.m; sourceTree = "<group>"; };
 		4DDC5BD01B82D9ED00CAAB0D /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		4DDC5BD11B82D9ED00CAAB0D /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		4DDCF06C1B86BB2200ED9864 /* ThemeDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeDisplayView.h; sourceTree = "<group>"; };
+		4DDCF06D1B86BB2200ED9864 /* ThemeDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeDisplayView.m; sourceTree = "<group>"; };
 		4DDE27651B85697B00DA7407 /* ThemeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeCell.xib; sourceTree = "<group>"; };
 		4DDE27671B8569AD00DA7407 /* ThemeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeTableViewCell.h; sourceTree = "<group>"; };
 		4DDE27681B8569AD00DA7407 /* ThemeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeTableViewCell.m; sourceTree = "<group>"; };
@@ -193,6 +199,8 @@
 				4D13DBE71B6C2A140025B8F7 /* Item.m */,
 				4DDC5BD01B82D9ED00CAAB0D /* Settings.h */,
 				4DDC5BD11B82D9ED00CAAB0D /* Settings.m */,
+				4DDA174F1B864657001D4DD4 /* Theme.h */,
+				4DDA17501B864657001D4DD4 /* Theme.m */,
 			);
 			name = "Custom Objects";
 			sourceTree = "<group>";
@@ -382,6 +390,8 @@
 			isa = PBXGroup;
 			children = (
 				4DDE276B1B856ECC00DA7407 /* ThemeDisplayView.xib */,
+				4DDCF06C1B86BB2200ED9864 /* ThemeDisplayView.h */,
+				4DDCF06D1B86BB2200ED9864 /* ThemeDisplayView.m */,
 			);
 			name = "Themes view";
 			sourceTree = "<group>";
@@ -520,8 +530,10 @@
 				4D239A3C1B6BCAF8009DAC63 /* ListViewController.m in Sources */,
 				4D239A381B6BCA45009DAC63 /* ScrollNavigationViewController.m in Sources */,
 				4DCD2B061B7EF7A1007B2146 /* NewListViewController.m in Sources */,
+				4DDA17511B864657001D4DD4 /* Theme.m in Sources */,
 				4D14EDCB1B70528000DCFADC /* AddFieldTableViewCell.m in Sources */,
 				4D111E801B79601B00FB06EF /* ShareListViewController.m in Sources */,
+				4DDCF06E1B86BB2200ED9864 /* ThemeDisplayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

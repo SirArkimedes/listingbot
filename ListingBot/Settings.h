@@ -12,6 +12,8 @@
 
 @property (nonatomic, assign) BOOL doesWantDraggable;
 
+@property (strong, nonatomic) NSMutableArray *themes;
+
 - (id)init;
 + (Settings*)instance;
 

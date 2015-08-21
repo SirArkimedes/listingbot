@@ -16,6 +16,7 @@ static Settings *inst = nil;
     if(self=[super init]) {
         // This controls the settings launch state. This will be set at first launch.
         self.doesWantDraggable = NO;
+        self.themes = [[NSMutableArray alloc] init];
     }
     return self;
 }

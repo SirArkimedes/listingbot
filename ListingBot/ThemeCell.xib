@@ -34,7 +34,7 @@
                     <constraint firstItem="3kF-kp-xNh" firstAttribute="leading" secondItem="8En-bv-TrL" secondAttribute="leadingMargin" id="K4f-GG-KVI"/>
                     <constraint firstItem="3kF-kp-xNh" firstAttribute="top" secondItem="8En-bv-TrL" secondAttribute="topMargin" id="LI9-c2-lTV"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PBb-RN-fiT" secondAttribute="trailing" constant="-8" id="LXN-c7-sVZ"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="PBb-RN-fiT" secondAttribute="bottom" constant="-7.5" id="amE-Ku-i6p"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="PBb-RN-fiT" secondAttribute="bottom" constant="-8.5" id="amE-Ku-i6p"/>
                     <constraint firstItem="PBb-RN-fiT" firstAttribute="leading" secondItem="8En-bv-TrL" secondAttribute="leadingMargin" constant="-8" id="dDm-CB-C9F"/>
                     <constraint firstItem="3kF-kp-xNh" firstAttribute="trailing" secondItem="8En-bv-TrL" secondAttribute="trailingMargin" id="vsv-D5-MU3"/>
                 </constraints>
