@@ -158,7 +158,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNW-fO-AdA" userLabel="Share View">
-                                <rect key="frame" x="16" y="59" width="568" height="179"/>
+                                <rect key="frame" x="16" y="59" width="568" height="222"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to share the list?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9Z-Ml-rhv">
                                         <rect key="frame" x="119" y="58" width="330" height="24"/>
@@ -232,6 +232,21 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sd-Yw-3O9">
+                                        <rect key="frame" x="147" y="178" width="274" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2l3-cZ-cAg"/>
+                                            <constraint firstAttribute="width" constant="274" id="pYH-du-bWk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
+                                        <state key="normal" title="or you have a share code?">
+                                            <color key="titleColor" red="0.1333333333" green="0.61960784310000006" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="shareCode:" destination="iME-Nw-04p" eventType="touchUpInside" id="Rju-PE-ohi"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -242,14 +257,61 @@
                                     <constraint firstItem="th3-OL-UTh" firstAttribute="top" secondItem="kNW-fO-AdA" secondAttribute="topMargin" id="dk7-c4-6bL"/>
                                     <constraint firstItem="DCb-ed-rFs" firstAttribute="centerX" secondItem="RGm-cq-edS" secondAttribute="centerX" id="gd8-Td-08k"/>
                                     <constraint firstItem="RGm-cq-edS" firstAttribute="top" secondItem="x9Z-Ml-rhv" secondAttribute="bottom" constant="8" id="j5c-pt-VUD"/>
+                                    <constraint firstItem="9sd-Yw-3O9" firstAttribute="centerX" secondItem="DCb-ed-rFs" secondAttribute="centerX" id="mMk-CX-F2q"/>
+                                    <constraint firstAttribute="bottom" secondItem="9sd-Yw-3O9" secondAttribute="bottom" id="ocz-CG-D30"/>
                                     <constraint firstItem="DCb-ed-rFs" firstAttribute="top" secondItem="RGm-cq-edS" secondAttribute="bottom" constant="8" symbolic="YES" id="pTp-js-LWe"/>
+                                    <constraint firstAttribute="height" constant="222" id="tvu-Fv-Zuc"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-YS-t0q" userLabel="Code View">
+                                <rect key="frame" x="16" y="29" width="568" height="179"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Code" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-KP-HYI">
+                                        <rect key="frame" x="20" y="99" width="528" height="55"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="0.28000000000000003" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="Udw-UJ-ziA"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="next"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the share code?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfM-Qg-mZI">
+                                        <rect key="frame" x="132" y="26" width="305" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="305" id="gRN-fq-lnj"/>
+                                            <constraint firstAttribute="height" constant="49" id="nlp-Mf-a2e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ex: listapp://join:654321684321" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zs-jx-Vy6">
+                                        <rect key="frame" x="162" y="75" width="244" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="RjP-Wb-Ic7"/>
+                                            <constraint firstAttribute="width" constant="244" id="aaZ-MC-jaL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="SfE-KP-HYI" secondAttribute="centerX" id="0q6-tt-ziK"/>
+                                    <constraint firstItem="SfE-KP-HYI" firstAttribute="leading" secondItem="Ryg-YS-t0q" secondAttribute="leading" constant="20" id="6Yo-2v-ei1"/>
+                                    <constraint firstAttribute="centerX" secondItem="5zs-jx-Vy6" secondAttribute="centerX" id="6dV-D8-QgT"/>
+                                    <constraint firstItem="5zs-jx-Vy6" firstAttribute="top" secondItem="sfM-Qg-mZI" secondAttribute="bottom" id="EnZ-uf-cAU"/>
+                                    <constraint firstItem="SfE-KP-HYI" firstAttribute="top" secondItem="5zs-jx-Vy6" secondAttribute="bottom" constant="3" id="Hus-Jl-4ul"/>
+                                    <constraint firstItem="sfM-Qg-mZI" firstAttribute="top" secondItem="Ryg-YS-t0q" secondAttribute="top" constant="26" id="MUm-Du-CHf"/>
+                                    <constraint firstAttribute="centerX" secondItem="sfM-Qg-mZI" secondAttribute="centerX" constant="-0.5" id="b6K-Zh-gmQ"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99215686274509807" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Ryg-YS-t0q" firstAttribute="top" secondItem="kNW-fO-AdA" secondAttribute="top" constant="-30" id="1p9-Od-DhQ"/>
                             <constraint firstItem="vY8-Z0-VOC" firstAttribute="bottom" secondItem="8AP-aW-SUm" secondAttribute="bottom" id="5S6-Hy-jY5"/>
-                            <constraint firstItem="kNW-fO-AdA" firstAttribute="bottom" secondItem="vm3-Un-l7a" secondAttribute="bottom" id="AgM-yQ-Te4"/>
                             <constraint firstItem="kNW-fO-AdA" firstAttribute="trailing" secondItem="vm3-Un-l7a" secondAttribute="trailing" id="COK-PD-XV5"/>
                             <constraint firstItem="KUB-b2-P8e" firstAttribute="top" secondItem="T7u-XR-dgc" secondAttribute="bottom" constant="8" id="CdK-VM-4zW"/>
                             <constraint firstItem="vm3-Un-l7a" firstAttribute="leading" secondItem="f0A-Co-qZx" secondAttribute="leadingMargin" id="Cna-mh-OeE"/>
@@ -258,13 +320,16 @@
                             <constraint firstItem="vm3-Un-l7a" firstAttribute="centerX" secondItem="T7u-XR-dgc" secondAttribute="centerX" id="J0W-4m-s6J"/>
                             <constraint firstItem="8AP-aW-SUm" firstAttribute="top" secondItem="v47-ZG-e4N" secondAttribute="bottom" constant="59" id="NZt-EY-Cpg"/>
                             <constraint firstItem="vY8-Z0-VOC" firstAttribute="leading" secondItem="kNW-fO-AdA" secondAttribute="leading" id="P5G-ZK-H7P"/>
+                            <constraint firstItem="Ryg-YS-t0q" firstAttribute="leading" secondItem="8AP-aW-SUm" secondAttribute="leading" id="Qca-6o-Vog"/>
                             <constraint firstItem="kNW-fO-AdA" firstAttribute="leading" secondItem="vm3-Un-l7a" secondAttribute="leading" id="SWT-ul-orX"/>
                             <constraint firstItem="T7u-XR-dgc" firstAttribute="leading" secondItem="f0A-Co-qZx" secondAttribute="leading" id="TWA-Yr-WhY"/>
                             <constraint firstItem="vm3-Un-l7a" firstAttribute="leading" secondItem="8AP-aW-SUm" secondAttribute="leading" id="b3C-Pg-7Lo"/>
                             <constraint firstAttribute="trailing" secondItem="T7u-XR-dgc" secondAttribute="trailing" id="cLo-eM-P0U"/>
+                            <constraint firstItem="Ryg-YS-t0q" firstAttribute="bottom" secondItem="vm3-Un-l7a" secondAttribute="bottom" constant="-30" id="dxB-Cc-uIP"/>
                             <constraint firstAttribute="bottom" secondItem="vm3-Un-l7a" secondAttribute="bottom" constant="362" id="hZh-rO-Dni"/>
                             <constraint firstItem="vm3-Un-l7a" firstAttribute="top" secondItem="v47-ZG-e4N" secondAttribute="bottom" constant="59" id="kdX-Yw-m5I"/>
                             <constraint firstAttribute="bottom" secondItem="8AP-aW-SUm" secondAttribute="bottom" constant="362" id="khZ-Zr-6O9"/>
+                            <constraint firstItem="Ryg-YS-t0q" firstAttribute="trailing" secondItem="vm3-Un-l7a" secondAttribute="trailing" id="rd7-cU-bhR"/>
                             <constraint firstItem="vY8-Z0-VOC" firstAttribute="trailing" secondItem="kNW-fO-AdA" secondAttribute="trailing" id="uBL-cn-byU"/>
                             <constraint firstItem="8AP-aW-SUm" firstAttribute="trailing" secondItem="vm3-Un-l7a" secondAttribute="trailing" id="x9l-Dl-mAC"/>
                         </constraints>
@@ -272,6 +337,8 @@
                     <connections>
                         <outlet property="allDoneView" destination="vm3-Un-l7a" id="ssU-9N-TQV"/>
                         <outlet property="cancelButton" destination="T7u-XR-dgc" id="UVm-Rd-R5g"/>
+                        <outlet property="codeField" destination="SfE-KP-HYI" id="Zva-u4-oJE"/>
+                        <outlet property="codeView" destination="Ryg-YS-t0q" id="p0L-nI-KVn"/>
                         <outlet property="nameField" destination="iGs-JP-MhF" id="9dM-X7-m5M"/>
                         <outlet property="nameView" destination="8AP-aW-SUm" id="uFl-Bc-hTz"/>
                         <outlet property="shareView" destination="kNW-fO-AdA" id="sHz-98-KSZ"/>

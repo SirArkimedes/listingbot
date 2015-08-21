@@ -19,13 +19,16 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UIButton *yesShareCopy;
+@property (weak, nonatomic) IBOutlet UITextField *codeField;
 
 @property (weak, nonatomic) IBOutlet UIView *shareView;
 @property (weak, nonatomic) IBOutlet UIView *nameView;
 @property (weak, nonatomic) IBOutlet UIView *allDoneView;
 @property (weak, nonatomic) IBOutlet UIView *yesShare;
+@property (weak, nonatomic) IBOutlet UIView *codeView;
 
 @property BOOL didWantShare;
+@property BOOL shareCode;
 @property (strong, nonatomic) NSString *listName;
 
 @end
@@ -45,6 +48,8 @@
     
     self.yesShareCopy.layer.cornerRadius = 5.f;
     
+    self.codeField = [self styleField:self.codeField];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,6 +60,7 @@
 - (void)dismissKeyboard {
     
     [self.nameField resignFirstResponder];
+    [self.codeField resignFirstResponder];
     
 }
 
@@ -107,6 +113,14 @@
     
 }
 
+- (IBAction)shareCode:(id)sender {
+    
+    self.shareCode = YES;
+    
+    [self animateOutShareView];
+    
+}
+
 #pragma mark - Textfield Delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -120,8 +134,16 @@
         
     } else {
         
-        self.listName = textField.text;
-        [self animateOutListName];
+        if (textField == self.codeField) {
+            
+            [self animateOutShareCode];
+            
+        } else {
+        
+            self.listName = textField.text;
+            [self animateOutListName];
+            
+        }
         
         return YES;
     }
@@ -144,7 +166,59 @@
     
     [UIView commitAnimations];
     
-    [self performSelector:@selector(animateInListName) withObject:nil afterDelay:kAnimation];
+    if (self.shareCode)
+        [self performSelector:@selector(animateInShareCode) withObject:nil afterDelay:kAnimation];
+    else
+        [self performSelector:@selector(animateInListName) withObject:nil afterDelay:kAnimation];
+    
+}
+
+- (void)animateInShareCode {
+    
+    // Unhide
+    self.codeView.hidden = NO;
+    self.codeView.layer.opacity = 0.f;
+    
+    // Move keyboard
+    [self.codeField becomeFirstResponder];
+    
+    // OG
+    CGRect listViewOG = self.codeView.frame;
+    
+    // New positions
+    CGRect viewFrame = self.codeView.frame;
+    viewFrame.origin.x = viewFrame.size.width;
+    self.codeView.frame = viewFrame;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    self.codeView.frame = listViewOG;
+    self.codeView.layer.opacity = 1.f;
+    
+    [UIView commitAnimations];
+    
+    //    [self performSelector:@selector(hideKeyboard) withObject:nil afterDelay:kAnimation];
+    
+}
+
+- (void)animateOutShareCode {
+    
+    // Move to ending.
+    CGRect viewFrame = self.codeView.frame;
+    viewFrame.origin.x = -self.view.frame.size.width;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    self.codeView.frame = viewFrame;
+    self.codeView.layer.opacity = 0.f;
+    
+    [UIView commitAnimations];
+    
+    [self performSelector:@selector(animateInAllDone) withObject:nil afterDelay:kAnimation];
     
 }
 
@@ -259,7 +333,7 @@
     self.allDoneView.layer.opacity = 0.f;
     
     // Drop keyboard
-    [self.nameField resignFirstResponder];
+    [self dismissKeyboard];
     
     // OG
     CGRect listViewOG = self.allDoneView.frame;
