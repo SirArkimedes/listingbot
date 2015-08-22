@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     self.itemTable.delegate = self;
     self.itemTable.dataSource = self;
                 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshTable" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshTable" object:nil];
     
     // Initialize with no editing.
     self.editing = NO;
@@ -72,10 +72,15 @@ typedef NS_ENUM(NSUInteger, cellType) {
     // Dispose of any resources that can be recreated.
 }
 
-- (void)refreshTableWithNotification:(NSNotification *)notification {
-    [self.itemTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-    [self.itemTable setEditing:NO animated:YES];
-}
+//- (void)refreshTableWithNotification:(NSNotification *)notification {
+//    [self.itemTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+//    [self.itemTable setEditing:NO animated:YES];
+//    
+//    NSDictionary *dict = [notification userInfo];
+//    
+//    [[dict objectForKey:@[@"textfield"]] becomeFirstResponder];
+//    
+//}
 
 #pragma mark - Buttons
 

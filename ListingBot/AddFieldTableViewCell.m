@@ -61,7 +61,10 @@
         // Pass the specific tableview for reloading
         UITableView *tableView = (UITableView *)self.superview.superview;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshTable" object:tableView userInfo:nil];
+        [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView setEditing:NO animated:YES];
+        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshTable" object:tableView userInfo:nil];
         
         return YES;
     }
