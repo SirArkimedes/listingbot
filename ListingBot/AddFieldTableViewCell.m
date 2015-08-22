@@ -127,8 +127,13 @@
     [UIView commitAnimations];
     
     // Scroll table
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
-    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    if (tableView.editing) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:list.listItems.count - 1 inSection:0];
+        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    } else {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 * list.listItems.count inSection:0];
+        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
     
 }
 

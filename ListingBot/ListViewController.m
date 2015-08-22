@@ -299,6 +299,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     if (editing) {
         [self.editButton setTitle:@"Done" forState:UIControlStateNormal];
         self.editing = YES;
+        [self resignFirstResponder];
         [self.itemTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
     } else {
         [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
