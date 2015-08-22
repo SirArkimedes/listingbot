@@ -150,14 +150,6 @@ typedef enum ScrollDirection {
         [vc removeFromParentViewController];
     }
     
-    if ([User instance].userDidChangeDelete) {
-        
-        // Move to start screen
-        [self.scrollNavigation setContentOffset:CGPointMake(0, 0) animated:YES];
-        [User instance].userDidChangeDelete = NO;
-        
-    }
-    
     FarLeftViewController *farLeft = [[FarLeftViewController alloc] initWithNibName:@"FarLeftView" bundle:nil];
     
     CGRect leftFrame = farLeft.view.frame;
@@ -170,16 +162,26 @@ typedef enum ScrollDirection {
     [self.scrollNavigation addSubview:farLeft.view];
     [farLeft didMoveToParentViewController:self];
     
+    // Define the width of the scrollview before we reset to 0. 0 was changing when deleting.
+    CGFloat scrollWidth = ([[User instance].lists count] + 1) * self.view.frame.size.width;
+    CGFloat scrollHeight = self.view.frame.size.height;
+    self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
+    
+    // This needs to be after the farleft view creation because of the scrolling to farleft content.
+    if ([User instance].userDidChangeDelete) {
+        
+        // Move to start screen
+        [self.scrollNavigation setContentOffset:CGPointMake(0, 0) animated:YES];
+        [User instance].userDidChangeDelete = NO;
+        
+    }
+    
     // Generate views based on how many lists we have.
     for (int i = 1; i <= [[User instance].lists count]; i++) {
         
         [self layoutNewListViewWithCount:i];
         
     }
-    
-    CGFloat scrollWidth = ([[User instance].lists count] + 1) * self.view.frame.size.width;
-    CGFloat scrollHeight = self.view.frame.size.height;
-    self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
     
     if ([User instance].userDidChangeAdd) {
         [self.scrollNavigation setContentOffset:CGPointMake([[User instance].lists count] * self.view.frame.size.width, 0) animated:YES];
