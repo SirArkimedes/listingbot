@@ -266,11 +266,11 @@ typedef NS_ENUM(NSUInteger, cellType) {
         // Using the view's tag with matching array index, get the list.
         List *list = [[User instance].lists objectAtIndex:self.view.tag];
         
-        [list.listItems removeObjectAtIndex:indexPath.row/2];
+        [list.listItems removeObjectAtIndex:indexPath.row];
         
         NSArray *deleteIndexPaths = [[NSArray alloc] initWithObjects:
                                      [NSIndexPath indexPathForRow:indexPath.row inSection:0],
-                                     [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0],
+//                                     [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0],
                                      nil];
         
         [tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
