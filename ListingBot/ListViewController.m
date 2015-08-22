@@ -109,7 +109,10 @@ typedef NS_ENUM(NSUInteger, cellType) {
     List *list = [[User instance].lists objectAtIndex:self.view.tag];
     
     // Return item count * 2, because of seperator cells. -1 to remove the bottom seperator cell.
-    return 2 * list.listItems.count + 1;
+    if (self.editing)
+        return list.listItems.count;
+    else
+        return 2 * list.listItems.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -167,7 +170,11 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     // Using the view's tag with matching array index, get the list.
     List *list = [[User instance].lists objectAtIndex:self.view.tag];
-    Item *item = [list.listItems objectAtIndex:indexPath.row/2];
+    Item *item;
+    if (self.editing)
+        item = [list.listItems objectAtIndex:indexPath.row];
+    else
+        item = [list.listItems objectAtIndex:indexPath.row/2];
     
     cell.itemName.text = item.itemName;
     cell.itemQuantity.text = [NSString stringWithFormat:@"%@", item.quantity];
@@ -221,6 +228,10 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 // MARK - TABLE EDITING
 
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     // Disable swipe to delete
@@ -269,6 +280,17 @@ typedef NS_ENUM(NSUInteger, cellType) {
     }
 }
 
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    // Using the view's tag with matching array index, get the list.
+    List *list = [[User instance].lists objectAtIndex:self.view.tag];
+    
+    Item *itemToMove = [list.listItems objectAtIndex:sourceIndexPath.row];
+    [list.listItems removeObjectAtIndex:sourceIndexPath.row];
+    [list.listItems insertObject:itemToMove atIndex:destinationIndexPath.row];
+    
+}
+
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     
     [super setEditing:editing animated:animated];
@@ -277,9 +299,11 @@ typedef NS_ENUM(NSUInteger, cellType) {
     if (editing) {
         [self.editButton setTitle:@"Done" forState:UIControlStateNormal];
         self.editing = YES;
+        [self.itemTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
     } else {
         [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
         self.editing = NO;
+        [self.itemTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
     }
     
 }
@@ -288,12 +312,19 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     List *list = [[User instance].lists objectAtIndex:self.view.tag];
     
-    if (2 * list.listItems.count == indexPath.row)
-        return textFieldCell;
-    else if (indexPath.row % 2 == 0)
+    if (self.editing) {
+        
         return contentCell;
-    else
-        return seperatorCell;
+        
+    } else {
+    
+        if (2 * list.listItems.count == indexPath.row)
+            return textFieldCell;
+        else if (indexPath.row % 2 == 0)
+            return contentCell;
+        else
+            return seperatorCell;
+    }
     
 }
 
