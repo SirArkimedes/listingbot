@@ -164,6 +164,10 @@
     newList.listItems = nil;
     NSData *listData = [NSKeyedArchiver archivedDataWithRootObject:newList];
     
+    // Add to User
+    [[User instance].lists addObject:newList];
+    [User instance].userDidChangeAdd = YES;
+    
     NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
     
     // Save User
@@ -182,21 +186,6 @@
     parseList[@"sharedWith"] = @[];
     [parseList saveEventually];
     
-    // Save to Device
-    [[User instance].lists addObject:newList];
-    [User instance].userDidChangeAdd = YES;
-    
-}
-
-- (void)saveDataOnDevice:(NSArray*)userData{
-    
-    NSString *name = [userData objectAtIndex:0];
-    NSString *list = [userData objectAtIndex:1];
-    
-    User *user = [[User alloc] initWithName:name withUUID:@"" withList:list];
-    
-    [self saveUserObject:user key:@"user"];
-        
 }
 
 - (void)saveUserObject:(User *)object key:(NSString *)key {
