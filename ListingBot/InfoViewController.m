@@ -10,8 +10,6 @@
 
 #import <Parse/Parse.h>
 
-#import "ScrollNavigationViewController.h"
-
 #import "User.h"
 #import "List.h"
 
