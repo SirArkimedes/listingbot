@@ -110,6 +110,13 @@ typedef enum ScrollDirection {
     
 }
 
+- (void)firstLaunchHide {
+    
+    [User instance].userDidChangeAdd = YES;
+    [self performSelector:@selector(layoutViews) withObject:nil afterDelay:kAnimation];
+    
+}
+
 - (void)evaluateNewListChange:(NSNotification *)notification {
     
     CGFloat opacity;

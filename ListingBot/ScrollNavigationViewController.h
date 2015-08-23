@@ -10,4 +10,6 @@
 
 @interface ScrollNavigationViewController : UIViewController <UIScrollViewDelegate>
 
+- (void)firstLaunchHide;
+
 @end

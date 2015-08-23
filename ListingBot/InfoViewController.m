@@ -9,7 +9,11 @@
 #import "InfoViewController.h"
 
 #import <Parse/Parse.h>
+
+#import "ScrollNavigationViewController.h"
+
 #import "User.h"
+#import "List.h"
 
 #define kAnimation .5f
 
@@ -120,29 +124,67 @@
                        withParameters:nil
                                 block:^(NSNumber *results, NSError *error) {
                                     if (!error) {
-                                        [self performSelector:@selector(saveUserWithData:withUUID:) withObject:inputData withObject:results];
+                                        [self performSelector:@selector(generateUserUuidWithData:withUUID:) withObject:inputData withObject:results];
                                     } else {
-                                        if (error.code == 100)
-                                            [self performSelector:@selector(saveDataOnDevice:) withObject:inputData];
-                                        else
-                                            NSLog(@"Uuid function grab error: %@", error.description);
+                                        NSLog(@"Uuid function grab error: %@", error.description);
                                     }
                                 }];
-    
-    
 
 }
 
-- (void)saveUserWithData:(NSArray*)userData withUUID:(NSNumber*)uuid {
+- (void)generateUserUuidWithData:(NSArray*)userData withUUID:(NSNumber*)userUuid {
+    
+    NSString *name = [userData objectAtIndex:0];
+    NSString *listName = [userData objectAtIndex:1];
+    
+    [PFCloud callFunctionInBackground:@"newListId"
+                       withParameters:nil
+                                block:^(NSNumber *results, NSError *error) {
+                                    if (!error) {
+                                        NSArray *user = @[name, listName, userUuid];
+                                        [self performSelector:@selector(saveWithData:withListUUID:) withObject:user withObject:results];
+                                    } else {
+                                        NSLog(@"Uuid function grab error: %@", error.description);
+                                    }
+                                }];
+    
+}
+
+- (void)saveWithData:(NSArray*)userData withListUUID:(NSNumber*)listUuid {
     
     NSString *name = [userData objectAtIndex:0];
     NSString *list = [userData objectAtIndex:1];
+    NSString *userUuid = [userData objectAtIndex:2];
     
-    PFObject *parseUser = [PFObject objectWithClassName:@"ListUsers"];
+    // Create the list
+    List *newList = [[List alloc] init];
+    newList.listName = list;
+    newList.listUuid = [NSString stringWithFormat:@"%@", listUuid];
+    newList.sharedWith = nil;
+    newList.listItems = nil;
+    NSData *listData = [NSKeyedArchiver archivedDataWithRootObject:newList];
+    
+    NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
+    
+    // Save User
+    PFObject *parseUser = [PFObject objectWithClassName:@"Users"];
+    parseUser[@"object"] = userArchive;
     parseUser[@"name"] = name;
-    parseUser[@"uuid"] = uuid;
-    parseUser[@"lists"] = @[list];
+    parseUser[@"uuid"] = userUuid;
+    parseUser[@"lists"] = @[listUuid];
     [parseUser saveEventually];
+    
+    // Save List
+    PFObject *parseList = [PFObject objectWithClassName:@"Lists"];
+    parseList[@"object"] = listData;
+    parseList[@"name"] = newList.listName;
+    parseList[@"uuid"] = newList.listUuid;
+    parseList[@"sharedWith"] = @[];
+    [parseList saveEventually];
+    
+    // Save to Device
+    [[User instance].lists addObject:newList];
+    [User instance].userDidChangeAdd = YES;
     
 }
 
@@ -153,11 +195,19 @@
     
     User *user = [[User alloc] initWithName:name withUUID:@"" withList:list];
     
-    [self saveCustomObject:user key:@"user"];
+    [self saveUserObject:user key:@"user"];
         
 }
 
-- (void)saveCustomObject:(User *)object key:(NSString *)key {
+- (void)saveUserObject:(User *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
+    
+}
+
+- (void)saveListObject:(List *)object key:(NSString *)key {
     NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:encodedObject forKey:key];

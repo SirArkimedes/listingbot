@@ -14,7 +14,7 @@ Parse.Cloud.define("newUserId", function(request, response) {
 function uuid(request, response) {
   var uuidRan = Math.floor((Math.random() * 9903509) + 1000000);
 
-  var query = new Parse.Query("ListUsers");
+  var query = new Parse.Query("Users");
   query.equalTo("uuid", uuidRan);
   query.find({
     success: function(results) {
@@ -23,6 +23,33 @@ function uuid(request, response) {
         response.success(uuidRan);
       } else {
         uuid(request,respond);
+      }
+
+    },
+    error: function() {
+      response.error("Object not found");
+    }
+  });
+}
+
+Parse.Cloud.define("newListId", function(request, response) {
+
+  listUuid(request, response);
+
+});
+
+function listUuid(request, response) {
+  var uuidRan = Math.floor((Math.random() * 9903509) + 1000000);
+
+  var query = new Parse.Query("Lists");
+  query.equalTo("uuid", uuidRan);
+  query.find({
+    success: function(results) {
+
+      if (results.length <= 0) {
+        response.success(uuidRan);
+      } else {
+        listUuid(request,respond);
       }
 
     },
