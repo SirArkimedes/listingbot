@@ -164,6 +164,7 @@
     
     // Add to User
     [[User instance].lists addObject:newList];
+    [User instance].userUuid = userUuid;
     [User instance].userDidChangeAdd = YES;
     
     NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
