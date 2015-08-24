@@ -158,8 +158,8 @@
     List *newList = [[List alloc] init];
     newList.listName = list;
     newList.listUuid = [NSString stringWithFormat:@"%@", listUuid];
-    newList.sharedWith = nil;
-    newList.listItems = nil;
+    newList.sharedWith = [[NSMutableArray alloc] init];
+    newList.listItems = [[NSMutableArray alloc] init];
     NSData *listData = [NSKeyedArchiver archivedDataWithRootObject:newList];
     
     // Add to User
