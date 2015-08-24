@@ -17,7 +17,6 @@ static User *inst = nil;
         self.userName = @"";
         self.userUuid = @"";
         self.lists = [[NSMutableArray alloc] init];
-        self.listQueue = [[NSMutableArray alloc] init];
     }
     return self;
 }

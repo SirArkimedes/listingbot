@@ -14,8 +14,6 @@
 @property (strong, nonatomic) NSString *userUuid;
 @property (strong, nonatomic) NSMutableArray *lists;
 
-@property (strong, nonatomic) NSMutableArray *listQueue;
-
 @property (nonatomic, assign) BOOL userDidChangeAdd;
 @property (nonatomic, assign) BOOL userDidChangeDelete;
 

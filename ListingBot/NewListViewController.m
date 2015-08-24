@@ -11,6 +11,8 @@
 #import "User.h"
 #import "List.h"
 
+#import <Parse/Parse.h>
+
 #define kAnimation .5f
 
 @interface NewListViewController ()
@@ -82,9 +84,20 @@
     newList.listUuid = @"";
     
     [[User instance].lists addObject:newList];
-    [[User instance].listQueue addObject:newList];
     
     [User instance].userDidChangeAdd = YES;
+    
+    NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
+    
+    [PFCloud callFunctionInBackground:@"saveUserObject"
+                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid}
+                                block:^(NSNumber *results, NSError *error) {
+                                    if (!error) {
+                                        NSLog(@"Success! Saved User object.");
+                                    } else {
+                                        NSLog(@"Uuid function grab error: %@", error.description);
+                                    }
+                                }];
     
 }
 

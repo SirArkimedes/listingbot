@@ -5,6 +5,31 @@ Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
 });
 
+Parse.Cloud.define("saveUserObject", function(request, response) {
+
+  var user = request.params.userArchive;
+  var userUuid = request.params.userUuid;
+
+  var query = new Parse.Query("Users");
+  query.equalTo("uuid", userUuid);
+  query.find({
+    success: function(results) {
+
+      if (results.length <= 0) {
+        response.error("Object not found");
+      } else {
+        results[0].set("object", user);
+        response.success("Yay");
+      }
+
+    },
+    error: function() {
+      response.error("Object not found");
+    }
+  });
+
+});
+
 Parse.Cloud.define("newUserId", function(request, response) {
 
   uuid(request, response);
