@@ -16,14 +16,14 @@ Parse.Cloud.define("saveUserObject", function(request, response) {
     success: function(results) {
 
       if (results.length <= 0) {
-        response.error("Object not found");
+        response.error("Found more than one matching object.");
       } else {
         results[0].set("object", user);
-        response.success("Yay");
+        response.success();
       }
 
     },
-    error: function() {
+    error: function(error) {
       response.error("Object not found");
     }
   });
