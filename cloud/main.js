@@ -8,7 +8,7 @@ Parse.Cloud.define("hello", function(request, response) {
 Parse.Cloud.define("deleteListFromUserObject", function(request, response) {
 
   removeListFromUser(request, response);
-  // removeUserFromList(request, response);
+  removeUserFromList(request, response);
 
 });
 
@@ -39,13 +39,13 @@ function removeListFromUser(request, response) {
         results[0].save({listAccess: listAccess, object: user}, {
           success: function(point) {
             // Saved successfully.
-            response.success("Saved.");
+            // response.success("Saved.");
         },
           error: function(point, error) {
             // The save failed.
             // error is a Parse.Error with an error code and description.
             console.log(error);
-            response.error(error);
+            // response.error(error);
           }
         });
 
@@ -75,13 +75,24 @@ function removeUserFromList(request, response) {
 
         // Remove this list from the listAccess array
         var sharedWith = results[0].get("sharedWith");
-        var user = sharedWith.indexOf(userUuid);
-        if (user != -1) {
-          sharedWith.splice(user, 1);
+        for (var i = 0; i < sharedWith.length; i++) {
+            if (sharedWith[i] == userUuid) {
+              sharedWith.splice(i, 1);
+            }
         }
-        results[0].set("sharedWith", sharedWith);
-
-        response.success("Removed User From List");
+        // Save
+        results[0].save({sharedWith: sharedWith, object: user}, {
+          success: function(point) {
+            // Saved successfully.
+            response.success("Saved.");
+        },
+          error: function(point, error) {
+            // The save failed.
+            // error is a Parse.Error with an error code and description.
+            console.log(error);
+            response.error(error);
+          }
+        });
       }
 
     },
@@ -104,8 +115,19 @@ Parse.Cloud.define("saveUserObject", function(request, response) {
       if (results.length <= 0) {
         response.error("Found no matching object");
       } else {
-        results[0].set("object", user);
-        response.success();
+        // Save
+        results[0].save({object: user}, {
+          success: function(point) {
+            // Saved successfully.
+            response.success("Saved.");
+        },
+          error: function(point, error) {
+            // The save failed.
+            // error is a Parse.Error with an error code and description.
+            console.log(error);
+            response.error(error);
+          }
+        });
       }
 
     },
