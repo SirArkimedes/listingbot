@@ -176,7 +176,7 @@
     parseUser[@"object"] = userArchive;
     parseUser[@"name"] = name;
     parseUser[@"uuid"] = userUuid;
-    parseUser[@"lists"] = @[listUuid];
+    parseUser[@"listAccess"] = @[listUuid];
     [parseUser saveEventually];
     
     // Save List
@@ -184,7 +184,7 @@
     parseList[@"object"] = listData;
     parseList[@"name"] = newList.listName;
     parseList[@"uuid"] = newList.listUuid;
-    parseList[@"sharedWith"] = @[];
+    parseList[@"sharedWith"] = @[userUuid];
     [parseList saveEventually];
     
 }

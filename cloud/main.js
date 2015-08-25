@@ -5,6 +5,92 @@ Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
 });
 
+Parse.Cloud.define("deleteListFromUserObject", function(request, response) {
+
+  removeListFromUser(request, response);
+  // removeUserFromList(request, response);
+
+});
+
+function removeListFromUser(request, response) {
+  var user = request.params.userArchive;
+  var userUuid = request.params.userUuid;
+  var listUuid = request.params.listUuid;
+
+  var query = new Parse.Query("Users");
+  query.equalTo("uuid", userUuid);
+  query.find({
+    success: function(results) {
+
+      if (results.length <= 0) {
+        response.error("Found no matching User object");
+      } else {
+        // results[0].set("object", user);
+
+        // Remove this list from the listAccess array
+        var listAccess = results[0].get("listAccess");
+        // console.log(listAccess);
+        for (var i = 0; i < listAccess.length; i++) {
+            if (listAccess[i] == listUuid) {
+              listAccess.splice(i, 1);
+            }
+        }
+        // Save
+        results[0].save({listAccess: listAccess, object: user}, {
+          success: function(point) {
+            // Saved successfully.
+            response.success("Saved.");
+        },
+          error: function(point, error) {
+            // The save failed.
+            // error is a Parse.Error with an error code and description.
+            console.log(error);
+            response.error(error);
+          }
+        });
+
+      }
+
+    },
+    error: function(error) {
+      response.error("Object not found");
+    }
+  });
+}
+
+function removeUserFromList(request, response) {
+  var user = request.params.userArchive;
+  var userUuid = request.params.userUuid;
+  var listUuid = request.params.listUuid;
+
+  var query = new Parse.Query("Lists");
+  query.equalTo("uuid", listUuid);
+  query.find({
+    success: function(results) {
+
+      if (results.length <= 0) {
+        response.error("Found no matching List object");
+      } else {
+        results[0].set("object", user);
+
+        // Remove this list from the listAccess array
+        var sharedWith = results[0].get("sharedWith");
+        var user = sharedWith.indexOf(userUuid);
+        if (user != -1) {
+          sharedWith.splice(user, 1);
+        }
+        results[0].set("sharedWith", sharedWith);
+
+        response.success("Removed User From List");
+      }
+
+    },
+    error: function(error) {
+      response.error("Object not found");
+    }
+  });
+}
+
 Parse.Cloud.define("saveUserObject", function(request, response) {
 
   var user = request.params.userArchive;
