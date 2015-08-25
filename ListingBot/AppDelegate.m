@@ -44,20 +44,20 @@
                       clientKey:clientKey];
     }
     
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"user"] isKindOfClass:[User class]]) {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"user"] != nil) {
         
-        User *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+//        User *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
         
-        // Not equal to nothing
-        [PFCloud callFunctionInBackground:@"newUserId"
-                           withParameters:nil
-                                    block:^(NSNumber *results, NSError *error) {
-                                        if (!error) {
-                                            [self performSelector:@selector(saveUserWithData:withUUID:) withObject:user withObject:results];
-                                        } else {
-                                            NSLog(@"Uuid function grab error: %@", error.description);
-                                        }
-                                    }];
+        User *user = [self loadCustomObjectWithKey:@"user"];
+        
+        [User instance].userName = user.userName;
+        [User instance].userUuid = user.userUuid;
+        [User instance].lists = user.lists;
+        
+    } else {
+        
+        // Create a new User object
+        [self createUser];
         
     }
     
@@ -98,6 +98,11 @@
                                                                              categories:nil];
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
+    
+    return YES;
+}
+
+- (void)createUser {
     
     // Creates 1 User, 2 Lists, and 4 Items in total.
     User *newUser = [[User alloc] init];
@@ -176,7 +181,6 @@
     [User instance].userUuid = newUser.userUuid;
     [User instance].lists = newUser.lists;
     
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -193,31 +197,13 @@
     
     [self saveSettingsObject:object key:@"settings"];
     
+    User *user = [User instance];
+    [self saveCustomObject:user key:@"user"];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"user"] != nil) {
-        
-        User *user = [self loadCustomObjectWithKey:@"user"];
-        
-        [User instance].userName = user.userName;
-        [User instance].userUuid = user.userUuid;
-        [User instance].lists= user.lists;
-        
-        // Not equal to nothing
-        [PFCloud callFunctionInBackground:@"newUserId"
-                           withParameters:nil
-                                    block:^(NSNumber *results, NSError *error) {
-                                        if (!error) {
-                                            [self performSelector:@selector(saveUserWithData:withUUID:) withObject:user withObject:results];
-                                        } else {
-                                            NSLog(@"Uuid function grab error: %@", error.description);
-                                        }
-                                    }];
-        
-    }
     
 }
 
@@ -240,18 +226,6 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
-}
-
-- (void)saveUserWithData:(User*)user withUUID:(NSNumber*)uuid {
-    
-    PFObject *parseUser = [PFObject objectWithClassName:@"ListUsers"];
-    parseUser[@"name"] = user.userName;
-    parseUser[@"uuid"] = uuid;
-    parseUser[@"lists"] = user.lists;
-    [parseUser saveEventually];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"user"];
-    
 }
 
 - (void)saveCustomObject:(User *)object key:(NSString *)key {

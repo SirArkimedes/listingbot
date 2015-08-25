@@ -167,6 +167,8 @@
     [User instance].userUuid = userUuid;
     [User instance].userDidChangeAdd = YES;
     
+    [self saveUserObject:[User instance] key:@"user"];
+    
     NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
     
     // Save User
@@ -188,14 +190,6 @@
 }
 
 - (void)saveUserObject:(User *)object key:(NSString *)key {
-    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:encodedObject forKey:key];
-    [defaults synchronize];
-    
-}
-
-- (void)saveListObject:(List *)object key:(NSString *)key {
     NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:encodedObject forKey:key];
