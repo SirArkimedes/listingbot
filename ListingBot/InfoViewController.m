@@ -194,7 +194,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:encodedObject forKey:key];
     [defaults synchronize];
-    
 }
 
 #pragma mark - Animations

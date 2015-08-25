@@ -88,6 +88,8 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     [User instance].userDidChangeDelete = YES;
     
+    [self saveUserObject:[User instance] key:@"user"];
+    
     [self hideDeleteDialog];
     
 }
@@ -95,6 +97,14 @@ typedef NS_ENUM(NSUInteger, cellType) {
 - (IBAction)didNotDelete:(id)sender {
     
     [self hideDeleteDialog];
+    
+}
+
+- (void)saveUserObject:(User *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
     
 }
 
