@@ -7,8 +7,17 @@ Parse.Cloud.define("hello", function(request, response) {
 
 Parse.Cloud.define("deleteListFromUserObject", function(request, response) {
 
-  removeListFromUser(request, response);
-  removeUserFromList(request, response);
+  var promise = removeListFromUser(request, response);
+
+  promise.then(function(result) {
+    removeUserFromList(request, response);
+  }, function (error) {
+    console.log(error);
+    response.error(error);
+  });
+
+  // removeListFromUser(request, response).then(removeUserFromList(request, response));
+  // removeUserFromList(request, response);
 
 });
 
@@ -19,6 +28,9 @@ function removeListFromUser(request, response) {
 
   var query = new Parse.Query("Users");
   query.equalTo("uuid", userUuid);
+
+  var promise = new Parse.Promise();
+
   query.find({
     success: function(results) {
 
@@ -40,6 +52,7 @@ function removeListFromUser(request, response) {
           success: function(point) {
             // Saved successfully.
             // response.success("Saved.");
+            promise.resolve(point);
         },
           error: function(point, error) {
             // The save failed.
@@ -56,7 +69,56 @@ function removeListFromUser(request, response) {
       response.error("Object not found");
     }
   });
+
+  return promise;
+
 }
+
+// function removeListFromUser(request, response) {
+//   var user = request.params.userArchive;
+//   var userUuid = request.params.userUuid;
+//   var listUuid = request.params.listUuid;
+//
+//   var query = new Parse.Query("Users");
+//   query.equalTo("uuid", userUuid);
+//   query.find({
+//     success: function(results) {
+//
+//       if (results.length <= 0) {
+//         response.error("Found no matching User object");
+//       } else {
+//         // results[0].set("object", user);
+//
+//         // Remove this list from the listAccess array
+//         var listAccess = results[0].get("listAccess");
+//         // console.log(listAccess);
+//         for (var i = 0; i < listAccess.length; i++) {
+//             if (listAccess[i] == listUuid) {
+//               listAccess.splice(i, 1);
+//             }
+//         }
+//         // Save
+//         results[0].save({listAccess: listAccess, object: user}, {
+//           success: function(point) {
+//             // Saved successfully.
+//             // response.success("Saved.");
+//         },
+//           error: function(point, error) {
+//             // The save failed.
+//             // error is a Parse.Error with an error code and description.
+//             console.log(error);
+//             // response.error(error);
+//           }
+//         });
+//
+//       }
+//
+//     },
+//     error: function(error) {
+//       response.error("Object not found");
+//     }
+//   });
+// }
 
 function removeUserFromList(request, response) {
   var user = request.params.userArchive;

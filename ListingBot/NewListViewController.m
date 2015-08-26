@@ -78,19 +78,44 @@
 
 - (void)addNewList {
     
+    [PFCloud callFunctionInBackground:@"newListId"
+                       withParameters:nil
+                                block:^(NSNumber *results, NSError *error) {
+                                    if (!error) {
+                                        [self performSelector:@selector(saveListWithUuid:) withObject:results];
+                                    } else {
+                                        NSLog(@"Uuid function grab error: %@", error.description);
+                                    }
+                                }];
+    
+}
+
+- (void)saveListWithUuid:(NSNumber *)uuid {
+    
     List *newList = [[List alloc] init];
     
     newList.listName = self.listName;
-    newList.listUuid = @"";
+    newList.sharedWith = [[NSMutableArray alloc] init];
+    newList.listItems = [[NSMutableArray alloc] init];
+    newList.listUuid = [NSString stringWithFormat:@"%@", uuid];
+    NSData *listData = [NSKeyedArchiver archivedDataWithRootObject:newList];
     
     [[User instance].lists addObject:newList];
+    
+    // Save List
+    PFObject *parseList = [PFObject objectWithClassName:@"Lists"];
+    parseList[@"object"] = listData;
+    parseList[@"name"] = newList.listName;
+    parseList[@"uuid"] = newList.listUuid;
+    parseList[@"sharedWith"] = @[[User instance].userUuid];
+    [parseList saveEventually];
     
     [User instance].userDidChangeAdd = YES;
     
     NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
     
     [PFCloud callFunctionInBackground:@"saveUserObject"
-                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid}
+                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid, @"listUuid": newList.listUuid}
                                 block:^(NSNumber *results, NSError *error) {
                                     if (!error) {
                                         NSLog(@"Success! Saved User object.");
