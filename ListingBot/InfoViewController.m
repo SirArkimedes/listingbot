@@ -58,6 +58,7 @@
     
     field.delegate = self;
     field.layer.cornerRadius = 5.0f;
+    field.tintColor = [UIColor grayColor];
     
     return field;
 }
