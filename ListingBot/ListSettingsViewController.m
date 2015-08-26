@@ -90,6 +90,8 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     [User instance].userDidChangeDelete = YES;
     
+    // TODO: Remove from sharedWith on User Instance and pass new list to server.
+    
     [self saveUserObject:[User instance] key:@"user"];
     
     // Save delete to server
