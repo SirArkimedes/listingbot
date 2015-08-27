@@ -80,7 +80,7 @@
     [self.superview layoutIfNeeded];
     
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationDuration:kAnimation/2];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
     // Move table up
@@ -114,7 +114,7 @@
     [self.superview layoutIfNeeded];
     
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationDuration:kAnimation/2];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
     // Move table back down.
