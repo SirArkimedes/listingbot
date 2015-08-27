@@ -12,9 +12,11 @@
 #import "DraggableNewListTableViewCell.h"
 #import "ThemeTableViewCell.h"
 #import "ThemeDisplayView.h"
+#import "WelcomeTableViewCell.h"
 
 #import "Settings.h"
 #import "Theme.h"
+#import "User.h"
 
 #define UIColorFromRGB(rgbValue, ...) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
                                                       green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
@@ -108,13 +110,18 @@ typedef NS_ENUM(NSUInteger, cellType) {
     static NSString *welcomeCellIdentifier = @"welcomeCell";
     
     // this is a textfield cell
-    UITableViewCell *cell = nil;
+    WelcomeTableViewCell *cell = nil;
     
     cell = [tableView dequeueReusableCellWithIdentifier:welcomeCellIdentifier];
     
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"WelcomeCell" owner:self options:nil] objectAtIndex:0];
     }
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
+        cell.mainHeaderText.text = @"ListingBot";
+    else
+        cell.mainHeaderText.text = [NSString stringWithFormat:@"Hello, %@", [User instance].userName];
     
     // Forces some color somewhere to not be white, causing cells to have a white background.
     cell.backgroundColor = [UIColor clearColor];

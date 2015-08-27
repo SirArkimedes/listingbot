@@ -33,8 +33,6 @@
 - (void)viewDidAppear:(BOOL)animated {
         
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
         
         self.firstLaunch.hidden = NO;
         self.blindBackground.hidden = NO;
@@ -122,6 +120,10 @@
     [keyWindow tintColorDidChange];
     
     [UIView commitAnimations];
+    
+    // Do this when everything SHOULD be setup
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self performSelector:@selector(removeAlert) withObject:nil afterDelay:kAnimation];
     

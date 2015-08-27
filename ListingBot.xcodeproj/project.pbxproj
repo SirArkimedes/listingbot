@@ -61,6 +61,7 @@
 		4DDE27661B85697B00DA7407 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE27651B85697B00DA7407 /* ThemeCell.xib */; };
 		4DDE27691B8569AD00DA7407 /* ThemeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDE27681B8569AD00DA7407 /* ThemeTableViewCell.m */; };
 		4DDE276C1B856ECC00DA7407 /* ThemeDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE276B1B856ECC00DA7407 /* ThemeDisplayView.xib */; };
+		4DE0BDF81B8EAB9D00A29A6B /* WelcomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0BDF71B8EAB9D00A29A6B /* WelcomeTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		4DDE27671B8569AD00DA7407 /* ThemeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeTableViewCell.h; sourceTree = "<group>"; };
 		4DDE27681B8569AD00DA7407 /* ThemeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeTableViewCell.m; sourceTree = "<group>"; };
 		4DDE276B1B856ECC00DA7407 /* ThemeDisplayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeDisplayView.xib; sourceTree = "<group>"; };
+		4DE0BDF61B8EAB9D00A29A6B /* WelcomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeTableViewCell.h; sourceTree = "<group>"; };
+		4DE0BDF71B8EAB9D00A29A6B /* WelcomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +374,8 @@
 			isa = PBXGroup;
 			children = (
 				4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */,
+				4DE0BDF61B8EAB9D00A29A6B /* WelcomeTableViewCell.h */,
+				4DE0BDF71B8EAB9D00A29A6B /* WelcomeTableViewCell.m */,
 				4DDC5BC41B82D07300CAAB0D /* AddListCell.xib */,
 				4DDC5BC61B82D08900CAAB0D /* AddListTableViewCell.h */,
 				4DDC5BC71B82D08900CAAB0D /* AddListTableViewCell.m */,
@@ -511,6 +516,7 @@
 			files = (
 				4D13DBE81B6C2A140025B8F7 /* Item.m in Sources */,
 				4DDC5BC81B82D08900CAAB0D /* AddListTableViewCell.m in Sources */,
+				4DE0BDF81B8EAB9D00A29A6B /* WelcomeTableViewCell.m in Sources */,
 				4D11D45C1B58CC1F002D73A0 /* User.m in Sources */,
 				4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */,
 				4DD0A7CC1B7BE59200F93D27 /* ListSettingsViewController.m in Sources */,
