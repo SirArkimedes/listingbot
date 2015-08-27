@@ -166,6 +166,7 @@
     // Add to User
     [[User instance].lists addObject:newList];
     [User instance].userUuid = userUuid;
+    [User instance].userName = name;
     [User instance].userDidChangeAdd = YES;
     
     [self saveUserObject:[User instance] key:@"user"];
