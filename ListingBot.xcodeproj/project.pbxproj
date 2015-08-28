@@ -61,6 +61,7 @@
 		4DDE27661B85697B00DA7407 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE27651B85697B00DA7407 /* ThemeCell.xib */; };
 		4DDE27691B8569AD00DA7407 /* ThemeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDE27681B8569AD00DA7407 /* ThemeTableViewCell.m */; };
 		4DDE276C1B856ECC00DA7407 /* ThemeDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE276B1B856ECC00DA7407 /* ThemeDisplayView.xib */; };
+		4DDE91C81B9005270064EB55 /* EmptyState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE91C71B9005270064EB55 /* EmptyState.xib */; };
 		4DE0BDF81B8EAB9D00A29A6B /* WelcomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0BDF71B8EAB9D00A29A6B /* WelcomeTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +157,7 @@
 		4DDE27671B8569AD00DA7407 /* ThemeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeTableViewCell.h; sourceTree = "<group>"; };
 		4DDE27681B8569AD00DA7407 /* ThemeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeTableViewCell.m; sourceTree = "<group>"; };
 		4DDE276B1B856ECC00DA7407 /* ThemeDisplayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeDisplayView.xib; sourceTree = "<group>"; };
+		4DDE91C71B9005270064EB55 /* EmptyState.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyState.xib; sourceTree = "<group>"; };
 		4DE0BDF61B8EAB9D00A29A6B /* WelcomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeTableViewCell.h; sourceTree = "<group>"; };
 		4DE0BDF71B8EAB9D00A29A6B /* WelcomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +228,7 @@
 				4D239A3A1B6BCAF8009DAC63 /* ListViewController.h */,
 				4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */,
 				4DA7484A1B6DE83D0090A86E /* ListViewTableViewCells */,
+				4DDE91C71B9005270064EB55 /* EmptyState.xib */,
 				4D76D4FD1B7D76B50031E533 /* FarLeftView.xib */,
 				4DD350441B7E9A77009170F6 /* FarLeftViewController.h */,
 				4DD350451B7E9A77009170F6 /* FarLeftViewController.m */,
@@ -497,6 +500,7 @@
 				4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */,
 				4D3D28291B558E5C00D12090 /* Images.xcassets in Resources */,
 				4DDC5BC51B82D07300CAAB0D /* AddListCell.xib in Resources */,
+				4DDE91C81B9005270064EB55 /* EmptyState.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
