@@ -189,6 +189,12 @@
     parseList[@"sharedWith"] = @[userUuid];
     [parseList saveEventually];
     
+    // Save UserListAccess
+    PFObject *parseListAccess = [PFObject objectWithClassName:@"UserListAccess"];
+    parseListAccess[@"userUuid"] = userUuid;
+    parseListAccess[@"listUuid"] = listUuid;
+    [parseListAccess saveEventually];
+    
 }
 
 - (void)saveUserObject:(User *)object key:(NSString *)key {
