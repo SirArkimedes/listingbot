@@ -272,7 +272,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
         
         [list.listItems removeObjectAtIndex:indexPath.row];
         
-        #warning if item.itemUuid.
+        #warning if item.itemUuid = nil
         
         [PFCloud callFunctionInBackground:@"deleteItem"
                            withParameters:@{@"userUuid": [User instance].userUuid, @"listUuid": list.listUuid, @"itemUuid": item.itemUuid}

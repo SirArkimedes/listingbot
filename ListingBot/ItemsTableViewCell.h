@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *itemName;
 @property (weak, nonatomic) IBOutlet UILabel *itemQuantity;
+@property (weak, nonatomic) IBOutlet UIButton *noteButton;
 
 @property (weak, nonatomic) IBOutlet UIView *selectionBubble;
 @property (weak, nonatomic) IBOutlet UIView *isSelectedBubble;

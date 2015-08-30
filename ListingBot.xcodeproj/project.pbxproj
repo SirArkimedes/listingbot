@@ -51,6 +51,7 @@
 		4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */; };
 		4DD350461B7E9A77009170F6 /* FarLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD350451B7E9A77009170F6 /* FarLeftViewController.m */; };
 		4DDA17511B864657001D4DD4 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA17501B864657001D4DD4 /* Theme.m */; };
+		4DDA2BFD1B92C0DF00511690 /* NotesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA2BFC1B92C0DF00511690 /* NotesView.xib */; };
 		4DDC5BC51B82D07300CAAB0D /* AddListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5BC41B82D07300CAAB0D /* AddListCell.xib */; };
 		4DDC5BC81B82D08900CAAB0D /* AddListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5BC71B82D08900CAAB0D /* AddListTableViewCell.m */; };
 		4DDC5BCA1B82D44200CAAB0D /* FarLeftSeperator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5BC91B82D44200CAAB0D /* FarLeftSeperator.xib */; };
@@ -142,6 +143,7 @@
 		4DD350451B7E9A77009170F6 /* FarLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FarLeftViewController.m; sourceTree = "<group>"; };
 		4DDA174F1B864657001D4DD4 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
 		4DDA17501B864657001D4DD4 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
+		4DDA2BFC1B92C0DF00511690 /* NotesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesView.xib; sourceTree = "<group>"; };
 		4DDC5BC41B82D07300CAAB0D /* AddListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddListCell.xib; sourceTree = "<group>"; };
 		4DDC5BC61B82D08900CAAB0D /* AddListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddListTableViewCell.h; sourceTree = "<group>"; };
 		4DDC5BC71B82D08900CAAB0D /* AddListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddListTableViewCell.m; sourceTree = "<group>"; };
@@ -227,8 +229,7 @@
 				4D239A341B6BCA25009DAC63 /* ListView.xib */,
 				4D239A3A1B6BCAF8009DAC63 /* ListViewController.h */,
 				4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */,
-				4DA7484A1B6DE83D0090A86E /* ListViewTableViewCells */,
-				4DDE91C71B9005270064EB55 /* EmptyState.xib */,
+				4DA7484A1B6DE83D0090A86E /* ListViewDetailViews */,
 				4D76D4FD1B7D76B50031E533 /* FarLeftView.xib */,
 				4DD350441B7E9A77009170F6 /* FarLeftViewController.h */,
 				4DD350451B7E9A77009170F6 /* FarLeftViewController.m */,
@@ -323,9 +324,11 @@
 			path = ListingBot.xcodeproj;
 			sourceTree = SOURCE_ROOT;
 		};
-		4DA7484A1B6DE83D0090A86E /* ListViewTableViewCells */ = {
+		4DA7484A1B6DE83D0090A86E /* ListViewDetailViews */ = {
 			isa = PBXGroup;
 			children = (
+				4DDA2BFC1B92C0DF00511690 /* NotesView.xib */,
+				4DDE91C71B9005270064EB55 /* EmptyState.xib */,
 				4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */,
 				4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */,
 				4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */,
@@ -334,7 +337,7 @@
 				4D14EDC91B70528000DCFADC /* AddFieldTableViewCell.h */,
 				4D14EDCA1B70528000DCFADC /* AddFieldTableViewCell.m */,
 			);
-			name = ListViewTableViewCells;
+			name = ListViewDetailViews;
 			sourceTree = "<group>";
 		};
 		4DC8B8861B55CAAC003F7777 /* FirstLaunch */ = {
@@ -487,6 +490,7 @@
 			files = (
 				4DC8B8791B559FDB003F7777 /* ParseKeys.plist in Resources */,
 				4D3D28271B558E5C00D12090 /* Main.storyboard in Resources */,
+				4DDA2BFD1B92C0DF00511690 /* NotesView.xib in Resources */,
 				4DDC5BCC1B82D4BF00CAAB0D /* DraggableNewList.xib in Resources */,
 				4DDC5BCA1B82D44200CAAB0D /* FarLeftSeperator.xib in Resources */,
 				4D1797681B700F5800140911 /* TextFieldCell.xib in Resources */,
