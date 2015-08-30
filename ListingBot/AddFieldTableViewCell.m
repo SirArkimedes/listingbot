@@ -12,6 +12,8 @@
 #import "List.h"
 #import "Item.h"
 
+#import <Parse/Parse.h>
+
 #define kAnimation .5f
 
 @implementation AddFieldTableViewCell
@@ -50,10 +52,23 @@
         // Using the view's tag with matching array index, get the list.
         List *list = [[User instance].lists objectAtIndex:self.superview.superview.superview.tag];
         
-        int quantity = [self.quantityLabel.text intValue];
+        NSNumber *quantity = [NSNumber numberWithInt:[self.quantityLabel.text intValue]];
         
-        Item *newItem = [[Item alloc] initWithName:textField.text withQuantity:[NSNumber numberWithInt:quantity]];
+        NSString *name = textField.text;
+        
+        Item *newItem = [[Item alloc] initWithName:name withQuantity:quantity withUuid:nil];
         [list.listItems addObject:newItem];
+        
+        [PFCloud callFunctionInBackground:@"newItemId"
+                           withParameters:nil
+                                    block:^(NSNumber *results, NSError *error) {
+                                        if (!error) {
+                                            NSArray *array = @[list, newItem, name];
+                                            [self performSelector:@selector(saveItemWithUuid:withData:) withObject:results withObject:array];
+                                        } else {
+                                            NSLog(@"Uuid function grab error: %@", error.description);
+                                        }
+                                    }];
         
         self.addTextField.text = @"";
         self.quantityLabel.text = @"1";
@@ -68,6 +83,24 @@
         
         return YES;
     }
+}
+
+- (void)saveItemWithUuid:(NSNumber *)uuid withData:(NSArray *)array {
+    
+    List *list = [array objectAtIndex:0];
+    Item *item = [array objectAtIndex:1];
+    NSString *name = [array objectAtIndex:2];
+    
+    item.itemUuid = uuid;
+    
+    // Save Item
+    PFObject *parseItem = [PFObject objectWithClassName:@"Items"];
+    parseItem[@"name"] = name;
+    parseItem[@"quantity"] = item.quantity;
+    parseItem[@"hasListUuid"] = list.listUuid;
+    parseItem[@"uuid"] = uuid;
+    [parseItem saveEventually];
+    
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {

@@ -5,6 +5,74 @@ Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
 });
 
+// DELETE ITEM
+Parse.Cloud.define("deleteItem", function(request, response) {
+
+  var userUuid = request.params.userUuid;
+  var listUuid = request.params.listUuid;
+  var itemUuid = request.params.itemUuid;
+
+  var query = new Parse.Query("Items");
+  query.equalTo("uuid", itemUuid);
+
+  // var promise = new Parse.Promise();
+
+  query.find({
+    success: function(results) {
+
+      if (results.length <= 0) {
+        response.error("Found no matching Item object");
+      } else {
+        // results[0].set("object", user);
+
+        results[0].destroy({
+          success: function(myObject) {
+            // The object was deleted from the Parse Cloud.
+            response.success("Deleted item.");
+          },
+          error: function(myObject, error) {
+            // The delete failed.
+            // error is a Parse.Error with an error code and message.
+            response.error(error);
+          }
+        });
+
+        // // Remove this list from the listAccess array
+        // var listAccess = results[0].get("listAccess");
+        // // console.log(listAccess);
+        // for (var i = 0; i < listAccess.length; i++) {
+        //     if (listAccess[i] == listUuid) {
+        //       listAccess.splice(i, 1);
+        //     }
+        // }
+        // Save
+        // results[0].save({listAccess: listAccess}, {
+        //   success: function(point) {
+        //     // Saved successfully.
+        //     response.success("Saved.");
+        //     // promise.resolve(point);
+        // },
+        //   error: function(point, error) {
+        //     // The save failed.
+        //     // error is a Parse.Error with an error code and description.
+        //     console.log(error);
+        //     // promise.reject(error);
+        //     response.error(error);
+        //   }
+        // });
+
+      }
+
+    },
+    error: function(error) {
+      response.error("Object not found");
+    }
+  });
+
+  // return promise;
+
+});
+
 // DELETE LIST
 Parse.Cloud.define("deleteListFromUserObject", function(request, response) {
 
@@ -190,7 +258,7 @@ function addListToUser(request, response) {
         // console.log(listAccess);
         listAccess.push(listUuid);
         // console.log(listAccess);
-        
+
         // Save
         results[0].save({listAccess: listAccess, object: user}, {
           success: function(point) {
@@ -265,6 +333,33 @@ function listUuid(request, response) {
         response.success(uuidRan);
       } else {
         listUuid(request,respond);
+      }
+
+    },
+    error: function() {
+      response.error("Object not found");
+    }
+  });
+}
+
+Parse.Cloud.define("newItemId", function(request, response) {
+
+  itemUuid(request, response);
+
+});
+
+function itemUuid(request, response) {
+  var uuidRan = Math.floor((Math.random() * 9903509999999) + 1000000000000);
+
+  var query = new Parse.Query("Items");
+  query.equalTo("uuid", uuidRan);
+  query.find({
+    success: function(results) {
+
+      if (results.length <= 0) {
+        response.success(uuidRan);
+      } else {
+        itemsUuid(request,respond);
       }
 
     },
