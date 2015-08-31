@@ -17,6 +17,7 @@
 #import "Item.h"
 
 #import "ListSettingsViewController.h"
+#import "NotesView.h"
 
 #define kAnimation .5f
 
@@ -51,7 +52,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     self.itemTable.dataSource = self;
                 
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshTable" object:nil];
-    
+
     // Initialize with no editing.
     self.editing = NO;
     

@@ -18,6 +18,7 @@ static Item *inst = nil;
         self.quantity = nil;
         self.itemUuid = nil;
         self.isDone = NO;
+        self.itemNote = nil;
     }
     return self;
 }
@@ -37,6 +38,7 @@ static Item *inst = nil;
         self.quantity = quantity;
         self.itemUuid = uuid;
         self.isDone = NO;
+        self.itemNote = nil;
         
     }
     
@@ -50,6 +52,7 @@ static Item *inst = nil;
     [coder encodeObject:_quantity forKey:@"quantity"];
     [coder encodeObject:_itemUuid forKey:@"itemUuid"];
     [coder encodeBool:_isDone forKey:@"isDone"];
+    [coder encodeObject:_itemNote forKey:@"itemNote"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder;
@@ -61,6 +64,7 @@ static Item *inst = nil;
         _quantity = [coder decodeObjectForKey:@"quantity"];
         _itemUuid = [coder decodeObjectForKey:@"itemUuid"];
         _isDone = [coder decodeBoolForKey:@"isDone"];
+        _itemNote = [coder decodeObjectForKey:@"itemNote"];
         
     }
     return self;

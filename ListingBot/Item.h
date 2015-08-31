@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSString *itemName;
 @property (strong, nonatomic) NSNumber *quantity;
 @property (strong, nonatomic) NSNumber *itemUuid;
+@property (strong, nonatomic) NSString *itemNote;
 @property BOOL isDone;
 
 - (id)initWithName:(NSString *)name withQuantity:(NSNumber *)quantity withUuid:(NSNumber *)uuid;

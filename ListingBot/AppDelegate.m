@@ -121,10 +121,12 @@
     firstItem.itemName = @"Phone";
     firstItem.quantity = [NSNumber numberWithInteger:1];
     firstItem.isDone = YES;
+    firstItem.itemNote = @"This is entirely a test.";
     
     Item *secondItem = [[Item alloc] init];
     secondItem.itemName = @"Soap";
     secondItem.quantity = [NSNumber numberWithInteger:3];
+    secondItem.itemNote = @"This is also a test. Hahaha.";
     
     // Add created items to list
     NSArray *firstItems = @[firstItem, secondItem];

@@ -12,6 +12,8 @@
 #import "List.h"
 #import "Item.h"
 
+#import "NotesView.h"
+
 @implementation ItemsTableViewCell
 
 - (void)awakeFromNib {
@@ -29,15 +31,29 @@
 
 - (IBAction)notePressed:(id)sender {
     
-    // Using the view's tag with matching array index, get the list.
-    List *list = [[User instance].lists objectAtIndex:self.superview.superview.superview.tag];
-    
     // Get the index of the cell where the button was pressed.
     UITableView *tableView = (UITableView *)self.superview.superview;
     
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:tableView];
     NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:buttonPosition];
     
+    UIView *topView = self.superview.superview.superview;
+    
+    // Using the view's tag with matching array index, get the list.
+    List *list = [[User instance].lists objectAtIndex:topView.tag];
+    
+    // Divide by two because of seperator cells.
+    Item *item = [list.listItems objectAtIndex:indexPath.row/2];
+    
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"NotesView"
+                                                         owner:self
+                                                       options:nil];
+    NotesView *notesView = [nibContents objectAtIndex:0];
+    notesView.frame = CGRectMake(topView.frame.size.width/2 - 100, topView.frame.size.height/2 - 100, 200, 200);
+    notesView.notesLabel.text = item.itemNote;
+    
+    [topView addSubview:notesView];
+        
 }
 
 @end

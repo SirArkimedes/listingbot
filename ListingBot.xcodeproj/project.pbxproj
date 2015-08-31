@@ -50,6 +50,7 @@
 		4DD1B40E1B7FE5EE0004848D /* SettingsShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1B40D1B7FE5EE0004848D /* SettingsShareTableViewCell.m */; };
 		4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */; };
 		4DD350461B7E9A77009170F6 /* FarLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD350451B7E9A77009170F6 /* FarLeftViewController.m */; };
+		4DD7FE831B93F789002E125C /* NotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7FE821B93F789002E125C /* NotesView.m */; };
 		4DDA17511B864657001D4DD4 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA17501B864657001D4DD4 /* Theme.m */; };
 		4DDA2BFD1B92C0DF00511690 /* NotesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA2BFC1B92C0DF00511690 /* NotesView.xib */; };
 		4DDC5BC51B82D07300CAAB0D /* AddListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5BC41B82D07300CAAB0D /* AddListCell.xib */; };
@@ -141,6 +142,8 @@
 		4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeCell.xib; sourceTree = "<group>"; };
 		4DD350441B7E9A77009170F6 /* FarLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FarLeftViewController.h; sourceTree = "<group>"; };
 		4DD350451B7E9A77009170F6 /* FarLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FarLeftViewController.m; sourceTree = "<group>"; };
+		4DD7FE811B93F789002E125C /* NotesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesView.h; sourceTree = "<group>"; };
+		4DD7FE821B93F789002E125C /* NotesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesView.m; sourceTree = "<group>"; };
 		4DDA174F1B864657001D4DD4 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
 		4DDA17501B864657001D4DD4 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
 		4DDA2BFC1B92C0DF00511690 /* NotesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesView.xib; sourceTree = "<group>"; };
@@ -328,6 +331,8 @@
 			isa = PBXGroup;
 			children = (
 				4DDA2BFC1B92C0DF00511690 /* NotesView.xib */,
+				4DD7FE811B93F789002E125C /* NotesView.h */,
+				4DD7FE821B93F789002E125C /* NotesView.m */,
 				4DDE91C71B9005270064EB55 /* EmptyState.xib */,
 				4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */,
 				4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */,
@@ -524,6 +529,7 @@
 			files = (
 				4D13DBE81B6C2A140025B8F7 /* Item.m in Sources */,
 				4DDC5BC81B82D08900CAAB0D /* AddListTableViewCell.m in Sources */,
+				4DD7FE831B93F789002E125C /* NotesView.m in Sources */,
 				4DE0BDF81B8EAB9D00A29A6B /* WelcomeTableViewCell.m in Sources */,
 				4D11D45C1B58CC1F002D73A0 /* User.m in Sources */,
 				4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */,
