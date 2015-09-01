@@ -19,12 +19,38 @@
 - (void)awakeFromNib {
     // Initialization code
 //    self.backView.layer.cornerRadius = 5.f;
+    
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeNote:) name:@"removeNote" object:nil];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)removeNote:(NSNotification *)notification {
+    
+    UIView *topView = self.superview.superview.superview;
+    
+    // Remove notes view from display. 
+    for (UIView *view in [[notification object] subviews]) {
+        
+        if (view.tag == topView.tag) {
+            
+            for (UIView *newView in [view subviews]) {
+                
+                if ([newView isKindOfClass:[NotesView class]]) {
+                    [newView removeFromSuperview];
+                }
+                
+            }
+            
+        }
+        
+    }
+    
 }
 
 #pragma mark - Buttons

@@ -13,6 +13,7 @@
 #import "FarLeftViewController.h"
 
 #import "NewListViewController.h"
+#import "NotesView.h"
 
 #import "User.h"
 #import "List.h"
@@ -230,6 +231,16 @@ typedef enum ScrollDirection {
     
     CGFloat offset = scrollView.contentOffset.x;
     [self animationForScroll:offset withDirection:ScrollDirectionRight];
+    
+    UIScrollView *scroll;
+    
+    for (UIScrollView *view in [self.view subviews]) {
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            scroll = view;
+        }
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"removeNote" object:scroll userInfo:nil];
     
 }
 
