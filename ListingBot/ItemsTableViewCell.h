@@ -22,4 +22,6 @@
 
 @property (weak, nonatomic) IBOutlet UIView *backView;
 
+@property (nonatomic, strong) UIDynamicAnimator *animator;
+
 @end

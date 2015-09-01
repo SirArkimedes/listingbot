@@ -8,7 +8,43 @@
 
 #import "NotesView.h"
 
+#define kAnimation .5f
+
 @implementation NotesView
+
+- (void)awakeFromNib {
+    
+    self.textView.delegate = self;
+    
+}
+
+#pragma mark - TextView delegates
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation/2];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    // Move everything up
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y - 120, self.frame.size.width, self.frame.size.height);
+    
+    [UIView commitAnimations];
+    
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation/2];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    // Move everything up
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y + 120, self.frame.size.width, self.frame.size.height);
+    
+    [UIView commitAnimations];
+    
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
