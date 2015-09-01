@@ -53,6 +53,12 @@
     
 }
 
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:@"removeNote"];
+    
+}
+
 #pragma mark - Buttons
 
 - (IBAction)notePressed:(id)sender {
