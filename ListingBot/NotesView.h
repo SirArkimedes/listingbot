@@ -10,6 +10,6 @@
 
 @interface NotesView : UIView
 
-@property (weak, nonatomic) IBOutlet UILabel *notesLabel;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end

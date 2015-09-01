@@ -82,7 +82,7 @@
                                                        options:nil];
     NotesView *notesView = [nibContents objectAtIndex:0];
     notesView.frame = CGRectMake(topView.frame.size.width/2 - 100, topView.frame.size.height/2 - 100, 200, 200);
-    notesView.notesLabel.text = item.itemNote;
+    notesView.textView.text = item.itemNote;
     
     [topView addSubview:notesView];
         
