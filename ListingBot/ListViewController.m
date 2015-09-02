@@ -56,10 +56,6 @@ typedef NS_ENUM(NSUInteger, cellType) {
     // Initialize with no editing.
     self.editing = NO;
     
-    // NoteTextView keyboard hide
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
-    
 //    self.navigationView.layer.shadowOffset = CGSizeMake(0, 5);
 //    self.navigationView.layer.shadowRadius = 20;
 //    self.navigationView.layer.shadowOpacity = 0.5;
@@ -88,12 +84,6 @@ typedef NS_ENUM(NSUInteger, cellType) {
 //    [[dict objectForKey:@[@"textfield"]] becomeFirstResponder];
 //    
 //}
-
-- (void)dismissKeyboard {
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"removeNote" object:self.view.superview userInfo:nil];
-    
-}
 
 #pragma mark - Buttons
 
