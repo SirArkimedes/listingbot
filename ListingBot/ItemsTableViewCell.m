@@ -14,6 +14,8 @@
 
 #import "NotesView.h"
 
+#import "ListViewController.h"
+
 #define kAnimation .5f
 
 @implementation ItemsTableViewCell
