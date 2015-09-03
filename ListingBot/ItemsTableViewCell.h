@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NotesView.h"
 
-@interface ItemsTableViewCell : UITableViewCell
+@interface ItemsTableViewCell : UITableViewCell <UIDynamicAnimatorDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *doneWidthCon;
 
@@ -21,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *selectionTriangle;
 
 @property (weak, nonatomic) IBOutlet UIView *backView;
+
+@property (strong, nonatomic) NotesView *note;
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 

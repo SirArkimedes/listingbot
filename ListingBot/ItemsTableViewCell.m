@@ -28,6 +28,7 @@
     
     // Setup our UIKit Dynamics
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.superview.superview.superview];
+    self.animator.delegate = self;
     
 }
 
@@ -46,6 +47,7 @@
 - (void)removeNoteEntirely:(UIView *)note {
     
     [note removeFromSuperview];
+    [self.animator removeAllBehaviors];
     
 }
 
@@ -73,8 +75,10 @@
     NotesView *notes = [nibContents objectAtIndex:0];
     notes.frame = CGRectMake(topView.frame.size.width/2 - 125, topView.frame.size.height/2 - 100, 250, 200);
     notes.textView.text = item.itemNote;
+    notes.textView.editable = NO;
+    self.note = notes;
     
-    [topView addSubview:notes];
+    [topView addSubview:self.note];
     
     // New positions
     CGRect viewFrame = notes.frame;
@@ -84,9 +88,26 @@
     CGPoint moveToPoint = CGPointMake(topView.frame.size.width/2, topView.frame.size.height/2);
     
     // Use UIKit Dynamics to make the alertView appear.
-    UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:notes snapToPoint:moveToPoint];
+    UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:self.note snapToPoint:moveToPoint];
     snapBehaviour.damping = 1.f;
+    
+//    snapBehaviour.action = ^{
+//        [CATransaction begin]; //1
+//        [CATransaction setDisableActions:YES]; // 2
+//        notes.textView.editable = YES;
+//        [CATransaction commit]; // 4
+//    };
+    
     [self.animator addBehavior:snapBehaviour];
+    
+}
+
+- (void)dynamicAnimatorDidPause:(UIDynamicAnimator*)animator {
+    // renable editing
+//    self.startButton.enabled = YES;
+    // remove rest of action
+    
+    self.note.textView.editable = YES;
     
 }
 
@@ -102,8 +123,6 @@
             for (UIView *newView in [view subviews]) {
                 
                 if ([newView isKindOfClass:[NotesView class]]) {
-                    
-                    [self.animator removeAllBehaviors];
                     
                     UIGravityBehavior *gravityBehaviour = [[UIGravityBehavior alloc] initWithItems:@[newView]];
                     gravityBehaviour.gravityDirection = CGVectorMake(0.0f, 10.0f);
