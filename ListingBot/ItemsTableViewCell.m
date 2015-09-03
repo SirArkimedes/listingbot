@@ -91,21 +91,11 @@
     UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:self.note snapToPoint:moveToPoint];
     snapBehaviour.damping = 1.f;
     
-//    snapBehaviour.action = ^{
-//        [CATransaction begin]; //1
-//        [CATransaction setDisableActions:YES]; // 2
-//        notes.textView.editable = YES;
-//        [CATransaction commit]; // 4
-//    };
-    
     [self.animator addBehavior:snapBehaviour];
     
 }
 
 - (void)dynamicAnimatorDidPause:(UIDynamicAnimator*)animator {
-    // renable editing
-//    self.startButton.enabled = YES;
-    // remove rest of action
     
     self.note.textView.editable = YES;
     
