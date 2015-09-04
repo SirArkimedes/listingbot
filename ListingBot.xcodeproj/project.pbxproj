@@ -335,12 +335,7 @@
 		4DA7484A1B6DE83D0090A86E /* ListViewDetailViews */ = {
 			isa = PBXGroup;
 			children = (
-				4DDA2BFC1B92C0DF00511690 /* NotesView.xib */,
-				4DD7FE811B93F789002E125C /* NotesView.h */,
-				4DD7FE821B93F789002E125C /* NotesView.m */,
-				4DE22E861B9933200074C349 /* NoteBackground.xib */,
-				4DE22E881B9935CF0074C349 /* NoteBackground.h */,
-				4DE22E891B9935CF0074C349 /* NoteBackground.m */,
+				4DE22E8B1B9940750074C349 /* Notes */,
 				4DDE91C71B9005270064EB55 /* EmptyState.xib */,
 				4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */,
 				4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */,
@@ -418,6 +413,19 @@
 				4DDCF06D1B86BB2200ED9864 /* ThemeDisplayView.m */,
 			);
 			name = "Themes view";
+			sourceTree = "<group>";
+		};
+		4DE22E8B1B9940750074C349 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA2BFC1B92C0DF00511690 /* NotesView.xib */,
+				4DD7FE811B93F789002E125C /* NotesView.h */,
+				4DD7FE821B93F789002E125C /* NotesView.m */,
+				4DE22E861B9933200074C349 /* NoteBackground.xib */,
+				4DE22E881B9935CF0074C349 /* NoteBackground.h */,
+				4DE22E891B9935CF0074C349 /* NoteBackground.m */,
+			);
+			name = Notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

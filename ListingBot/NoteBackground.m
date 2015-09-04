@@ -61,6 +61,8 @@
 
 - (void)dismissKeyboard {
     
+    [self.animator removeAllBehaviors];
+    
     UIGravityBehavior *gravityBehaviour = [[UIGravityBehavior alloc] initWithItems:@[self.note]];
     gravityBehaviour.gravityDirection = CGVectorMake(0.0f, 10.0f);
     [self.animator addBehavior:gravityBehaviour];
