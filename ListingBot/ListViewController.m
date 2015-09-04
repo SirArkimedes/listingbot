@@ -56,10 +56,6 @@ typedef NS_ENUM(NSUInteger, cellType) {
     // Initialize with no editing.
     self.editing = NO;
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    tap.delegate = self;
-    [self.view addGestureRecognizer:tap];
-    
 //    self.navigationView.layer.shadowOffset = CGSizeMake(0, 5);
 //    self.navigationView.layer.shadowRadius = 20;
 //    self.navigationView.layer.shadowOpacity = 0.5;
@@ -88,20 +84,6 @@ typedef NS_ENUM(NSUInteger, cellType) {
 //    [[dict objectForKey:@[@"textfield"]] becomeFirstResponder];
 //    
 //}
-
-
-- (void)dismissKeyboard {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"removeNote" object:self.view.superview userInfo:nil];
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    
-    if (touch.view != self.itemTable) { // accept only touchs on superview, not accept touchs on subviews
-        return NO;
-    }
-    
-    return YES;
-}
 
 #pragma mark - Buttons
 

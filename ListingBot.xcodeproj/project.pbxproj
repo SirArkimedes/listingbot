@@ -65,6 +65,8 @@
 		4DDE276C1B856ECC00DA7407 /* ThemeDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE276B1B856ECC00DA7407 /* ThemeDisplayView.xib */; };
 		4DDE91C81B9005270064EB55 /* EmptyState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDE91C71B9005270064EB55 /* EmptyState.xib */; };
 		4DE0BDF81B8EAB9D00A29A6B /* WelcomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0BDF71B8EAB9D00A29A6B /* WelcomeTableViewCell.m */; };
+		4DE22E871B9933200074C349 /* NoteBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE22E861B9933200074C349 /* NoteBackground.xib */; };
+		4DE22E8A1B9935CF0074C349 /* NoteBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE22E891B9935CF0074C349 /* NoteBackground.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +167,9 @@
 		4DDE91C71B9005270064EB55 /* EmptyState.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyState.xib; sourceTree = "<group>"; };
 		4DE0BDF61B8EAB9D00A29A6B /* WelcomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeTableViewCell.h; sourceTree = "<group>"; };
 		4DE0BDF71B8EAB9D00A29A6B /* WelcomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeTableViewCell.m; sourceTree = "<group>"; };
+		4DE22E861B9933200074C349 /* NoteBackground.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteBackground.xib; sourceTree = "<group>"; };
+		4DE22E881B9935CF0074C349 /* NoteBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteBackground.h; sourceTree = "<group>"; };
+		4DE22E891B9935CF0074C349 /* NoteBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteBackground.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +338,9 @@
 				4DDA2BFC1B92C0DF00511690 /* NotesView.xib */,
 				4DD7FE811B93F789002E125C /* NotesView.h */,
 				4DD7FE821B93F789002E125C /* NotesView.m */,
+				4DE22E861B9933200074C349 /* NoteBackground.xib */,
+				4DE22E881B9935CF0074C349 /* NoteBackground.h */,
+				4DE22E891B9935CF0074C349 /* NoteBackground.m */,
 				4DDE91C71B9005270064EB55 /* EmptyState.xib */,
 				4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */,
 				4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */,
@@ -504,6 +512,7 @@
 				4DDE276C1B856ECC00DA7407 /* ThemeDisplayView.xib in Resources */,
 				4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */,
 				4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */,
+				4DE22E871B9933200074C349 /* NoteBackground.xib in Resources */,
 				4D76D4FE1B7D76B50031E533 /* FarLeftView.xib in Resources */,
 				4D3D282C1B558E5C00D12090 /* LaunchScreen.xib in Resources */,
 				4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */,
@@ -532,6 +541,7 @@
 				4DD7FE831B93F789002E125C /* NotesView.m in Sources */,
 				4DE0BDF81B8EAB9D00A29A6B /* WelcomeTableViewCell.m in Sources */,
 				4D11D45C1B58CC1F002D73A0 /* User.m in Sources */,
+				4DE22E8A1B9935CF0074C349 /* NoteBackground.m in Sources */,
 				4D3D281E1B558E5C00D12090 /* AppDelegate.m in Sources */,
 				4DD0A7CC1B7BE59200F93D27 /* ListSettingsViewController.m in Sources */,
 				4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */,

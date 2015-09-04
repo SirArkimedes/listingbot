@@ -23,8 +23,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *backView;
 
-@property (strong, nonatomic) NotesView *note;
+//@property (strong, nonatomic) NotesView *note;
+@property (strong, nonatomic) UIView *blindBackground;
 
-@property (nonatomic, strong) UIDynamicAnimator *animator;
+//@property (nonatomic, strong) UIDynamicAnimator *animator;
 
 @end

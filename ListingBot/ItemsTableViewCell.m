@@ -13,6 +13,7 @@
 #import "Item.h"
 
 #import "NotesView.h"
+#import "NoteBackground.h"
 
 #import "ListViewController.h"
 
@@ -27,8 +28,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeNote:) name:@"removeNote" object:nil];
     
     // Setup our UIKit Dynamics
-    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.superview.superview.superview];
-    self.animator.delegate = self;
+//    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.superview.superview.superview];
+//    self.animator.delegate = self;
     
 }
 
@@ -44,13 +45,6 @@
     
 }
 
-- (void)removeNoteEntirely:(UIView *)note {
-    
-    [note removeFromSuperview];
-    [self.animator removeAllBehaviors];
-    
-}
-
 #pragma mark - Buttons
 
 - (IBAction)notePressed:(id)sender {
@@ -61,43 +55,37 @@
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:tableView];
     NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:buttonPosition];
     
-    UIView *topView = self.superview.superview.superview;
-    
-    // Using the view's tag with matching array index, get the list.
-    List *list = [[User instance].lists objectAtIndex:topView.tag];
-    
-    // Divide by two because of seperator cells.
-    Item *item = [list.listItems objectAtIndex:indexPath.row/2];
-    
-    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"NotesView"
-                                                         owner:self
-                                                       options:nil];
-    NotesView *notes = [nibContents objectAtIndex:0];
-    notes.frame = CGRectMake(topView.frame.size.width/2 - 125, topView.frame.size.height/2 - 100, 250, 200);
-    notes.textView.text = item.itemNote;
-    notes.textView.editable = NO;
-    self.note = notes;
-    
-    [topView addSubview:self.note];
-    
-    // New positions
-    CGRect viewFrame = notes.frame;
-    viewFrame.origin.y = -viewFrame.size.height;
-    notes.frame = viewFrame;
-    
-    CGPoint moveToPoint = CGPointMake(topView.frame.size.width/2, topView.frame.size.height/2);
-    
-    // Use UIKit Dynamics to make the alertView appear.
-    UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:self.note snapToPoint:moveToPoint];
-    snapBehaviour.damping = 1.f;
-    
-    [self.animator addBehavior:snapBehaviour];
+    [self createBackgroundWithIndexPath:indexPath];
     
 }
 
-- (void)dynamicAnimatorDidPause:(UIDynamicAnimator*)animator {
+- (void)createBackgroundWithIndexPath:(NSIndexPath *)indexPath {
     
-    self.note.textView.editable = YES;
+    UIView *topView = self.superview.superview.superview;
+    
+    NSArray *noteBack = [[NSBundle mainBundle] loadNibNamed:@"NoteBackground"
+                                                      owner:self
+                                                    options:nil];
+    NoteBackground *blindBackground = [noteBack objectAtIndex:0];
+    blindBackground.layer.opacity = 0.f;
+    blindBackground.frame = CGRectMake(0, 0, topView.frame.size.width, topView.frame.size.height);
+    
+    NotesView *note = [blindBackground createNoteWithIndexPath:indexPath];
+    
+    [blindBackground addSubview:note];
+    [topView addSubview:blindBackground];
+    
+    self.blindBackground = blindBackground;
+    
+    // Fade in blind
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    blindBackground.alpha = 1.f;
+    blindBackground.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.55f];
+    
+    [UIView commitAnimations];
     
 }
 
@@ -112,17 +100,18 @@
             
             for (UIView *newView in [view subviews]) {
                 
-                if ([newView isKindOfClass:[NotesView class]]) {
+                // Fade background
+                if ([newView isKindOfClass:[NoteBackground class]]) {
                     
-                    UIGravityBehavior *gravityBehaviour = [[UIGravityBehavior alloc] initWithItems:@[newView]];
-                    gravityBehaviour.gravityDirection = CGVectorMake(0.0f, 10.0f);
-                    [self.animator addBehavior:gravityBehaviour];
+                    // Fade out blind
+                    [UIView beginAnimations:nil context:nil];
+                    [UIView setAnimationDuration:kAnimation];
+                    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
                     
-                    UIDynamicItemBehavior *itemBehaviour = [[UIDynamicItemBehavior alloc] initWithItems:@[newView]];
-                    [itemBehaviour addAngularVelocity:-M_PI_2 forItem:newView];
-                    [self.animator addBehavior:itemBehaviour];
+                    self.blindBackground.alpha = 0.f;
                     
-                    [self performSelector:@selector(removeNoteEntirely:) withObject:newView afterDelay:kAnimation];
+                    [UIView commitAnimations];
+                    
                 }
                 
             }

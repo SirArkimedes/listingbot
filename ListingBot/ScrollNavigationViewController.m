@@ -240,7 +240,7 @@ typedef enum ScrollDirection {
         }
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"removeNote" object:scroll userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"removeNote" object:scroll userInfo:nil];
     
 }
 
