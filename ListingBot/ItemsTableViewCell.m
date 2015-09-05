@@ -93,7 +93,7 @@
     NoteBackground *blindBackground = [noteBack objectAtIndex:0];
     blindBackground.layer.opacity = 0.f;
     blindBackground.frame = CGRectMake(0, 0, topView.frame.size.width, topView.frame.size.height);
-    blindBackground.indexPath = index;
+    blindBackground.indexPath = indexPath;
     
     NotesView *note = [blindBackground createNoteWithItem:item];
     
