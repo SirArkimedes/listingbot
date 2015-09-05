@@ -22,6 +22,9 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     
+    // Post notif to move label up
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"moveUpItem" object:nil userInfo:nil];
+    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:kAnimation/2];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];

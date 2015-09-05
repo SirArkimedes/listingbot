@@ -18,9 +18,24 @@
     tap.delegate = self;
     [self addGestureRecognizer:tap];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveUpItemLabel:) name:@"moveUpItem" object:nil];
+    
     // Setup our UIKit Dynamics
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.superview.superview.superview];
     self.animator.delegate = self;
+    
+}
+
+- (void)moveUpItemLabel:(NSNotification *)notification {
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation/2];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    // Move everything up
+    self.itemLabel.frame = CGRectMake(self.itemLabel.frame.origin.x, self.itemLabel.frame.origin.y - 120, self.itemLabel.frame.size.width, self.itemLabel.frame.size.height);
+    
+    [UIView commitAnimations];
     
 }
 

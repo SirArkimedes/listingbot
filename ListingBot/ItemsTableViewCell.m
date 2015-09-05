@@ -97,10 +97,20 @@
     
     NotesView *note = [blindBackground createNoteWithItem:item];
     
+    // Item label
+    UILabel *itemLabel = [[UILabel alloc] init];
+    itemLabel.text = item.itemName;
+    itemLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:20];
+    itemLabel.textColor = [UIColor whiteColor];
+    itemLabel.textAlignment = NSTextAlignmentCenter;
+    itemLabel.layer.opacity = 0.f;
+    
+    [blindBackground addSubview:itemLabel];
     [blindBackground addSubview:note];
     [topView addSubview:blindBackground];
     
     self.blindBackground = blindBackground;
+    blindBackground.itemLabel = itemLabel;
     
     // Fade in blind
     [UIView beginAnimations:nil context:nil];
@@ -108,7 +118,28 @@
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
     blindBackground.alpha = 1.f;
-    blindBackground.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.55f];
+    blindBackground.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.65f];
+    
+    [UIView commitAnimations];
+    
+    NSArray *array = @[itemLabel, note];
+    [self performSelector:@selector(moveInItemLabelWithArrayData:) withObject:array afterDelay:kAnimation];
+    
+}
+
+- (void)moveInItemLabelWithArrayData:(NSArray *)array {
+    
+    UILabel *label = [array objectAtIndex:0];
+    NotesView *note = [array objectAtIndex:1];
+    
+    label.frame = CGRectMake(note.frame.origin.x, note.frame.origin.y - 35, 250, 30);
+    
+    // Fade in uilabel
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    label.alpha = 1.f;
     
     [UIView commitAnimations];
     

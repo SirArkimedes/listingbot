@@ -16,6 +16,7 @@
 @interface NoteBackground : UIView <UIGestureRecognizerDelegate, UIDynamicAnimatorDelegate>
 
 @property (strong, nonatomic) NotesView *note;
+@property (strong, nonatomic) UILabel *itemLabel;
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 
