@@ -109,6 +109,12 @@
     newUser.userName = @"Andrew Robinson";
     newUser.userUuid = @"1234567890";
     
+    List *empty = [[List alloc] init];
+    empty.listName = @"Empty";
+    empty.listUuid = @"1234567891";
+    NSArray *emptyShared = @[@"Jill", @"Jam"];
+    [empty.sharedWith addObjectsFromArray:emptyShared];
+    
     // List
     List *firstList = [[List alloc] init];
     firstList.listName = @"San Francisco";
@@ -175,7 +181,7 @@
     NSArray *thirdItems = @[sixth, seven, eight];
     [thirdList.listItems addObjectsFromArray:thirdItems];
     
-    NSArray *newLists = @[firstList, secondList, thirdList];
+    NSArray *newLists = @[empty, firstList, secondList, thirdList];
     [newUser.lists addObjectsFromArray:newLists];
     
     // Add to instance for safe keeping

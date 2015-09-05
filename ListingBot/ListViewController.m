@@ -18,6 +18,7 @@
 
 #import "ListSettingsViewController.h"
 #import "NotesView.h"
+#import "EmptyStateView.h"
 
 #define kAnimation .5f
 
@@ -51,7 +52,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     self.itemTable.delegate = self;
     self.itemTable.dataSource = self;
                 
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didHideEmptyState:) name:@"noLongerEmpty" object:nil];
 
     // Initialize with no editing.
     self.editing = NO;
@@ -70,6 +71,17 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+    // Check for blank table
+    // Using the view's tag with matching array index, get the list.
+    List *list = [[User instance].lists objectAtIndex:self.view.tag];
+    if ([list.listItems count] == 0) {
+        [self presentEmptyState];
+    }
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -84,6 +96,38 @@ typedef NS_ENUM(NSUInteger, cellType) {
 //    [[dict objectForKey:@[@"textfield"]] becomeFirstResponder];
 //    
 //}
+
+- (void)presentEmptyState {
+    
+    self.editButton.hidden = YES;
+    [self setEditing:NO animated:YES];
+    
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"EmptyState"
+                                                         owner:self
+                                                       options:nil];
+    EmptyStateView *empty = [nibContents objectAtIndex:0];
+    empty.frame = CGRectMake(self.itemTable.frame.origin.x, self.itemTable.frame.origin.y, self.view.frame.size.width, self.itemTable.frame.size.height);
+    empty.alpha = 0.f;
+    
+    [self.view addSubview:empty];
+    
+    // Fade in empty
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:kAnimation];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    empty.alpha = 1.f;
+    empty.addItem.enabled = YES;
+    
+    [UIView commitAnimations];
+    
+}
+
+- (void)didHideEmptyState:(NSNotification *)notification {
+    
+    self.editButton.hidden = NO;
+    
+}
 
 #pragma mark - Buttons
 
@@ -110,6 +154,11 @@ typedef NS_ENUM(NSUInteger, cellType) {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Using the view's tag with matching array index, get the list.
     List *list = [[User instance].lists objectAtIndex:self.view.tag];
+    
+    // Returning for no items
+    if (list.listItems.count == 0) {
+        return 0;
+    }
     
     // Return item count * 2, because of seperator cells. -1 to remove the bottom seperator cell.
     if (self.editing)
@@ -269,21 +318,21 @@ typedef NS_ENUM(NSUInteger, cellType) {
         // Using the view's tag with matching array index, get the list.
         List *list = [[User instance].lists objectAtIndex:self.view.tag];
         
-        Item *item = [list.listItems objectAtIndex:indexPath.row];
+//        Item *item = [list.listItems objectAtIndex:indexPath.row];
         
         [list.listItems removeObjectAtIndex:indexPath.row];
         
         #warning if item.itemUuid = nil
         
-        [PFCloud callFunctionInBackground:@"deleteItem"
-                           withParameters:@{@"userUuid": [User instance].userUuid, @"listUuid": list.listUuid, @"itemUuid": item.itemUuid}
-                                    block:^(NSString *results, NSError *error) {
-                                        if (!error) {
-                                            NSLog(@"Success! Deleted Item with result: %@", results);
-                                        } else {
-                                            NSLog(@"Uuid function grab error: %@", error.description);
-                                        }
-                                    }];
+//        [PFCloud callFunctionInBackground:@"deleteItem"
+//                           withParameters:@{@"userUuid": [User instance].userUuid, @"listUuid": list.listUuid, @"itemUuid": item.itemUuid}
+//                                    block:^(NSString *results, NSError *error) {
+//                                        if (!error) {
+//                                            NSLog(@"Success! Deleted Item with result: %@", results);
+//                                        } else {
+//                                            NSLog(@"Uuid function grab error: %@", error.description);
+//                                        }
+//                                    }];
         
         NSArray *deleteIndexPaths = [[NSArray alloc] initWithObjects:
                                      [NSIndexPath indexPathForRow:indexPath.row inSection:0],
@@ -291,6 +340,10 @@ typedef NS_ENUM(NSUInteger, cellType) {
                                      nil];
         
         [tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        if (list.listItems.count == 0) {
+            [self presentEmptyState];
+        }
         
 //        [tableView reloadData];
         

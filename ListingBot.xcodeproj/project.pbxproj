@@ -67,6 +67,7 @@
 		4DE0BDF81B8EAB9D00A29A6B /* WelcomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0BDF71B8EAB9D00A29A6B /* WelcomeTableViewCell.m */; };
 		4DE22E871B9933200074C349 /* NoteBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE22E861B9933200074C349 /* NoteBackground.xib */; };
 		4DE22E8A1B9935CF0074C349 /* NoteBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE22E891B9935CF0074C349 /* NoteBackground.m */; };
+		4DEA1ABF1B9A7B9D009EC953 /* EmptyStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA1ABE1B9A7B9D009EC953 /* EmptyStateView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,8 @@
 		4DE22E861B9933200074C349 /* NoteBackground.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteBackground.xib; sourceTree = "<group>"; };
 		4DE22E881B9935CF0074C349 /* NoteBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteBackground.h; sourceTree = "<group>"; };
 		4DE22E891B9935CF0074C349 /* NoteBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteBackground.m; sourceTree = "<group>"; };
+		4DEA1ABD1B9A7B9D009EC953 /* EmptyStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyStateView.h; sourceTree = "<group>"; };
+		4DEA1ABE1B9A7B9D009EC953 /* EmptyStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStateView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +340,8 @@
 			children = (
 				4DE22E8B1B9940750074C349 /* Notes */,
 				4DDE91C71B9005270064EB55 /* EmptyState.xib */,
+				4DEA1ABD1B9A7B9D009EC953 /* EmptyStateView.h */,
+				4DEA1ABE1B9A7B9D009EC953 /* EmptyStateView.m */,
 				4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */,
 				4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */,
 				4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */,
@@ -566,6 +571,7 @@
 				4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */,
 				4DDC5BCF1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m in Sources */,
 				4D239A3C1B6BCAF8009DAC63 /* ListViewController.m in Sources */,
+				4DEA1ABF1B9A7B9D009EC953 /* EmptyStateView.m in Sources */,
 				4D239A381B6BCA45009DAC63 /* ScrollNavigationViewController.m in Sources */,
 				4DCD2B061B7EF7A1007B2146 /* NewListViewController.m in Sources */,
 				4DDA17511B864657001D4DD4 /* Theme.m in Sources */,
