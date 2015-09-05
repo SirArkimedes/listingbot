@@ -15,6 +15,7 @@
 - (void)awakeFromNib {
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    tap.delegate = self;
     [self addGestureRecognizer:tap];
     
     // Setup our UIKit Dynamics
@@ -23,15 +24,16 @@
     
 }
 
-- (NotesView *)createNoteWithIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     
-    UIView *topView = self.superview.superview.superview;
+    if (touch.view == self.note || touch.view == self.note.textView) {
+        return NO;
+    }
     
-    // Using the view's tag with matching array index, get the list.
-    List *list = [[User instance].lists objectAtIndex:topView.tag];
-    
-    // Divide by two because of seperator cells.
-    Item *item = [list.listItems objectAtIndex:indexPath.row/2];
+    return YES;
+}
+
+- (NotesView *)createNoteWithItem:(Item *)item {
     
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"NotesView"
                                                          owner:self
@@ -41,6 +43,7 @@
     notes.textView.text = item.itemNote;
     notes.textView.editable = NO;
     self.note = notes;
+    self.note.item = item;
     
     // New positions
     CGRect viewFrame = notes.frame;
@@ -70,6 +73,9 @@
     UIDynamicItemBehavior *itemBehaviour = [[UIDynamicItemBehavior alloc] initWithItems:@[self.note]];
     [itemBehaviour addAngularVelocity:-M_PI_2 forItem:self.note];
     [self.animator addBehavior:itemBehaviour];
+    
+    // Add note data to item.
+    self.note.item.itemNote = self.note.textView.text;
     
     [self performSelector:@selector(removeNoteEntirely:) withObject:self.note afterDelay:kAnimation];
     

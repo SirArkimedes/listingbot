@@ -13,12 +13,12 @@
 #import "List.h"
 #import "Item.h"
 
-@interface NoteBackground : UIView <UIDynamicAnimatorDelegate>
+@interface NoteBackground : UIView <UIGestureRecognizerDelegate, UIDynamicAnimatorDelegate>
 
 @property (strong, nonatomic) NotesView *note;
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 
-- (NotesView *)createNoteWithIndexPath:(NSIndexPath *)indexPath;
+- (NotesView *)createNoteWithItem:(Item *)indexPath;
 
 @end

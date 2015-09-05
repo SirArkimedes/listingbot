@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "User.h"
+#import "Item.h"
+
 @interface NotesView : UIView <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) Item *item;
 
 @end

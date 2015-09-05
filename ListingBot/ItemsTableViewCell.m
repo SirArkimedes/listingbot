@@ -63,6 +63,12 @@
     
     UIView *topView = self.superview.superview.superview;
     
+    // Using the view's tag with matching array index, get the list.
+    List *list = [[User instance].lists objectAtIndex:topView.tag];
+    
+    // Divide by two because of seperator cells.
+    Item *item = [list.listItems objectAtIndex:indexPath.row/2];
+    
     NSArray *noteBack = [[NSBundle mainBundle] loadNibNamed:@"NoteBackground"
                                                       owner:self
                                                     options:nil];
@@ -70,7 +76,7 @@
     blindBackground.layer.opacity = 0.f;
     blindBackground.frame = CGRectMake(0, 0, topView.frame.size.width, topView.frame.size.height);
     
-    NotesView *note = [blindBackground createNoteWithIndexPath:indexPath];
+    NotesView *note = [blindBackground createNoteWithItem:item];
     
     [blindBackground addSubview:note];
     [topView addSubview:blindBackground];
