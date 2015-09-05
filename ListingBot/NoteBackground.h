@@ -21,4 +21,6 @@
 
 - (NotesView *)createNoteWithItem:(Item *)indexPath;
 
+@property (strong, nonatomic) NSIndexPath *indexPath;
+
 @end

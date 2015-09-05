@@ -241,6 +241,13 @@ typedef NS_ENUM(NSUInteger, cellType) {
         cell.backgroundColor = UIColorFromRGB(0xFFFDEC, 1);
     }
     
+    // Check for note on cell
+    if (item.itemNote == nil || [item.itemNote isEqualToString:@""]) {
+        [cell.noteButton setImage:[UIImage imageNamed:@"NoNote"] forState:UIControlStateNormal];
+    } else {
+        [cell.noteButton setImage:[UIImage imageNamed:@"Note"] forState:UIControlStateNormal];
+    }
+    
     return cell;
     
 }

@@ -63,11 +63,29 @@
     
     UIView *topView = self.superview.superview.superview;
     
+    // Modify index to match if the table is editing or not.
+    UITableView *table;
+    
+    for (UIView *view in [topView subviews]) {
+        if ([view isKindOfClass:[UITableView class]]) {
+            table = (UITableView *)view;
+        }
+    }
+    
+    NSIndexPath *index;
+    
+    if (table.editing) {
+        index = indexPath;
+    } else {
+        NSIndexPath *new = [NSIndexPath indexPathForRow:indexPath.row/2 inSection:0];
+        index = new;
+    }
+    
     // Using the view's tag with matching array index, get the list.
     List *list = [[User instance].lists objectAtIndex:topView.tag];
     
     // Divide by two because of seperator cells.
-    Item *item = [list.listItems objectAtIndex:indexPath.row/2];
+    Item *item = [list.listItems objectAtIndex:index.row];
     
     NSArray *noteBack = [[NSBundle mainBundle] loadNibNamed:@"NoteBackground"
                                                       owner:self
@@ -75,6 +93,7 @@
     NoteBackground *blindBackground = [noteBack objectAtIndex:0];
     blindBackground.layer.opacity = 0.f;
     blindBackground.frame = CGRectMake(0, 0, topView.frame.size.width, topView.frame.size.height);
+    blindBackground.indexPath = index;
     
     NotesView *note = [blindBackground createNoteWithItem:item];
     

@@ -80,6 +80,23 @@
     // Add note data to item.
     self.note.item.itemNote = self.note.textView.text;
     
+    // Pass the specific tableview for reloading
+    UITableView *tableView;
+    
+    for (UIView *view in [self.superview subviews]) {
+        
+        if ([view isKindOfClass:[UITableView class]]) {
+            tableView = (UITableView *)view;
+        }
+        
+    }
+    
+    NSIndexPath* rowToReload = self.indexPath;
+    NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
+    [tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationFade];
+//    [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+//    [tableView setEditing:NO animated:YES];
+    
     [self performSelector:@selector(removeNoteEntirely:) withObject:self.note afterDelay:kAnimation];
     
 //    for (UIView *inBlind in [self subviews]) {
