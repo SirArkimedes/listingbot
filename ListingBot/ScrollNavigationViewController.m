@@ -111,6 +111,24 @@ typedef enum ScrollDirection {
     
 }
 
+#pragma mark - Buttons
+
+- (IBAction)wantsNewList:(id)sender {
+    
+    UIScrollView *scroll;
+    
+    for (UIScrollView *view in [self.view subviews]) {
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            scroll = view;
+        }
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"removeNote" object:scroll userInfo:nil];
+    
+}
+
+#pragma mark - List Management
+
 - (void)evaluateNewListChange:(NSNotification *)notification {
     
     CGFloat opacity;
@@ -232,13 +250,13 @@ typedef enum ScrollDirection {
     CGFloat offset = scrollView.contentOffset.x;
     [self animationForScroll:offset withDirection:ScrollDirectionRight];
     
-    UIScrollView *scroll;
-    
-    for (UIScrollView *view in [self.view subviews]) {
-        if ([view isKindOfClass:[UIScrollView class]]) {
-            scroll = view;
-        }
-    }
+//    UIScrollView *scroll;
+//    
+//    for (UIScrollView *view in [self.view subviews]) {
+//        if ([view isKindOfClass:[UIScrollView class]]) {
+//            scroll = view;
+//        }
+//    }
     
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"removeNote" object:scroll userInfo:nil];
     

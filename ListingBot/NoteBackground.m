@@ -42,6 +42,9 @@
     notes.frame = CGRectMake(self.frame.size.width/2 - 125, self.frame.size.height/2 - 100, 250, 200);
     notes.textView.text = item.itemNote;
     notes.textView.editable = NO;
+    
+    notes.layer.cornerRadius = 5.f;
+    
     self.note = notes;
     self.note.item = item;
     

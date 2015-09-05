@@ -391,6 +391,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="wantsNewList:" destination="QMk-1M-HRH" eventType="touchUpInside" id="ul0-JE-hrw"/>
                                     <segue destination="iME-Nw-04p" kind="show" id="jOp-rP-w8b"/>
                                 </connections>
                             </button>
