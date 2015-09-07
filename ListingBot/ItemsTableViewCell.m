@@ -152,6 +152,7 @@
     [UIView setAnimationDuration:kAnimation];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
+    note.textView.alpha = 1.f;
     label.alpha = 1.f;
     
     [UIView commitAnimations];

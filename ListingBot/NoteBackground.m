@@ -56,6 +56,7 @@
     NotesView *notes = [nibContents objectAtIndex:0];
     notes.frame = CGRectMake(self.frame.size.width/2 - 125, self.frame.size.height/2 - 100, 250, 200);
     notes.textView.text = item.itemNote;
+    notes.textView.alpha = 0.f;
     
     if ([notes.textView.text isEqualToString:@""]) {
         
