@@ -60,6 +60,9 @@ typedef enum ScrollDirection {
         self.listNewButton.layer.opacity = 0.f;
     }
     
+    // Set this for better readability when not having any lists
+    self.scrollNavigation.alwaysBounceHorizontal = YES;
+    
     // Register new list button notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(evaluateNewListChange:) name:@"newList" object:nil];
     
