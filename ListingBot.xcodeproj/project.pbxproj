@@ -51,6 +51,8 @@
 		4DD350401B7E8FD0009170F6 /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD3503F1B7E8FD0009170F6 /* WelcomeCell.xib */; };
 		4DD350461B7E9A77009170F6 /* FarLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD350451B7E9A77009170F6 /* FarLeftViewController.m */; };
 		4DD7FE831B93F789002E125C /* NotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7FE821B93F789002E125C /* NotesView.m */; };
+		4DDA04221B9D14B300A7674C /* ListTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA04211B9D14B300A7674C /* ListTable.xib */; };
+		4DDA04251B9D17E200A7674C /* ListTableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA04241B9D17E200A7674C /* ListTableTableViewCell.m */; };
 		4DDA17511B864657001D4DD4 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA17501B864657001D4DD4 /* Theme.m */; };
 		4DDA2BFD1B92C0DF00511690 /* NotesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA2BFC1B92C0DF00511690 /* NotesView.xib */; };
 		4DDC5BC51B82D07300CAAB0D /* AddListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5BC41B82D07300CAAB0D /* AddListCell.xib */; };
@@ -147,6 +149,9 @@
 		4DD350451B7E9A77009170F6 /* FarLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FarLeftViewController.m; sourceTree = "<group>"; };
 		4DD7FE811B93F789002E125C /* NotesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesView.h; sourceTree = "<group>"; };
 		4DD7FE821B93F789002E125C /* NotesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesView.m; sourceTree = "<group>"; };
+		4DDA04211B9D14B300A7674C /* ListTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTable.xib; sourceTree = "<group>"; };
+		4DDA04231B9D17E200A7674C /* ListTableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableTableViewCell.h; sourceTree = "<group>"; };
+		4DDA04241B9D17E200A7674C /* ListTableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableTableViewCell.m; sourceTree = "<group>"; };
 		4DDA174F1B864657001D4DD4 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
 		4DDA17501B864657001D4DD4 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
 		4DDA2BFC1B92C0DF00511690 /* NotesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesView.xib; sourceTree = "<group>"; };
@@ -402,6 +407,9 @@
 				4DDC5BCD1B82D4D100CAAB0D /* DraggableNewListTableViewCell.h */,
 				4DDC5BCE1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m */,
 				4DDC5BC91B82D44200CAAB0D /* FarLeftSeperator.xib */,
+				4DDA04211B9D14B300A7674C /* ListTable.xib */,
+				4DDA04231B9D17E200A7674C /* ListTableTableViewCell.h */,
+				4DDA04241B9D17E200A7674C /* ListTableTableViewCell.m */,
 				4DDE27651B85697B00DA7407 /* ThemeCell.xib */,
 				4DDE27671B8569AD00DA7407 /* ThemeTableViewCell.h */,
 				4DDE27681B8569AD00DA7407 /* ThemeTableViewCell.m */,
@@ -528,6 +536,7 @@
 				4DE22E871B9933200074C349 /* NoteBackground.xib in Resources */,
 				4D76D4FE1B7D76B50031E533 /* FarLeftView.xib in Resources */,
 				4D3D282C1B558E5C00D12090 /* LaunchScreen.xib in Resources */,
+				4DDA04221B9D14B300A7674C /* ListTable.xib in Resources */,
 				4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */,
 				4D3D28291B558E5C00D12090 /* Images.xcassets in Resources */,
 				4DDC5BC51B82D07300CAAB0D /* AddListCell.xib in Resources */,
@@ -577,6 +586,7 @@
 				4DDA17511B864657001D4DD4 /* Theme.m in Sources */,
 				4D14EDCB1B70528000DCFADC /* AddFieldTableViewCell.m in Sources */,
 				4D111E801B79601B00FB06EF /* ShareListViewController.m in Sources */,
+				4DDA04251B9D17E200A7674C /* ListTableTableViewCell.m in Sources */,
 				4DDCF06E1B86BB2200ED9864 /* ThemeDisplayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FarLeftViewController">
             <connections>
+                <outlet property="blindBackground" destination="Vn4-5h-dWu" id="B4y-Jt-oRd"/>
+                <outlet property="buttonHolderDialog" destination="AYY-eF-Ke4" id="e9H-Md-u4Z"/>
+                <outlet property="checkmarkDialog" destination="kox-a8-yja" id="90D-M2-PFH"/>
+                <outlet property="deleteDialogContainer" destination="kgh-Mj-ZZ6" id="Yfb-1s-vSz"/>
                 <outlet property="settingTable" destination="Wg9-zn-NaP" id="OG0-wx-RO0"/>
                 <outlet property="view" destination="iN0-l3-epB" id="N9x-NY-gSm"/>
             </connections>
@@ -43,14 +47,128 @@
                         <constraint firstItem="Wg9-zn-NaP" firstAttribute="trailing" secondItem="Xrx-gj-xjD" secondAttribute="trailingMargin" constant="8" id="xah-pG-gdf"/>
                     </constraints>
                 </view>
+                <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vn4-5h-dWu" userLabel="Blind Background">
+                    <rect key="frame" x="0.0" y="-15" width="600" height="630"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgh-Mj-ZZ6" userLabel="Delete Container">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYY-eF-Ke4" userLabel="PopUpView">
+                            <rect key="frame" x="168" y="196" width="265" height="252"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9J-1V-cNb">
+                                    <rect key="frame" x="20" y="49" width="224" height="56"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="56" id="kBj-Mg-QOq"/>
+                                    </constraints>
+                                    <attributedString key="attributedText">
+                                        <fragment content="Are you sure you want to delete ">
+                                            <attributes>
+                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="18" name="AvenirNext-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="all">
+                                            <attributes>
+                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="18" name="AvenirNext-MediumItalic"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=" lists?">
+                                            <attributes>
+                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="18" name="AvenirNext-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwS-Ox-xJ5">
+                                    <rect key="frame" x="0.0" y="118" width="265" height="63"/>
+                                    <color key="backgroundColor" red="1" green="0.1001500993" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="63" id="dYN-Xl-lKt"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                    <state key="normal" title="Yes">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="didWantToDeleteLists:" destination="-1" eventType="touchUpInside" id="eWb-4d-RF2"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U10-Kj-9fA">
+                                    <rect key="frame" x="0.0" y="189" width="265" height="63"/>
+                                    <color key="backgroundColor" red="1" green="0.1001500993" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                    <state key="normal" title="No">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="didNotWantDelete:" destination="-1" eventType="touchUpInside" id="Xk0-Wg-VPh"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="gwS-Ox-xJ5" firstAttribute="trailing" secondItem="U10-Kj-9fA" secondAttribute="trailing" id="6pO-1o-UWR"/>
+                                <constraint firstAttribute="width" constant="265" id="aJm-sr-MlE"/>
+                                <constraint firstItem="N9J-1V-cNb" firstAttribute="top" secondItem="AYY-eF-Ke4" secondAttribute="top" constant="49" id="ev1-ih-eTe"/>
+                                <constraint firstItem="gwS-Ox-xJ5" firstAttribute="centerX" secondItem="N9J-1V-cNb" secondAttribute="centerX" id="gn5-3K-S5X"/>
+                                <constraint firstAttribute="trailing" secondItem="U10-Kj-9fA" secondAttribute="trailing" id="hKs-33-i9M"/>
+                                <constraint firstItem="N9J-1V-cNb" firstAttribute="leading" secondItem="AYY-eF-Ke4" secondAttribute="leading" constant="20" id="ims-Cp-zMa"/>
+                                <constraint firstItem="U10-Kj-9fA" firstAttribute="top" secondItem="gwS-Ox-xJ5" secondAttribute="bottom" constant="8" symbolic="YES" id="nsh-uw-Ea1"/>
+                                <constraint firstAttribute="bottom" secondItem="U10-Kj-9fA" secondAttribute="bottom" id="pE9-WE-2Cv"/>
+                                <constraint firstItem="U10-Kj-9fA" firstAttribute="leading" secondItem="gwS-Ox-xJ5" secondAttribute="leading" id="sb8-E4-fbu"/>
+                                <constraint firstItem="gwS-Ox-xJ5" firstAttribute="top" secondItem="N9J-1V-cNb" secondAttribute="bottom" constant="13" id="szb-cI-kOB"/>
+                                <constraint firstAttribute="height" constant="252" id="vxq-Zx-tLb"/>
+                                <constraint firstItem="U10-Kj-9fA" firstAttribute="leading" secondItem="AYY-eF-Ke4" secondAttribute="leading" id="yFu-2H-Ibt"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kox-a8-yja">
+                            <rect key="frame" x="255" y="151" width="90" height="90"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteX" translatesAutoresizingMaskIntoConstraints="NO" id="aQr-d5-a9C">
+                                    <rect key="frame" x="23" y="22" width="45" height="45"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.1001500993" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="7Xz-3L-T1H"/>
+                                <constraint firstItem="aQr-d5-a9C" firstAttribute="centerX" secondItem="kox-a8-yja" secondAttribute="centerX" id="8CE-VB-cWg"/>
+                                <constraint firstItem="aQr-d5-a9C" firstAttribute="leading" secondItem="kox-a8-yja" secondAttribute="leading" constant="23" id="9K7-qI-Z0y"/>
+                                <constraint firstAttribute="height" constant="90" id="LSY-Vx-FNd"/>
+                                <constraint firstAttribute="bottom" secondItem="aQr-d5-a9C" secondAttribute="bottom" constant="23" id="NyN-a9-f2n"/>
+                                <constraint firstItem="aQr-d5-a9C" firstAttribute="top" secondItem="kox-a8-yja" secondAttribute="top" constant="22" id="jps-mI-h43"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="kox-a8-yja" firstAttribute="top" secondItem="kgh-Mj-ZZ6" secondAttribute="top" constant="151" id="OlA-Yr-MWm"/>
+                        <constraint firstItem="kox-a8-yja" firstAttribute="centerX" secondItem="AYY-eF-Ke4" secondAttribute="centerX" id="h1s-pu-pMf"/>
+                        <constraint firstItem="kox-a8-yja" firstAttribute="centerX" secondItem="kgh-Mj-ZZ6" secondAttribute="centerX" id="hmC-cw-NqH"/>
+                        <constraint firstItem="AYY-eF-Ke4" firstAttribute="top" secondItem="kgh-Mj-ZZ6" secondAttribute="top" constant="196" id="pjg-oJ-W8H"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
+                <constraint firstItem="kgh-Mj-ZZ6" firstAttribute="leading" secondItem="UJf-bu-ZKK" secondAttribute="leading" id="3lU-zf-u5L"/>
                 <constraint firstItem="Xrx-gj-xjD" firstAttribute="top" secondItem="UJf-bu-ZKK" secondAttribute="top" id="4Oh-gz-HXp"/>
+                <constraint firstItem="kgh-Mj-ZZ6" firstAttribute="trailing" secondItem="LKo-EW-57F" secondAttribute="trailing" id="AgG-ar-Pye"/>
                 <constraint firstItem="Xrx-gj-xjD" firstAttribute="leading" secondItem="LKo-EW-57F" secondAttribute="leading" id="Il3-mZ-6nB"/>
+                <constraint firstItem="kgh-Mj-ZZ6" firstAttribute="bottom" secondItem="Xrx-gj-xjD" secondAttribute="bottom" id="N46-x5-sEd"/>
                 <constraint firstAttribute="bottom" secondItem="UJf-bu-ZKK" secondAttribute="bottom" id="QIe-HE-beY"/>
                 <constraint firstItem="UJf-bu-ZKK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SzF-eJ-oIo"/>
                 <constraint firstItem="Xrx-gj-xjD" firstAttribute="bottom" secondItem="LKo-EW-57F" secondAttribute="bottom" id="Xd2-Xm-qNK"/>
                 <constraint firstItem="LKo-EW-57F" firstAttribute="top" secondItem="UJf-bu-ZKK" secondAttribute="top" id="ZZK-jz-7Tz"/>
+                <constraint firstItem="kgh-Mj-ZZ6" firstAttribute="top" secondItem="LKo-EW-57F" secondAttribute="top" id="beS-Ay-tXa"/>
                 <constraint firstItem="LKo-EW-57F" firstAttribute="bottom" secondItem="UJf-bu-ZKK" secondAttribute="bottom" id="dbb-Te-Xj1"/>
                 <constraint firstItem="Xrx-gj-xjD" firstAttribute="trailing" secondItem="LKo-EW-57F" secondAttribute="trailing" id="e2E-uO-MpV"/>
                 <constraint firstItem="LKo-EW-57F" firstAttribute="leading" secondItem="UJf-bu-ZKK" secondAttribute="leading" id="eXH-bX-O4w"/>
@@ -62,5 +180,6 @@
     </objects>
     <resources>
         <image name="Background" width="3264" height="2448"/>
+        <image name="whiteX" width="64" height="64"/>
     </resources>
 </document>

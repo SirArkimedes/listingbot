@@ -66,6 +66,9 @@ typedef enum ScrollDirection {
     // Register creating a new list view
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNewListController:) name:@"createNewList" object:nil];
     
+    // Register ListTable modifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(layoutViews:) name:@"didChangeListTable" object:nil];
+    
 //    // Generate views and play on scrollview
 //    [self layoutViews];
     
@@ -154,6 +157,12 @@ typedef enum ScrollDirection {
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     NewListViewController *vc = (NewListViewController*)[storybord instantiateViewControllerWithIdentifier:@"newListController"];
     [self presentViewController:vc animated:YES completion:nil];
+    
+}
+
+- (void)layoutViews:(NSNotification *)notification {
+    
+    [self layoutViews];
     
 }
 
