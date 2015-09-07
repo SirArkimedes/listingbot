@@ -14,6 +14,7 @@
 @interface NotesView : UIView <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *emptyNote;
 @property (strong, nonatomic) Item *item;
 
 @end

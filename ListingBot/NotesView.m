@@ -25,6 +25,9 @@
     // Post notif to move label up
     [[NSNotificationCenter defaultCenter] postNotificationName:@"moveUpItem" object:nil userInfo:nil];
     
+    if (self.emptyNote.hidden == NO)
+        self.emptyNote.hidden = YES;
+    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:kAnimation/2];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];

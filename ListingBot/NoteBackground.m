@@ -56,6 +56,14 @@
     NotesView *notes = [nibContents objectAtIndex:0];
     notes.frame = CGRectMake(self.frame.size.width/2 - 125, self.frame.size.height/2 - 100, 250, 200);
     notes.textView.text = item.itemNote;
+    
+    if ([notes.textView.text isEqualToString:@""]) {
+        
+        notes.emptyNote.hidden = NO;
+        notes.emptyNote.alpha = 0.f;
+        
+    }
+    
     notes.textView.editable = NO;
     
     notes.layer.cornerRadius = 5.f;

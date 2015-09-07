@@ -132,6 +132,19 @@
     UILabel *label = [array objectAtIndex:0];
     NotesView *note = [array objectAtIndex:1];
     
+    if (note.emptyNote.hidden == NO) {
+        
+        // Fade in uilabel
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:kAnimation];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        
+        note.emptyNote.alpha = 1.f;
+        
+        [UIView commitAnimations];
+        
+    }
+    
     label.frame = CGRectMake(note.frame.origin.x, note.frame.origin.y - 35, 250, 30);
     
     // Fade in uilabel
