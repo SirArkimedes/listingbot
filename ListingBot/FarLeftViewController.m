@@ -79,14 +79,19 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
     
-    // Set dialog OGs
-    self.originalBounds = keyWindow.bounds;
-    self.originalCenter = keyWindow.center;
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshFarLeft" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayDeleteContainer:) name:@"displayDeleteContainer" object:nil];
         
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    
+    // Set dialog OGs
+    self.originalBounds = self.deleteDialogContainer.bounds;
+    self.originalCenter = self.view.center;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,7 +134,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
     
     // Fix the blindbackground
-    self.blindBackground.frame = keyWindow.layer.frame;
+//    self.blindBackground.frame = keyWindow.layer.frame;
     
     // Adjust our keyWindow's tint adjustment mode to make everything behind the alert view dimmed
     keyWindow.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
@@ -152,7 +157,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     self.deleteDialogContainer.hidden = NO;
     
     // Use UIKit Dynamics to make the alertView appear.
-    UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:self.deleteDialogContainer snapToPoint:self.originalCenter];
+    UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:self.deleteDialogContainer snapToPoint:self.view.center];
     snapBehaviour.damping = 1.f;
     [self.animator addBehavior:snapBehaviour];
     
