@@ -37,6 +37,28 @@
     
 }
 
+#pragma mark - Buttons
+
+- (IBAction)addQuantity:(id)sender {
+    
+    int quantity = [self.quantityLabel.text intValue];
+    quantity++;
+    
+    if (quantity <= 999)
+        self.quantityLabel.text = [NSString stringWithFormat:@"%d", quantity];
+    
+}
+
+- (IBAction)subtractQuntity:(id)sender {
+    
+    int quantity = [self.quantityLabel.text intValue];
+    quantity--;
+    
+    if (quantity > 0)
+        self.quantityLabel.text = [NSString stringWithFormat:@"%d", quantity];
+    
+}
+
 #pragma mark - Textfield delegates
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

@@ -27,6 +27,9 @@
                                         <color key="titleColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="subtractQuntity:" destination="iN0-l3-epB" eventType="touchUpInside" id="SlP-wB-Wo6"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eS-AO-Ehx">
                                     <rect key="frame" x="37" y="1" width="31" height="43"/>
@@ -44,6 +47,9 @@
                                         <color key="titleColor" red="0.13725490200000001" green="0.66666666669999997" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="addQuantity:" destination="iN0-l3-epB" eventType="touchUpInside" id="cIe-GP-FaS"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
