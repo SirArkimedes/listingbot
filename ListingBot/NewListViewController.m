@@ -12,6 +12,7 @@
 #import "List.h"
 
 #import <Parse/Parse.h>
+#import <Bolts/Bolts.h>
 
 #define UIColorFromRGB(rgbValue, ...) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
                                                       green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
@@ -102,38 +103,85 @@
     newList.listName = self.listName;
     newList.sharedWith = [[NSMutableArray alloc] init];
     newList.listItems = [[NSMutableArray alloc] init];
-    newList.listUuid = [NSString stringWithFormat:@"%@", uuid];
-    NSData *listData = [NSKeyedArchiver archivedDataWithRootObject:newList];
+    newList.listUuid = [[NSUUID UUID] UUIDString];
     
     [[User instance].lists addObject:newList];
     
     // Save List
     PFObject *parseList = [PFObject objectWithClassName:@"Lists"];
-    parseList[@"object"] = listData;
     parseList[@"name"] = newList.listName;
     parseList[@"uuid"] = newList.listUuid;
-    parseList[@"sharedWith"] = @[[User instance].userUuid];
+//    parseList[@"sharedWith"] = @[[User instance].userUuid];
     [parseList saveEventually];
-    
-    // Save UserListAccess
-    PFObject *parseListAccess = [PFObject objectWithClassName:@"UserListAccess"];
-    parseListAccess[@"userUuid"] = [User instance].userUuid;
-    parseListAccess[@"listUuid"] = uuid;
-    [parseListAccess saveEventually];
     
     [User instance].userDidChangeAdd = YES;
     
-    NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+    [query fromLocalDatastore];
+    [query whereKey:@"uuid" equalTo:[User instance].userUuid];
+    [[query findObjectsInBackground] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            NSLog(@"Error: %@", task.error);
+            return task;
+        }
+        
+        PFObject *user = [task.result objectAtIndex:0];
+        
+        // Create relation
+        PFRelation *relation = [user relationForKey:@"listAccess"];
+        [relation addObject:parseList];
+        [user saveEventually];
+        
+        PFQuery *relationQuery = [relation query];
+        [[relationQuery findObjectsInBackground] continueWithBlock:^id(BFTask *task) {
+            
+            NSLog(@"resutls: %@", task.result);
+            
+            return task;
+            
+        }];
+        
+        [user pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                
+            }
+        }];
+        
+        [parseList pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                // Create relation
+                PFRelation *relation = [parseList relationForKey:@"sharedWith"];
+                [relation addObject:user];
+                [parseList saveEventually];
+            }
+        }];
+        
+        return task;
+    }];
     
-    [PFCloud callFunctionInBackground:@"saveUserObject"
-                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid, @"listUuid": newList.listUuid}
-                                block:^(NSNumber *results, NSError *error) {
-                                    if (!error) {
-                                        NSLog(@"Success! Saved User object.");
-                                    } else {
-                                        NSLog(@"Uuid function grab error: %@", error.description);
-                                    }
-                                }];
+//    PFQuery *query2 = [PFQuery queryWithClassName:@"Users"];
+//    [query2 fromLocalDatastore];
+//    [query2 whereKey:@"uuid" equalTo:[User instance].userUuid];
+//    [[query2 findObjectsInBackground] continueWithBlock:^id(BFTask *task) {
+//        if (task.error) {
+//            NSLog(@"Error: %@", task.error);
+//            return task;
+//        }
+//        
+//        PFObject *user = [task.result objectAtIndex:0];
+//        
+//        return task;
+//    }];
+    
+//    [PFCloud callFunctionInBackground:@"saveUserObject"
+//                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid, @"listUuid": newList.listUuid}
+//                                block:^(NSNumber *results, NSError *error) {
+//                                    if (!error) {
+//                                        NSLog(@"Success! Saved User object.");
+//                                    } else {
+//                                        NSLog(@"Uuid function grab error: %@", error.description);
+//                                    }
+//                                }];
     
 }
 
