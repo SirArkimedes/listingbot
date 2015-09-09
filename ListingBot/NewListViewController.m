@@ -112,7 +112,7 @@
     parseList[@"name"] = newList.listName;
     parseList[@"uuid"] = newList.listUuid;
 //    parseList[@"sharedWith"] = @[[User instance].userUuid];
-    [parseList saveEventually];
+    [parseList saveInBackground];
     
     [User instance].userDidChangeAdd = YES;
     
@@ -127,51 +127,47 @@
         
         PFObject *user = [task.result objectAtIndex:0];
         
-        // Create relation
-        PFRelation *relation = [user relationForKey:@"listAccess"];
-        [relation addObject:parseList];
-        [user saveEventually];
+        // Create the relationship
+        [user addObject:parseList forKey:@"listAccess"];
+        [user saveInBackground];
         
-        PFQuery *relationQuery = [relation query];
-        [[relationQuery findObjectsInBackground] continueWithBlock:^id(BFTask *task) {
-            
-            NSLog(@"resutls: %@", task.result);
-            
-            return task;
-            
-        }];
-        
-        [user pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                
-            }
-        }];
+//        [user pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//            if (succeeded) {
+//                
+//            }
+//        }];
         
         [parseList pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                // Create relation
-                PFRelation *relation = [parseList relationForKey:@"sharedWith"];
-                [relation addObject:user];
-                [parseList saveEventually];
+                
+                // Create the relationship
+                [parseList addObject:user forKey:@"sharedWith"];
+                [parseList saveInBackground];
+                
+//                // Create relation
+//                PFRelation *relation = [parseList relationForKey:@"sharedWith"];
+//                [relation addObject:user];
+//                [parseList saveEventually];
             }
         }];
         
         return task;
     }];
     
-//    PFQuery *query2 = [PFQuery queryWithClassName:@"Users"];
-//    [query2 fromLocalDatastore];
-//    [query2 whereKey:@"uuid" equalTo:[User instance].userUuid];
-//    [[query2 findObjectsInBackground] continueWithBlock:^id(BFTask *task) {
-//        if (task.error) {
-//            NSLog(@"Error: %@", task.error);
-//            return task;
-//        }
-//        
-//        PFObject *user = [task.result objectAtIndex:0];
-//        
-//        return task;
-//    }];
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Users"];
+    [query2 fromLocalDatastore];
+    [query2 includeKey:@"listAcess"];
+    [query2 whereKey:@"uuid" equalTo:[User instance].userUuid];
+    [[query2 findObjectsInBackground] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            NSLog(@"Error: %@", task.error);
+            return task;
+        }
+        
+        PFObject *user = [task.result objectAtIndex:0];
+        
+        return task;
+    }];
     
 //    [PFCloud callFunctionInBackground:@"saveUserObject"
 //                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid, @"listUuid": newList.listUuid}

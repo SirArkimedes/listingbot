@@ -142,29 +142,35 @@
     PFObject *parseUser = [PFObject objectWithClassName:@"Users"];
     parseUser[@"name"] = name;
     parseUser[@"uuid"] = userUuid;
-    [parseUser saveEventually];
+//    [parseUser saveInBackground];
     
     // Save List
     PFObject *parseList = [PFObject objectWithClassName:@"Lists"];
     parseList[@"name"] = newList.listName;
     parseList[@"uuid"] = newList.listUuid;
-    [parseList saveEventually];
+//    [parseList saveInBackground];
     
     [parseUser pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            // Create relation
-            PFRelation *relation = [parseUser relationForKey:@"listAccess"];
-            [relation addObject:parseList];
-            [parseUser saveEventually];
+            
+            // Create the relationship
+            [parseUser addObject:parseList forKey:@"listAccess"];
+            [parseUser saveInBackground];
+            
         }
     }];
     
     [parseList pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            // Create relation
-            PFRelation *relation = [parseList relationForKey:@"sharedWith"];
-            [relation addObject:parseUser];
-            [parseList saveEventually];
+            
+            // Create the relationship
+            [parseList addObject:parseUser forKey:@"sharedWith"];
+            [parseList saveInBackground];
+            
+//            // Create relation
+//            PFRelation *relation = [parseList relationForKey:@"sharedWith"];
+//            [relation addObject:parseUser];
+//            [parseList saveEventually];
         }
     }];
     
