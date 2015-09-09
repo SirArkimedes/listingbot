@@ -117,20 +117,84 @@
     NSString *name = self.nameField.text;
     NSString *listName = self.listField.text;
     
-    NSArray *inputData = @[name, listName];
+//    NSArray *inputData = @[name, listName];
     
-    [PFCloud callFunctionInBackground:@"newUserId"
-                       withParameters:nil
-                                block:^(NSNumber *results, NSError *error) {
-                                    if (!error) {
-                                        [self performSelector:@selector(generateUserUuidWithData:withUUID:) withObject:inputData withObject:results];
-                                    } else {
-                                        NSLog(@"Uuid function grab error: %@", error.description);
-                                    }
-                                }];
+    // Create a 'dirty' uuid
+    NSString *userUuid = [[NSUUID UUID] UUIDString];
+    NSString *lUuid = [[NSUUID UUID] UUIDString];
+    
+    // Create the list
+    List *newList = [[List alloc] init];
+    newList.listName = listName;
+    newList.listUuid = lUuid;
+    newList.sharedWith = [[NSMutableArray alloc] init];
+    newList.listItems = [[NSMutableArray alloc] init];
+    
+    // Add to Local User
+    [[User instance].lists addObject:newList];
+    [User instance].userUuid = userUuid;
+    [User instance].userName = name;
+    [User instance].userDidChangeAdd = YES;
+    
+    [self saveUserObject:[User instance] key:@"user"];
+    
+    // Save User
+    PFObject *parseUser = [PFObject objectWithClassName:@"Users"];
+    parseUser[@"name"] = name;
+    parseUser[@"uuid"] = userUuid;
+//    [parseUser saveInBackground];
+    
+    // Save List
+    PFObject *parseList = [PFObject objectWithClassName:@"Lists"];
+    parseList[@"name"] = newList.listName;
+    parseList[@"uuid"] = newList.listUuid;
+//    [parseList saveInBackground];
+    
+    [parseUser pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            
+            // Create the relationship
+            [parseUser addObject:parseList forKey:@"listAccess"];
+            [parseUser saveInBackground];
+            
+        }
+    }];
+    
+    [parseList pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            
+            // Create the relationship
+            [parseList addObject:parseUser forKey:@"sharedWith"];
+            [parseList saveInBackground];
+            
+//            // Create relation
+//            PFRelation *relation = [parseList relationForKey:@"sharedWith"];
+//            [relation addObject:parseUser];
+//            [parseList saveEventually];
+        }
+    }];
+    
+    //    // Save UserListAccess
+    //    PFObject *parseListAccess = [PFObject objectWithClassName:@"UserListAccess"];
+    //    parseListAccess[@"userUuid"] = userUuid;
+    //    parseListAccess[@"listUuid"] = listUuid;
+    //    [parseListAccess saveEventually];
+    
+    
+//    [PFCloud callFunctionInBackground:@"newUserId"
+//                       withParameters:nil
+//                                block:^(NSNumber *results, NSError *error) {
+//                                    if (!error) {
+//                                        [self performSelector:@selector(generateUserUuidWithData:withUUID:) withObject:inputData withObject:results];
+//                                    } else {
+////                                        NSLog(@"Uuid function grab error: %@", error.description);
+//                                        [self performSelector:@selector(generateUserUuidWithData:withUUID:) withObject:inputData withObject:[NSNumber numberWithInt:-2]];
+//                                    }
+//                                }];
 
 }
 
+/*
 - (void)generateUserUuidWithData:(NSArray*)userData withUUID:(NSNumber*)userUuid {
     
     NSString *name = [userData objectAtIndex:0];
@@ -143,7 +207,9 @@
                                         NSArray *user = @[name, listName, userUuid];
                                         [self performSelector:@selector(saveWithData:withListUUID:) withObject:user withObject:results];
                                     } else {
-                                        NSLog(@"Uuid function grab error: %@", error.description);
+//                                        NSLog(@"Uuid function grab error: %@", error.description);
+                                        NSArray *user = @[name, listName, userUuid];
+                                        [self performSelector:@selector(saveWithData:withListUUID:) withObject:user withObject:[NSNumber numberWithInt:-1]];
                                     }
                                 }];
     
@@ -153,49 +219,10 @@
     
     NSString *name = [userData objectAtIndex:0];
     NSString *list = [userData objectAtIndex:1];
-    NSString *userUuid = [userData objectAtIndex:2];
-    
-    // Create the list
-    List *newList = [[List alloc] init];
-    newList.listName = list;
-    newList.listUuid = [NSString stringWithFormat:@"%@", listUuid];
-    newList.sharedWith = [[NSMutableArray alloc] init];
-    newList.listItems = [[NSMutableArray alloc] init];
-    NSData *listData = [NSKeyedArchiver archivedDataWithRootObject:newList];
-    
-    // Add to User
-    [[User instance].lists addObject:newList];
-    [User instance].userUuid = userUuid;
-    [User instance].userName = name;
-    [User instance].userDidChangeAdd = YES;
-    
-    [self saveUserObject:[User instance] key:@"user"];
-    
-    NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
-    
-    // Save User
-    PFObject *parseUser = [PFObject objectWithClassName:@"Users"];
-    parseUser[@"object"] = userArchive;
-    parseUser[@"name"] = name;
-    parseUser[@"uuid"] = userUuid;
-    parseUser[@"listAccess"] = @[listUuid];
-    [parseUser saveEventually];
-    
-    // Save List
-    PFObject *parseList = [PFObject objectWithClassName:@"Lists"];
-    parseList[@"object"] = listData;
-    parseList[@"name"] = newList.listName;
-    parseList[@"uuid"] = newList.listUuid;
-    parseList[@"sharedWith"] = @[userUuid];
-    [parseList saveEventually];
-    
-    // Save UserListAccess
-    PFObject *parseListAccess = [PFObject objectWithClassName:@"UserListAccess"];
-    parseListAccess[@"userUuid"] = userUuid;
-    parseListAccess[@"listUuid"] = listUuid;
-    [parseListAccess saveEventually];
+//    NSString *userUuid = [userData objectAtIndex:2];
     
 }
+*/
 
 - (void)saveUserObject:(User *)object key:(NSString *)key {
     NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
