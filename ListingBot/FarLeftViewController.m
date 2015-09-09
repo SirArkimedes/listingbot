@@ -99,6 +99,12 @@ typedef NS_ENUM(NSUInteger, cellType) {
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
 - (void)refreshTableWithNotification:(NSNotification *)notification {
     [self.settingTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }

@@ -97,6 +97,12 @@ typedef NS_ENUM(NSUInteger, cellType) {
 //    
 //}
 
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
 - (void)presentEmptyState {
     
     self.editButton.hidden = YES;

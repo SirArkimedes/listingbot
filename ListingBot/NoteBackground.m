@@ -26,6 +26,12 @@
     
 }
 
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
 - (void)moveUpItemLabel:(NSNotification *)notification {
     
     [UIView beginAnimations:nil context:nil];

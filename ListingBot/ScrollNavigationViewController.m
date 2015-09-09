@@ -117,6 +117,12 @@ typedef enum ScrollDirection {
     
 }
 
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
 #pragma mark - Buttons
 
 - (IBAction)wantsNewList:(id)sender {
