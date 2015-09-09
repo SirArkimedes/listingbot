@@ -198,15 +198,6 @@ typedef enum ScrollDirection {
     CGFloat scrollHeight = self.view.frame.size.height;
     self.scrollNavigation.contentSize = CGSizeMake(scrollWidth, scrollHeight);
     
-    // This needs to be after the farleft view creation because of the scrolling to farleft content.
-    if ([User instance].userDidChangeDelete) {
-        
-        // Move to start screen
-        [self.scrollNavigation setContentOffset:CGPointMake(0, 0) animated:YES];
-        [User instance].userDidChangeDelete = NO;
-        
-    }
-    
     // Generate views based on how many lists we have.
     for (int i = 1; i <= [[User instance].lists count]; i++) {
         
