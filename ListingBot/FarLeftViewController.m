@@ -220,8 +220,17 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     [[User instance].lists removeAllObjects];
     
+    [self saveUserObject:[User instance] key:@"user"];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"didChangeListTable" object:nil userInfo:nil];
     
+}
+
+- (void)saveUserObject:(User *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
 }
 
 #pragma mark - Table view data source

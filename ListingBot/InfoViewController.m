@@ -150,16 +150,6 @@
     parseList[@"uuid"] = newList.listUuid;
 //    [parseList saveInBackground];
     
-    [parseUser pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            
-            // Create the relationship
-            [parseUser addObject:parseList forKey:@"listAccess"];
-            [parseUser saveInBackground];
-            
-        }
-    }];
-    
     [parseList pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             
@@ -167,10 +157,26 @@
             [parseList addObject:parseUser forKey:@"sharedWith"];
             [parseList saveInBackground];
             
-//            // Create relation
-//            PFRelation *relation = [parseList relationForKey:@"sharedWith"];
-//            [relation addObject:parseUser];
-//            [parseList saveEventually];
+            //            // Create relation
+            //            PFRelation *relation = [parseList relationForKey:@"sharedWith"];
+            //            [relation addObject:parseUser];
+            //            [parseList saveEventually];
+        }
+    }];
+    
+    [parseUser pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            
+            // Create the relationship
+            [parseUser addObject:parseList forKey:@"listAccess"];
+            [parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"Success.");
+                } else {
+                    NSLog(@"Error: %@", error.description);
+                }
+            }];
+            
         }
     }];
     
