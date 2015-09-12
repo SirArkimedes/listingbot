@@ -28,7 +28,7 @@
     // Override point for customization after application launch.
     
     // TODO: REMOVE
-//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
     
     // Grab Keys
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ParseKeys" ofType:@"plist"];
@@ -40,7 +40,7 @@
         NSLog(@"Parse ApplicationId and clientKey do not exist!");
     } else {
         // Enabling Parse
-        [Parse enableLocalDatastore];
+//        [Parse enableLocalDatastore];
         
         [Parse setApplicationId:appKey
                       clientKey:clientKey];

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface User : NSObject
 
@@ -16,6 +17,9 @@
 
 @property (nonatomic, assign) BOOL userDidChangeAdd;
 @property (nonatomic, assign) BOOL userDidChangeDelete;
+
+@property (nonatomic, assign) BOOL didNotSaveParseUser;
+@property (nonatomic, assign) BOOL userDoesNotExistOnServer;
 
 - (id)initWithName:(NSString *)name withUUID:(NSString *)uuid withList:(NSString *)list;
 

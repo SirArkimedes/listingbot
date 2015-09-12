@@ -45,6 +45,9 @@ static User *inst = nil;
     [coder encodeObject:_userUuid forKey:@"userUuid"];
     [coder encodeObject:_lists forKey:@"lists"];
     
+    [coder encodeBool:_didNotSaveParseUser forKey:@"didNotSaveParseUser"];
+    [coder encodeBool:_userDoesNotExistOnServer forKey:@"userDoesNotExistOnServer"];
+    
     [coder encodeBool:_userDidChangeAdd forKey:@"userDidChangeAdd"];
     [coder encodeBool:_userDidChangeDelete forKey:@"userDidChangeDelete"];
 }
@@ -57,6 +60,9 @@ static User *inst = nil;
         _userName = [coder decodeObjectForKey:@"userName"];
         _userUuid = [coder decodeObjectForKey:@"userUuid"];
         _lists = [coder decodeObjectForKey:@"lists"];
+        
+        _didNotSaveParseUser = [coder decodeBoolForKey:@"didNoteSaveParseUser"];
+        _userDoesNotExistOnServer = [coder decodeBoolForKey:@"userDoesNotExistOnServer"];
         
         _userDidChangeAdd = [coder decodeBoolForKey:@"userDidChangeAdd"];
         _userDidChangeDelete = [coder decodeBoolForKey:@"userDidChangeDelete"];

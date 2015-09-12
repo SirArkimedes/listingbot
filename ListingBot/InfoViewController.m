@@ -150,35 +150,45 @@
     parseList[@"uuid"] = newList.listUuid;
 //    [parseList saveInBackground];
     
-    [parseList pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    // Create the relationship
+    [parseList addObject:name forKey:@"sharedWith"]; // Temporary fix for circular dependancy.
+    [parseList saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
         if (succeeded) {
-            
-            // Create the relationship
-            [parseList addObject:parseUser forKey:@"sharedWith"];
-            [parseList saveInBackground];
-            
-            //            // Create relation
-            //            PFRelation *relation = [parseList relationForKey:@"sharedWith"];
-            //            [relation addObject:parseUser];
-            //            [parseList saveEventually];
+            NSLog(@"Save list");
+        } else {
+            NSLog(@"List Save Error: %@", error.description);
+        }
+        
+    }];
+    
+    // Create the relationship
+    [parseUser addObject:parseList forKey:@"listAccess"];
+    [parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"Success.");
+        } else {
+            NSLog(@"Error: %@", error.description);
+            [User instance].didNotSaveParseUser = YES;
+            [User instance].userDoesNotExistOnServer = YES;
         }
     }];
     
-    [parseUser pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            
-            // Create the relationship
-            [parseUser addObject:parseList forKey:@"listAccess"];
-            [parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
-                    NSLog(@"Success.");
-                } else {
-                    NSLog(@"Error: %@", error.description);
-                }
-            }];
-            
-        }
-    }];
+//    [parseList pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            
+//            //            // Create relation
+//            //            PFRelation *relation = [parseList relationForKey:@"sharedWith"];
+//            //            [relation addObject:parseUser];
+//            //            [parseList saveEventually];
+//        }
+//    }];
+//    
+//    [parseUser pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            
+//        }
+//    }];
     
     //    // Save UserListAccess
     //    PFObject *parseListAccess = [PFObject objectWithClassName:@"UserListAccess"];
