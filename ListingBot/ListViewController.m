@@ -334,9 +334,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
 //        Item *item = [list.listItems objectAtIndex:indexPath.row];
         
         [list.listItems removeObjectAtIndex:indexPath.row];
-        
-        #warning if item.itemUuid = nil
-        
+                
 //        [PFCloud callFunctionInBackground:@"deleteItem"
 //                           withParameters:@{@"userUuid": [User instance].userUuid, @"listUuid": list.listUuid, @"itemUuid": item.itemUuid}
 //                                    block:^(NSString *results, NSError *error) {

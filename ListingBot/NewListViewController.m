@@ -154,20 +154,20 @@
         return task;
     }];
     
-    PFQuery *query2 = [PFQuery queryWithClassName:@"Users"];
-    [query2 fromLocalDatastore];
-    [query2 includeKey:@"listAcess"];
-    [query2 whereKey:@"uuid" equalTo:[User instance].userUuid];
-    [[query2 findObjectsInBackground] continueWithBlock:^id(BFTask *task) {
-        if (task.error) {
-            NSLog(@"Error: %@", task.error);
-            return task;
-        }
-        
-        PFObject *user = [task.result objectAtIndex:0];
-        
-        return task;
-    }];
+//    PFQuery *query2 = [PFQuery queryWithClassName:@"Users"];
+//    [query2 fromLocalDatastore];
+//    [query2 includeKey:@"listAcess"];
+//    [query2 whereKey:@"uuid" equalTo:[User instance].userUuid];
+//    [[query2 findObjectsInBackground] continueWithBlock:^id(BFTask *task) {
+//        if (task.error) {
+//            NSLog(@"Error: %@", task.error);
+//            return task;
+//        }
+//        
+//        PFObject *user = [task.result objectAtIndex:0];
+//        
+//        return task;
+//    }];
     
 //    [PFCloud callFunctionInBackground:@"saveUserObject"
 //                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid, @"listUuid": newList.listUuid}

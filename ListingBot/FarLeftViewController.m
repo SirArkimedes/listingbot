@@ -76,9 +76,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     self.checkmarkDialog.layer.borderWidth = 5.f;
     self.checkmarkDialog.layer.borderColor = [self.buttonHolderDialog.backgroundColor CGColor];
     self.checkmarkDialog.layer.shadowColor = nil;
-    
-    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-    
+        
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshFarLeft" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayDeleteContainer:) name:@"displayDeleteContainer" object:nil];
