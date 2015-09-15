@@ -299,7 +299,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
         cell.mainHeaderText.text = @"ListingBot";
     else
-        cell.mainHeaderText.text = [NSString stringWithFormat:@"Hello, %@", [User instance].userName];
+        cell.mainHeaderText.text = [NSString stringWithFormat:@"Hi, %@", [User instance].userName];
     
     // Forces some color somewhere to not be white, causing cells to have a white background.
     cell.backgroundColor = [UIColor clearColor];

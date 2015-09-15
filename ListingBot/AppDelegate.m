@@ -87,7 +87,11 @@
     redWhite.backgroundColor = @"0xB22521";
     redWhite.textColor = @"0xE8EDEF";
     
-    NSArray *themes = @[standard, redWhite];
+    Theme *white = [[Theme alloc] init];
+    white.backgroundColor = @"0xFFFFFF";
+    white.textColor = @"0x000000";
+    
+    NSArray *themes = @[standard, redWhite, white];
     
     [[Settings instance].themes addObjectsFromArray:themes];
     
