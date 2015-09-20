@@ -98,15 +98,15 @@ typedef NS_ENUM(NSUInteger, cellType) {
     // Save delete to server
     NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
     
-    [PFCloud callFunctionInBackground:@"deleteListFromUserObject"
-                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid, @"listUuid": self.list.listUuid}
-                                block:^(NSNumber *results, NSError *error) {
-                                    if (!error) {
-                                        NSLog(@"Success! Deleted list from User object.");
-                                    } else {
-                                        NSLog(@"Delete List function error: %@", error.description);
-                                    }
-                                }];
+//    [PFCloud callFunctionInBackground:@"deleteListFromUserObject"
+//                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid, @"listUuid": self.list.listUuid}
+//                                block:^(NSNumber *results, NSError *error) {
+//                                    if (!error) {
+//                                        NSLog(@"Success! Deleted list from User object.");
+//                                    } else {
+//                                        NSLog(@"Delete List function error: %@", error.description);
+//                                    }
+//                                }];
     
     [self hideDeleteDialog];
     

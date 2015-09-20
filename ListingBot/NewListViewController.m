@@ -84,15 +84,26 @@
 
 - (void)addNewList {
     
-    [PFCloud callFunctionInBackground:@"newListId"
-                       withParameters:nil
-                                block:^(NSNumber *results, NSError *error) {
-                                    if (!error) {
-                                        [self performSelector:@selector(saveListWithUuid:) withObject:results];
-                                    } else {
-                                        NSLog(@"Uuid function grab error: %@", error.description);
-                                    }
-                                }];
+    List *newList = [[List alloc] init];
+    
+    newList.listName = self.listName;
+    newList.sharedWith = [[NSMutableArray alloc] init];
+    newList.listItems = [[NSMutableArray alloc] init];
+    newList.listUuid = [[NSUUID UUID] UUIDString];
+    
+    [[User instance].lists addObject:newList];
+    
+    [User instance].userDidChangeAdd = YES;
+    
+//    [PFCloud callFunctionInBackground:@"newListId"
+//                       withParameters:nil
+//                                block:^(NSNumber *results, NSError *error) {
+//                                    if (!error) {
+//                                        [self performSelector:@selector(saveListWithUuid:) withObject:results];
+//                                    } else {
+//                                        NSLog(@"Uuid function grab error: %@", error.description);
+//                                    }
+//                                }];
     
 }
 

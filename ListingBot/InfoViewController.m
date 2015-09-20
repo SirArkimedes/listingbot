@@ -138,41 +138,41 @@
     
     [self saveUserObject:[User instance] key:@"user"];
     
-    // Save User
-    PFObject *parseUser = [PFObject objectWithClassName:@"Users"];
-    parseUser[@"name"] = name;
-    parseUser[@"uuid"] = userUuid;
-//    [parseUser saveInBackground];
-    
-    // Save List
-    PFObject *parseList = [PFObject objectWithClassName:@"Lists"];
-    parseList[@"name"] = newList.listName;
-    parseList[@"uuid"] = newList.listUuid;
-//    [parseList saveInBackground];
-    
-    // Create the relationship
-    [parseList addObject:name forKey:@"sharedWith"]; // Temporary fix for circular dependancy.
-    [parseList saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
-        if (succeeded) {
-            NSLog(@"Save list");
-        } else {
-            NSLog(@"List Save Error: %@", error.description);
-        }
-        
-    }];
-    
-    // Create the relationship
-    [parseUser addObject:parseList forKey:@"listAccess"];
-    [parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            NSLog(@"Success.");
-        } else {
-            NSLog(@"Error: %@", error.description);
-            [User instance].didNotSaveParseUser = YES;
-            [User instance].userDoesNotExistOnServer = YES;
-        }
-    }];
+//    // Save User
+//    PFObject *parseUser = [PFObject objectWithClassName:@"Users"];
+//    parseUser[@"name"] = name;
+//    parseUser[@"uuid"] = userUuid;
+////    [parseUser saveInBackground];
+//    
+//    // Save List
+//    PFObject *parseList = [PFObject objectWithClassName:@"Lists"];
+//    parseList[@"name"] = newList.listName;
+//    parseList[@"uuid"] = newList.listUuid;
+////    [parseList saveInBackground];
+//    
+//    // Create the relationship
+//    [parseList addObject:name forKey:@"sharedWith"]; // Temporary fix for circular dependancy.
+//    [parseList saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        
+//        if (succeeded) {
+//            NSLog(@"Save list");
+//        } else {
+//            NSLog(@"List Save Error: %@", error.description);
+//        }
+//        
+//    }];
+//    
+//    // Create the relationship
+//    [parseUser addObject:parseList forKey:@"listAccess"];
+//    [parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            NSLog(@"Success.");
+//        } else {
+//            NSLog(@"Error: %@", error.description);
+//            [User instance].didNotSaveParseUser = YES;
+//            [User instance].userDoesNotExistOnServer = YES;
+//        }
+//    }];
     
 //    [parseList pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 //        if (succeeded) {
