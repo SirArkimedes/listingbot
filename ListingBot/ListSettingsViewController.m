@@ -96,7 +96,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     [self saveUserObject:[User instance] key:@"user"];
     
     // Save delete to server
-    NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
+//    NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
     
 //    [PFCloud callFunctionInBackground:@"deleteListFromUserObject"
 //                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid, @"listUuid": self.list.listUuid}
