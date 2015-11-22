@@ -39,8 +39,8 @@
 		4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */; };
 		4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */; };
 		4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA7484E1B6DEF800090A86E /* SeperatorTableViewCell.xib */; };
-		4DAD69C51BAE5BDB003020B3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAD69C31BAE5BDB003020B3 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		4DAD69C61BAE5BDB003020B3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAD69C41BAE5BDB003020B3 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		4DAD69C51BAE5BDB003020B3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAD69C31BAE5BDB003020B3 /* Bolts.framework */; };
+		4DAD69C61BAE5BDB003020B3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAD69C41BAE5BDB003020B3 /* Parse.framework */; };
 		4DC8B8791B559FDB003F7777 /* ParseKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC8B8781B559FDB003F7777 /* ParseKeys.plist */; };
 		4DC8B8851B55AA6A003F7777 /* FirstLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8841B55AA6A003F7777 /* FirstLaunchViewController.m */; };
 		4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */; };
@@ -70,6 +70,8 @@
 		4DE22E871B9933200074C349 /* NoteBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE22E861B9933200074C349 /* NoteBackground.xib */; };
 		4DE22E8A1B9935CF0074C349 /* NoteBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE22E891B9935CF0074C349 /* NoteBackground.m */; };
 		4DEA1ABF1B9A7B9D009EC953 /* EmptyStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA1ABE1B9A7B9D009EC953 /* EmptyStateView.m */; };
+		4DF8B84B1C016140007666EA /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF8B84A1C016140007666EA /* AlertView.xib */; };
+		4DF8B84E1C016225007666EA /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8B84D1C016225007666EA /* AlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +180,9 @@
 		4DE22E891B9935CF0074C349 /* NoteBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteBackground.m; sourceTree = "<group>"; };
 		4DEA1ABD1B9A7B9D009EC953 /* EmptyStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyStateView.h; sourceTree = "<group>"; };
 		4DEA1ABE1B9A7B9D009EC953 /* EmptyStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStateView.m; sourceTree = "<group>"; };
+		4DF8B84A1C016140007666EA /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		4DF8B84C1C016225007666EA /* AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertView.h; sourceTree = "<group>"; };
+		4DF8B84D1C016225007666EA /* AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +287,9 @@
 				4D3D281D1B558E5C00D12090 /* AppDelegate.m */,
 				4D3D28411B55946900D12090 /* ListingsViewController.h */,
 				4D3D28421B55946900D12090 /* ListingsViewController.m */,
+				4DF8B84A1C016140007666EA /* AlertView.xib */,
+				4DF8B84C1C016225007666EA /* AlertView.h */,
+				4DF8B84D1C016225007666EA /* AlertView.m */,
 				4DC8B8861B55CAAC003F7777 /* FirstLaunch */,
 				4D3D28281B558E5C00D12090 /* Images.xcassets */,
 				4D3D282A1B558E5C00D12090 /* LaunchScreen.xib */,
@@ -539,6 +547,7 @@
 				4DDA04221B9D14B300A7674C /* ListTable.xib in Resources */,
 				4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */,
 				4D3D28291B558E5C00D12090 /* Images.xcassets in Resources */,
+				4DF8B84B1C016140007666EA /* AlertView.xib in Resources */,
 				4DDC5BC51B82D07300CAAB0D /* AddListCell.xib in Resources */,
 				4DDE91C81B9005270064EB55 /* EmptyState.xib in Resources */,
 			);
@@ -577,6 +586,7 @@
 				4D13DBE51B6C28740025B8F7 /* List.m in Sources */,
 				4DC8B88C1B55E852003F7777 /* InfoViewController.m in Sources */,
 				4DDC5BD21B82D9ED00CAAB0D /* Settings.m in Sources */,
+				4DF8B84E1C016225007666EA /* AlertView.m in Sources */,
 				4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */,
 				4DDC5BCF1B82D4D100CAAB0D /* DraggableNewListTableViewCell.m in Sources */,
 				4D239A3C1B6BCAF8009DAC63 /* ListViewController.m in Sources */,

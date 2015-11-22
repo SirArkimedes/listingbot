@@ -20,6 +20,8 @@
 
 #import "Settings.h"
 
+#import "AlertView.h"
+
 #define kAnimation .5f
 
 typedef enum ScrollDirection {
@@ -27,7 +29,7 @@ typedef enum ScrollDirection {
     ScrollDirectionLeft
 } ScrollDirection;
 
-@interface ScrollNavigationViewController ()
+@interface ScrollNavigationViewController () <AlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollNavigation;
 
@@ -59,6 +61,12 @@ typedef enum ScrollDirection {
     } else {
         self.listNewButton.layer.opacity = 0.f;
     }
+    
+    UIButton *alertButton = [[UIButton alloc] init];
+    [alertButton setTitle:@"Alert" forState:UIControlStateNormal];
+    [alertButton addTarget:self action:@selector(createAlert) forControlEvents:UIControlEventTouchUpInside];
+    alertButton.frame = CGRectMake(0, 0, 100, 100);
+    [self.view addSubview:alertButton];
     
     // Set this for better readability when not having any lists
     self.scrollNavigation.alwaysBounceHorizontal = YES;
@@ -98,6 +106,21 @@ typedef enum ScrollDirection {
 //        }
 //    }];
     
+}
+
+- (void)createAlert {
+    AlertView *alert = [[AlertView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [alert setAlertWithTitle:@"This is a really long string of text. I want to see how it works with the alert and see how it will manipulate the label." withButton:@"Button1" withButton:@"Button2"];
+    alert.delegate = self;
+    [self.view addSubview:alert];
+}
+
+- (void)topButtonPressedOnAlertView:(AlertView *)alertView {
+    NSLog(@"Alert Top button pressed.");
+}
+
+- (void)bottomButtonPressedOnAlertView:(AlertView *)alertView {
+    NSLog(@"Alert Bottom button pressed.");
 }
 
 - (void)didReceiveMemoryWarning {
