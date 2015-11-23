@@ -69,9 +69,7 @@
     return self;
 }
 
-- (void)setupUI {
-//    self.view.backgroundColor = [UIColor clearColor];
-    
+- (void)setupUI {    
     self.redColor = [self colorWithRed:255.0 green:26.0 blue:0.0];
     self.exImage = [UIImage imageNamed:@"whiteX"];
     self.providesPresentationContextTransitionStyle = YES;
@@ -207,22 +205,17 @@
     [UIView setAnimationDuration:kAnimation];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
-    //    self.blurView.alpha = 0.f;
     self.blurView.effect = nil;
     
     [UIView commitAnimations];
     
     [self performSelector:@selector(removeAlertWithButtonPressed:) withObject:[NSNumber numberWithInteger:button] afterDelay:kAnimation];
     
-    //    if ([User instance].userDidChangeDelete) {
-    //        [self performSelector:@selector(dismissBack) withObject:nil afterDelay:2 * kAnimation];
-    //    } else {
-    //        [self performSelector:@selector(removeAlert) withObject:nil afterDelay:kAnimation];
-    //    }
-    
 }
 
 - (void)removeAlertWithButtonPressed:(NSNumber *)button {
+    [self dismissViewControllerAnimated:NO completion:nil];
+    
     if (button == [NSNumber numberWithInteger:0]) {
         if ([self.delegate respondsToSelector:@selector(topButtonPressedOnAlertView:)])
             [self.delegate topButtonPressedOnAlertView:self];
@@ -230,16 +223,6 @@
         if ([self.delegate respondsToSelector:@selector(bottomButtonPressedOnAlertView:)])
             [self.delegate bottomButtonPressedOnAlertView:self];
     }
-    
-    [self dismissViewControllerAnimated:NO completion:nil];
 }
-
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect {
- // Drawing code
- }
- */
 
 @end

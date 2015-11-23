@@ -44,12 +44,6 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 
-@property (weak, nonatomic) IBOutlet UIView *blindBackground;
-
-@property (weak, nonatomic) IBOutlet UIView *deleteDialogContainer;
-@property (weak, nonatomic) IBOutlet UIView *buttonHolderDialog;
-@property (weak, nonatomic) IBOutlet UIView *checkmarkDialog;
-
 @property (nonatomic, assign) CGRect originalBounds;
 @property (nonatomic, assign) CGPoint originalCenter;
 
@@ -68,30 +62,11 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     // Setup our UIKit Dynamics
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-    
-    // Setup the dialog
-    self.buttonHolderDialog.layer.cornerRadius = 10.f;
-    self.buttonHolderDialog.layer.masksToBounds = YES;
-    
-    self.checkmarkDialog.layer.cornerRadius = 45.f;
-    self.checkmarkDialog.layer.masksToBounds = YES;
-    self.checkmarkDialog.layer.borderWidth = 5.f;
-    self.checkmarkDialog.layer.borderColor = [self.buttonHolderDialog.backgroundColor CGColor];
-    self.checkmarkDialog.layer.shadowColor = nil;
         
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableWithNotification:) name:@"RefreshFarLeft" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayDeleteContainer:) name:@"displayDeleteContainer" object:nil];
         
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:YES];
-    
-    // Set dialog OGs
-    self.originalBounds = self.deleteDialogContainer.bounds;
-    self.originalCenter = self.view.center;
-    
 }
 
 - (void)didReceiveMemoryWarning {

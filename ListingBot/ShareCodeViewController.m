@@ -220,7 +220,8 @@
 }
 
 - (void)dropView {
-    [self performSegueWithIdentifier:@"unwindToList" sender:self];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)shake:(UIView *)field {

@@ -117,12 +117,18 @@ typedef enum ScrollDirection {
     [self presentViewController:alertController animated:NO completion:nil];
 }
 
+#pragma mark - AlertViewController Delegates
+
 - (void)topButtonPressedOnAlertView:(AlertViewController *)alertView {
-    NSLog(@"Alert Top button pressed.");
+    UIViewController *newList = [self.storyboard instantiateViewControllerWithIdentifier:@"newList"];
+    [newList setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:newList animated:YES completion:nil];
 }
 
 - (void)bottomButtonPressedOnAlertView:(AlertViewController *)alertView {
-    NSLog(@"Alert Bottom button pressed.");
+    UIViewController *shareCode = [self.storyboard instantiateViewControllerWithIdentifier:@"shareCode"];
+    [shareCode setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:shareCode animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,6 +137,14 @@ typedef enum ScrollDirection {
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
+        AlertViewController *alert = [[AlertViewController alloc] init];
+        [alert setSpecialAlertWithSmallTitle:@"Welcome to," withBigTitle:@"ListingBot" withButton:@"Create a new list" withButton:@"I have a share code"];
+        alert.delegate = self;
+        self.definesPresentationContext = YES;
+        [self presentViewController:alert animated:NO completion:nil];
+    }
     
     if ([User instance].userDidChangeAdd) {
         [self performSelector:@selector(layoutViews) withObject:nil afterDelay:kAnimation];
