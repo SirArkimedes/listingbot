@@ -19,6 +19,8 @@
 #import "User.h"
 #import "List.h"
 
+#import "AlertViewController.h"
+
 #define kAnimation .5f
 
 #define UIColorFromRGB(rgbValue, ...) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -36,7 +38,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     themeCell,
 };
 
-@interface FarLeftViewController ()
+@interface FarLeftViewController () <AlertViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *settingTable;
 
@@ -112,14 +114,14 @@ typedef NS_ENUM(NSUInteger, cellType) {
 - (IBAction)didWantToDeleteLists:(id)sender {
     
     self.didWantDelete = YES;
-    [self hideDeleteDialog];
+//    [self hideDeleteDialog];
     
 }
 
 - (IBAction)didNotWantDelete:(id)sender {
     
     self.didWantDelete = NO;
-    [self hideDeleteDialog];
+//    [self hideDeleteDialog];
     
 }
 
@@ -127,91 +129,25 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (void)displayDeleteContainer:(NSNotification *)nofitication {
     
-    [self displayDeleteDialog];
+    AlertViewController *alert = [[AlertViewController alloc] init];
+    [alert setAlertWithTitle:@"Are you sure you want to delete all lists?" withButton:@"Yes" withButton:@"No"];
+    alert.delegate = self;
+    alert.color = alert.redColor;
+    alert.topImage = alert.exImage;
+    self.definesPresentationContext = YES;
+    [self presentViewController:alert animated:NO completion:nil];
     
 }
 
-#pragma mark - Delete dialog
+#pragma mark - AlertViewController Delegates
 
-- (void)displayDeleteDialog {
-    
-    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-    
-    // Fix the blindbackground
-//    self.blindBackground.frame = keyWindow.layer.frame;
-    
-    // Adjust our keyWindow's tint adjustment mode to make everything behind the alert view dimmed
-    keyWindow.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
-    [keyWindow tintColorDidChange];
-    
-    // Animate in the background blind
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:kAnimation];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    
-    self.blindBackground.alpha = .85f;
-    
-    [UIView commitAnimations];
-    
-    // New positions
-    CGRect viewFrame = self.deleteDialogContainer.frame;
-    viewFrame.origin.y = -viewFrame.size.height;
-    self.deleteDialogContainer.frame = viewFrame;
-    
-    self.deleteDialogContainer.hidden = NO;
-    
-    // Use UIKit Dynamics to make the alertView appear.
-    UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:self.deleteDialogContainer snapToPoint:self.view.center];
-    snapBehaviour.damping = 1.f;
-    [self.animator addBehavior:snapBehaviour];
-    
+- (void)topButtonPressedOnAlertView:(AlertViewController *)alertView {
+//    self.didWantDelete = YES;
+    [self deleteLists];
 }
 
-- (void)hideDeleteDialog {
-    
-    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-    
-    [self.animator removeAllBehaviors];
-    
-    UIGravityBehavior *gravityBehaviour = [[UIGravityBehavior alloc] initWithItems:@[self.deleteDialogContainer]];
-    gravityBehaviour.gravityDirection = CGVectorMake(0.0f, 10.0f);
-    [self.animator addBehavior:gravityBehaviour];
-    
-    UIDynamicItemBehavior *itemBehaviour = [[UIDynamicItemBehavior alloc] initWithItems:@[self.deleteDialogContainer]];
-    [itemBehaviour addAngularVelocity:-M_PI_2 forItem:self.deleteDialogContainer];
-    [self.animator addBehavior:itemBehaviour];
-    
-    // Animate in the background blind
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:kAnimation];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    
-    self.blindBackground.alpha = 0.f;
-    keyWindow.tintAdjustmentMode = UIViewTintAdjustmentModeAutomatic;
-    [keyWindow tintColorDidChange];
-    
-    [UIView commitAnimations];
-    
-    if (self.didWantDelete) {
-        [self performSelector:@selector(deleteLists) withObject:nil afterDelay:2 * kAnimation];
-    } else {
-        [self performSelector:@selector(removeAlert) withObject:nil afterDelay:kAnimation];
-    }
-    
-}
-
-- (void)removeAlert {
-    
-    [self.deleteDialogContainer setHidden:YES];
-    
-    // Reset animations
-    [self.animator removeAllBehaviors];
-    
-    // Move above view for next press
-    self.deleteDialogContainer.bounds = self.originalBounds;
-    self.deleteDialogContainer.center = self.originalCenter;
-    self.deleteDialogContainer.transform = CGAffineTransformIdentity;
-    
+- (void)bottomButtonPressedOnAlertView:(AlertViewController *)alertView {
+//    NSLog(@"Alert Bottom button pressed.");
 }
 
 - (void)deleteLists {

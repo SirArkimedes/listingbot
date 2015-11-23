@@ -154,13 +154,11 @@
 #pragma mark - Buttons
 
 - (IBAction)topButtonPressed:(id)sender {
-    [self.delegate topButtonPressedOnAlertView:self];
-    [self hideAlertDialog];
+    [self hideAlertDialogWithButtonPressed:0];
 }
 
 - (IBAction)bottomButtonPressed:(id)sender {
-    [self.delegate bottomButtonPressedOnAlertView:self];
-    [self hideAlertDialog];
+    [self hideAlertDialogWithButtonPressed:1];
 }
 
 #pragma mark - Animations
@@ -192,7 +190,7 @@
     
 }
 
-- (void)hideAlertDialog {
+- (void)hideAlertDialogWithButtonPressed:(NSInteger)button {
     
     [self.animator removeAllBehaviors];
     
@@ -214,7 +212,7 @@
     
     [UIView commitAnimations];
     
-    [self performSelector:@selector(removeAlert) withObject:nil afterDelay:kAnimation];
+    [self performSelector:@selector(removeAlertWithButtonPressed:) withObject:[NSNumber numberWithInteger:button] afterDelay:kAnimation];
     
     //    if ([User instance].userDidChangeDelete) {
     //        [self performSelector:@selector(dismissBack) withObject:nil afterDelay:2 * kAnimation];
@@ -224,7 +222,13 @@
     
 }
 
-- (void)removeAlert {
+- (void)removeAlertWithButtonPressed:(NSNumber *)button {
+    if (button == [NSNumber numberWithInteger:0]) {
+        [self.delegate topButtonPressedOnAlertView:self];
+    } else if (button == [NSNumber numberWithInteger:1]) {
+        [self.delegate bottomButtonPressedOnAlertView:self];
+    }
+    
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
