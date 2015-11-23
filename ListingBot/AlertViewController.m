@@ -1,16 +1,16 @@
 //
-//  AlertView.m
+//  AlertViewController.m
 //  ListingBot
 //
-//  Created by Andrew Robinson on 11/21/15.
+//  Created by Andrew Robinson on 11/22/15.
 //  Copyright © 2015 Robinson Bros. All rights reserved.
 //
 
-#import "AlertView.h"
+#import "AlertViewController.h"
 
 #define kAnimation .5f
 
-@interface AlertView ()
+@interface AlertViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *dimView;
 @property (weak, nonatomic) IBOutlet UIView *alertContainer;
@@ -24,29 +24,61 @@
 @property (weak, nonatomic) IBOutlet UIButton *bottomButton;
 @property (weak, nonatomic) IBOutlet UIImageView *topSymbol;
 
+@property NSString *alertMessage;
+@property NSString *topButtonMessage;
+@property NSString *bottomButtonMessage;
+
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 
 @end
 
-@implementation AlertView
+@implementation AlertViewController
 
 #pragma mark - Creation
 
-- (id)initWithFrame:(CGRect)frame
+- (id)init
 {
-    self = [super initWithFrame:frame];
-    if (self)
+    if (self = [super init])
     {
-        self = [[[NSBundle mainBundle] loadNibNamed:@"AlertView" owner:self options:nil] objectAtIndex:0];
-        self.frame = frame;
-        
-        self.redColor = [self colorWithRed:255.0 green:26.0 blue:0.0];
-        self.exImage = [UIImage imageNamed:@"whiteX"];
+        [self setupUI];
     }
     return self;
 }
 
-- (void)didMoveToWindow {
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder])
+    {
+        [self setupUI];
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        [self setupUI];
+    }
+    return self;
+}
+
+- (void)setupUI {
+//    self.view.backgroundColor = [UIColor clearColor];
+    
+    self.redColor = [self colorWithRed:255.0 green:26.0 blue:0.0];
+    self.exImage = [UIImage imageNamed:@"whiteX"];
+    self.providesPresentationContextTransitionStyle = YES;
+    [self setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = UIColor.clearColor;
+    self.alertContainer.hidden = YES;
+    
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     
     self.blurView.effect = nil;
     
@@ -71,10 +103,16 @@
     }
     self.topSymbol.image = self.topImage;
     
-    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self];
+    self.alertTitle.text = self.alertMessage;
+    [self.topButton setTitle:self.topButtonMessage forState:UIControlStateNormal];
+    [self.bottomButton setTitle:self.bottomButtonMessage forState:UIControlStateNormal];
+        
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
     [self displayAlertDialog];
-    
 }
 
 - (UIColor *)colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue {
@@ -84,9 +122,9 @@
 #pragma mark - Publics
 
 - (void)setAlertWithTitle:(NSString *)title withButton:(NSString *)top withButton:(NSString *)bottom {
-    self.alertTitle.text = title;
-    [self.topButton setTitle:top forState:UIControlStateNormal];
-    [self.bottomButton setTitle:bottom forState:UIControlStateNormal];
+    self.alertMessage = title;
+    self.topButtonMessage = top;
+    self.bottomButtonMessage = bottom;
 }
 
 #pragma mark - Buttons
@@ -110,7 +148,7 @@
     [UIView setAnimationDuration:kAnimation];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
-//    self.blurView.alpha = .85f;
+    //    self.blurView.alpha = .85f;
     UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     [self.blurView setEffect:effect];
     
@@ -124,7 +162,7 @@
     self.alertContainer.hidden = NO;
     
     // Use UIKit Dynamics to make the alertView appear.
-    UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:self.alertContainer snapToPoint:self.center];
+    UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:self.alertContainer snapToPoint:self.view.center];
     snapBehaviour.damping = 1.f;
     [self.animator addBehavior:snapBehaviour];
     
@@ -147,31 +185,31 @@
     [UIView setAnimationDuration:kAnimation];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
-//    self.blurView.alpha = 0.f;
+    //    self.blurView.alpha = 0.f;
     self.blurView.effect = nil;
     
     [UIView commitAnimations];
     
     [self performSelector:@selector(removeAlert) withObject:nil afterDelay:kAnimation];
     
-//    if ([User instance].userDidChangeDelete) {
-//        [self performSelector:@selector(dismissBack) withObject:nil afterDelay:2 * kAnimation];
-//    } else {
-//        [self performSelector:@selector(removeAlert) withObject:nil afterDelay:kAnimation];
-//    }
+    //    if ([User instance].userDidChangeDelete) {
+    //        [self performSelector:@selector(dismissBack) withObject:nil afterDelay:2 * kAnimation];
+    //    } else {
+    //        [self performSelector:@selector(removeAlert) withObject:nil afterDelay:kAnimation];
+    //    }
     
 }
 
 - (void)removeAlert {
-    [self removeFromSuperview];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end
