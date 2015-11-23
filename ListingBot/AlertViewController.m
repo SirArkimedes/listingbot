@@ -12,7 +12,6 @@
 
 @interface AlertViewController ()
 
-@property (weak, nonatomic) IBOutlet UIView *dimView;
 @property (weak, nonatomic) IBOutlet UIView *alertContainer;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *blurView;
 

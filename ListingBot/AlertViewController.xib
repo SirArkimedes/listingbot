@@ -13,7 +13,6 @@
                 <outlet property="bottomButton" destination="LYj-Ch-8fy" id="bSe-4e-URd"/>
                 <outlet property="buttonHolderDialog" destination="b9G-K5-aaw" id="2ld-lP-rbl"/>
                 <outlet property="checkmarkDialog" destination="fL3-6Q-JUB" id="vLa-iK-b1U"/>
-                <outlet property="dimView" destination="B1z-0D-zWM" id="s9S-dc-rE6"/>
                 <outlet property="topButton" destination="qaW-G2-Mq2" id="wYY-Cl-JB1"/>
                 <outlet property="topSymbol" destination="OOs-HC-tBt" id="ToA-7J-P8Q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -34,13 +33,8 @@
                     <animations/>
                     <blurEffect style="dark"/>
                 </visualEffectView>
-                <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1z-0D-zWM" userLabel="DimView">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0m-6c-Auz" userLabel="Alert Container">
-                    <rect key="frame" x="166" y="148" width="269" height="304"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0m-6c-Auz" userLabel="Alert Container">
+                    <rect key="frame" x="166" y="148" width="269" height="297"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9G-K5-aaw" userLabel="PopUpView">
                             <rect key="frame" x="2" y="45" width="265" height="252"/>
@@ -65,6 +59,9 @@
                                     <rect key="frame" x="0.0" y="189" width="265" height="63"/>
                                     <animations/>
                                     <color key="backgroundColor" red="1" green="0.1001500993" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="63" id="GjM-JK-Wdl"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                     <state key="normal" title="No">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,11 +71,11 @@
                                         <action selector="bottomButtonPressed:" destination="-1" eventType="touchUpInside" id="rdH-G7-u7D"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to delete this list?" textAlignment="center" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="w63-Pr-Bbs">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to delete this list?" textAlignment="center" lineBreakMode="clip" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="w63-Pr-Bbs">
                                     <rect key="frame" x="20" y="49" width="224" height="56"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="56" id="5is-Mf-rem"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="e7N-Lv-YMa"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                     <nil key="highlightedColor"/>
@@ -88,6 +85,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="w63-Pr-Bbs" firstAttribute="top" secondItem="b9G-K5-aaw" secondAttribute="top" constant="49" id="03Z-Wa-InE"/>
+                                <constraint firstItem="w63-Pr-Bbs" firstAttribute="centerX" secondItem="b9G-K5-aaw" secondAttribute="centerX" id="BFG-Fw-sTX"/>
                                 <constraint firstAttribute="width" constant="265" id="Bn2-oo-2bY"/>
                                 <constraint firstItem="LYj-Ch-8fy" firstAttribute="top" secondItem="qaW-G2-Mq2" secondAttribute="bottom" constant="8" symbolic="YES" id="ISq-uE-WYi"/>
                                 <constraint firstItem="w63-Pr-Bbs" firstAttribute="leading" secondItem="b9G-K5-aaw" secondAttribute="leading" constant="20" id="NtE-Rv-2R6"/>
@@ -100,6 +98,13 @@
                                 <constraint firstItem="qaW-G2-Mq2" firstAttribute="trailing" secondItem="LYj-Ch-8fy" secondAttribute="trailing" id="tGg-U9-iIA"/>
                                 <constraint firstItem="LYj-Ch-8fy" firstAttribute="leading" secondItem="qaW-G2-Mq2" secondAttribute="leading" id="wXM-3C-Eqm"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Vfz-P0-apO"/>
+                                    <exclude reference="03Z-Wa-InE"/>
+                                    <exclude reference="VUN-ts-Twn"/>
+                                </mask>
+                            </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fL3-6Q-JUB">
                             <rect key="frame" x="89" y="0.0" width="90" height="90"/>
@@ -124,11 +129,12 @@
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="304" id="77J-xD-fSI"/>
                         <constraint firstItem="b9G-K5-aaw" firstAttribute="top" secondItem="E0m-6c-Auz" secondAttribute="top" constant="45" id="7w1-un-sCP"/>
+                        <constraint firstAttribute="bottom" secondItem="b9G-K5-aaw" secondAttribute="bottom" id="AUB-iw-VhJ"/>
                         <constraint firstAttribute="width" constant="269" id="J9r-Hh-DEj"/>
                         <constraint firstItem="fL3-6Q-JUB" firstAttribute="centerX" secondItem="b9G-K5-aaw" secondAttribute="centerX" id="a97-iW-Mb4"/>
                         <constraint firstItem="fL3-6Q-JUB" firstAttribute="centerX" secondItem="E0m-6c-Auz" secondAttribute="centerX" id="hfq-HP-O8d"/>
+                        <constraint firstItem="w63-Pr-Bbs" firstAttribute="top" secondItem="fL3-6Q-JUB" secondAttribute="bottom" constant="4" id="kse-VE-w9k"/>
                         <constraint firstItem="fL3-6Q-JUB" firstAttribute="top" secondItem="E0m-6c-Auz" secondAttribute="top" id="msZ-nf-HwR"/>
                     </constraints>
                 </view>
@@ -137,15 +143,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="kOf-so-bKb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M1M-hB-7QM"/>
-                <constraint firstItem="B1z-0D-zWM" firstAttribute="centerY" secondItem="E0m-6c-Auz" secondAttribute="centerY" id="MjA-P1-v3v"/>
-                <constraint firstItem="E0m-6c-Auz" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="QiQ-7X-8Ol"/>
-                <constraint firstItem="B1z-0D-zWM" firstAttribute="leading" secondItem="kOf-so-bKb" secondAttribute="leading" id="Wbq-Ec-Ieb"/>
+                <constraint firstAttribute="bottom" secondItem="kOf-so-bKb" secondAttribute="bottom" id="OGo-fg-iJy"/>
+                <constraint firstItem="E0m-6c-Auz" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-3.5" id="QiQ-7X-8Ol"/>
                 <constraint firstItem="E0m-6c-Auz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YZj-XE-nQA"/>
                 <constraint firstItem="kOf-so-bKb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="am3-IP-nhL"/>
-                <constraint firstItem="B1z-0D-zWM" firstAttribute="top" secondItem="kOf-so-bKb" secondAttribute="top" id="jBE-1p-RCU"/>
-                <constraint firstItem="B1z-0D-zWM" firstAttribute="bottom" secondItem="kOf-so-bKb" secondAttribute="bottom" id="p8P-bL-brw"/>
-                <constraint firstItem="B1z-0D-zWM" firstAttribute="centerX" secondItem="E0m-6c-Auz" secondAttribute="centerX" id="vEL-fP-Ehq"/>
-                <constraint firstItem="B1z-0D-zWM" firstAttribute="trailing" secondItem="kOf-so-bKb" secondAttribute="trailing" id="xtL-vP-wSy"/>
+                <constraint firstAttribute="trailing" secondItem="kOf-so-bKb" secondAttribute="trailing" id="gdE-8r-jCY"/>
             </constraints>
         </view>
     </objects>
