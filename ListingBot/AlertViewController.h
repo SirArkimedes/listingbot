@@ -28,6 +28,6 @@
 @property (nonatomic, strong) UIImage *exImage;
 
 - (void)setAlertWithTitle:(NSString *)title withButton:(NSString *)top withButton:(NSString *)bottom;
-- (void)displayAlertDialog;
+- (void)setSpecialAlertWithSmallTitle:(NSString *)smallTitle withBigTitle:(NSString *)bigTitle withButton:(NSString *)top withButton:(NSString *)bottom;
 
 @end

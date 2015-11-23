@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIView *buttonHolderDialog;
 @property (weak, nonatomic) IBOutlet UIView *checkmarkDialog;
 
+// Normal alert with two buttons
 @property (weak, nonatomic) IBOutlet UILabel *alertTitle;
 @property (weak, nonatomic) IBOutlet UIButton *topButton;
 @property (weak, nonatomic) IBOutlet UIButton *bottomButton;
@@ -26,6 +27,13 @@
 @property NSString *alertMessage;
 @property NSString *topButtonMessage;
 @property NSString *bottomButtonMessage;
+
+// Small and big text special alert with two buttons
+@property (weak, nonatomic) IBOutlet UILabel *smallSpecialTitle;
+@property (weak, nonatomic) IBOutlet UILabel *bigSpecialTitle;
+
+@property NSString *smallTitle;
+@property NSString *bigTitle;
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 
@@ -102,10 +110,20 @@
     }
     self.topSymbol.image = self.topImage;
     
-    self.alertTitle.text = self.alertMessage;
-    [self.topButton setTitle:self.topButtonMessage forState:UIControlStateNormal];
-    [self.bottomButton setTitle:self.bottomButtonMessage forState:UIControlStateNormal];
-        
+    if (self.alertMessage) {
+        self.alertTitle.hidden = NO;
+        self.alertTitle.text = self.alertMessage;
+        [self.topButton setTitle:self.topButtonMessage forState:UIControlStateNormal];
+        [self.bottomButton setTitle:self.bottomButtonMessage forState:UIControlStateNormal];
+    } else if (self.smallTitle) {
+        self.smallSpecialTitle.hidden = NO;
+        self.bigSpecialTitle.hidden = NO;
+        self.smallSpecialTitle.text = self.smallTitle;
+        self.bigSpecialTitle.text = self.bigTitle;
+        [self.topButton setTitle:self.topButtonMessage forState:UIControlStateNormal];
+        [self.bottomButton setTitle:self.bottomButtonMessage forState:UIControlStateNormal];
+    }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -122,6 +140,13 @@
 
 - (void)setAlertWithTitle:(NSString *)title withButton:(NSString *)top withButton:(NSString *)bottom {
     self.alertMessage = title;
+    self.topButtonMessage = top;
+    self.bottomButtonMessage = bottom;
+}
+
+- (void)setSpecialAlertWithSmallTitle:(NSString *)smallTitle withBigTitle:(NSString *)bigTitle withButton:(NSString *)top withButton:(NSString *)bottom {
+    self.smallTitle = smallTitle;
+    self.bigTitle = bigTitle;
     self.topButtonMessage = top;
     self.bottomButtonMessage = bottom;
 }

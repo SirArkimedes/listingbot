@@ -109,13 +109,9 @@ typedef enum ScrollDirection {
 }
 
 - (void)createAlert {
-//    AlertView *alert = [[AlertView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-//    [alert setAlertWithTitle:@"This is a really long string of text. I want to see how it works with the alert and see how it will manipulate the label." withButton:@"Button1" withButton:@"Button2"];
-//    alert.delegate = self;
-//    [self.view addSubview:alert];
-    
     AlertViewController *alertController = [[AlertViewController alloc] init];
     [alertController setAlertWithTitle:@"This is a really long string of text. I want to see how it works with the alert and see how it will manipulate the label." withButton:@"Button1" withButton:@"Button2"];
+//    [alertController setSpecialAlertWithSmallTitle:@"Welcome to," withBigTitle:@"ListingBot" withButton:@"Button1" withButton:@"Button2"];
     alertController.delegate = self;
     self.definesPresentationContext = YES;
     [self presentViewController:alertController animated:NO completion:nil];
