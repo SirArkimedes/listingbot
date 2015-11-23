@@ -33,6 +33,7 @@
                                 <connections>
                                     <action selector="cancel:" destination="dxL-Lo-oa9" eventType="touchUpInside" id="4QE-04-SLW"/>
                                     <action selector="cancel:" destination="9sZ-Hv-KvG" eventType="touchUpInside" id="9NK-wN-m2t"/>
+                                    <action selector="cancelButton:" destination="iME-Nw-04p" eventType="touchUpInside" id="qzj-GN-Zt4"/>
                                     <segue destination="qyv-qw-N5G" kind="unwind" identifier="unwindToList" unwindAction="unwindToList:" id="Tb7-oZ-6Ym"/>
                                 </connections>
                             </button>

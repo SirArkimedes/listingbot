@@ -225,6 +225,10 @@
     
 }
 
+- (IBAction)cancelButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - Textfield Delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -462,7 +466,7 @@
 }
 
 - (void)dropView {
-    [self performSegueWithIdentifier:@"unwindToList" sender:self];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)shake:(UIView *)field {

@@ -62,12 +62,6 @@ typedef enum ScrollDirection {
         self.listNewButton.layer.opacity = 0.f;
     }
     
-    UIButton *alertButton = [[UIButton alloc] init];
-    [alertButton setTitle:@"Alert" forState:UIControlStateNormal];
-    [alertButton addTarget:self action:@selector(createAlert) forControlEvents:UIControlEventTouchUpInside];
-    alertButton.frame = CGRectMake(0, 0, 100, 100);
-    [self.view addSubview:alertButton];
-    
     // Set this for better readability when not having any lists
     self.scrollNavigation.alwaysBounceHorizontal = YES;
     
@@ -108,27 +102,8 @@ typedef enum ScrollDirection {
     
 }
 
-- (void)createAlert {
-    AlertViewController *alertController = [[AlertViewController alloc] init];
-    [alertController setAlertWithTitle:@"This is a really long string of text. I want to see how it works with the alert and see how it will manipulate the label." withButton:@"Button1" withButton:@"Button2"];
-//    [alertController setSpecialAlertWithSmallTitle:@"Welcome to," withBigTitle:@"ListingBot" withButton:@"Button1" withButton:@"Button2"];
-    alertController.delegate = self;
-    self.definesPresentationContext = YES;
-    [self presentViewController:alertController animated:NO completion:nil];
-}
-
-#pragma mark - AlertViewController Delegates
-
-- (void)topButtonPressedOnAlertView:(AlertViewController *)alertView {
-    UIViewController *newList = [self.storyboard instantiateViewControllerWithIdentifier:@"newList"];
-    [newList setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self presentViewController:newList animated:YES completion:nil];
-}
-
-- (void)bottomButtonPressedOnAlertView:(AlertViewController *)alertView {
-    UIViewController *shareCode = [self.storyboard instantiateViewControllerWithIdentifier:@"shareCode"];
-    [shareCode setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self presentViewController:shareCode animated:YES completion:nil];
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -160,6 +135,20 @@ typedef enum ScrollDirection {
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
+}
+
+#pragma mark - AlertViewController Delegates
+
+- (void)topButtonPressedOnAlertView:(AlertViewController *)alertView {
+    UIViewController *newList = [self.storyboard instantiateViewControllerWithIdentifier:@"newList"];
+    [newList setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:newList animated:YES completion:nil];
+}
+
+- (void)bottomButtonPressedOnAlertView:(AlertViewController *)alertView {
+    UIViewController *shareCode = [self.storyboard instantiateViewControllerWithIdentifier:@"shareCode"];
+    [shareCode setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:shareCode animated:YES completion:nil];
 }
 
 #pragma mark - Buttons
