@@ -11,6 +11,8 @@
 #import "User.h"
 #import "List.h"
 
+#import "AlertViewController.h"
+
 #import <Parse/Parse.h>
 
 #define kAnimation .5f
@@ -20,19 +22,11 @@ typedef NS_ENUM(NSUInteger, cellType) {
     deleteCell,
 };
 
-@interface ListSettingsViewController ()
+@interface ListSettingsViewController () <AlertViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UILabel *listNameLabel;
-
-@property (weak, nonatomic) IBOutlet UIView *deleteDialogContainer;
-@property (weak, nonatomic) IBOutlet UIView *blindBackground;
-
-@property (nonatomic, strong) UIDynamicAnimator *animator;
-
-@property (weak, nonatomic) IBOutlet UIView *checkmarkDialog;
-@property (weak, nonatomic) IBOutlet UIView *buttonHolderDialog;
 
 @property (nonatomic, assign) CGRect originalBounds;
 @property (nonatomic, assign) CGPoint originalCenter;
@@ -52,28 +46,6 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
     self.listNameLabel.text = [NSString stringWithFormat:@"%@ Settings", self.list.listName];
     
-    // Setup our UIKit Dynamics
-    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-    
-    // Setup the dialog
-    self.buttonHolderDialog.layer.cornerRadius = 10.f;
-    self.buttonHolderDialog.layer.masksToBounds = YES;
-    
-    self.checkmarkDialog.layer.cornerRadius = 45.f;
-    self.checkmarkDialog.layer.masksToBounds = YES;
-    self.checkmarkDialog.layer.borderWidth = 5.f;
-    self.checkmarkDialog.layer.borderColor = [self.buttonHolderDialog.backgroundColor CGColor];
-    self.checkmarkDialog.layer.shadowColor = nil;
-    
-    // Set originals
-    self.originalBounds = self.deleteDialogContainer.bounds;
-    self.originalCenter = self.deleteDialogContainer.center;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,47 +55,8 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 #pragma mark - Buttons
 
-- (IBAction)didDelete:(id)sender {
-    
-    // Delete
-    [[User instance].lists removeObject:self.list];
-    
-//    [User instance].userDidDeleteFromList = YES;
-    [User instance].userDidChangeDelete = YES;
-    
-    // TODO: Remove from sharedWith on User Instance and pass new list to server.
-    
-    [self saveUserObject:[User instance] key:@"user"];
-    
-    // Save delete to server
-//    NSData *userArchive = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
-    
-//    [PFCloud callFunctionInBackground:@"deleteListFromUserObject"
-//                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid, @"listUuid": self.list.listUuid}
-//                                block:^(NSNumber *results, NSError *error) {
-//                                    if (!error) {
-//                                        NSLog(@"Success! Deleted list from User object.");
-//                                    } else {
-//                                        NSLog(@"Delete List function error: %@", error.description);
-//                                    }
-//                                }];
-    
-    [self hideDeleteDialog];
-    
-}
-
-- (IBAction)didNotDelete:(id)sender {
-    
-    [self hideDeleteDialog];
-    
-}
-
-- (void)saveUserObject:(User *)object key:(NSString *)key {
-    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:encodedObject forKey:key];
-    [defaults synchronize];
-    
+- (IBAction)doneButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -206,91 +139,34 @@ typedef NS_ENUM(NSUInteger, cellType) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if ([self typeForRowAtIndexPath:indexPath] == deleteCell) {
-        [self displayDeleteDialog];
+        AlertViewController *alert = [[AlertViewController alloc] init];
+        [alert setAlertWithTitle:@"Are you sure you want to delete this list?" withButton:@"Yes" withButton:@"No"];
+        alert.delegate = self;
+        alert.color = alert.redColor;
+        alert.topImage = alert.exImage;
+        self.definesPresentationContext = YES;
+        [self presentViewController:alert animated:NO completion:nil];
     }
     
 }
 
-- (void)displayDeleteDialog {
-    
-    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-    
-    // Adjust our keyWindow's tint adjustment mode to make everything behind the alert view dimmed
-    keyWindow.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
-    [keyWindow tintColorDidChange];
-    
-    // Animate in the background blind
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:kAnimation];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    
-    self.blindBackground.alpha = .85f;
-    
-    [UIView commitAnimations];
-    
-    // New positions
-    CGRect viewFrame = self.deleteDialogContainer.frame;
-    viewFrame.origin.y = -viewFrame.size.height;
-    self.deleteDialogContainer.frame = viewFrame;
-    
-    self.deleteDialogContainer.hidden = NO;
-    
-    // Use UIKit Dynamics to make the alertView appear.
-    UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:self.deleteDialogContainer snapToPoint:self.view.center];
-    snapBehaviour.damping = 1.f;
-    [self.animator addBehavior:snapBehaviour];
-    
-}
+#pragma mark - AlertViewController Delegate
 
-- (void)hideDeleteDialog {
-    
-    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-    
-    [self.animator removeAllBehaviors];
-    
-    UIGravityBehavior *gravityBehaviour = [[UIGravityBehavior alloc] initWithItems:@[self.deleteDialogContainer]];
-    gravityBehaviour.gravityDirection = CGVectorMake(0.0f, 10.0f);
-    [self.animator addBehavior:gravityBehaviour];
-    
-    UIDynamicItemBehavior *itemBehaviour = [[UIDynamicItemBehavior alloc] initWithItems:@[self.deleteDialogContainer]];
-    [itemBehaviour addAngularVelocity:-M_PI_2 forItem:self.deleteDialogContainer];
-    [self.animator addBehavior:itemBehaviour];
-    
-    // Animate in the background blind
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:kAnimation];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    
-    self.blindBackground.alpha = 0.f;
-    keyWindow.tintAdjustmentMode = UIViewTintAdjustmentModeAutomatic;
-    [keyWindow tintColorDidChange];
-    
-    [UIView commitAnimations];
-    
-    if ([User instance].userDidChangeDelete) {
-        [self performSelector:@selector(dismissBack) withObject:nil afterDelay:2 * kAnimation];
-    } else {
-        [self performSelector:@selector(removeAlert) withObject:nil afterDelay:kAnimation];
-    }
-    
-}
-
-- (void)removeAlert {
-    
-    [self.deleteDialogContainer setHidden:YES];
-    
-    // Reset animations
-    [self.animator removeAllBehaviors];
-    
-    // Move above view for next press
-    self.deleteDialogContainer.bounds = self.originalBounds;
-    self.deleteDialogContainer.center = self.originalCenter;
-    self.deleteDialogContainer.transform = CGAffineTransformIdentity;
-    
-}
-
-- (void)dismissBack {
+- (void)topButtonPressedOnAlertView:(AlertViewController *)alertView {
+    [[User instance].lists removeObject:self.list];
+    [User instance].userDidChangeDelete = YES;
+    [self saveUserObject:[User instance] key:@"user"];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - List delete
+
+- (void)saveUserObject:(User *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
+    
 }
 
 /*
