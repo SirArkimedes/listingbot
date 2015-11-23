@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -9,7 +10,29 @@
         <view alpha="0.0" contentMode="scaleToFill" id="iN0-l3-epB" customClass="NoteBackground">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gsx-9D-txY">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="B0p-c6-RNk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                    </view>
+                    <animations/>
+                    <blurEffect style="dark"/>
+                </visualEffectView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Gsx-9D-txY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7OT-nN-6wr"/>
+                <constraint firstItem="Gsx-9D-txY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wde-ZV-fKn"/>
+                <constraint firstAttribute="bottom" secondItem="Gsx-9D-txY" secondAttribute="bottom" id="bIo-lD-4tI"/>
+                <constraint firstAttribute="trailing" secondItem="Gsx-9D-txY" secondAttribute="trailing" id="m5w-L3-crk"/>
+            </constraints>
+            <connections>
+                <outlet property="visualEffectView" destination="Gsx-9D-txY" id="sV3-ym-ZIh"/>
+            </connections>
         </view>
     </objects>
 </document>

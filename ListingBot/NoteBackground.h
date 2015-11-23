@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) NotesView *note;
 @property (strong, nonatomic) UILabel *itemLabel;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffectView;
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 

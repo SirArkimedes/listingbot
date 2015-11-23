@@ -91,6 +91,7 @@
                                                       owner:self
                                                     options:nil];
     NoteBackground *blindBackground = [noteBack objectAtIndex:0];
+    blindBackground.visualEffectView.effect = nil;
     blindBackground.layer.opacity = 0.f;
     blindBackground.frame = CGRectMake(0, 0, topView.frame.size.width, topView.frame.size.height);
     blindBackground.indexPath = indexPath;
@@ -118,7 +119,9 @@
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
     blindBackground.alpha = 1.f;
-    blindBackground.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.65f];
+//    blindBackground.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.65f];
+    UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    [blindBackground.visualEffectView setEffect:effect];
     
     [UIView commitAnimations];
     
