@@ -12,6 +12,8 @@
 
 @protocol AlertViewControllerDelegate <NSObject>
 
+@optional
+
 - (void)topButtonPressedOnAlertView:(AlertViewController *)alertView;
 - (void)bottomButtonPressedOnAlertView:(AlertViewController *)alertView;
 

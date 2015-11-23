@@ -109,22 +109,6 @@ typedef NS_ENUM(NSUInteger, cellType) {
     [self.settingTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
-#pragma mark - Buttons
-
-- (IBAction)didWantToDeleteLists:(id)sender {
-    
-    self.didWantDelete = YES;
-//    [self hideDeleteDialog];
-    
-}
-
-- (IBAction)didNotWantDelete:(id)sender {
-    
-    self.didWantDelete = NO;
-//    [self hideDeleteDialog];
-    
-}
-
 #pragma mark - Notifications
 
 - (void)displayDeleteContainer:(NSNotification *)nofitication {
@@ -139,16 +123,13 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
 }
 
-#pragma mark - AlertViewController Delegates
+#pragma mark - AlertViewController Delegate
 
 - (void)topButtonPressedOnAlertView:(AlertViewController *)alertView {
-//    self.didWantDelete = YES;
     [self deleteLists];
 }
 
-- (void)bottomButtonPressedOnAlertView:(AlertViewController *)alertView {
-//    NSLog(@"Alert Bottom button pressed.");
-}
+#pragma mark - Deleting all lists
 
 - (void)deleteLists {
     

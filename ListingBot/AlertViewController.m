@@ -224,9 +224,11 @@
 
 - (void)removeAlertWithButtonPressed:(NSNumber *)button {
     if (button == [NSNumber numberWithInteger:0]) {
-        [self.delegate topButtonPressedOnAlertView:self];
+        if ([self.delegate respondsToSelector:@selector(topButtonPressedOnAlertView:)])
+            [self.delegate topButtonPressedOnAlertView:self];
     } else if (button == [NSNumber numberWithInteger:1]) {
-        [self.delegate bottomButtonPressedOnAlertView:self];
+        if ([self.delegate respondsToSelector:@selector(bottomButtonPressedOnAlertView:)])
+            [self.delegate bottomButtonPressedOnAlertView:self];
     }
     
     [self dismissViewControllerAnimated:NO completion:nil];
