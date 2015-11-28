@@ -89,7 +89,7 @@
     newList.listName = self.listName;
     newList.sharedWith = [[NSMutableArray alloc] init];
     newList.listItems = [[NSMutableArray alloc] init];
-    newList.listUuid = [[NSUUID UUID] UUIDString];
+//    newList.listUuid = [[NSUUID UUID] UUIDString];
     
     [[User instance].lists addObject:newList];
     
@@ -114,20 +114,20 @@
     newList.listName = self.listName;
     newList.sharedWith = [[NSMutableArray alloc] init];
     newList.listItems = [[NSMutableArray alloc] init];
-    newList.listUuid = [[NSUUID UUID] UUIDString];
+//    newList.listUuid = [[NSUUID UUID] UUIDString];
     
     [[User instance].lists addObject:newList];
     
     // Save List
     PFObject *parseList = [PFObject objectWithClassName:@"Lists"];
     parseList[@"name"] = newList.listName;
-    parseList[@"uuid"] = newList.listUuid;
+//    parseList[@"uuid"] = newList.listUuid;
 //    parseList[@"sharedWith"] = @[[User instance].userUuid];
     [parseList saveInBackground];
     
     [User instance].userDidChangeAdd = YES;
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+    /*PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query fromLocalDatastore];
     [query whereKey:@"uuid" equalTo:[User instance].userUuid];
     [[query findObjectsInBackground] continueWithBlock:^id(BFTask *task) {
@@ -164,6 +164,7 @@
         
         return task;
     }];
+    */
     
 //    PFQuery *query2 = [PFQuery queryWithClassName:@"Users"];
 //    [query2 fromLocalDatastore];

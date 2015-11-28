@@ -15,7 +15,7 @@ static User *inst = nil;
 - (id)init {
     if(self=[super init]) {
         self.userName = @"";
-        self.userUuid = @"";
+        self.userID = @"";
         self.lists = [[NSMutableArray alloc] init];
     }
     return self;
@@ -32,7 +32,7 @@ static User *inst = nil;
     
     if (self = [super init]) {
         _userName = name;
-        _userUuid = list;
+        _userID = list;
         _lists = [[NSMutableArray alloc] init];
         [_lists addObject:list];
     }
@@ -42,7 +42,7 @@ static User *inst = nil;
 - (void)encodeWithCoder:(NSCoder *)coder;
 {
     [coder encodeObject:_userName forKey:@"userName"];
-    [coder encodeObject:_userUuid forKey:@"userUuid"];
+    [coder encodeObject:_userID forKey:@"userID"];
     [coder encodeObject:_lists forKey:@"lists"];
     
     [coder encodeBool:_didNotSaveParseUser forKey:@"didNotSaveParseUser"];
@@ -58,7 +58,7 @@ static User *inst = nil;
     if (self != nil)
     {
         _userName = [coder decodeObjectForKey:@"userName"];
-        _userUuid = [coder decodeObjectForKey:@"userUuid"];
+        _userID = [coder decodeObjectForKey:@"userID"];
         _lists = [coder decodeObjectForKey:@"lists"];
         
         _didNotSaveParseUser = [coder decodeBoolForKey:@"didNoteSaveParseUser"];

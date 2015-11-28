@@ -13,6 +13,9 @@
 #import "User.h"
 #import "List.h"
 
+#import "DataHandler.h"
+#import "AlertViewController.h"
+
 #define kAnimation .5f
 
 @interface InfoViewController ()
@@ -110,141 +113,6 @@
         
         return YES;
     }
-}
-
-- (void)saveInputData {
-    
-    NSString *name = self.nameField.text;
-    NSString *listName = self.listField.text;
-    
-//    NSArray *inputData = @[name, listName];
-    
-    // Create a 'dirty' uuid
-    NSString *userUuid = [[NSUUID UUID] UUIDString];
-    NSString *lUuid = [[NSUUID UUID] UUIDString];
-    
-    // Create the list
-    List *newList = [[List alloc] init];
-    newList.listName = listName;
-    newList.listUuid = lUuid;
-    newList.sharedWith = [[NSMutableArray alloc] init];
-    newList.listItems = [[NSMutableArray alloc] init];
-    
-    // Add to Local User
-    [[User instance].lists addObject:newList];
-    [User instance].userUuid = userUuid;
-    [User instance].userName = name;
-    [User instance].userDidChangeAdd = YES;
-    
-    [self saveUserObject:[User instance] key:@"user"];
-    
-//    // Save User
-//    PFObject *parseUser = [PFObject objectWithClassName:@"Users"];
-//    parseUser[@"name"] = name;
-//    parseUser[@"uuid"] = userUuid;
-////    [parseUser saveInBackground];
-//    
-//    // Save List
-//    PFObject *parseList = [PFObject objectWithClassName:@"Lists"];
-//    parseList[@"name"] = newList.listName;
-//    parseList[@"uuid"] = newList.listUuid;
-////    [parseList saveInBackground];
-//    
-//    // Create the relationship
-//    [parseList addObject:name forKey:@"sharedWith"]; // Temporary fix for circular dependancy.
-//    [parseList saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        
-//        if (succeeded) {
-//            NSLog(@"Save list");
-//        } else {
-//            NSLog(@"List Save Error: %@", error.description);
-//        }
-//        
-//    }];
-//    
-//    // Create the relationship
-//    [parseUser addObject:parseList forKey:@"listAccess"];
-//    [parseUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            NSLog(@"Success.");
-//        } else {
-//            NSLog(@"Error: %@", error.description);
-//            [User instance].didNotSaveParseUser = YES;
-//            [User instance].userDoesNotExistOnServer = YES;
-//        }
-//    }];
-    
-//    [parseList pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            
-//            //            // Create relation
-//            //            PFRelation *relation = [parseList relationForKey:@"sharedWith"];
-//            //            [relation addObject:parseUser];
-//            //            [parseList saveEventually];
-//        }
-//    }];
-//    
-//    [parseUser pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            
-//        }
-//    }];
-    
-    //    // Save UserListAccess
-    //    PFObject *parseListAccess = [PFObject objectWithClassName:@"UserListAccess"];
-    //    parseListAccess[@"userUuid"] = userUuid;
-    //    parseListAccess[@"listUuid"] = listUuid;
-    //    [parseListAccess saveEventually];
-    
-    
-//    [PFCloud callFunctionInBackground:@"newUserId"
-//                       withParameters:nil
-//                                block:^(NSNumber *results, NSError *error) {
-//                                    if (!error) {
-//                                        [self performSelector:@selector(generateUserUuidWithData:withUUID:) withObject:inputData withObject:results];
-//                                    } else {
-////                                        NSLog(@"Uuid function grab error: %@", error.description);
-//                                        [self performSelector:@selector(generateUserUuidWithData:withUUID:) withObject:inputData withObject:[NSNumber numberWithInt:-2]];
-//                                    }
-//                                }];
-
-}
-
-/*
-- (void)generateUserUuidWithData:(NSArray*)userData withUUID:(NSNumber*)userUuid {
-    
-    NSString *name = [userData objectAtIndex:0];
-    NSString *listName = [userData objectAtIndex:1];
-    
-    [PFCloud callFunctionInBackground:@"newListId"
-                       withParameters:nil
-                                block:^(NSNumber *results, NSError *error) {
-                                    if (!error) {
-                                        NSArray *user = @[name, listName, userUuid];
-                                        [self performSelector:@selector(saveWithData:withListUUID:) withObject:user withObject:results];
-                                    } else {
-//                                        NSLog(@"Uuid function grab error: %@", error.description);
-                                        NSArray *user = @[name, listName, userUuid];
-                                        [self performSelector:@selector(saveWithData:withListUUID:) withObject:user withObject:[NSNumber numberWithInt:-1]];
-                                    }
-                                }];
-    
-}
-
-- (void)saveWithData:(NSArray*)userData withListUUID:(NSNumber*)listUuid {
-    
-    NSString *name = [userData objectAtIndex:0];
-    NSString *list = [userData objectAtIndex:1];
-//    NSString *userUuid = [userData objectAtIndex:2];
-    
-}
-*/
-
-- (void)saveUserObject:(User *)object key:(NSString *)key {
-    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:encodedObject forKey:key];
-    [defaults synchronize];
 }
 
 #pragma mark - Animations
@@ -349,13 +217,7 @@
     [UIView commitAnimations];
     
     [self performSelector:@selector(saveInputData) withObject:nil];
-    [self performSelector:@selector(dropView) withObject:nil afterDelay:kAnimation*10];
     
-}
-
-- (void)dropView {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)shake:(UIView *)field {
@@ -390,14 +252,49 @@
                      }];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Data
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)saveInputData {
+    
+    NSString *name = self.nameField.text;
+    NSString *listName = self.listField.text;
+    
+    //    NSArray *inputData = @[name, listName];
+    
+    // Create a 'dirty' uuid
+    //    NSString *userUuid = [[NSUUID UUID] UUIDString];
+//    NSString *lUuid = [[NSUUID UUID] UUIDString];
+    
+    // Create the list
+    List *newList = [[List alloc] init];
+    newList.listName = listName;
+//    newList.listUuid = lUuid;
+    newList.sharedWith = [[NSMutableArray alloc] init];
+    newList.listItems = [[NSMutableArray alloc] init];
+    
+    // Add to Local User
+    [[User instance].lists addObject:newList];
+    [User instance].userName = name;
+    [User instance].userDidChangeAdd = YES;
+    
+    [self saveUserObject:[User instance] key:@"user"];
+    
+    [[DataHandler instance] createNewUserWithBlock:^(BOOL success) {
+        [self dropView];
+    }];
+    
 }
-*/
+
+- (void)saveUserObject:(User *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
+}
+
+- (void)dropView {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

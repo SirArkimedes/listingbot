@@ -87,7 +87,7 @@
 
 - (void)saveItemWithUuid:(NSNumber *)uuid withData:(NSArray *)array {
     
-    List *list = [array objectAtIndex:0];
+//    List *list = [array objectAtIndex:0];
     Item *item = [array objectAtIndex:1];
     NSString *name = [array objectAtIndex:2];
     
@@ -97,7 +97,7 @@
     PFObject *parseItem = [PFObject objectWithClassName:@"Items"];
     parseItem[@"name"] = name;
     parseItem[@"quantity"] = item.quantity;
-    parseItem[@"hasListUuid"] = list.listUuid;
+//    parseItem[@"hasListUuid"] = list.listUuid;
     parseItem[@"uuid"] = uuid;
     [parseItem saveEventually];
     

@@ -28,7 +28,7 @@
     // Override point for customization after application launch.
     
     // TODO: REMOVE
-//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
     
     // Grab Keys
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ParseKeys" ofType:@"plist"];
@@ -53,7 +53,7 @@
         User *user = [self loadCustomObjectWithKey:@"user"];
         
         [User instance].userName = user.userName;
-        [User instance].userUuid = user.userUuid;
+//        [User instance].userUuid = user.userUuid;
         [User instance].lists = user.lists;
         
     } else {
@@ -113,18 +113,18 @@
     // Creates 1 User, 2 Lists, and 4 Items in total.
     User *newUser = [[User alloc] init];
     newUser.userName = @"Andrew Robinson";
-    newUser.userUuid = @"1234567890";
+//    newUser.userUuid = @"1234567890";
     
     List *empty = [[List alloc] init];
     empty.listName = @"Empty";
-    empty.listUuid = @"1234567891";
+//    empty.listUuid = @"1234567891";
     NSArray *emptyShared = @[@"Jill", @"Jam"];
     [empty.sharedWith addObjectsFromArray:emptyShared];
     
     // List
     List *firstList = [[List alloc] init];
     firstList.listName = @"San Francisco";
-    firstList.listUuid = @"1234567891";
+//    firstList.listUuid = @"1234567891";
     NSArray *firstShared = @[@"Tim", @"Nancy"];
     [firstList.sharedWith addObjectsFromArray:firstShared];
     
@@ -146,7 +146,7 @@
     
     List *secondList = [[List alloc] init];
     secondList.listName = @"Shopping";
-    secondList.listUuid = @"1234567891";
+//    secondList.listUuid = @"1234567891";
     NSArray *secondShared = @[@"Matthew", @"Kai"];
     [secondList.sharedWith addObjectsFromArray:secondShared];
     
@@ -168,7 +168,7 @@
     
     List *thirdList = [[List alloc] init];
     thirdList.listName = @"Shopping";
-    thirdList.listUuid = @"1234567891";
+//    thirdList.listUuid = @"1234567891";
     NSArray *thirdShared = @[];
     [thirdList.sharedWith addObjectsFromArray:thirdShared];
     
@@ -192,7 +192,7 @@
     
     // Add to instance for safe keeping
     [User instance].userName = newUser.userName;
-    [User instance].userUuid = newUser.userUuid;
+//    [User instance].userUuid = newUser.userUuid;
     [User instance].lists = newUser.lists;
     
 }

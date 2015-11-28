@@ -70,6 +70,8 @@
 		4DE22E871B9933200074C349 /* NoteBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE22E861B9933200074C349 /* NoteBackground.xib */; };
 		4DE22E8A1B9935CF0074C349 /* NoteBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE22E891B9935CF0074C349 /* NoteBackground.m */; };
 		4DEA1ABF1B9A7B9D009EC953 /* EmptyStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA1ABE1B9A7B9D009EC953 /* EmptyStateView.m */; };
+		4DF380781C04C10A00919D7B /* DataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF380771C04C10A00919D7B /* DataHandler.m */; };
+		4DF631171C05182300C2523C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF631161C05182300C2523C /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +179,10 @@
 		4DE22E891B9935CF0074C349 /* NoteBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteBackground.m; sourceTree = "<group>"; };
 		4DEA1ABD1B9A7B9D009EC953 /* EmptyStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyStateView.h; sourceTree = "<group>"; };
 		4DEA1ABE1B9A7B9D009EC953 /* EmptyStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStateView.m; sourceTree = "<group>"; };
+		4DF380761C04C10A00919D7B /* DataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHandler.h; sourceTree = "<group>"; };
+		4DF380771C04C10A00919D7B /* DataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHandler.m; sourceTree = "<group>"; };
+		4DF631151C05182300C2523C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		4DF631161C05182300C2523C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +295,9 @@
 				4D3D28251B558E5C00D12090 /* Main.storyboard */,
 				4D3D281C1B558E5C00D12090 /* AppDelegate.h */,
 				4D3D281D1B558E5C00D12090 /* AppDelegate.m */,
+				4DF380761C04C10A00919D7B /* DataHandler.h */,
+				4DF380771C04C10A00919D7B /* DataHandler.m */,
+				4DF631141C05181200C2523C /* Reachability */,
 				4D2B37091C02B6D300955F98 /* Alert */,
 				4DC8B8861B55CAAC003F7777 /* FirstLaunch */,
 				4D3D28281B558E5C00D12090 /* Images.xcassets */,
@@ -447,6 +456,15 @@
 			name = Notes;
 			sourceTree = "<group>";
 		};
+		4DF631141C05181200C2523C /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				4DF631151C05182300C2523C /* Reachability.h */,
+				4DF631161C05182300C2523C /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -575,6 +593,8 @@
 				4D2B37121C02B8CF00955F98 /* AlertViewController.m in Sources */,
 				4DD0A7CC1B7BE59200F93D27 /* ListSettingsViewController.m in Sources */,
 				4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */,
+				4DF380781C04C10A00919D7B /* DataHandler.m in Sources */,
+				4DF631171C05182300C2523C /* Reachability.m in Sources */,
 				4DD1B40E1B7FE5EE0004848D /* SettingsShareTableViewCell.m in Sources */,
 				4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */,
 				4D3D281B1B558E5C00D12090 /* main.m in Sources */,

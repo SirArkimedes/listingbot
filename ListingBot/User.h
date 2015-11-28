@@ -12,7 +12,7 @@
 @interface User : NSObject
 
 @property (strong, nonatomic) NSString *userName;
-@property (strong, nonatomic) NSString *userUuid;
+@property (strong, nonatomic) NSString *userID;
 @property (strong, nonatomic) NSMutableArray *lists;
 
 @property (nonatomic, assign) BOOL userDidChangeAdd;

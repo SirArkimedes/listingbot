@@ -94,7 +94,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
     alert.color = alert.redColor;
     alert.topImage = alert.exImage;
     self.definesPresentationContext = YES;
-    [self presentViewController:alert animated:NO completion:nil];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:NO completion:nil];
     
 }
 
