@@ -15,6 +15,8 @@
 @property (strong, nonatomic) NSString *userID;
 @property (strong, nonatomic) NSMutableArray *lists;
 
+@property (strong, nonatomic) PFObject *parseUser;
+
 @property (nonatomic, assign) BOOL userDidChangeAdd;
 @property (nonatomic, assign) BOOL userDidChangeDelete;
 

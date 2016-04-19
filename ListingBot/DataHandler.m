@@ -23,7 +23,8 @@ static DataHandler *inst = nil;
 
 - (id)init {
     if (self = [super init]) {
-        
+        // Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the method reachabilityChanged will be called.
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     }
     return self;
 }
@@ -33,6 +34,28 @@ static DataHandler *inst = nil;
         inst = [[DataHandler alloc] init];
     }
     return inst;
+}
+
+#pragma mark - Reachbility
+
+- (void)reachabilityChanged:(NSNotification *)note {
+    
+    Reachability *reach = [note object];
+    NetworkStatus status = [reach currentReachabilityStatus];
+    
+    if (status != NotReachable) {
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
+            if ([[User instance].userID isEqual:@""]) {
+                [self createNewUser];
+            } else {
+                for (List *list in [User instance].lists) {
+                    if ([list.listID isEqual:@""]) {
+                        [self createNewList:list];
+                    }
+                }
+            }
+        }
+    }
 }
 
 #pragma mark - Handlers
@@ -53,10 +76,12 @@ static DataHandler *inst = nil;
     Reachability *reachability = [Reachability reachabilityWithHostName:@"www.parse.com"];
     NetworkStatus status = [reachability currentReachabilityStatus];
     
+    // Will fail out and the notification will handle not being saved.
     if (status != NotReachable) {
         [pUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 [User instance].userID = [pUser objectId];
+                [User instance].parseUser = pUser;
                 [pList saveInBackgroundWithBlock:^(BOOL listSucceeded, NSError *listError) {
                     if (listSucceeded) {
                         newList.listID = [pList objectId];
@@ -66,14 +91,35 @@ static DataHandler *inst = nil;
                     }
                 }];
             } else {
-                // Failure queue
                 completion(NO);
             }
         }];
     } else {
-        // Failure queue
         completion(NO);
     }
+}
+
+- (void)createNewUser {
+    
+    PFObject *pUser = [PFObject objectWithClassName:@"user"];
+    pUser[@"name"] = [User instance].userName;
+    
+    // Will fail out and the notification will handle not being saved.
+    [pUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [User instance].userID = [pUser objectId];
+            [User instance].parseUser = pUser;
+        }
+    }];
+}
+
+- (void)createNewList:(List *)list {
+    
+    PFObject *pList = [PFObject objectWithClassName:@"list"];
+    pList[@"name"] = list.listName;
+    
+    PFRelation *relation = [pList relationForKey:@"owner"];
+    [relation addObject:[User instance].parseUser];
     
 }
 
