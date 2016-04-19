@@ -16,7 +16,6 @@
 #import <Answers/Answers.h>
 #import <Crashlytics/Crashlytics.h>
 
-
 #import "Settings.h"
 #import "Theme.h"
 
@@ -26,23 +25,18 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
     [Fabric with:@[[Answers class], [Crashlytics class]]];
     
     // TODO: REMOVE
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
+//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"user"] != nil) {
-        
-//        User *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
         
         User *user = [self loadCustomObjectWithKey:@"user"];
         
         [User instance].userName = user.userName;
-//        [User instance].userUuid = user.userUuid;
         [User instance].lists = user.lists;
         
     } else {
@@ -55,16 +49,7 @@
     // Load settings
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] != nil) {
         Settings *object = [self loadSettingsObjectWithKey:@"settings"];
-                
-        // Make the settings
         [Settings instance].doesWantDraggable = object.doesWantDraggable;
-        
-//        if (![Stats instance].ownedCars) {
-//            
-//            [Stats instance].ownedCars = [[NSMutableArray alloc] initWithObjects:stats.ownedCars, nil];
-//
-//            
-//        }
     }
     
     // Load themes

@@ -256,16 +256,9 @@
     NSString *name = self.nameField.text;
     NSString *listName = self.listField.text;
     
-    //    NSArray *inputData = @[name, listName];
-    
-    // Create a 'dirty' uuid
-    //    NSString *userUuid = [[NSUUID UUID] UUIDString];
-//    NSString *lUuid = [[NSUUID UUID] UUIDString];
-    
     // Create the list
     List *newList = [[List alloc] init];
     newList.listName = listName;
-//    newList.listUuid = lUuid;
     newList.sharedWith = [[NSMutableArray alloc] init];
     newList.listItems = [[NSMutableArray alloc] init];
     
@@ -275,6 +268,7 @@
     [User instance].userDidChangeAdd = YES;
     
     [self saveUserObject:[User instance] key:@"user"];
+    [self dropView];
     
 }
 
