@@ -12,7 +12,6 @@
 
 @property (strong, nonatomic) NSString *listName;
 @property (strong, nonatomic) NSString *listID;
-@property (strong, nonatomic) NSMutableArray *sharedWith;
 @property (strong, nonatomic) NSMutableArray *listItems;
 
 - (id)init;

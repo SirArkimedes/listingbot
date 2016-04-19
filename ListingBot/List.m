@@ -16,7 +16,6 @@ static List *inst = nil;
     if(self=[super init]) {
         self.listName = @"";
         self.listID = @"";
-        self.sharedWith = [[NSMutableArray alloc] init];
         self.listItems = [[NSMutableArray alloc] init];
     }
     return self;
@@ -33,7 +32,6 @@ static List *inst = nil;
 {
     [coder encodeObject:_listName forKey:@"listName"];
     [coder encodeObject:_listID forKey:@"listID"];
-    [coder encodeObject:_sharedWith forKey:@"sharedWith"];
     [coder encodeObject:_listItems forKey:@"listItems"];
 }
 
@@ -44,7 +42,6 @@ static List *inst = nil;
     {
         _listName = [coder decodeObjectForKey:@"listName"];
         _listID = [coder decodeObjectForKey:@"listID"];
-        _sharedWith = [coder decodeObjectForKey:@"sharedWith"];
         _listItems = [coder decodeObjectForKey:@"listItems"];
         
     }

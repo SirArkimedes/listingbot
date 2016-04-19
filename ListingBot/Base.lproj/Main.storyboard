@@ -628,7 +628,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7A1-VP-MDD" userLabel="All Done">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7A1-VP-MDD" userLabel="All Done">
                                 <rect key="frame" x="16" y="59" width="568" height="179"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="That's all we need!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXc-Pw-btG">
@@ -667,7 +667,7 @@
                                     <constraint firstAttribute="bottom" secondItem="gGa-xf-hdO" secondAttribute="bottom" constant="30" id="lbe-E4-gST"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x5F-Cz-GuK" userLabel="List View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5F-Cz-GuK" userLabel="List View">
                                 <rect key="frame" x="16" y="59" width="568" height="179"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of the list?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyl-Uo-OkE">
@@ -701,7 +701,7 @@
                                     <constraint firstAttribute="height" constant="179" id="lCj-on-KT2"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jUB-hg-ueX" userLabel="Name View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jUB-hg-ueX" userLabel="Name View">
                                 <rect key="frame" x="16" y="59" width="568" height="179"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="John Doe" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="Uw7-EO-aLW">
@@ -751,7 +751,7 @@
                                     <action selector="cancel:" destination="9sZ-Hv-KvG" eventType="touchUpInside" id="qei-e0-beo"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="First, we need a little information..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw8-AA-aT5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First, we need a little information..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw8-AA-aT5">
                                 <rect key="frame" x="142" y="43" width="317" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="L7Y-Xl-Ue7"/>
@@ -767,11 +767,11 @@
                             <constraint firstItem="Dw8-AA-aT5" firstAttribute="centerX" secondItem="jUB-hg-ueX" secondAttribute="centerX" id="H9b-dR-OOq"/>
                             <constraint firstItem="jUB-hg-ueX" firstAttribute="leading" secondItem="zwz-pP-MzZ" secondAttribute="leadingMargin" constant="-4" id="PSQ-SN-Hea"/>
                             <constraint firstItem="7A1-VP-MDD" firstAttribute="trailing" secondItem="zwz-pP-MzZ" secondAttribute="trailingMargin" constant="4" id="Qxn-Sh-PLe"/>
-                            <constraint firstItem="Dw8-AA-aT5" firstAttribute="top" secondItem="F4I-aw-eVO" secondAttribute="bottom" constant="43" id="R5S-1U-jiQ"/>
-                            <constraint firstItem="x5F-Cz-GuK" firstAttribute="top" secondItem="F4I-aw-eVO" secondAttribute="bottom" constant="59" id="Vvt-ne-TnJ"/>
+                            <constraint firstItem="Dw8-AA-aT5" firstAttribute="top" secondItem="F4I-aw-eVO" secondAttribute="bottom" constant="23" id="R5S-1U-jiQ"/>
+                            <constraint firstItem="x5F-Cz-GuK" firstAttribute="top" secondItem="F4I-aw-eVO" secondAttribute="bottom" constant="39" id="Vvt-ne-TnJ"/>
                             <constraint firstItem="duS-LF-yAV" firstAttribute="leading" secondItem="zwz-pP-MzZ" secondAttribute="leadingMargin" constant="-20" id="Y77-Ok-LH6"/>
                             <constraint firstItem="jUB-hg-ueX" firstAttribute="centerX" secondItem="duS-LF-yAV" secondAttribute="centerX" id="fNK-px-iy4"/>
-                            <constraint firstItem="7A1-VP-MDD" firstAttribute="top" secondItem="F4I-aw-eVO" secondAttribute="bottom" constant="59" id="jVf-TI-Jgz"/>
+                            <constraint firstItem="7A1-VP-MDD" firstAttribute="top" secondItem="F4I-aw-eVO" secondAttribute="bottom" constant="39" id="jVf-TI-Jgz"/>
                             <constraint firstItem="jUB-hg-ueX" firstAttribute="trailing" secondItem="zwz-pP-MzZ" secondAttribute="trailingMargin" constant="4" id="nAT-FK-bW2"/>
                             <constraint firstItem="jUB-hg-ueX" firstAttribute="top" secondItem="Dw8-AA-aT5" secondAttribute="bottom" constant="-8" id="qdE-A4-WcZ"/>
                             <constraint firstItem="7A1-VP-MDD" firstAttribute="leading" secondItem="zwz-pP-MzZ" secondAttribute="leadingMargin" constant="-4" id="reO-KH-aTr"/>
@@ -808,7 +808,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1y-Oq-6ub" userLabel="Name View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1y-Oq-6ub" userLabel="Name View">
                                 <rect key="frame" x="16" y="44" width="568" height="179"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="John Doe" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="gWv-Yt-uek">
@@ -842,7 +842,7 @@
                                     <constraint firstItem="CPF-NP-jhb" firstAttribute="centerX" secondItem="gWv-Yt-uek" secondAttribute="centerX" id="tKR-ba-pMa"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xLg-cD-DI4" userLabel="Code View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xLg-cD-DI4" userLabel="Code View">
                                 <rect key="frame" x="16" y="44" width="568" height="179"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Code" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="PhB-go-hLo">
@@ -886,7 +886,7 @@
                                     <constraint firstAttribute="bottom" secondItem="PhB-go-hLo" secondAttribute="bottom" constant="25" id="rVe-mM-f8z"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8wF-7X-BeB" userLabel="All Done">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wF-7X-BeB" userLabel="All Done">
                                 <rect key="frame" x="16" y="44" width="568" height="179"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="That's all we need!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiQ-gO-iO6">
@@ -939,7 +939,7 @@
                                     <action selector="cancel:" destination="dxL-Lo-oa9" eventType="touchUpInside" id="kBH-eV-odr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="One last peice of information..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGc-qG-OpN">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One last peice of information..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGc-qG-OpN">
                                 <rect key="frame" x="142" y="36" width="317" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="DzC-fO-mZr"/>
@@ -956,8 +956,8 @@
                             <constraint firstItem="wGc-qG-OpN" firstAttribute="centerX" secondItem="8wF-7X-BeB" secondAttribute="centerX" id="ESn-Ki-Kem"/>
                             <constraint firstItem="xLg-cD-DI4" firstAttribute="top" secondItem="e1y-Oq-6ub" secondAttribute="top" id="F6T-Ns-IlT"/>
                             <constraint firstItem="xLg-cD-DI4" firstAttribute="leading" secondItem="e1y-Oq-6ub" secondAttribute="leading" id="JCJ-Cb-HZz"/>
-                            <constraint firstItem="wGc-qG-OpN" firstAttribute="top" secondItem="3zs-at-VZ8" secondAttribute="bottom" constant="36" id="OK9-5P-Ww6"/>
-                            <constraint firstItem="xLg-cD-DI4" firstAttribute="top" secondItem="3zs-at-VZ8" secondAttribute="bottom" constant="44" id="Tnf-dN-6xO"/>
+                            <constraint firstItem="wGc-qG-OpN" firstAttribute="top" secondItem="3zs-at-VZ8" secondAttribute="bottom" constant="16" id="OK9-5P-Ww6"/>
+                            <constraint firstItem="xLg-cD-DI4" firstAttribute="top" secondItem="3zs-at-VZ8" secondAttribute="bottom" constant="24" id="Tnf-dN-6xO"/>
                             <constraint firstItem="8wF-7X-BeB" firstAttribute="trailing" secondItem="xLg-cD-DI4" secondAttribute="trailing" id="cka-xf-lPK"/>
                             <constraint firstItem="xLg-cD-DI4" firstAttribute="leading" secondItem="dAv-dS-yvd" secondAttribute="leadingMargin" constant="-4" id="e4m-bV-jNX"/>
                             <constraint firstAttribute="bottom" secondItem="KgA-qN-Aur" secondAttribute="bottom" constant="10" id="eNY-hm-gAh"/>

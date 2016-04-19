@@ -84,7 +84,6 @@
     List *newList = [[List alloc] init];
     
     newList.listName = self.listName;
-    newList.sharedWith = [[NSMutableArray alloc] init];
     newList.listItems = [[NSMutableArray alloc] init];
     
     [[User instance].lists addObject:newList];
@@ -98,7 +97,6 @@
     List *newList = [[List alloc] init];
     
     newList.listName = self.listName;
-    newList.sharedWith = [[NSMutableArray alloc] init];
     newList.listItems = [[NSMutableArray alloc] init];
     
     [[User instance].lists addObject:newList];

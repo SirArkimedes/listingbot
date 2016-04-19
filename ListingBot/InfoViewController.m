@@ -259,7 +259,6 @@
     // Create the list
     List *newList = [[List alloc] init];
     newList.listName = listName;
-    newList.sharedWith = [[NSMutableArray alloc] init];
     newList.listItems = [[NSMutableArray alloc] init];
     
     // Add to Local User

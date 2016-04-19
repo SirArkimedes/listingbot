@@ -80,14 +80,10 @@
     
     List *empty = [[List alloc] init];
     empty.listName = @"Empty";
-    NSArray *emptyShared = @[@"Jill", @"Jam"];
-    [empty.sharedWith addObjectsFromArray:emptyShared];
     
     // List
     List *firstList = [[List alloc] init];
     firstList.listName = @"San Francisco";
-    NSArray *firstShared = @[@"Tim", @"Nancy"];
-    [firstList.sharedWith addObjectsFromArray:firstShared];
     
     // Items
     Item *firstItem = [[Item alloc] init];
@@ -107,8 +103,6 @@
     
     List *secondList = [[List alloc] init];
     secondList.listName = @"Shopping";
-    NSArray *secondShared = @[@"Matthew", @"Kai"];
-    [secondList.sharedWith addObjectsFromArray:secondShared];
     
     Item *thirdItem = [[Item alloc] init];
     thirdItem.itemName = @"Milk";
@@ -128,8 +122,6 @@
     
     List *thirdList = [[List alloc] init];
     thirdList.listName = @"Shopping";
-    NSArray *thirdShared = @[];
-    [thirdList.sharedWith addObjectsFromArray:thirdShared];
     
     Item *sixth = [[Item alloc] init];
     sixth.itemName = @"Milk";
