@@ -12,6 +12,11 @@
 #import "List.h"
 #import "Item.h"
 
+#import <Fabric/Fabric.h>
+#import <Answers/Answers.h>
+#import <Crashlytics/Crashlytics.h>
+
+
 #import "Settings.h"
 #import "Theme.h"
 
@@ -24,6 +29,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [Fabric with:@[[Answers class], [Crashlytics class]]];
     
     // TODO: REMOVE
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
@@ -76,16 +83,6 @@
     NSArray *themes = @[standard, redWhite, white];
     
     [[Settings instance].themes addObjectsFromArray:themes];
-    
-    
-    // Register for Push Notitications
-    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                    UIUserNotificationTypeBadge |
-                                                    UIUserNotificationTypeSound);
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                             categories:nil];
-    [application registerUserNotificationSettings:settings];
-    [application registerForRemoteNotifications];
     
     return YES;
 }

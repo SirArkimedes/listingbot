@@ -16,6 +16,9 @@
 		4D239A351B6BCA25009DAC63 /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D239A341B6BCA25009DAC63 /* ListView.xib */; };
 		4D239A381B6BCA45009DAC63 /* ScrollNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D239A371B6BCA45009DAC63 /* ScrollNavigationViewController.m */; };
 		4D239A3C1B6BCAF8009DAC63 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */; };
+		4D2A85B41CC5E8F300D7326D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2A85B21CC5E8F300D7326D /* Fabric.framework */; };
+		4D2A85B51CC5E8F300D7326D /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2A85B31CC5E8F300D7326D /* Answers.framework */; };
+		4D2A85B71CC5E99300D7326D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2A85B61CC5E99300D7326D /* Crashlytics.framework */; };
 		4D2B37121C02B8CF00955F98 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B37101C02B8CF00955F98 /* AlertViewController.m */; };
 		4D2B37131C02B8CF00955F98 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2B37111C02B8CF00955F98 /* AlertViewController.xib */; };
 		4D3D281B1B558E5C00D12090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D281A1B558E5C00D12090 /* main.m */; };
@@ -88,6 +91,9 @@
 		4D239A371B6BCA45009DAC63 /* ScrollNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollNavigationViewController.m; sourceTree = "<group>"; };
 		4D239A3A1B6BCAF8009DAC63 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		4D239A3B1B6BCAF8009DAC63 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		4D2A85B21CC5E8F300D7326D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		4D2A85B31CC5E8F300D7326D /* Answers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Answers.framework; sourceTree = "<group>"; };
+		4D2A85B61CC5E99300D7326D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		4D2B370F1C02B8CF00955F98 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		4D2B37101C02B8CF00955F98 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 		4D2B37111C02B8CF00955F98 /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
@@ -162,8 +168,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D2A85B51CC5E8F300D7326D /* Answers.framework in Frameworks */,
+				4D2A85B71CC5E99300D7326D /* Crashlytics.framework in Frameworks */,
 				4D3D28541B5596C600D12090 /* QuartzCore.framework in Frameworks */,
 				4D3D284E1B5596AC00D12090 /* CoreGraphics.framework in Frameworks */,
+				4D2A85B41CC5E8F300D7326D /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +306,9 @@
 		4D3D28441B55965900D12090 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D2A85B61CC5E99300D7326D /* Crashlytics.framework */,
+				4D2A85B21CC5E8F300D7326D /* Fabric.framework */,
+				4D2A85B31CC5E8F300D7326D /* Answers.framework */,
 				4D3D28531B5596C600D12090 /* QuartzCore.framework */,
 				4D3D284D1B5596AC00D12090 /* CoreGraphics.framework */,
 			);
@@ -413,6 +425,7 @@
 				4D3D28111B558E5C00D12090 /* Sources */,
 				4D3D28121B558E5C00D12090 /* Frameworks */,
 				4D3D28131B558E5C00D12090 /* Resources */,
+				4D2A85B11CC5E8D800D7326D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -515,6 +528,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D2A85B11CC5E8D800D7326D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run ae444d788fc59ec99bb999f227056a93cb2264dc b6c80eec07f2189d1231e7e7950b60f268778a73e5670055dd55d810dc261e5c";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D3D28111B558E5C00D12090 /* Sources */ = {
@@ -681,7 +710,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ListingBot/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ListingBot/Frameworks",
+					"$(PROJECT_DIR)/ListingBot.xcodeproj",
+				);
 				INFOPLIST_FILE = ListingBot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -698,7 +730,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ListingBot/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ListingBot/Frameworks",
+					"$(PROJECT_DIR)/ListingBot.xcodeproj",
+				);
 				INFOPLIST_FILE = ListingBot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
