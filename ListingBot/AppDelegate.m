@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import <Parse/Parse.h>
-
 #import "User.h"
 #import "List.h"
 #import "Item.h"
@@ -29,22 +27,6 @@
     
     // TODO: REMOVE
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
-    
-    // Grab Keys
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"ParseKeys" ofType:@"plist"];
-    NSDictionary *plistData = [[NSDictionary alloc] initWithContentsOfFile:path];
-    NSString *appKey = [plistData objectForKey:@"ApplicationID"];
-    NSString *clientKey = [plistData objectForKey:@"ClientKey"];
-    
-    if ([appKey isEqual: @""] || [clientKey isEqual: @""]) {
-        NSLog(@"Parse ApplicationId and clientKey do not exist!");
-    } else {
-        // Enabling Parse
-//        [Parse enableLocalDatastore];
-        
-        [Parse setApplicationId:appKey
-                      clientKey:clientKey];
-    }
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"user"] != nil) {
         
@@ -113,18 +95,15 @@
     // Creates 1 User, 2 Lists, and 4 Items in total.
     User *newUser = [[User alloc] init];
     newUser.userName = @"Andrew Robinson";
-//    newUser.userUuid = @"1234567890";
     
     List *empty = [[List alloc] init];
     empty.listName = @"Empty";
-//    empty.listUuid = @"1234567891";
     NSArray *emptyShared = @[@"Jill", @"Jam"];
     [empty.sharedWith addObjectsFromArray:emptyShared];
     
     // List
     List *firstList = [[List alloc] init];
     firstList.listName = @"San Francisco";
-//    firstList.listUuid = @"1234567891";
     NSArray *firstShared = @[@"Tim", @"Nancy"];
     [firstList.sharedWith addObjectsFromArray:firstShared];
     
@@ -146,7 +125,6 @@
     
     List *secondList = [[List alloc] init];
     secondList.listName = @"Shopping";
-//    secondList.listUuid = @"1234567891";
     NSArray *secondShared = @[@"Matthew", @"Kai"];
     [secondList.sharedWith addObjectsFromArray:secondShared];
     
@@ -168,7 +146,6 @@
     
     List *thirdList = [[List alloc] init];
     thirdList.listName = @"Shopping";
-//    thirdList.listUuid = @"1234567891";
     NSArray *thirdShared = @[];
     [thirdList.sharedWith addObjectsFromArray:thirdShared];
     
@@ -192,7 +169,6 @@
     
     // Add to instance for safe keeping
     [User instance].userName = newUser.userName;
-//    [User instance].userUuid = newUser.userUuid;
     [User instance].lists = newUser.lists;
     
 }
@@ -232,14 +208,11 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    // Store the deviceToken in the current installation and save it to Parse.
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    [currentInstallation saveInBackground];
+
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [PFPush handlePush:userInfo];
+
 }
 
 - (void)saveCustomObject:(User *)object key:(NSString *)key {

@@ -25,23 +25,14 @@
 		4D3D28291B558E5C00D12090 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D28281B558E5C00D12090 /* Images.xcassets */; };
 		4D3D282C1B558E5C00D12090 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D282A1B558E5C00D12090 /* LaunchScreen.xib */; };
 		4D3D28381B558E5C00D12090 /* ListingBotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D28371B558E5C00D12090 /* ListingBotTests.m */; };
-		4D3D284A1B55969E00D12090 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D28491B55969E00D12090 /* AudioToolbox.framework */; };
-		4D3D284C1B5596A400D12090 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D284B1B5596A400D12090 /* CFNetwork.framework */; };
 		4D3D284E1B5596AC00D12090 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D284D1B5596AC00D12090 /* CoreGraphics.framework */; };
-		4D3D28501B5596B500D12090 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D284F1B5596B500D12090 /* CoreLocation.framework */; };
-		4D3D28521B5596BE00D12090 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D28511B5596BE00D12090 /* MobileCoreServices.framework */; };
 		4D3D28541B5596C600D12090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D28531B5596C600D12090 /* QuartzCore.framework */; };
-		4D3D28561B5596CD00D12090 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D28551B5596CD00D12090 /* Security.framework */; };
-		4D3D28581B5596D300D12090 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D28571B5596D300D12090 /* StoreKit.framework */; };
-		4D3D285A1B5596DD00D12090 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D28591B5596DD00D12090 /* SystemConfiguration.framework */; };
 		4D3D285C1B5596E700D12090 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D285B1B5596E700D12090 /* libz.dylib */; };
 		4D3D285E1B5596F200D12090 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D285D1B5596F200D12090 /* libsqlite3.dylib */; };
 		4D76D4FE1B7D76B50031E533 /* FarLeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D76D4FD1B7D76B50031E533 /* FarLeftView.xib */; };
 		4DA748491B6DE8340090A86E /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA748481B6DE8340090A86E /* ItemTableViewCell.xib */; };
 		4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */; };
 		4DA7484F1B6DEF800090A86E /* SeperatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA7484E1B6DEF800090A86E /* SeperatorTableViewCell.xib */; };
-		4DAD69C51BAE5BDB003020B3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAD69C31BAE5BDB003020B3 /* Bolts.framework */; };
-		4DAD69C61BAE5BDB003020B3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAD69C41BAE5BDB003020B3 /* Parse.framework */; };
 		4DC8B8791B559FDB003F7777 /* ParseKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC8B8781B559FDB003F7777 /* ParseKeys.plist */; };
 		4DC8B8891B55CAC5003F7777 /* ShareCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */; };
 		4DC8B88C1B55E852003F7777 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8B88B1B55E852003F7777 /* InfoViewController.m */; };
@@ -70,7 +61,6 @@
 		4DE22E871B9933200074C349 /* NoteBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE22E861B9933200074C349 /* NoteBackground.xib */; };
 		4DE22E8A1B9935CF0074C349 /* NoteBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE22E891B9935CF0074C349 /* NoteBackground.m */; };
 		4DEA1ABF1B9A7B9D009EC953 /* EmptyStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA1ABE1B9A7B9D009EC953 /* EmptyStateView.m */; };
-		4DF380781C04C10A00919D7B /* DataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF380771C04C10A00919D7B /* DataHandler.m */; };
 		4DF631171C05182300C2523C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF631161C05182300C2523C /* Reachability.m */; };
 /* End PBXBuildFile section */
 
@@ -116,15 +106,8 @@
 		4D3D28311B558E5C00D12090 /* ListingBotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ListingBotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3D28361B558E5C00D12090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D3D28371B558E5C00D12090 /* ListingBotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListingBotTests.m; sourceTree = "<group>"; };
-		4D3D28491B55969E00D12090 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		4D3D284B1B5596A400D12090 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4D3D284D1B5596AC00D12090 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		4D3D284F1B5596B500D12090 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		4D3D28511B5596BE00D12090 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4D3D28531B5596C600D12090 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		4D3D28551B5596CD00D12090 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		4D3D28571B5596D300D12090 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		4D3D28591B5596DD00D12090 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4D3D285B1B5596E700D12090 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4D3D285D1B5596F200D12090 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4D76D4FD1B7D76B50031E533 /* FarLeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FarLeftView.xib; sourceTree = "<group>"; };
@@ -132,8 +115,6 @@
 		4DA7484B1B6DE8680090A86E /* ItemsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsTableViewCell.h; sourceTree = "<group>"; };
 		4DA7484C1B6DE8680090A86E /* ItemsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsTableViewCell.m; sourceTree = "<group>"; };
 		4DA7484E1B6DEF800090A86E /* SeperatorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeperatorTableViewCell.xib; sourceTree = "<group>"; };
-		4DAD69C31BAE5BDB003020B3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ListingBot/Frameworks/Bolts.framework; sourceTree = SOURCE_ROOT; };
-		4DAD69C41BAE5BDB003020B3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ListingBot/Frameworks/Parse.framework; sourceTree = SOURCE_ROOT; };
 		4DC8B8781B559FDB003F7777 /* ParseKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ParseKeys.plist; sourceTree = "<group>"; };
 		4DC8B8871B55CAC5003F7777 /* ShareCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareCodeViewController.h; sourceTree = "<group>"; };
 		4DC8B8881B55CAC5003F7777 /* ShareCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareCodeViewController.m; sourceTree = "<group>"; };
@@ -179,8 +160,6 @@
 		4DE22E891B9935CF0074C349 /* NoteBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteBackground.m; sourceTree = "<group>"; };
 		4DEA1ABD1B9A7B9D009EC953 /* EmptyStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyStateView.h; sourceTree = "<group>"; };
 		4DEA1ABE1B9A7B9D009EC953 /* EmptyStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStateView.m; sourceTree = "<group>"; };
-		4DF380761C04C10A00919D7B /* DataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHandler.h; sourceTree = "<group>"; };
-		4DF380771C04C10A00919D7B /* DataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHandler.m; sourceTree = "<group>"; };
 		4DF631151C05182300C2523C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		4DF631161C05182300C2523C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,17 +171,8 @@
 			files = (
 				4D3D285E1B5596F200D12090 /* libsqlite3.dylib in Frameworks */,
 				4D3D285C1B5596E700D12090 /* libz.dylib in Frameworks */,
-				4D3D285A1B5596DD00D12090 /* SystemConfiguration.framework in Frameworks */,
-				4DAD69C51BAE5BDB003020B3 /* Bolts.framework in Frameworks */,
-				4D3D28581B5596D300D12090 /* StoreKit.framework in Frameworks */,
-				4D3D28561B5596CD00D12090 /* Security.framework in Frameworks */,
-				4DAD69C61BAE5BDB003020B3 /* Parse.framework in Frameworks */,
 				4D3D28541B5596C600D12090 /* QuartzCore.framework in Frameworks */,
-				4D3D28521B5596BE00D12090 /* MobileCoreServices.framework in Frameworks */,
-				4D3D28501B5596B500D12090 /* CoreLocation.framework in Frameworks */,
 				4D3D284E1B5596AC00D12090 /* CoreGraphics.framework in Frameworks */,
-				4D3D284C1B5596A400D12090 /* CFNetwork.framework in Frameworks */,
-				4D3D284A1B55969E00D12090 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +265,6 @@
 				4D3D28251B558E5C00D12090 /* Main.storyboard */,
 				4D3D281C1B558E5C00D12090 /* AppDelegate.h */,
 				4D3D281D1B558E5C00D12090 /* AppDelegate.m */,
-				4DF380761C04C10A00919D7B /* DataHandler.h */,
-				4DF380771C04C10A00919D7B /* DataHandler.m */,
 				4DF631141C05181200C2523C /* Reachability */,
 				4D2B37091C02B6D300955F98 /* Alert */,
 				4DC8B8861B55CAAC003F7777 /* FirstLaunch */,
@@ -339,19 +307,10 @@
 		4D3D28441B55965900D12090 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4DAD69C31BAE5BDB003020B3 /* Bolts.framework */,
-				4DAD69C41BAE5BDB003020B3 /* Parse.framework */,
 				4D3D285D1B5596F200D12090 /* libsqlite3.dylib */,
 				4D3D285B1B5596E700D12090 /* libz.dylib */,
-				4D3D28591B5596DD00D12090 /* SystemConfiguration.framework */,
-				4D3D28571B5596D300D12090 /* StoreKit.framework */,
-				4D3D28551B5596CD00D12090 /* Security.framework */,
 				4D3D28531B5596C600D12090 /* QuartzCore.framework */,
-				4D3D28511B5596BE00D12090 /* MobileCoreServices.framework */,
-				4D3D284F1B5596B500D12090 /* CoreLocation.framework */,
 				4D3D284D1B5596AC00D12090 /* CoreGraphics.framework */,
-				4D3D284B1B5596A400D12090 /* CFNetwork.framework */,
-				4D3D28491B55969E00D12090 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
 			path = ListingBot.xcodeproj;
@@ -593,7 +552,6 @@
 				4D2B37121C02B8CF00955F98 /* AlertViewController.m in Sources */,
 				4DD0A7CC1B7BE59200F93D27 /* ListSettingsViewController.m in Sources */,
 				4D3D28211B558E5C00D12090 /* ListingBot.xcdatamodeld in Sources */,
-				4DF380781C04C10A00919D7B /* DataHandler.m in Sources */,
 				4DF631171C05182300C2523C /* Reachability.m in Sources */,
 				4DD1B40E1B7FE5EE0004848D /* SettingsShareTableViewCell.m in Sources */,
 				4DA7484D1B6DE8680090A86E /* ItemsTableViewCell.m in Sources */,

@@ -13,8 +13,6 @@
 
 #import "AlertViewController.h"
 
-#import <Parse/Parse.h>
-
 #define kAnimation .5f
 
 typedef NS_ENUM(NSUInteger, cellType) {

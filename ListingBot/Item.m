@@ -16,7 +16,6 @@ static Item *inst = nil;
     if(self=[super init]) {
         self.itemName = @"";
         self.quantity = nil;
-        self.itemUuid = nil;
         self.isDone = NO;
         self.itemNote = nil;
     }
@@ -30,13 +29,12 @@ static Item *inst = nil;
     return inst;
 }
 
-- (id)initWithName:(NSString *)name withQuantity:(NSNumber *)quantity withUuid:(NSNumber *)uuid {
+- (id)initWithName:(NSString *)name withQuantity:(NSNumber *)quantity {
     
     if(self=[super init]) {
         
         self.itemName = name;
         self.quantity = quantity;
-        self.itemUuid = uuid;
         self.isDone = NO;
         self.itemNote = nil;
         
@@ -50,7 +48,6 @@ static Item *inst = nil;
 {
     [coder encodeObject:_itemName forKey:@"itemName"];
     [coder encodeObject:_quantity forKey:@"quantity"];
-    [coder encodeObject:_itemUuid forKey:@"itemUuid"];
     [coder encodeBool:_isDone forKey:@"isDone"];
     [coder encodeObject:_itemNote forKey:@"itemNote"];
 }
@@ -62,7 +59,6 @@ static Item *inst = nil;
     {
         _itemName = [coder decodeObjectForKey:@"itemName"];
         _quantity = [coder decodeObjectForKey:@"quantity"];
-        _itemUuid = [coder decodeObjectForKey:@"itemUuid"];
         _isDone = [coder decodeBoolForKey:@"isDone"];
         _itemNote = [coder decodeObjectForKey:@"itemNote"];
         

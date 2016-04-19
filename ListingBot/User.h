@@ -7,15 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
 
 @interface User : NSObject
 
 @property (strong, nonatomic) NSString *userName;
-@property (strong, nonatomic) NSString *userID;
 @property (strong, nonatomic) NSMutableArray *lists;
-
-@property (strong, nonatomic) PFObject *parseUser;
 
 @property (nonatomic, assign) BOOL userDidChangeAdd;
 @property (nonatomic, assign) BOOL userDidChangeDelete;

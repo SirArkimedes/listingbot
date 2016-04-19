@@ -10,8 +10,6 @@
 #import "ItemsTableViewCell.h"
 #import "ScrollNavigationViewController.h"
 
-#import <Parse/Parse.h>
-
 #import "User.h"
 #import "List.h"
 #import "Item.h"

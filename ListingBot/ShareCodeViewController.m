@@ -8,8 +8,6 @@
 
 #import "ShareCodeViewController.h"
 
-#import <Parse/Parse.h>
-
 #define kAnimation .5f
 
 @interface ShareCodeViewController ()
@@ -35,14 +33,6 @@
     
     self.shareCodeTextField = [self styleField:self.shareCodeTextField];
     self.nameField = [self styleField:self.nameField];
-    
-    [PFCloud callFunctionInBackground:@"newUserId"
-                       withParameters:nil
-                                block:^(NSArray *results, NSError *error) {
-                                    if (!error) {
-                                        NSLog(@"%@", results);
-                                    }
-                                }];
     
     // Set animation stage
     self.stage = 1;

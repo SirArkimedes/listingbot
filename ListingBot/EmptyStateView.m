@@ -80,7 +80,7 @@
         
         NSString *name = textField.text;
         
-        Item *newItem = [[Item alloc] initWithName:name withQuantity:quantity withUuid:nil];
+        Item *newItem = [[Item alloc] initWithName:name withQuantity:quantity];
         [list.listItems addObject:newItem];
         
         self.addItem.text = @"";

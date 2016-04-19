@@ -8,12 +8,9 @@
 
 #import "InfoViewController.h"
 
-#import <Parse/Parse.h>
-
 #import "User.h"
 #import "List.h"
 
-#import "DataHandler.h"
 #import "AlertViewController.h"
 
 #define kAnimation .5f
@@ -278,10 +275,6 @@
     [User instance].userDidChangeAdd = YES;
     
     [self saveUserObject:[User instance] key:@"user"];
-    
-    [[DataHandler instance] createNewUserWithBlock:^(BOOL success) {
-        [self dropView];
-    }];
     
 }
 

@@ -8,7 +8,6 @@
 
 #import "ScrollNavigationViewController.h"
 
-#import <Parse/Parse.h>
 #import "ListViewController.h"
 #import "FarLeftViewController.h"
 

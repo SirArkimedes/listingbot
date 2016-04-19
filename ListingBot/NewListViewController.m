@@ -11,9 +11,6 @@
 #import "User.h"
 #import "List.h"
 
-#import <Parse/Parse.h>
-#import <Bolts/Bolts.h>
-
 #define UIColorFromRGB(rgbValue, ...) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
                                                       green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
                                                        blue:((float)(rgbValue & 0xFF))/255.0 alpha:__VA_ARGS__]
@@ -114,82 +111,8 @@
     newList.listName = self.listName;
     newList.sharedWith = [[NSMutableArray alloc] init];
     newList.listItems = [[NSMutableArray alloc] init];
-//    newList.listUuid = [[NSUUID UUID] UUIDString];
     
     [[User instance].lists addObject:newList];
-    
-    // Save List
-    PFObject *parseList = [PFObject objectWithClassName:@"Lists"];
-    parseList[@"name"] = newList.listName;
-//    parseList[@"uuid"] = newList.listUuid;
-//    parseList[@"sharedWith"] = @[[User instance].userUuid];
-    [parseList saveInBackground];
-    
-    [User instance].userDidChangeAdd = YES;
-    
-    /*PFQuery *query = [PFQuery queryWithClassName:@"Users"];
-    [query fromLocalDatastore];
-    [query whereKey:@"uuid" equalTo:[User instance].userUuid];
-    [[query findObjectsInBackground] continueWithBlock:^id(BFTask *task) {
-        if (task.error) {
-            NSLog(@"Error: %@", task.error);
-            return task;
-        }
-        
-        PFObject *user = [task.result objectAtIndex:0];
-        
-        // Create the relationship
-        [user addObject:parseList forKey:@"listAccess"];
-        [user saveInBackground];
-        
-//        [user pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            if (succeeded) {
-//                
-//            }
-//        }];
-        
-        [parseList pinInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                
-                // Create the relationship
-                [parseList addObject:user forKey:@"sharedWith"];
-                [parseList saveInBackground];
-                
-//                // Create relation
-//                PFRelation *relation = [parseList relationForKey:@"sharedWith"];
-//                [relation addObject:user];
-//                [parseList saveEventually];
-            }
-        }];
-        
-        return task;
-    }];
-    */
-    
-//    PFQuery *query2 = [PFQuery queryWithClassName:@"Users"];
-//    [query2 fromLocalDatastore];
-//    [query2 includeKey:@"listAcess"];
-//    [query2 whereKey:@"uuid" equalTo:[User instance].userUuid];
-//    [[query2 findObjectsInBackground] continueWithBlock:^id(BFTask *task) {
-//        if (task.error) {
-//            NSLog(@"Error: %@", task.error);
-//            return task;
-//        }
-//        
-//        PFObject *user = [task.result objectAtIndex:0];
-//        
-//        return task;
-//    }];
-    
-//    [PFCloud callFunctionInBackground:@"saveUserObject"
-//                       withParameters:@{@"object": userArchive, @"userUuid": [User instance].userUuid, @"listUuid": newList.listUuid}
-//                                block:^(NSNumber *results, NSError *error) {
-//                                    if (!error) {
-//                                        NSLog(@"Success! Saved User object.");
-//                                    } else {
-//                                        NSLog(@"Uuid function grab error: %@", error.description);
-//                                    }
-//                                }];
     
 }
 
