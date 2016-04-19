@@ -66,7 +66,7 @@ typedef NS_ENUM(NSUInteger, cellType) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 2;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -76,9 +76,6 @@ typedef NS_ENUM(NSUInteger, cellType) {
     switch ([self typeForRowAtIndexPath:indexPath]) {
         case deleteCell:
             cell = [self setupDeleteCellWithTableView:tableView];
-            break;
-        case shareCell:
-            cell = [self setupShareCellWithTableView:tableView];
             break;
     }
     
@@ -97,25 +94,8 @@ typedef NS_ENUM(NSUInteger, cellType) {
     
 }
 
-- (UITableViewCell *)setupShareCellWithTableView:(UITableView *)tableView {
-    
-    static NSString *textFieldCellIdentifier = @"share";
-
-    UITableViewCell *cell = nil;
-    
-    cell = [tableView dequeueReusableCellWithIdentifier:textFieldCellIdentifier];
-    
-    return cell;
-    
-}
-
 - (NSUInteger)typeForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.row == 1)
-        return deleteCell;
-    else
-        return shareCell;
-    
+    return deleteCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -123,9 +103,6 @@ typedef NS_ENUM(NSUInteger, cellType) {
     switch ([self typeForRowAtIndexPath:indexPath]) {
         case deleteCell:
             return 44;
-            break;
-        case shareCell:
-            return 152.f;
             break;
         default:
             return 44;

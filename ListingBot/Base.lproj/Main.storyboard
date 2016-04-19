@@ -36,7 +36,7 @@
                                     <segue destination="qyv-qw-N5G" kind="unwind" identifier="unwindToList" unwindAction="unwindToList:" id="Tb7-oZ-6Ym"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vm3-Un-l7a" userLabel="All Done">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vm3-Un-l7a" userLabel="All Done">
                                 <rect key="frame" x="16" y="59" width="568" height="179"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="That's all we need!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1h-9L-PDM">
@@ -74,10 +74,10 @@
                                     <constraint firstAttribute="centerX" secondItem="u1h-9L-PDM" secondAttribute="centerX" id="zCG-pR-qHz"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vY8-Z0-VOC" userLabel="YesShare">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vY8-Z0-VOC" userLabel="YesShare">
                                 <rect key="frame" x="16" y="59" width="568" height="179"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0q3-mH-gFl">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0q3-mH-gFl">
                                         <rect key="frame" x="126" y="67" width="316" height="45"/>
                                         <color key="backgroundColor" red="0.66666680570000003" green="0.66666668650000005" blue="0.66666668650000005" alpha="0.28000000000000003" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -93,7 +93,7 @@
                                             <action selector="yesShareCopy:" destination="iME-Nw-04p" eventType="touchUpInside" id="y9M-gn-ft4"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(Tap to copy)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1n-5N-smU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Tap to copy)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1n-5N-smU">
                                         <rect key="frame" x="162" y="120" width="244" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="6Bo-Jd-W7K"/>
@@ -103,7 +103,7 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Send this link to the lucky receipt!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dow-u0-dyC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send this link to the lucky receipt!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dow-u0-dyC">
                                         <rect key="frame" x="155" y="38" width="259" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -120,7 +120,7 @@
                                     <constraint firstItem="0q3-mH-gFl" firstAttribute="centerX" secondItem="vY8-Z0-VOC" secondAttribute="centerX" id="lLB-po-8Cg"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8AP-aW-SUm" userLabel="Name View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AP-aW-SUm" userLabel="Name View">
                                 <rect key="frame" x="16" y="59" width="568" height="179"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you like to name the list?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WH-wI-XW5">
@@ -159,7 +159,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kNW-fO-AdA" userLabel="Share View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNW-fO-AdA" userLabel="Share View">
                                 <rect key="frame" x="16" y="59" width="568" height="222"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to share the list?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9Z-Ml-rhv">
@@ -265,7 +265,7 @@
                                     <constraint firstAttribute="height" constant="222" id="tvu-Fv-Zuc"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-YS-t0q" userLabel="Code View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-YS-t0q" userLabel="Code View">
                                 <rect key="frame" x="16" y="29" width="568" height="179"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Code" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-KP-HYI">
@@ -321,7 +321,7 @@
                             <constraint firstItem="kNW-fO-AdA" firstAttribute="top" secondItem="vm3-Un-l7a" secondAttribute="top" id="Fhs-e2-hfH"/>
                             <constraint firstItem="vY8-Z0-VOC" firstAttribute="top" secondItem="kNW-fO-AdA" secondAttribute="top" id="Gam-IO-k5a"/>
                             <constraint firstItem="vm3-Un-l7a" firstAttribute="centerX" secondItem="T7u-XR-dgc" secondAttribute="centerX" id="J0W-4m-s6J"/>
-                            <constraint firstItem="8AP-aW-SUm" firstAttribute="top" secondItem="v47-ZG-e4N" secondAttribute="bottom" constant="59" id="NZt-EY-Cpg"/>
+                            <constraint firstItem="8AP-aW-SUm" firstAttribute="top" secondItem="v47-ZG-e4N" secondAttribute="bottom" constant="39" id="NZt-EY-Cpg"/>
                             <constraint firstItem="vY8-Z0-VOC" firstAttribute="leading" secondItem="kNW-fO-AdA" secondAttribute="leading" id="P5G-ZK-H7P"/>
                             <constraint firstItem="Ryg-YS-t0q" firstAttribute="leading" secondItem="8AP-aW-SUm" secondAttribute="leading" id="Qca-6o-Vog"/>
                             <constraint firstItem="kNW-fO-AdA" firstAttribute="leading" secondItem="vm3-Un-l7a" secondAttribute="leading" id="SWT-ul-orX"/>
@@ -330,7 +330,7 @@
                             <constraint firstAttribute="trailing" secondItem="T7u-XR-dgc" secondAttribute="trailing" id="cLo-eM-P0U"/>
                             <constraint firstItem="Ryg-YS-t0q" firstAttribute="bottom" secondItem="vm3-Un-l7a" secondAttribute="bottom" constant="-30" id="dxB-Cc-uIP"/>
                             <constraint firstAttribute="bottom" secondItem="vm3-Un-l7a" secondAttribute="bottom" constant="362" id="hZh-rO-Dni"/>
-                            <constraint firstItem="vm3-Un-l7a" firstAttribute="top" secondItem="v47-ZG-e4N" secondAttribute="bottom" constant="59" id="kdX-Yw-m5I"/>
+                            <constraint firstItem="vm3-Un-l7a" firstAttribute="top" secondItem="v47-ZG-e4N" secondAttribute="bottom" constant="39" id="kdX-Yw-m5I"/>
                             <constraint firstAttribute="bottom" secondItem="8AP-aW-SUm" secondAttribute="bottom" constant="362" id="khZ-Zr-6O9"/>
                             <constraint firstItem="Ryg-YS-t0q" firstAttribute="trailing" secondItem="vm3-Un-l7a" secondAttribute="trailing" id="rd7-cU-bhR"/>
                             <constraint firstItem="vY8-Z0-VOC" firstAttribute="trailing" secondItem="kNW-fO-AdA" secondAttribute="trailing" id="uBL-cn-byU"/>
