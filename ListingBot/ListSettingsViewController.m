@@ -16,7 +16,6 @@
 #define kAnimation .5f
 
 typedef NS_ENUM(NSUInteger, cellType) {
-    shareCell,
     deleteCell,
 };
 
