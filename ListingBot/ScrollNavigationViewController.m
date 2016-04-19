@@ -73,32 +73,6 @@ typedef enum ScrollDirection {
     // Register ListTable modifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(layoutViews:) name:@"didChangeListTable" object:nil];
     
-//    // Generate views and play on scrollview
-//    [self layoutViews];
-    
-    // Saves and retrieves data from Parse
-//    NSData *dataFromSet = [NSKeyedArchiver archivedDataWithRootObject:[User instance]];
-//    PFObject *object = [PFObject objectWithClassName:@"Users"];
-//    object[@"user"] = dataFromSet;
-//    [object saveEventually];
-//    
-//    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
-////    [query whereKey:@"playerName" equalTo:@"Dan Stemkoski"];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            // The find succeeded.
-////            NSLog(@"Successfully retrieved %d scores.", objects.count);
-//            // Do something with the found objects
-//            for (PFObject *object in objects) {
-//                User *unarchivedSet = [NSKeyedUnarchiver unarchiveObjectWithData:object[@"user"]];
-//                NSLog(@"Here's the set: %@", unarchivedSet);
-//            }
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//    }];
-    
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

@@ -328,24 +328,10 @@ typedef NS_ENUM(NSUInteger, cellType) {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Using the view's tag with matching array index, get the list.
         List *list = [[User instance].lists objectAtIndex:self.view.tag];
-        
-//        Item *item = [list.listItems objectAtIndex:indexPath.row];
-        
         [list.listItems removeObjectAtIndex:indexPath.row];
-                
-//        [PFCloud callFunctionInBackground:@"deleteItem"
-//                           withParameters:@{@"userUuid": [User instance].userUuid, @"listUuid": list.listUuid, @"itemUuid": item.itemUuid}
-//                                    block:^(NSString *results, NSError *error) {
-//                                        if (!error) {
-//                                            NSLog(@"Success! Deleted Item with result: %@", results);
-//                                        } else {
-//                                            NSLog(@"Uuid function grab error: %@", error.description);
-//                                        }
-//                                    }];
         
         NSArray *deleteIndexPaths = [[NSArray alloc] initWithObjects:
                                      [NSIndexPath indexPathForRow:indexPath.row inSection:0],
-//                                     [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0],
                                      nil];
         
         [tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
