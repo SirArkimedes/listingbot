@@ -11,7 +11,5 @@
 @interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *listTitle;
-@property (weak, nonatomic) IBOutlet UILabel *sharedWith;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomOfTableConst;
 
 @end

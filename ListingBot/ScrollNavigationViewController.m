@@ -232,14 +232,6 @@ typedef enum ScrollDirection {
     
     listView.listTitle.text = list.listName;
     
-    // Setup sharedWith data, hide if not shared.
-    if (list.sharedWith.count != 0) {
-        NSString *shared = [list.sharedWith componentsJoinedByString:@", "];
-        listView.sharedWith.text = [NSString stringWithFormat:@"Shared with: %@", shared];
-    } else {
-        listView.bottomOfTableConst.constant = 0;
-    }
-    
     listView.view.tag = i - 1;
     
     // Spacially places the new view inside of the scrollview
